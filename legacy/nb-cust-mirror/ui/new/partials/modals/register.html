@@ -1,0 +1,907 @@
+<!-- Modals -->
+<div class="modal-header">
+    <div class="row visible-md visible-lg">
+        <div class="col-xs-11">{{mainTitle}}</div>
+        <div class="col-xs-1"><a class="close-btn" ng-click="cancel()"><img src="../assets/images/cross-white.svg" /></a></div>
+    </div>
+    <div class="row visible-xs visible-sm">
+        <div class="col-xs-12">
+            <div class="col-xs-2 visible-xs menu-collapse-xs">
+                
+            </div>
+            <div class="col-xs-10 col-md-6 col-sm-6 col-lg-7 logo-col">
+                <div class="row logo-block">
+                    <img ng-src="{{relPath}}assets/images/novaball-logo-navbar.png" class="img-responsive nb-navbar-logo" alt="NovaBall Logo Image">
+                    <div class="text-box"><p>Powered by</p></div>
+                    <img ng-src="{{relPath}}assets/images/bet-bright-logo.png" class="img-responsive bb-navbar-logo" alt="BetBright Logo Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sub-title">
+    <div class="row reg-progress-bar-lg" ng-show="showMsisdnForm || showPinVerificationForm || showRegistrationForm || showCardForm || showPaymentForm || showPNReEnterForm">
+        <div class="col-lg-4 col-xs-5 first-step-col">
+            <div class="row">
+                <div class="col-lg-10 col-xs-9 first-step" ng-class="{'light-bg': showMsisdnForm || showPinVerificationForm || showRegistrationForm || showPNReEnterForm}">
+                    1. Account Details
+                </div>
+                <div class="col-lg-2 col-xs-3" ng-class="{'arrow-right-light': showMsisdnForm || showPinVerificationForm || showRegistrationForm || showCardForm || showPNReEnterForm, 'arrow-right-dark':false || showCardForm, 'light-bg': showCardForm}"></div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-xs-4 second-step-col">
+            <div class="row">
+                <div class="col-lg-10 col-xs-9 second-step" ng-class="{'light-bg':showCardForm}">
+                    <div class="row">
+                    2. Add Card
+                    </div>
+                </div>
+                <div class="col-lg-2 col-xs-3" ng-class="{'arrow-right-light':showCardForm, 'arrow-right-dark':showPaymentForm, 'light-bg': showPaymentForm}"></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-3 third-step-col">
+            <div class="row">
+                <div class="col-lg-10 col-xs-10 third-step" ng-class="{'light-bg':showPaymentForm}">
+                    3. Payment            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row secondary-title" ng-show="showChooseCardsForm || showPMSucceedForm || showExistingCardForm || showExistingSubForm">
+        <div class="col-lg-12">
+            {{modalHeading}}
+        </div>
+    </div>
+    
+</div>
+<div class="modal-body">
+    <form role="form" id="phoneNumInputForm" name="forms.phoneNumInputForm" ng-show="showMsisdnForm" reg-modal-auto-resize="lg">
+        <div class="row body-line">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-6">
+                <div class="row row-buffer-small"></div>
+                <div class="row row-buffer-normal"></div>
+                <div class="row row-buffer-normal"></div>
+                <div class="form-group">
+                    <div class="row">
+                        Please enter your mobile number to get started: 
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <div class="row">
+                                <input type="text" placeholder="" class="form-control" ng-model="user.msisdn" id="msisdn">
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row row-buffer-small"></div>
+        <div class="row row-buffer-normal"></div>
+        <div class="row">
+            <div class="col-lg-3 col-lg-offset-9">
+                <button type="submit" class="btn-submit" ng-click="validateNumber(user.msisdn,forms.phoneNumInputForm.$valid)">CONTINUE</button>
+            </div>
+        </div>
+        <div class="row row-buffer-small"></div>
+    </form>
+
+    <form role="form" id="phoneNumReInputForm" name="forms.phoneNumReInputForm" ng-show="showPNReEnterForm" reg-modal-auto-resize="lg" novalidate>
+        <div class="row body-line">
+            <div class="col-lg-3 col-lg-offset-1"><img class="phone-icon" src="../assets/images/phone.svg" /></div>
+            <div class="col-lg-7" ng-class="{ 'has-error' : user.pnReEnterFormSubmitted && forms.phoneNumReInputForm.phoneNumRe.$invalid}">
+                <div class="row row-buffer-small"></div>
+                <div class="row row-buffer-normal"></div>
+                <div class="row row-buffer-normal"></div>
+
+                <div class="" ng-show="user.pnReEnterFormSubmitted && forms.phoneNumReInputForm.phoneNumRe.$invalid">
+                    <div class="col-lg-12 alert alert-danger nb-md-alert">The Phone number is required.</div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12">
+                        Re-enter your mobile number below 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-xs-8">
+                            <input type="text" placeholder="" class="form-control" ng-model="user.phoneNumRe" id="phoneNumRe" name="phoneNumRe" required>
+                        </div>
+                    </div>
+                    <div class="row content-comment">
+                        <div class="col-lg-12">
+                        This verifies your mobile for added account security.
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row row-buffer-normal"></div>
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-6">
+            <div class="btn-right-side pull-right"></div>
+                <button type="submit" class="btn-submit pull-right" ng-click="validateNumber(user.phoneNumRe,forms.phoneNumReInputForm.$valid)">CONTINUE</button>
+            </div>
+        </div>
+        <div class="row row-buffer-small"></div>
+    </form>
+
+    <form role="form" id="pinVerifyForm" name="forms.pinVerifyForm" ng-show="showPinVerificationForm" reg-modal-auto-resize="lg" novalidate>
+        <div class="row body-line">
+            <div class="col-lg-4">
+                
+            </div>
+            <div class="col-lg-7">
+                <div class="row row-buffer-normal"></div>
+                <div class="form-group">
+                    <div class="row important-content">
+                        <div class="col-xs-12">We've sent a code to {{user.phoneNumber}}</div>
+                    </div>
+                    <div class="row content">
+                        <div class="col-xs-12">To complete your registration please enter the code we sent via free SMS to your mobile.</div>
+                    </div>
+                    <div class="row" ng-show="user.pinVerifyFormSubmitted && forms.pinVerifyForm.pin.$invalid">
+                        <div class="col-lg-12 alert alert-danger nb-md-alert">The Phone number is required.</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 visible-xs"></div>
+                        <div class="col-lg-10 col-xs-8">
+                            <input type="text" placeholder="" class="form-control" ng-model="user.pin" name="pin" id="pin" required>
+                        </div>
+                    </div>
+                    <div class="row content-comment">
+                        <div class="col-xs-12">This verifies your mobile for added account security.</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row row-buffer-small"></div>
+                <div class="row row-buffer-normal"></div>
+                <div class="row content-comment">
+                    <div class="col-lg-12">
+                        Wrong mobile number? Re-enter <a ng-click="closePinVerificationForm();openPhoneNumReEnterForm(forms.pinVerifyForm.$valid);">here</a>.
+                    </div>
+                </div>
+                <div class="row content-comment pin-resend-line">
+                    <div class="col-lg-12">
+                        <p ng-hide="pinResent || false===pinResentResult">Didn't get your PIN? </p><p ng-show="false===pinResentResult">Re-send PIN failed. </p><p ng-hide="pinResent">Re-send <a ng-click="resendPin()">here</a>.<p ng-show="pinResent">PIN sent !</p>
+                        <loading-spinner class="loading-spinner" spinner-type="2" hide="!resendingPin" hide-switcher="open" display-val="inline"></loading-spinner> <div ng-show="resendingPin" class="prompt">Resending...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="btn-right-side pull-right"></div>
+                <button type="submit" class="btn btn-success btn-submit pull-right" ng-click="validatePIN()">VERIFY</button>
+            </div>
+        </div>
+        <div class="row row-buffer-small"></div>
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form role="form" name="forms.registerForm" id="registerForm" class="form-horizontal" ng-show="showRegistrationForm" ng-submit="doRegister(forms.registerForm.$valid)" reg-modal-auto-resize="lg" novalidate>
+        <div class="row" ng-class="{ 'alert': true, 'nb-md-alert': true, 'alert-danger': true == user.formHasError, 'alert-success' : false == user.formHasError }" ng-show="user.formMsg">
+            <div class="col-lg-12">{{user.formMsg}}</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.phoneNumber.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.phoneNumber.$invalid">
+                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Mobile Number field is required.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="phoneNumber" class="col-sm-12 col-md-12 control-label"><p>Mobile</p> <p class="content-comment">(We need your number to send your PIN via SMS)</p></label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="" class="form-control" ng-model="user.phoneNumber" name="phoneNumber" id="phoneNumber" ng-blur="" reg-check-phone-num required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.firstname.$invalid">
+                            <div class="alert alert-danger nb-md-alert">The First Name field is required.</div>
+                        </div>
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.title.$invalid">
+                            <div class="alert alert-danger nb-md-alert">The Title field is required.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.title.$invalid}">
+                                <div class="row title-line">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <label for="title" class="col-sm-12 col-md-12 control-label">Title</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row content-line">
+                                    <div class="col-lg-12">
+                                        <select class="form-control" name="title" ng-model="user.title" ng-options="title for title in titleList" id="title" required>
+                                            <option selected="selected" value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.firstname.$invalid }">
+                                <div class="row title-line">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <label for="firstname" class="col-sm-12 col-md-12 control-label">First Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row content-line">
+                                    <div class="col-lg-12">
+                                        <input type="text" placeholder="" class="form-control" ng-model="user.firstname" name="firstname" id="firstname" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.surname.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.surname.$invalid">
+                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Surname field is required.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="surname" class="col-sm-6 col-md-6 control-label">Surname</label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <input type="text" placeholder="" class="form-control" ng-model="user.surname" name="surname" id="surname" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.countryOfResidence.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.countryOfResidence.$invalid">
+                            <div class="alert alert-danger nb-md-alert">The Country of Residence field is required.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="countryOfResidence" class="col-sm-12 col-md-12 control-label">Country of Residence</label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <select class="form-control" ng-model="user.countryOfResidence" ng-options="country for country in countryList" name="countryOfResidence" id="countryOfResidence" required>
+                                    <option  value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.birthDate.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.birthDate.$invalid">
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.birthDate.$error.required">The Date of Birth field is required.</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.birthDate.$error.required && forms.registerForm.birthDate.$error.mindate">Please select a valid date</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.birthDate.$error.required && forms.registerForm.birthDate.$error.maxdate">Under 18 is not allowed to register.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="birthDate" class="col-sm-12 col-md-12 control-label">Date of birth</label>
+                        </div>
+                        <div class="row content-line">
+                         
+                        <input type="hidden" placeholder="" class="form-control" ng-model="user.birthDate" name="birthDate" id="birthDate" min-date="{{user.minBirthdate}}" max-date="{{user.maxBirthdate}}" date-check required>
+                        
+
+                            <div class="col-lg-4 col-xs-4 birthdate-col">
+                                <span class="dropdown" on-toggle="toggled(open)">
+                                    <button type="button" data-toggle="dropdown" class="btn btn-primary">
+                                        {{user.birthDateDay}}<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="day in birthDateDayGroup track by $index">
+                                            <a ng-click="$parent.user.birthDateDay=day;checkBirthDate();">{{day}}</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                            <div class="col-lg-4 col-xs-4 birthmonth-col">
+                                <span class="dropdown" on-toggle="toggled(open)">
+                                    <button type="button" data-toggle="dropdown" class="btn btn-primary" >
+                                        {{user.birthDateMonth}}<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="month in birthDateMonthGroup track by $index">
+                                            <a ng-click="$parent.user.birthDateMonth=month.value;checkBirthDate();">{{month.display}}</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                            <div class="col-lg-4 col-xs-4 birthyear-col">
+                                <span class="dropdown" on-toggle="toggled(open)">
+                                    <button type="button" data-toggle="dropdown" class="btn btn-primary" >
+                                        {{user.birthDateYear}}<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li ng-repeat="year in birthDateYearGroup track by $index">
+                                            <a ng-click="$parent.user.birthDateYear=year;checkBirthDate();">{{year}}</a>
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.email.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.email.$invalid">
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.email.$error.required || forms.registerForm.email.$error.email">Please enter a valid email</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.email.$error.duplicate">Email address has been registered!</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="email" class="col-sm-6 col-md-6 control-label">Email</label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <input type="email" placeholder="" class="form-control" ng-model="user.email" ng-change="checkDuplicateEmail()" name="email" id="email" required>
+                            </div>
+                        </div>
+                        <div class="row content-line" ng-show="showLoginAfterEmailCheck">
+                            <div class="col-lg-12">
+                                Already have an account? Need <a ng-click="openLoginFormWithExistEmail()">login</a>?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.password.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.password.$invalid">
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.password.$error.required">The Password field is required.</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.password.$error.required && forms.registerForm.password.$error.minlength">The Password field must be at least 6 characters in length.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="password" class="col-sm-12 col-md-12 control-label">Create your password</label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <input type="password" placeholder="" class="form-control" ng-trim="false" ng-model="user.password" name="password" id="password" required ng-minlength="6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.repassword.$invalid}">
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.repassword.$invalid">
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.repassword.$error.required">The Confirm password field is required.</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.repassword.$error.required && forms.registerForm.repassword.$error.matched">The Password doesn't match.</div>
+                        </div>
+                        <div class="row title-line">
+                            <label for="repassword" class="col-sm-12 col-md-12 control-label">Confirm your password</label>
+                        </div>
+                        <div class="row content-line">
+                            <div class="col-lg-12">
+                                <input type="password" placeholder="" class="form-control" ng-trim="false" ng-model="user.repassword" name="repassword" id="repassword" password-check="{{user.password}}" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="checkbox">
+                                    <label class="check-label"><input type="checkbox" id="marketingOptIn" ng-model="user.marketingOptIn">I'd like to receive info etc.etc.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" ng-show="user.formSubmitted && forms.registerForm.termncond.$invalid">
+                            <div class="col-lg-12 alert alert-danger nb-md-alert" ng-show="forms.registerForm.termncond.$error.required">The Terms & Conditions need to be accepted.</div>
+                        </div>
+                        <div class="row" ng-class="{ 'has-error' : user.formSubmitted && forms.registerForm.termncond.$invalid}">
+                            <div class="col-lg-12">
+                                <div class="checkbox">
+                                    <label class="check-label"><input type="checkbox" id="termncond" name="termncond" ng-model="user.termncond" required>I'm 18+ and accept the <a>Ts&Cs, Privacy</a> & <a>Cookie Policies.</a></label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-xs-12">
+                <div class="row row-buffer-small"></div>
+                <div class="row">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <div class="btn-right-side pull-right"></div>
+                        <button type="submit" class="btn btn-submit pull-right">CONTINUE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-buffer-small"></div>
+
+
+
+        <!-- <div ng-class="{ 'alert': true, 'nb-md-alert': true, 'alert-danger': true == user.formHasError, 'alert-success' : false == user.formHasError }" ng-show="user.formMsg != ''">{{user.formMsg}}</div>
+        
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.title.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.title.$invalid">
+                <div class="alert alert-danger nb-md-alert">The Title field is required.</div>
+            </div>
+            <label for="title" class="col-sm-4 col-md-4 control-label">* Title</label>
+            <div class="col-sm-8">
+                <select class="form-control" name="title" ng-model="user.title" ng-options="title for title in titleList" id="title" required>
+                    <option selected="selected" value="">Please Select</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.firstname.$invalid }">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.firstname.$invalid">
+                <div class="alert alert-danger nb-md-alert">The First Name field is required.</div>
+            </div>
+            
+            <label for="firstname" class="col-sm-4 col-md-4 control-label">* First Name</label>
+            <div class="col-sm-8">
+                <input type="text" placeholder="First Name" class="form-control" ng-model="user.firstname" name="firstname" id="firstname" required>
+            </div>
+        </div>
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.surname.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.surname.$invalid">
+                <div class="alert alert-danger nb-md-alert">The Surname field is required.</div>
+            </div>
+            <label for="surname" class="col-sm-4 col-md-4 control-label">* Surname</label>
+            <div class="col-sm-8">
+                <input type="text" placeholder="Surname" class="form-control" ng-model="user.surname" name="surname" id="surname" required>
+            </div>
+        </div>
+        
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.countryOfResidence.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.countryOfResidence.$invalid">
+                <div class="alert alert-danger nb-md-alert">The Country of Residence field is required.</div>
+            </div>
+            <label for="countryOfResidence" class="col-sm-4 col-md-4 control-label">* Country of Residence</label>
+            <div class="col-sm-8">
+                <select class="form-control" ng-model="user.countryOfResidence" ng-options="country for country in countryList" name="countryOfResidence" id="countryOfResidence" required>
+                    <option  value="">Please Select</option>
+                </select>
+            </div>
+        </div>
+        
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.birthDate.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.birthDate.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.birthDate.$error.required">The Date of Birth field is required.</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.birthDate.$error.required && forms.registerForm.birthDate.$error.mindate">Please enter a valid date</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.birthDate.$error.required && forms.registerForm.birthDate.$error.maxdate">Under 18 is not allowed to register.</div>
+            </div>
+            <label for="birthDate" class="col-sm-4 col-md-4 control-label">* Date of Birth</label>
+            <div class="col-sm-8">
+                <input type="date" placeholder="Month" class="form-control" ng-model="user.birthDate" name="birthDate" id="birthDate" min-date="{{user.minBirthdate}}" max-date="{{user.maxBirthdate}}" date-check required>
+            </div>
+        </div>
+        
+        <div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div>
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.email.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.email.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.email.$error.required || forms.registerForm.email.$error.email">Please enter a valid email</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.email.$error.duplicate">Email address has been registered!</div>
+            </div>
+            <label for="email" class="col-sm-4 col-md-4 control-label">* Email Address</label>
+            <div class="col-sm-8">
+                <input type="email" placeholder="Email Address" class="form-control" ng-model="user.email" ng-change="checkDuplicateEmail()" name="email" id="email" required>
+            </div>
+        </div>
+
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.phoneNumber.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.phoneNumber.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.phoneNumber.$error.required">Phone Number is required.</div>
+            </div>
+            <label for="phoneNumber" class="col-sm-4 col-md-4 control-label">* Phone Number</label>
+            <div class="col-sm-8">
+                <input type="text" placeholder="Phone Number" class="form-control" ng-trim="false" ng-model="user.phoneNumber" name="phoneNumber" id="phoneNumber" required>
+            </div>
+        </div>
+
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.password.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.password.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.password.$error.required">The Password field is required.</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.password.$error.required && forms.registerForm.password.$error.minlength">The Password field must be at least 6 characters in length.</div>
+            </div>
+            
+            <label for="password" class="col-sm-4 col-md-4 control-label">* Password</label>
+            <div class="col-sm-8">
+                <input type="password" placeholder="Password" class="form-control" ng-trim="false" ng-model="user.password" name="password" id="password" required ng-minlength="6">
+            </div>
+        </div>
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.repassword.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.repassword.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.repassword.$error.required">The Confirm password field is required.</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.registerForm.repassword.$error.required && forms.registerForm.repassword.$error.matched">The Password doesn't match.</div>
+            </div>
+            <label for="repassword" class="col-sm-4 col-md-4 control-label">* Confirm Password</label>
+            <div class="col-sm-8">
+                <input type="password" placeholder="Confirm Password" class="form-control" ng-trim="false" ng-model="user.repassword" name="repassword" id="repassword" password-check="{{user.password}}" required>
+            </div>
+        </div>
+    
+        <div ng-class="{ 'form-group': true, 'has-error' : user.errors.marketingOptIn.hasError}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.errors.marketingOptIn.hasError"><div class="alert alert-danger nb-md-alert">{{user.errors.marketingOptIn.errorMsg}}</div></div>
+            <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                    <label><input type="checkbox" id="marketingOptIn" ng-model="user.marketingOptIn">I would like to receive free info about free bets, specials and promotions from Novaball. *I confirm that I am 18 years or over.</label>
+                </div>
+            </div>
+        </div>
+        <div ng-class="{ 'form-group': true, 'has-error' : user.formSubmitted && forms.registerForm.termncond.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="user.formSubmitted && forms.registerForm.termncond.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.registerForm.termncond.$error.required">The Terms & Conditions need to be accepted.</div>
+            </div>
+            <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                    <label><input type="checkbox" id="termncond" name="termncond" ng-model="user.termncond" required>Terms and Conditions</label>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div ng-class="{ 'form-group': true}">
+            <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                    <label><input type="checkbox" id="needValidation" ng-model="user.needValidation">Need Validation</label>
+                </div>
+            </div>
+        </div> -->
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+ 
+   <!--  <iframe ng-show="showCardForm" id="add_payment_card" src="/partials/includes/cardform.html?token=44ef2863233b47892b930d71001878b64e4b0353c9161f796c07e6978b476616&amp;final_url=https://www.betbrightpcitesting.com/account/cards&amp;product=1" scrolling="auto" frameborder="0" onLoad="loadCardForm()" onsubmit="submitCardForm()"></iframe> -->
+
+   <iframe ng-show="showCardForm" id="add_payment_card" card-form-param="{{card_form_param}}" card-iframe onLoad="loadCardForm(this)"></iframe>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <!-- <form role="form" ng-show="false">
+        <div class="form-group">
+            <label for="cardtype">* Credit Card Type</label>
+            <select class="form-control" ng-model="card.cardtype" ng-options="opt for opt in cardtypes"></select>
+        </div>
+        <div class="form-group">
+            <label for="holdername">* Cardholder's Name</label>
+            <input type="text" placeholder="Name on The Card" class="form-control" ng-model="card.holdername" id="holdername">
+        </div>
+        <div class="form-group">
+            <label for="cardnum">* Credit Card Number</label>
+            <input type="number" placeholder="Card Number" class="form-control" ng-model="card.cardnum" id="cardnum">
+        </div>
+        <div class="form-group has-error">
+            <label class="control-label">Expires Date</label>
+            <div class="row">
+                <div class="col-md-3">
+                    <select class="form-control" ng-model="card.expiremonth">
+                        <option value="false" selected="selected">Month</option>
+                        <option value="{{$index}}" ng-repeat="month in months">{{month}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control" ng-model="card.expireyear">
+                        <option value=false selected="selected">Year</option>
+                        <option value="{{$index}}" ng-repeat="year in years">{{year}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cardcountry">* Country</label>
+            <select class="form-control" ng-model="card.country" id="cardcountry">
+                <option selected="selected" value=false>Please Select</option>
+                <option ng-repeat="country in countryList" value="{{$index}}">{{country}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="billadd1">* Billing Address 1</label>
+            <input type="text" class="form-control" ng-model="card.billadd1" id="billadd1">
+        </div>
+        <div class="form-group">
+            <label for="billadd1">* Billing Address 2</label>
+            <input type="text" class="form-control" ng-model="card.billadd2" id="billadd2">
+        </div>
+        <div class="form-group">
+            <label for="cardcity">* City/Town</label>
+            <input type="text" class="form-control" ng-model="card.city" id="cardcity">
+        </div>
+        <div class="form-group">
+            <label for="cardregion">* Country</label>
+            <input type="text" class="form-control" ng-model="card.region" id="cardregion">
+        </div>
+        <div class="form-group">
+            <label for="cardpostcode">* Postcode</label>
+            <input type="text" class="form-control" ng-model="card.postcode" id="cardpostcode">
+        </div>
+        <button type="submit" class="btn btn-success btn-login">Add Card</button>
+    </form> -->
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.selectCardForm" role="form" id="chooseCardsForm" ng-show="showChooseCardsForm" ng-submit="finishChooseCard()" reg-modal-auto-resize="lg" novalidate>
+        <loading-spinner hide="cardParams.finishLoadingCards"></loading-spinner>
+        <div class="row has-error" ng-show="cardParams.loadCardHasErr">
+            <div class="col-xs-12 alert alert-danger nb-md-alert">{{cardParams.loadCardErrMsg}}</div>
+        </div>
+        <div class="row has-error" ng-show="cardParams.chooseCardHasErr">
+            <div class="col-xs-12 alert alert-danger nb-md-alert">{{cardParams.chooseCardErrMsg}}</div>
+        </div>
+        <div class="row" ng-show="!cardParams.loadCardHasErr && cardParams.finishLoadingCards">
+            <div class="col-xs-12">
+                <div class="form-grid-line-1 form-title-line row ">
+                    <div class="col-xs-3">Name on card</div>
+                    <div class="col-xs-3">Card type</div>    
+                    <div class="col-xs-3">Card No.:</div>
+                    <div class="col-xs-2">Expiry</div>
+                    <div class="col-xs-1"></div>
+                </div>
+                <div class="row" ng-repeat="card in userCards track by $index" ng-class="{'form-grid-line-1':$index%2 == 1, 'form-grid-line-2': $index%2 == 0}">
+                    <div class="col-xs-3">{{card.nickname}}</div>
+                    <div class="col-xs-3">{{card.type}}</div>    
+                    <div class="col-xs-3">{{card.masked}}</div>
+                    <div class="col-xs-2">{{card.expiry}}</div>
+                    <div class="col-xs-1"><input type="radio" ng-model="$parent.cardParams.selectedCardArrayIndex" id="{{$index}}" value="{{$index}}"></div>
+                </div>
+                <!-- {{cardParams.selectedCardArrayIndex}} -->
+            </div>
+        </div>
+        <div class="row row-buffer-small"></div>
+        <div class="row form-group">
+            <div class="col-lg-6 col-xs-12 content">Want to <a ng-click="addAnotherCard()">add</a> a new payment type?</div>
+            <div class="col-lg-2 col-lg-offset-3 col-xs-12">
+                <button type="submit" class="btn btn-primary btn-submit">CONTINUE</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.paymentForm" id="paymentForm" role="form" ng-show="showPaymentForm" ng-submit="paySubs(forms.paymentForm.$valid)" reg-modal-auto-resize="lg" novalidate>
+        <div class="row msg-line" ng-show="finishAddNewCard || payments.formHasError">
+            <div class="col-lg-12 success-msg" ng-show="finishAddNewCard">Thanks for adding your card. Please review and pay below.
+            </div>
+            <div class="col-lg-12 error-msg" ng-show="payments.formHasError">{{payments.formMsg}}</div>
+        </div>
+        <div class="row form-body-main">
+            <div class="col-lg-6 col-xs-12">
+                <div class="package-line">
+                    <div class="col-md-12 panel-body new-line package-panel">
+                        <div class="row">
+                            <div class="col-lg-6 col-xs-6 basic-info">
+                            <div>
+                                <p class="title">Lines:</p> <p class="content">{{userSubscription.effectiveLineNum}}</p>
+                            </div>
+                            <div>
+                                <p class="title">Draws:</p> <p class="content">{{userSubscription.numDraws}}</p>
+                            </div>
+                            <!-- <div>
+                                <p class="title">Auto Renew:</p> <p class="content">{{ true == userSubscription.recurring ? 'Yes' : 'No'}}</p>
+                            </div> -->
+                            <div>
+                                <p class="title">Renewal:</p> <p class="content">{{ userSubscription.nextPaymentDate ? switchTimeFormat(userSubscription.nextPaymentDate) : 'Not Paid' }}</p>
+                            </div>
+                            </div>
+                            <div class="col-lg-6 col-xs-6 price-panel">
+                                <div class="row">
+                                <p class="price">&#163;{{userSubscription.pricePerLine * userSubscription.effectiveLineNum * userSubscription.numDraws / 100}}</p> <p class="price-frequency">per month</p> <p class="price-comment">just 69p per line</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-lg-offset-1 col-xs-10 col-xs-offset-2">
+
+                <div ng-class="{ 'form-group': true, 'has-error' : payments.formSubmitted && forms.paymentForm.cvv.$invalid}" class="cvv-block">
+                    <div class="row">
+                        <div class="col-xs-11" ng-show="payments.formSubmitted && forms.paymentForm.cvv.$invalid">
+                            <div class="alert alert-danger nb-md-alert" ng-show="forms.paymentForm.cvv.$error.required">CVV is required.</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.paymentForm.cvv.$error.required && forms.paymentForm.cvv.$error.maxlength">CVV should not be longer than 5.</div>
+                            <div class="alert alert-danger nb-md-alert" ng-show="!forms.paymentForm.cvv.$error.required && !forms.paymentForm.cvv.$error.maxlength && forms.paymentForm.cvv.$error.pattern">Only integers are allowed</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div for="cvv" class="col-lg-12 col-md-12 col-xs-12 control-label content-title">CVV</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-xs-6">
+                            <input type="text" placeholder="CVV" class="form-control" ng-trim="false" ng-model="payments.cvv" name="cvv" id="cvv" required ng-maxlength="5" ng-pattern="/^\d*$/">
+                        </div>
+                    </div>
+                    <div class="row row-buffer-small"></div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                        Expiry Date: {{cardParams.selectedCard.expiry}}
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <div class="row">
+                        <div class="control-row">
+                            <label class="checkbox-inline">
+                                Auto renew
+                            </label>
+                            <input  type="checkbox" id="recurring" name="recurring" ng-model="userSubscription.recurring">
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- <div class="">
+            <div class="col-xs-12">
+                <div class="row form-grid-line-1 form-title-line">
+                    <div class="col-xs-3">Name on card</div>
+                    <div class="col-xs-3">Card type</div>    
+                    <div class="col-xs-3">Card No.:</div>
+                    <div class="col-xs-2">Expiry</div>
+                </div>
+                <div class="row form-grid-line-1">
+                    <div class="col-xs-3">{{cardParams.selectedCard.holdername}}</div>
+                    <div class="col-xs-3">{{cardParams.selectedCard.card_type}}</div>    
+                    <div class="col-xs-3">{{cardParams.selectedCard.card_num}}</div>
+                    <div class="col-xs-2">{{cardParams.selectedCard.expire_date}}</div>
+                </div>
+            </div>
+        </div> -->
+        
+        <!--<div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div>
+         <div class="row">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label class="">Your Subscriptions</label>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-xs-offset-2 lotto-group-normal">
+                <lottery-number-edit-objs2 class="" ng-repeat="oneline in userSubscription.lines" showlinenum='true'></lottery-number-edit-objs2> 
+            </div>
+        </div>
+        <div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div>
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Number of Draws : </label> {{userSubscription.numDraws}}
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Your Payments</label>
+                <div>
+                    Amount : {{userSubscription.numDraws * userSubscription.lines.length * 0.50 | toCurrency: { currency: 'GBP'} }}
+                </div>  
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Auto Renew : {{true == userSubscription.recurring ? 'Yes' : 'No'}}</label>
+            </div>
+        </div> 
+
+        <div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div> -->
+
+
+
+        <div class="row form-group">
+            <div class="col-lg-6 col-xs-12 content">Go <a ng-click="closePaymentForm();openChooseCardForm();">back</a> to select payment type</div>
+            <div class="col-lg-4 col-lg-offset-1 col-xs-12">
+                <div class="btn-right-side pull-right"></div>
+                <button type="submit" class="btn btn-primary btn-submit pull-right">PAY</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.existingSubForm" id="existingSubForm" role="form" ng-show="showExistingSubForm" reg-modal-auto-resize="md" novalidate>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12 content">
+                Would you like to add these new lines you choose to your subscription?
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 content">
+                <div class="sub-line">
+                <nb-subscription  line="resultGroup" ng-repeat="resultGroup in userSubscription.lines" showtime='false'></nb-subscription>
+                </div>
+            </div>
+        </div>
+
+        <div class="row button-line">
+            <div class="col-xs-5 col-xs-offset-1">
+                <button type="submit" class="btn button-normal pull-right" ng-click="addMoreSubscription(false)">NO</button>
+            </div>
+            <div class="col-xs-5">
+                <button type="submit" class="btn button-normal" ng-click="addMoreSubscription(true)">YES</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.existingCardForm" id="existingCardForm" role="form" ng-show="showExistingCardForm" reg-modal-auto-resize="lg" novalidate>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12 content">
+                You already have a Credit Card(s) associated with your BetBright account.
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 content">
+                Would you like to use an existing card or add a new one?
+            </div>
+        </div>
+
+        <div class="row button-line">
+            <div class="col-xs-5 col-xs-offset-1">
+                <button type="submit" class="btn button-normal pull-right" ng-click="closeExistingCardForm();openChooseCardForm();">USE EXISTING</button>
+            </div>
+            <div class="col-xs-5">
+                <button type="submit" class="btn button-normal" ng-click="closeExistingCardForm();openAddCardForm();">ADD NEW CARD</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.s3dform" id="s3dform"   method="post" target="s3dIframe">
+        <input type="hidden" name="MD" id="MD">
+        <input type="hidden" name="PaReq" id="PaReq">
+        <input type="hidden" name="TermUrl" id="TermUrl">
+    </form>
+    <iframe ng-show="showS3dIframe" id="s3dIframe" name="s3dIframe"  onLoad="autoResizeIframeCon(s3dIframe);load3dsForm(this)" marginheight="0" frameborder="0" width="100%" height="400px">
+        <loading-spinner hide=""></loading-spinner>  
+    </iframe>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+    <form name="forms.paymentSucceedForm" id="paymentSucceedForm" role="form" ng-show="showPMSucceedForm" ng-submit="finishRegister()" reg-modal-auto-resize="md" novalidate>
+
+        <div class="row">
+            <div class="col-md-12 col-xs-12 col-lg-12 content-title">
+                Welcome to NovaBall
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 content">
+                Thanks for signing up. Best of luck in your next draw!
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-xs-10 col-xs-offset-1 next-draw-line">
+                <div class="row title">YOUR NEXT DRAW</div>
+                <div class="row content time">{{nextDrawDateLong}}</div>
+                <div class="row note"><p class="important">TIME LEFT: </p>{{nextDrawTimeLeftStr}}</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="button-line">
+                <button type="submit" class="btn button-normal">CONTINUE</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+<!-- <div class="modal-footer">
+    <button class="btn btn-success" ng-click="cancel()">Cancel</button>
+</div> -->
+

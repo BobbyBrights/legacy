@@ -1,0 +1,1314 @@
+<project basedir="." name="ZIG Builder">
+
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${basedir}/ant-lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask">
+		<classpath>
+			<pathelement location="ant-lib/xmltask.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="init">
+		<taskdef name="preproc" classname="com.amdocs.ant.preproc.PreProc" classpath="ant-lib/com.amdocs.preproc-ant.jar" />
+		<property file="credit.properties" />
+		<property file="build.properties" />
+		<property environment="env" />
+		<tstamp>
+			<format property="env.BUILD_NUMBER" pattern="yyyyMMdd" />
+		</tstamp>
+		<property name="app.version" value="${version}.${env.BUILD_NUMBER}" />
+
+		<fail unless="dev_login" message="Please provide your HAWK developer login in the build.properties file" />
+		<fail unless="dev_password" message="Please provide your HAWK developer password in the build.properties file" />
+
+		<property name="DEVICE" value="true" />
+		<property name="hawk.options" value="prod" />
+		<property name="Optimize" value="true" />
+		<!--property name="platformsdirectoryurl" value="http://cpg.streamezzo.com/daplatforms/rest/pb1/{tenantId}" /--> 
+		<property name="platformsdirectoryurl" value="http://cpgfront-stg.streamezzo.lan:8082/daplatforms/rest/pb1/{tenantId}" />
+		<property name="toolkit_version" value="9.0.1-16.0.5-SNAPSHOT"/>
+
+	</target>
+
+	<target name="clean" depends="init">
+		<delete dir="${output.dir}" />
+	</target>
+
+	<target name="prepare" depends="init">
+		<mkdir dir="${output.dir}" />
+		<mkdir dir="${web.content.dir}" />
+	</target>
+
+	<target name="initDEV" depends="init">
+		<property name="DEV" value="true" />
+		<property name="Deploy" value="DEV" />
+		<property name="output.dir" value="output/${Deploy}" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentDEV" />
+		<property name="app.display.name" value="ZigDev" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.zigdev" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zigdev" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+
+	<target name="initEnv33" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env33" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent33" />
+		<property name="webservice.url" value="iut33" />
+		<property name="app.display.name" value="Zig33" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig33" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv34" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env34" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent34" />
+		<property name="webservice.url" value="iut34" />
+		<property name="app.display.name" value="Zig34" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig34" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv42" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env42" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent42" />
+		<property name="webservice.url" value="iut42" />
+		<property name="app.display.name" value="Zig42" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig42" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv53" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env53" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent53" />
+		<property name="webservice.url" value="env53" />
+		<property name="app.display.name" value="Zig53" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig53" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv54" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/Env54" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent54" />
+		<property name="webservice.url" value="env54" />
+		<property name="app.display.name" value="Zig54" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig54" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv52" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env52" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent52" />
+		<property name="webservice.url" value="env52" />
+		<property name="app.display.name" value="Zig52" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig52" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initEnv50" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env50" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent50" />
+		<property name="webservice.url" value="env50" />
+		<property name="app.display.name" value="Zig50" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig5" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<!--target name="initEnv51" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env51" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent51" />
+		<property name="webservice.url" value="env51" />
+		<property name="app.display.name" value="Zig51" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig51" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target-->
+	<target name="initEnv43" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env43" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent43" />
+		<property name="webservice.url" value="env43" />
+		<property name="app.display.name" value="Zig43" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig43" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initENV56" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/env56" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContent56" />
+		<property name="webservice.url" value="env56" />
+		<property name="app.display.name" value="Zig56" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.${app.display.name}" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.zig56" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/${app.display.name}" />
+	</target>
+	<target name="initSIT" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT" />
+		<property name="webservice.url" value="sit" />
+		<property name="app.display.name" value="My Zig" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig" />
+		<property name="head.app.display.name" value="MyZig" />
+	</target>
+	<target name="initSIT2" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT2" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT2" />
+		<property name="webservice.url" value="sit2" />
+		<property name="app.display.name" value="My Zig2" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig2" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit2" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig2" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig2" />
+		<property name="head.app.display.name" value="MyZig2" />
+	</target>
+	<target name="initSIT3" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT3" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT2" />
+		<property name="webservice.url" value="sit3" />
+		<property name="app.display.name" value="My Zig3" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig3" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit3" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig3" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig3" />
+		<property name="head.app.display.name" value="MyZig3" />
+	</target>
+	<target name="initSIT4" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT4" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT4" />
+		<property name="webservice.url" value="sit4" />
+		<property name="app.display.name" value="My Zig4" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig4" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit4" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig4" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig4" />
+		<property name="head.app.display.name" value="MyZig4" />
+	</target>
+	<target name="initSIT5" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT5" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT5" />
+		<property name="webservice.url" value="sit5" />
+		<property name="app.display.name" value="My Zig5" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig5" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit5" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig5" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig5" />
+		<property name="head.app.display.name" value="MyZig5" />
+	</target>
+	<target name="initSIT6" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT6" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT6" />
+		<property name="webservice.url" value="sit6" />
+		<property name="app.display.name" value="My Zig6" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig6" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit6" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig6" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig6" />
+		<property name="head.app.display.name" value="MyZig6" />
+	</target>
+	<target name="initSIT7" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/SIT7" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentSIT7" />
+		<property name="webservice.url" value="sit7" />
+		<property name="app.display.name" value="My Zig7" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myzig7" />
+		<property name="app.package.name" value="com.amdocs.stz.zig.sit7" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Zig7" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyZig7" />
+		<property name="head.app.display.name" value="MyZig7" />
+	</target>
+	<target name="initPROD" depends="init">
+		<property name="Deploy" value="ENV" />
+		<property name="output.dir" value="output/PROD" />
+		<property name="PreProcess" value="true" />
+		<property name="web.content.dir" value="output/.build/WebContentPROD" />
+		<property name="webservice.url" value="prod" />
+		<property name="app.display.name" value="My Aio" />
+		<property name="app.bundle.id" value="com.amdocs.RichMedia.myaio" />
+		<property name="app.package.name" value="com.mizmowireless.acctmgt" />
+		<property name="app.package.name.nocom" value="mizmowireless.acctmgt" />
+		<property name="hawk.config.file" value="${basedir}/publication/ENV/config.zip" />
+		<delete dir="${web.content.dir}" />
+		<property name="prov.dir" value="output/prov/${app.version}/My_Aio" />
+		<property name="delivery.dir" value="output/delivery" />
+		<property name="head.dir" value="${delivery.dir}/head/MyAio" />
+		<property name="head.app.display.name" value="MyAio" />
+		<property name="sanjay.dir" value="${delivery.dir}/Sanjay_Drops" />
+		<!--property name="create.unsigned.apk" value="true" /-->
+	</target>
+
+
+	<target name="preprocessing.optimize" if="Optimize">
+
+		<fileset dir="${web.content.dir}/js/pages" includes="*.js" excludes="*-all.js" id="pages">
+		</fileset>
+		<concat destfile="${web.content.dir}/js/pages/pages-all.js">
+			<fileset refid="pages">
+			</fileset>
+		</concat>
+
+		<delete failonerror="on">
+			<fileset refid="pages" />
+		</delete>
+
+		<antcall target="-js.all.minify">
+			<param name="input.js" value="${web.content.dir}/js/pages" />
+			<param name="mapper.out.suffix" value=".min.js" />
+		</antcall>
+
+		<antcall target="-js.all.minify">
+			<param name="input.js" value="${web.content.dir}${file.separator}js" />
+			<param name="mapper.out.suffix" value=".js" />
+		</antcall>
+		<antcall target="-css.all.minify">
+			<param name="input.css.dir" value="${web.content.dir}${file.separator}css" />
+			<param name="mapper.out.suffix" value=".css" />
+		</antcall>
+
+		<preproc ifdef="OPT" verbose="false" overwrite="true" commentopen="[$if" commentclose="[$endif">
+			<fileset dir="${web.content.dir}">
+				<include name="**/*.js" />
+				<include name="**/*.html" />
+				<include name="**/*.css" />
+			</fileset>
+		</preproc>
+
+		<antcall target="-html.all.minify">
+			<param name="input.html.dir" value="${web.content.dir}" />
+			<param name="mapper.out.suffix" value=".html" />
+		</antcall>
+		<!--antcall>
+			<target name="-optimizepictures">
+			</target>
+		</antcall-->
+
+		<!-- not pretty, should find a better way to do this -->
+		 <delete>
+		    <fileset dir="${web.content.dir}" includes="**/jquery-1.8.2.js"/>
+		 </delete>
+	</target>
+
+	<target name="-js.all.minify" description="(PRIVATE) Minifies the scripts.js">
+		<echo message="Minifying scripts , ${mapper.out.suffix}" />
+		<fail unless="input.js" />
+
+		<for param="file">
+			<path>
+				<fileset dir="${basedir}/${input.js}" includes="*.js" excludes="*.min.js" />
+			</path>
+			<sequential>
+				<var name="cmdname" unset="true" />
+				<var name="cmddir" unset="true" />
+				<basename property="cmdname" file="@{file}" suffix=".js" />
+				<dirname file="@{file}" property="cmddir" />
+				<echo>input file is @{file} output file is ${cmddir}/${cmdname}${mapper.out.suffix}</echo>
+				<exec executable="java">
+					<arg line="-jar" />
+					<arg path="ant-lib/yuicompressor-2.4.7.jar" />
+					<arg line="@{file}" />
+					<arg value="-o" />
+					<arg line="${cmddir}${file.separator}${cmdname}${mapper.out.suffix}" />
+				</exec>
+				<if>
+					<equals arg1="${mapper.out.suffix}" arg2=".js" />
+					<then>
+					</then>
+					<else>
+						<delete file="@{file}">
+						</delete>
+					</else>
+				</if>
+
+			</sequential>
+		</for>
+	</target>
+
+	<target name="-css.all.minify" description="(PRIVATE) Minifies the style.css ">
+		<echo message="Minifying scripts , ${mapper.out.suffix}" />
+		<fail unless="input.css.dir" />
+
+		<for param="file">
+			<path>
+				<fileset dir="${basedir}/${input.css.dir}" includes="*.css" excludes="*.min.css" />
+			</path>
+			<sequential>
+				<var name="cmdname" unset="true" />
+				<var name="cmddir" unset="true" />
+				<basename property="cmdname" file="@{file}" suffix=".css" />
+				<dirname file="@{file}" property="cmddir" />
+				<echo>input file is @{file} output file is ${cmddir}/${cmdname}${mapper.out.suffix}</echo>
+				<exec executable="java">
+					<arg line="-jar" />
+					<arg path="ant-lib/yuicompressor-2.4.7.jar" />
+					<arg line="@{file}" />
+					<arg value="-o" />
+					<arg line="${cmddir}${file.separator}${cmdname}${mapper.out.suffix}" />
+				</exec>
+				<if>
+					<equals arg1="${mapper.out.suffix}" arg2=".css" />
+					<then>
+					</then>
+					<else>
+						<delete file="@{file}">
+						</delete>
+					</else>
+				</if>
+
+			</sequential>
+		</for>
+	</target>
+
+	<target name="-html.all.minify" description="(PRIVATE) Minifies the index.html">
+		<echo message="Minifying HTML , ${mapper.out.suffix}" />
+		<fail unless="input.html.dir" />
+
+		<for param="file">
+			<path>
+				<fileset dir="${basedir}/${input.html.dir}" includes="*.html" excludes="*.min.html" />
+			</path>
+			<sequential>
+				<var name="cmdname" unset="true" />
+				<var name="cmddir" unset="true" />
+				<basename property="cmdname" file="@{file}" suffix=".html" />
+				<dirname file="@{file}" property="cmddir" />
+				<echo>input file is @{file} output file is ${cmddir}/${cmdname}${mapper.out.suffix}</echo>
+				<exec executable="java">
+					<arg line="-jar" />
+					<arg path="ant-lib/htmlcompressor-1.5.3.jar" />
+					<arg line="@{file}" />
+					<arg value="--compress-js" />
+					<arg value="--compress-css" />
+					<arg value="-o" />
+					<arg line="${cmddir}${file.separator}${cmdname}${mapper.out.suffix}" />
+				</exec>
+				<if>
+					<equals arg1="${mapper.out.suffix}" arg2=".html" />
+					<then>
+					</then>
+					<else>
+						<delete file="@{file}">
+						</delete>
+					</else>
+				</if>
+
+			</sequential>
+		</for>
+	</target>
+
+
+	<target name="preprocessing" if="PreProcess">
+
+		<copy todir="${web.content.dir}">
+			<fileset dir="WebContent">
+				<exclude name="*/.svn/**" />
+			</fileset>
+		</copy>
+		<replace dir="${web.content.dir}" token="@@webservice.env@@" value="${webservice.url}" includes="js/*.js">
+		</replace>
+		<replace dir="${web.content.dir}" token="@@VERSION@@" value="${app.version}" includes="**/*.html">
+		</replace>
+
+		<preproc ifdef="${Deploy}" verbose="false" overwrite="true" commentopen="[@if" commentclose="[@endif">
+			<fileset dir="${web.content.dir}">
+				<include name="**/*.js" />
+				<include name="**/*.html" />
+				<include name="**/*.css" />
+			</fileset>
+		</preproc>
+		<preproc ifdef="DEVICE" verbose="false" overwrite="true" commentopen="[#if" commentclose="[#endif">
+			<fileset dir="${web.content.dir}">
+				<include name="**/*.js" />
+				<include name="**/*.html" />
+				<include name="**/*.css" />
+			</fileset>
+		</preproc>
+
+
+		<copy todir="${output.dir}/config" file="${hawk.config.file}" />
+		<basename file="${web.content.dir}" property="__parent" />
+
+		<if>
+			<equals arg1="${Optimize}" arg2="true" />
+			<then>
+				<antcall target="preprocessing.optimize" />
+			</then>
+		</if>
+
+		<zip destfile="${output.dir}/config/config.zip" basedir="${web.content.dir}/.." includes="${__parent}/**" update="true" whenempty="fail">
+		</zip>
+
+		<property name="iosStatusBarStyle" value="Black opaque" /><!-- Black opaque | Default-->
+		<!-- Copy correct icons and splash in config -->
+		<property name="iphoneIcon" value="Icon.png" />
+		<property name="iphoneShine" value="false" />
+		<property name="iphoneIconRetina" value="icon@2.png" />
+		<property name="iphoneIconRetinaIOS7" value="MyAio_iPhone_120x120.png" />
+		<property name="iPadIcon" value="icon72.png" />
+		<property name="iPadIconIOS7" value="MyAio_iPad_76x76.png" />
+		<property name="iPadIconRetinaIOS7" value="MyAio_iPad_152x152.png" />
+		<property name="launchImageIPhone" value="wood_320x480.png" />
+		<property name="launchImageIPhoneRetina" value="wood_640x960.png" />
+		<property name="launchImageIPhoneRetina_IOS7" value="wood_640x960.png" />
+		<property name="launchImageIPhoneRetina_4" value="wood_640x1136.png" />
+		<property name="launchImageIPhoneRetina_4_IOS7" value="wood_640x1136.png" />
+		<property name="launchImageIPad" value="wood_768x1004.png" />
+		<property name="launchImageIPadIOS7" value="wood_768x1024.png" />
+		<property name="androidIcon" value="icon_google_57x57.png" />
+		<property name="androidSplash" value="wood_480x800.png" />
+		<property name="mobile_provision" value="Certificates/Amdocs_In_House_2013.mobileprovision" />
+		<property name="certificate" value="Certificates/StreamezzoAmdocsDistributionCertificate.cer" />
+		<property name="private_key" value="Certificates/StreamezzoAmdocsDistributionCertificate.p12" />
+
+
+		<zip destfile="${output.dir}/config/config.zip" basedir="publication/.." update="true" whenempty="fail">
+			<include name="publication/${iphoneIcon}" />
+			<include name="publication/${iphoneIconRetina}" />
+			<include name="publication/${iphoneIconRetinaIOS7}" />
+			<include name="publication/${iPadIcon}" />
+			<include name="publication/${iPadIconIOS7}" />
+			<include name="publication/${iPadIconRetinaIOS7}" />
+			<include name="publication/${launchImageIPhone}" />
+			<include name="publication/${launchImageIPhoneRetina}" />
+			<include name="publication/${launchImageIPhoneRetina_4}" />
+			<include name="publication/${launchImageIPhoneRetina_IOS7}" />
+			<include name="publication/${launchImageIPhoneRetina_4_IOS7}" />
+			<include name="publication/${launchImageIPad}" />
+			<include name="publication/${launchImageIPadIOS7}" />
+			<include name="publication/${androidIcon}" />
+			<include name="publication/${androidSplash}" />
+			<include name="Certificates/android/uxfme.ks" />
+			<include name="${mobile_provision}" />
+			<include name="${certificate}" />
+			<include name="${private_key}" />
+		</zip>
+
+
+		<copy todir="${output.dir}/config" file="publication/custos.xml" />
+
+		<property name="certificate.name" value="streamezzo" />
+		<property name="private_key_passphrase" value="Welcome2STZ" />
+		<property name="distribution" value="AD_HOC" />
+
+		<xmltask source="${output.dir}/config/custos.xml" dest="${output.dir}/config/custos.xml">
+
+			<replace path="/project/custos/custo/@tollkit_version" withText="${toolkit_version}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='general']/property[@id='version']/@value" withText="${app.version}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='general']/property[@id='name']/@value" withText="${app.display.name}" />
+
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='bundle_identifier']/@value" withText="${app.bundle.id}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='certificate_name']/@value" withText="${certificate.name}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='certificate']/@value" withText="${certificate}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='private_key_passphrase']/@value" withText="${private_key_passphrase}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='mobile_provision']/@value" withText="${mobile_provision}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='private_key']/@value" withText="${private_key}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='distribution']/@value" withText="${distribution}" />
+
+			<!-- Icons -->
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='status_bar_style']/@value" withText="${iosStatusBarStyle}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon']/@value" withText="publication/${iphoneIcon}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon_retina_ios7']/@value" withText="publication/${iphoneIconRetinaIOS7}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='ios_shine_effect']/@value" withText="${iphoneShine}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon_ipad']/@value" withText="publication/${iPadIcon}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon_ipad_ios7']/@value" withText="publication/${iPadIconIOS7}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon_ipad_retina_ios7']/@value" withText="publication/${iPadIconRetinaIOS7}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='icon_retina']/@value" withText="publication/${iphoneIconRetina}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen']/@value" withText="publication/${launchImageIPhone}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_retina']/@value" withText="publication/${launchImageIPhoneRetina}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_retina_ios7']/@value" withText="publication/${launchImageIPhoneRetina_IOS7}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_retina_4']/@value" withText="publication/${launchImageIPhoneRetina_4}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_retina_4_ios7']/@value" withText="publication/${launchImageIPhoneRetina_4_IOS7}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_ipad_portrait']/@value" withText="publication/${launchImageIPad}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='ios_deployement']/property[@id='splash_screen_ipad_portrait_ios7']/@value" withText="publication/${launchImageIPadIOS7}" />
+
+
+			<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='general']/property[@id='stz_app_version_name']/@value" withText="${app.version}" />
+			<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='general']/property[@id='name']/@value" withText="${app.display.name}" />
+			<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='display']/property[@id='icon']/@value" withText="publication/${androidIcon}" />
+			<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='display']/property[@id='splash_screen']/@value" withText="publication/${androidSplash}" />
+			<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='packaging']/property[@id='stz_entry_point']/@value" withText="${app.package.name}" />
+
+		</xmltask>
+		<replace file="${output.dir}/config/custos.xml" token="@@webcontent@@" value="${__parent}">
+		</replace>
+
+
+		<zip destfile="${output.dir}/config/config.zip" basedir="${output.dir}/config/" includes="custos.xml" update="true">
+		</zip>
+	</target>
+
+	<target name="-package">
+		<echo>platformdirectoryurl : ${platformsdirectoryurl}</echo>
+		<hawk.build login="${dev_login}" password="${dev_password}" destdir="${output.dir}" configurationfile="${output.dir}/config/config.zip" platformsdirectoryurl="${platformsdirectoryurl}">
+		</hawk.build>
+
+		<rename dest="${output.dir}/android/${app.display.name}_${app.version}.apk" src="${output.dir}/android/${app.display.name}_Master.apk" />
+
+		<mkdir dir="${output.dir}/wp8" />
+
+		<fileset id="ipa_fs" dir="${output.dir}/ios">
+			<include name="*.ipa" />
+		</fileset>
+		<fileset id="plist_fs" dir="${output.dir}/ios">
+			<include name="*.plist" />
+		</fileset>
+
+		<pathconvert pathsep="" property="ipaName" refid="ipa_fs">
+			<mapper type="flatten" />
+		</pathconvert>
+		<basename property="ipabasename" file="${ipaName}" suffix=".ipa" />
+
+		<zip destfile="${output.dir}/wp8/chtoub.zip" basedir="${output.dir}/ios/${ipabasename}.app/chtoub/iPhone1_1">
+		</zip>
+
+	</target>
+
+
+	<target name="-PackageWithFinalCertificate">
+
+		<zip destfile="output/PROD/config/config.zip" basedir="." update="true">
+			<include name="Certificates/ios/**" />
+		</zip>
+
+		<!-- AddHoc -->
+		<property name="company_name" value="Aio Wireless, LLC" />
+		<property name="app_version" value="1.0.0" />
+		<property name="app.bundle.id" value="com.aiowireless.myaio" />
+
+		<xmltask source="output/PROD/config/custos.xml" dest="output/PROD/config/custos.xml">
+			<replace path="/project/custos/custo/@tollkit_version" withText="${toolkit_version}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='general']/property[@id='version']/@value" withText="${app.version}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='general']/property[@id='name']/@value" withText="${app.display.name}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='general']/property[@id='company_name']/@value" withText="${company.name}" />
+
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='bundle_identifier']/@value" withText="${app.bundle.id}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='certificate_name']/@value" withText="${certificate.name}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='certificate']/@value" withText="${certificate}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='private_key_passphrase']/@value" withText="${private_key_passphrase}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='mobile_provision']/@value" withText="${mobile_provision}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='private_key']/@value" withText="${private_key}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='distribution']/@value" withText="AD_HOC" />
+		</xmltask>
+
+		<zip destfile="output/PROD/config/config.zip" basedir="output/PROD/config/" includes="custos.xml" update="true">
+		</zip>
+
+		<mkdir dir="output/PROD/ADDHOC" />
+		<hawk.build login="${dev_login}" password="${dev_password}" destdir="output/PROD/ADDHOC" configurationfile="output/PROD/config/config.zip" platformsdirectoryurl="${platformsdirectoryurl}" generateandroid="false" generateios="true">
+		</hawk.build>
+
+		<rename src="output/PROD/ADDHOC/ios/YourProject.ipa" dest="output/PROD/ADDHOC/ios/MyAio.ipa" />
+		<rename src="output/PROD/ADDHOC/ios/YourProject.plist" dest="output/PROD/ADDHOC/ios/MyAio.plist" />
+
+		<property name="company_name" value="Aio Wireless, LLC" />
+
+
+		<xmltask source="output/PROD/config/custos.xml" dest="output/PROD/config/custos.xml">
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='mobile_provision']/@value" withText="${mobile_provision_store}" />
+			<replace path="/project/custos/custo/platform[@id='IPhone']/property[@id='packaging']/property[@id='distribution']/@value" withText="APP_STORE" />
+		</xmltask>
+
+		<zip destfile="output/PROD/config/config.zip" basedir="output/PROD/config/" includes="custos.xml" update="true">
+		</zip>
+
+		<mkdir dir="output/PROD/STORE" />
+		<hawk.build login="${dev_login}" password="${dev_password}" destdir="output/PROD/STORE" configurationfile="output/PROD/config/config.zip" platformsdirectoryurl="${platformsdirectoryurl}" generateandroid="false" generateios="true">
+		</hawk.build>
+
+
+		<rename src="output/PROD/STORE/ios/YourProject.ipa" dest="output/PROD/STORE/ios/MyAio.ipa" />
+		<rename src="output/PROD/STORE/ios/YourProject.plist" dest="output/PROD/STORE/ios/MyAio.plist" />
+
+	</target>
+	
+	<target name="-PackageUnsignedAndroid">
+
+			<!--zip destfile="output/PROD/config/config.zip" basedir="." update="true">
+				<include name="Certificates/ios/**" />
+			</zip-->
+
+			<copy  file="publication/icon_google_57x57.png" tofile="output/PROD/config/Icon.png"/>
+			<zip destfile="output/PROD/config/input.zip" basedir="output/PROD/config/" update="true" >
+				<include name="Icon.png"  />
+			</zip>
+			<!-- AddHoc -->
+			<property name="company.name" value="Aio Wireless, LLC" />
+			<property name="app.version" value="1.0.0" />
+			<property name="app.bundle.id" value="com.aiowireless.myaio" />
+			<xmltask source="output/PROD/config/custos.xml" dest="output/PROD/config/custos.xml">
+				<replace path="/project/custos/custo/@tollkit_version" withText="${toolkit_version}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='general']/property[@id='stz_app_version_name']/@value" withText="${app.version}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='general']/property[@id='name']/@value" withText="${app.display.name}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='display']/property[@id='icon']/@value" withText="publication/${androidIcon}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='display']/property[@id='splash_screen']/@value" withText="publication/${androidSplash}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='packaging']/property[@id='stz_entry_point']/@value" withText="${app.package.name}" />
+				<replace path="/project/custos/custo/platform[@id='ANDROID']/property[@id='packaging']/property[@id='signature']/value/@enabled" withText="false" />
+	
+			</xmltask>
+
+			<zip destfile="output/PROD/config/config.zip" basedir="output/PROD/config/" includes="custos.xml" update="true">
+			</zip>
+
+			<mkdir dir="output/PROD/GooglePlay" />
+			<hawk.build login="${dev_login}" password="${dev_password}" destdir="output/PROD/GooglePlay" configurationfile="output/PROD/config/config.zip" platformsdirectoryurl="${platformsdirectoryurl}" generateandroid="true" generateios="false">
+			</hawk.build>
+
+
+			
+		</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: name                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="PackageDEV" depends="initDEV,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<!--target name="PackageAMSS33" depends="initEnv33,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target-->
+	<target name="PackageAMSS34" depends="initEnv34,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<!--target name="PackageAMSS42" depends="initEnv42,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target-->
+	<target name="PackageAMSS43" depends="initEnv43,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<target name="PackageAMSS50" depends="initEnv50,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<!--target name="PackageAMSS51" depends="initEnv51,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target-->
+	<target name="PackageAMSS52" depends="initEnv52,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<target name="PackageAMSS53" depends="initEnv53,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<target name="PackageAMSS54" depends="initEnv54,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<target name="PackageENV56" depends="initENV56,clean,prepare, preprocessing, -package,create-provisioning">
+
+	</target>
+	<target name="PackageSit" depends="initSIT,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+
+	</target>
+	<target name="PackageSit2" depends="initSIT2,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+
+	</target>
+	<target name="PackageSit3" depends="initSIT3,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+
+	</target>
+	<target name="PackageSit4" depends="initSIT4,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+
+	</target>
+	<target name="PackageSit5" depends="initSIT5,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+
+	</target>
+	<target name="PackageSit6" depends="initSIT6,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+	
+	</target>
+	<target name="PackageSit7" depends="initSIT7,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-sit">
+	
+	</target>
+	<target name="PackageProd" depends="initPROD,clean,prepare, preprocessing, -package,create-provisioning,create-delivery-prod">
+
+		<!-- extra signing -->
+		<antcall target="-PackageWithFinalCertificate">
+			<param name="company_name" value="Aio Wireless, LLC" />
+			<param name="app_version" value="${apple.version.name}" />
+			<param name="certificate.name" value="Aio Wireless, LLC" />
+			<param name="certificate" value="Certificates/ios/aio_wireless_llc.cer" />
+			<param name="private_key_passphrase" value="pwZ1g4MeAio" />
+			<param name="mobile_provision" value="Certificates/ios/myaio_addhoc.mobileprovision" />
+			<param name="mobile_provision_store" value="Certificates/ios/myaio_appstore.mobileprovision" />
+			<param name="private_key" value="Certificates/ios/Aio Wireless LLC.p12" />
+			<param name="app.bundle.id" value="com.aiowireless.myaio" />
+		</antcall>
+
+		<copy todir="${prov.dir}/addhoc">
+			<fileset dir="output/PROD/ADDHOC/ios">
+				<include name="*.ipa" />
+				<include name="*.plist" />
+				<include name="*.mobileprovision" />
+			</fileset>
+		</copy>
+		<copy todir="${prov.dir}/store">
+			<fileset dir="output/PROD/STORE/ios">
+				<include name="*.ipa" />
+				<include name="*.plist" />
+			</fileset>
+		</copy>
+		
+		<!-- For android we must create unsigned packages -->
+		<antcall target="-PackageUnsignedAndroid">
+			<param name="company.name" value="Aio Wireless, LLC" />
+			<param name="app.version" value="${android.version.name}" />
+			<param name="android.version.code" value="${android.version.code}" />
+			<param name="certificate.name" value="Aio Wireless, LLC" />
+			<param name="app.bundle.id" value="com.aiowireless.myaio" />
+		</antcall>
+		
+		<mkdir dir="${sanjay.dir}" />
+		<copy todir="${sanjay.dir}">
+			<fileset dir="${output.dir}/GooglePlay/android">
+				<include name="My Aio_Master.apk" />
+			</fileset>
+		</copy>
+		<!-- Add version in APK name -->
+		<move file="${sanjay.dir}/My Aio_Master.apk" tofile="${sanjay.dir}/${head.app.display.name}_${app.version}_unsigned.apk" />
+		
+	</target>
+
+	<!-- ================================= 
+          target: PackageAll              
+         ================================= -->
+	<target name="PackageAll" description="Create all the packages" depends="init">
+		<property name="prov.dir" value="output/prov/${app.version}" />
+		<delete dir="output" />
+		<antcall target="PackageDEV" inheritall="false" />
+		<antcall target="PackageENV56" inheritall="false" />
+		<antcall target="PackageSit" inheritall="false" />
+		<antcall target="PackageSit2" inheritall="false" />
+		<!--<antcall target="PackageSit3" inheritall="false" />
+		<antcall target="PackageSit4" inheritall="false" />
+		<antcall target="PackageSit5" inheritall="false" />
+		<antcall target="PackageSit6" inheritall="false" />
+		<antcall target="PackageSit7" inheritall="false" />-->
+		<antcall target="PackageProd" inheritall="false" />
+		<antcall target="PackageAMSS53" inheritall="false" />
+		<antcall target="PackageAMSS52" inheritall="false" />
+		<!--
+		<antcall target="PackageAMSS34" inheritall="false" />
+		<antcall target="PackageAMSS54" inheritall="false" />
+		<antcall target="PackageAMSS50" inheritall="false" />
+		<antcall target="PackageAMSS43" inheritall="false" />
+		-->
+		<!--antcall target="PackageAMSS33" inheritall="false" /-->
+		<!--antcall target="PackageAMSS42" inheritall="false" /-->
+		<!--antcall target="PackageAMSS53" inheritall="false" /-->
+		<!--antcall target="PackageAMSS51" inheritall="false" /-->
+
+	
+		<mkdir dir="${prov.dir}/chtoubs" />
+		<copy file="output/DEV/WP8/chtoub.zip" tofile="${prov.dir}/chtoubs/DEV/chtoub.zip" />
+		<copy file="output/SIT/WP8/chtoub.zip" tofile="${prov.dir}/chtoubs/SIT/chtoub.zip" />
+		<copy file="output/SIT2/WP8/chtoub.zip" tofile="${prov.dir}/chtoubs/SIT2/chtoub.zip" />
+		<copy file="output/PROD/WP8/chtoub.zip" tofile="${prov.dir}/chtoubs/PROD/chtoub.zip" />
+
+		<zip destfile="output/prov.zip" basedir="output/prov/">
+		</zip>
+		<zip destfile="output/delivery.zip" basedir="output/delivery/">
+		</zip>
+
+		<copy file="valwi/info.html" tofile="output/info.html" />
+		<!--replace file="output/info.html" token="@@urls_token@@" value="var urls = ['${public.http.link}/${app.version}/ZigDev/index.html','${public.http.link}/${app.version}/My_Zig/index.html','${public.http.link}/${app.version}/Zig52/index.html','${public.http.link}/${app.version}/Zig50/index.html','${public.http.link}/${app.version}/My_Aio/index.html','${public.http.link}/${app.version}/Zig56/index.html','${public.http.link}/${app.version}/Zig43/index.html','${public.http.link}/${app.version}/Zig34/index.html','${public.http.link}/${app.version}/Zig54/index.html'];" /-->
+		<replace file="output/info.html" token="@@urls_token@@" value="var urls = ['${public.http.link}/${app.version}/ZigDev/index.html','${public.http.link}/${app.version}/My_Zig/index.html','${public.http.link}/${app.version}/My_Aio/index.html','${public.http.link}/${app.version}/Zig56/index.html','${public.http.link}/${app.version}/Zig53/index.html','${public.http.link}/${app.version}/Zig52/index.html','${public.http.link}/${app.version}/My_Zig2/index.html'];" />
+
+	</target>
+
+	<target name="headless" depends="patch_platform">
+		<property file="platform.properties" />
+		<mkdir dir=".osgi-workspace" />
+		<java fork="true" jvm="${javaExecutable1.7}" classname="org.eclipse.core.launcher.Main" classpath="${hawk.home}/plugins/${equinox.launcher}" failonerror="true">
+			<arg line="-application org.eclipse.ant.core.antRunner" />
+			<arg line="-buildfile ${basedir}/build.xml PackageAll" />
+			<!--arg line="-debug" />
+			<arg line="${hawk.home}/.options" />
+			<arg line="-consolelog" /-->
+			<arg line="-data ${basedir}/.osgi-workspace" />
+			<jvmarg line="-Xmx256m" />
+		</java>
+	</target>
+
+	<target name="headless_dev" depends="patch_platform">
+		<property file="platform.properties" />
+		<mkdir dir=".osgi-workspace" />
+		<java fork="true" jvm="${javaExecutable1.7}" classname="org.eclipse.core.launcher.Main" classpath="${hawk.home}/plugins/${equinox.launcher}" failonerror="true">
+			<arg line="-application org.eclipse.ant.core.antRunner" />
+			<arg line="-buildfile ${basedir}/build.xml PackageDEV" />
+			<arg line="-debug" />
+			<arg line="${hawk.home}/.options" />
+			<arg line="-consolelog" />
+			<arg line="-data ${basedir}/.osgi-workspace" />
+			<jvmarg line="-Xmx256m" />
+		</java>
+	</target>
+
+
+	<target name="patch_platform" depends="init">
+		<!--<property file="platform.properties" />
+		<!-#-copy todir="${hawk.home}/plugins/com.amdocs.hub.maw.core.hawk_6.3.0.v20121213-244/res/toolkit/3.5.0/input/stz">
+			<fileset dir="patch" includes="**" />
+		</copy-#->
+		<condition property="plugin.dir.exists">
+		      <available file="${hawk.home}/plugins/com.amdocs.hub.maw.core.hawk.om_9.0.1.ed14_v20130523-412/res/toolkit" type="dir"/>
+		</condition>
+		<fail unless="plugin.dir.exists"/>
+		<unzip dest="${hawk.home}/plugins/com.amdocs.hub.maw.core.hawk.om_9.0.1.ed14_v20130523-412/res/toolkit" src="patch/${toolkit_version}.zip"></unzip>
+		<if>
+			<equals arg1="${hawk.options}" arg2="preprod" />
+			<then>
+				<copy todir="${hawk.home}">
+					<fileset dir="config" includes=".options" />
+				</copy>
+			</then>
+			<else>
+				<delete file="${hawk.home}/.options" quiet="true" />
+			</else>
+		</if>-->
+	</target>
+
+	<target name="create-provisioning" depends="init" if="Deploy">
+		<!-- get the ipa name -->
+		<fileset id="ipa_fs" dir="${output.dir}/ios">
+			<include name="*.ipa" />
+		</fileset>
+		<fileset id="plist_fs" dir="${output.dir}/ios">
+			<include name="*.plist" />
+		</fileset>
+
+		<pathconvert pathsep="" property="ipaName" refid="ipa_fs">
+			<mapper type="flatten" />
+		</pathconvert>
+		<pathconvert pathsep="" property="plistName" refid="plist_fs">
+			<mapper type="flatten" />
+		</pathconvert>
+
+		<mkdir dir="${prov.dir}" />
+		<copy todir="${prov.dir}">
+			<fileset dir="${output.dir}/ios">
+				<include name="*.ipa" />
+				<include name="*.plist" />
+			</fileset>
+			<fileset dir="${output.dir}/android">
+				<include name="*.apk" />
+			</fileset>
+		</copy>
+		<copy file="valwi/index.html.tmpl" tofile="${prov.dir}/index.html" />
+
+		<!-- Use this instead of app name, ensure no whitespace -->
+		<basename property="prov.base_name" file="${prov.dir}" />
+
+		<replace file="${prov.dir}/${plistName}" token="@@ipa-absolute-url@@" value="${public.http.link}/${app.version}/${prov.base_name}/${ipaName}" />
+
+		<replace file="${prov.dir}/index.html" token="@@OTA_INSTALL_TITLE@@" value="${app.display.name} ${app.version}" />
+		<replace file="${prov.dir}/index.html" token="@@OTA_LINK@@" value="itms-services://?action=download-manifest&amp;url=${public.http.link}/${app.version}/${prov.base_name}/${plistName}" />
+		<replace file="${prov.dir}/index.html" token="@@ANDROID_LINK@@" value="${app.display.name}_${app.version}.apk" />
+
+	</target>
+
+	<target name="create-delivery-sit" depends="init" if="Deploy">
+		<mkdir dir="${delivery.dir}" />
+
+		<!-- Copy and rename APK -->
+		<mkdir dir="${head.dir}" />
+		<copy todir="${head.dir}">
+			<fileset dir="${output.dir}/android">
+				<include name="${app.display.name}_${app.version}.apk" />
+			</fileset>
+		</copy>
+		<move file="${head.dir}/${app.display.name}_${app.version}.apk" tofile="${head.dir}/${head.app.display.name}.apk" />
+
+		<!-- Copy iOS files -->
+		<mkdir dir="${head.dir}" />
+		<copy todir="${head.dir}">
+			<fileset dir="${output.dir}/ios">
+				<include name="*.ipa" />
+				<include name="*.plist" />
+			</fileset>
+		</copy>
+		<!-- Rename iOS files -->
+		<move file="${head.dir}/YourProject.ipa" tofile="${head.dir}/${head.app.display.name}.ipa" />
+		<move file="${head.dir}/YourProject.plist" tofile="${head.dir}/${head.app.display.name}.plist" />
+
+		<copy file="valwi/index.html.tmpl" tofile="${head.dir}/index.html" />
+
+		<!-- Use this instead of app name, ensure no whitespace -->
+		<basename property="head.base_name" file="${head.dir}" />
+
+		<replace file="${head.dir}/${head.app.display.name}.plist" token="@@ipa-absolute-url@@" value="${public.http.link}/head/${head.base_name}/${head.app.display.name}.ipa" />
+
+		<replace file="${head.dir}/index.html" token="@@OTA_INSTALL_TITLE@@" value="${app.display.name}" />
+		<replace file="${head.dir}/index.html" token="@@OTA_LINK@@" value="itms-services://?action=download-manifest&amp;url=${public.http.link}/head/${head.base_name}/${head.app.display.name}.plist" />
+		<replace file="${head.dir}/index.html" token="@@ANDROID_LINK@@" value="${head.app.display.name}.apk" />
+	</target>
+
+	<target name="create-delivery-prod" depends="init" if="Deploy">
+		<mkdir dir="${delivery.dir}" />
+
+		<!-- Copy unsigned APK -#->
+		<mkdir dir="${sanjay.dir}" />
+		<copy todir="${sanjay.dir}">
+			<fileset dir="${output.dir}/android">
+				<include name="${app.display.name}_unsigned.apk" />
+			</fileset>
+		</copy>
+		<!-#- Add version in APK name -#->
+		<move file="${sanjay.dir}/${app.display.name}_unsigned.apk" tofile="${sanjay.dir}/${head.app.display.name}_${app.version}_unsigned.apk" />
+		-->
+		<!-- Copy iOS files -->
+		<mkdir dir="${head.dir}" />
+		<copy todir="${head.dir}">
+			<fileset dir="${output.dir}/ios">
+				<include name="*.ipa" />
+				<include name="*.plist" />
+			</fileset>
+		</copy>
+		<!-- Rename iOS files -->
+		<move file="${head.dir}/YourProject.ipa" tofile="${head.dir}/${head.app.display.name}.ipa" />
+		<move file="${head.dir}/YourProject.plist" tofile="${head.dir}/${head.app.display.name}.plist" />
+
+		<copy file="valwi/index.html.tmpl" tofile="${head.dir}/index.html" />
+
+		<!-- Use this instead of app name, ensure no whitespace -->
+		<basename property="head.base_name" file="${head.dir}" />
+
+		<replace file="${head.dir}/${head.app.display.name}.plist" token="@@ipa-absolute-url@@" value="${public.http.link}/head/${head.base_name}/${head.app.display.name}.ipa" />
+
+		<replace file="${head.dir}/index.html" token="@@OTA_INSTALL_TITLE@@" value="${app.display.name}" />
+		<replace file="${head.dir}/index.html" token="@@OTA_LINK@@" value="itms-services://?action=download-manifest&amp;url=${public.http.link}/head/${head.base_name}/${head.app.display.name}.plist" />
+		<replace file="${head.dir}/index.html" token="@@ANDROID_LINK@@" value="${head.app.display.name}.apk" />
+	</target>
+	
+	<target name="-optimizepictures">
+		<java jar="${basedir}/ant-lib/smushit.jar" fork="true" failonerror="false">
+			<arg value="-imageDir=${basedir}/${web.content.dir}/img"/>
+			<arg value="-verbose=true" />
+			<arg value="-imgExtensions=png,jpeg,jpg" />
+		</java>
+	</target>
+
+	<target name="-imagespng" description="(PRIVATE) Optimizes .png images using optipng and advpng" if="OptimizePngs">
+		<echo message="Optimizing images..." />
+		<echo message="This part might take a while." />
+		<echo message=" " />
+		<echo message="First, we run optipng on the .png files..." />
+
+		<var name="strip-meta-tags" value="true" />
+
+		<if>
+			<equals arg1="${images.strip.metadata}" arg2="true" />
+			<then>
+				<var name="strip-meta-tags" value="-strip all" />
+			</then>
+		</if>
+
+		<!-- By default set os.family to windows, and optipng as available and it's executable -->
+		<var name="os.family" value="windows" />
+		<var name="optipng.available" value="true" />
+		<var name="optipng.executable" value="${basedir}/ant-lib/optipng-0.7.4-win32/optipng.exe" />
+
+
+		<!-- Now check for availability -->
+		<if>
+			<equals arg1="${optipng.available}" arg2="true" />
+			<then>
+
+				<!-- Run if available -->
+				<for param="image-dir">
+					<path>
+						<fileset dir="${web.content.dir}/img" includes="**/*.png" />
+					</path>
+					<sequential>
+						<echo>@{image-dir}</echo>
+
+						<exec executable="${optipng.executable}">
+							<arg line="-quiet" />
+							<arg line="-o7" />
+							<arg line="${strip-meta-tags}" />
+							<arg line="-force" />
+							<arg line="@{image-dir}" />
+						</exec>
+					</sequential>
+				</for>
+			</then>
+			<else>
+				<!-- Print out message if optipng is not available -->
+				<echo message="*** optipng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
+				<echo message="*** Install optipng to enable png optimization." />
+				<echo message="*** For instructions see 'Dependencies' at: https://github.com/h5bp/ant-build-script/wiki/Platform" />
+			</else>
+		</if>
+		<!-- Let's do ADVPNG -->
+		<!-- On *nix's and OS X, check for advpng and give a helpful message if it's not installed -->
+
+		<echo message="Now, we run advpng on the .png files..." />
+		<!-- By default set os.family to windows, and optipng as available and it's executable -->
+		<var name="os.family" value="windows" />
+		<var name="advpng.available" value="true" />
+		<var name="advpng.executable" value="${basedir}/ant-lib/advancecomp-1.15/advpng.exe" />
+
+
+		<!-- Now check for availability -->
+		<if>
+			<equals arg1="${advpng.available}" arg2="true" />
+			<then>
+				<for param="image-dir">
+					<path>
+						<fileset dir="${web.content.dir}/img" includes="**/*.png" />
+					</path>
+					<sequential>
+						<exec executable="${advpng.executable}">
+							<arg line="-z" />
+							<arg line="-4" />
+							<arg line="@{image-dir}" />
+						</exec>
+						<var name="relative.image.dir" unset="true" />
+					</sequential>
+				</for>
+			</then>
+			<else>
+				<echo message="*** advpng NOT INSTALLED. SKIPPING OPTIMIZATION OF PNGs." />
+				<echo message="*** Install advpng to enable advanced png optimization." />
+			</else>
+		</if>
+	</target>
+
+	<target name="testUnsignedApk" depends="init">
+		<antcall target="-makeUnsignApk">
+			<param name="chtoub" value="output/DEV/wp8/chtoub.zip" />
+			<param name="app.display.name" value="MaYoyo" />
+			<param name="app.package.name" value="mizmowireless.acctmgt" />
+			<param name="output.dir" value="output/DEV/android" />
+		</antcall>
+	</target>
+
+	<!-- ================================= 
+          target: -makeUnsignApk              
+         ================================= -->
+	<target name="-makeUnsignApk">
+		<property file="platform.properties" />
+		<echo>${AMPC.home}</echo>
+		<available file="${AMPC.home}/AndroidMobilePackageCreator.exe" property="ampc.present" />
+		<fail unless="ampc.present" message="Cannot find ampc. Please check install" />
+		<fail unless="chtoub" message="chtoub is a required param" />
+		<fail unless="output.dir" message="output.dir is required" />
+
+		<!-- tmp dir -->
+		<property name="tmp.ampc.dir" value="output/.build/ampc" />
+		<delete dir="${tmp.ampc.dir}" failonerror="false" />
+		<mkdir dir="${tmp.ampc.dir}" />
+		<copy todir="${tmp.ampc.dir}" file="ampc/input.zip" />
+		<unzip dest="${tmp.ampc.dir}/.chtoub" src="${chtoub}">
+		</unzip>
+		<zip destfile="${tmp.ampc.dir}/input.zip" update="true" whenempty="fail">
+			<zipfileset dir="${tmp.ampc.dir}/.chtoub" prefix="assets" />
+		</zip>
+		<!--zip destfile="${tmp.ampc.dir}/input.zip" update="true" whenempty="fail">
+			<zipfileset dir="${tmp.ampc.dir}/.chtoub" prefix="assets" excludes="top.stz" />
+		</zip>
+		<zip destfile="${tmp.ampc.dir}/input.zip" basedir="patch" update="true" whenempty="fail">
+			<include name="top.stz" />
+		</zip-->
+		<copy  file="publication/icon_google_57x57.png" tofile="${tmp.ampc.dir}/Icon.png"/>
+		<zip destfile="${tmp.ampc.dir}/input.zip" basedir="${tmp.ampc.dir}" update="true" >
+			<include name="Icon.png"  />
+		</zip>
+
+		<copy todir="${tmp.ampc.dir}" file="ampc/custoAio.xml" />
+		<property name="app.display.name" value="My Aio" />
+		<property name="app.package.name" value="amdocs.stz.zig.sit" />
+		<property name="app.version" value="${version}" />
+		<property name="app.version.code" value="${android.version.code}" />
+
+		<xmltask source="${tmp.ampc.dir}/custoAio.xml" dest="${tmp.ampc.dir}/custoAio.xml">
+			<replace path="resources/string[@name='stz_app_name']/text()" withText="${app.display.name}" />
+			<replace path="resources/string[@name='stz_entry_point']/text()" withText="${app.package.name}" />
+			<replace path="resources/string[@name='stz_app_version_name']/text()" withText="${app.version}" />
+			<replace path="resources/string[@name='stz_app_version_code']/text()" withText="${app.version.code}" />
+		</xmltask>
+		<exec executable="${AMPC.home}/AndroidMobilePackageCreator.exe">
+			<arg line="${basedir}\${tmp.ampc.dir}\input.zip" />
+			<arg line="-auto" />
+			<arg line="${basedir}\ampc\android_njdk_streamezzo_genericdevice.zip" />
+			<arg line="-c" />
+			<arg line="${tmp.ampc.dir}\custoAio.xml" />
+			<arg line="-ini" />
+			<arg line="${basedir}\ampc\settings_nosign.xml" />
+			<arg line="-nodeploy" />
+		</exec>
+		<copy tofile="${output.dir}\${app.display.name}_unsigned.apk" file="${tmp.ampc.dir}\input.apk" />
+		<exec executable="${AMPC.home}/AndroidMobilePackageCreator.exe">
+			<arg line="${basedir}\${tmp.ampc.dir}\input.zip" />
+			<arg line="-auto" />
+			<arg line="${basedir}\ampc\android_njdk_streamezzo_genericdevice.zip" />
+			<arg line="-c" />
+			<arg line="${tmp.ampc.dir}\custoAio.xml" />
+			<arg line="-ini" />
+			<arg line="${basedir}\ampc\settingsio.xml" />
+			<arg line="-nodeploy" />
+		</exec>
+		<copy tofile="${output.dir}\${app.display.name}_unsigned_forinstalltest.apk" file="${tmp.ampc.dir}\input.apk" />
+
+	</target>
+
+	<!-- ================================= 
+          target: runHeadlessTests              
+         ================================= -->
+	<target name="runHeadlessTests">
+		<delete dir=".test_results" failonerror="false" />
+		<mkdir dir=".test_results" />
+
+		<for param="file">
+			<path>
+				<fileset dir="test/jasmine/spec" includes="**/test-*.js" />
+			</path>
+			<sequential>
+				<echo>@{file}</echo>
+
+				<exec executable="${basedir}/test/phantomjs/phantomjs.exe">
+					<arg line="--local-storage-path=&quot;${basedir}/.test_results/local.txt&quot;" />
+					<arg line="${basedir}/test/phantomjs/runtest.js" />
+					<arg line="WebContent/index.html" />
+					<arg line="@{file}" />
+					<arg line="${basedir}/.test_results" />
+				</exec>
+				<!--exec executable="${optipng.executable}">
+					<arg line="-quiet" />
+					<arg line="-o7" />
+					<arg line="${strip-meta-tags}" />
+					<arg line="-force" />
+					<arg line="@{image-dir}" />
+				</exec-->
+			</sequential>
+		</for>
+
+
+		<antcall target="generateTestReport">
+		</antcall>
+
+	</target>
+
+	<target name="generateTestReport">
+		<delete dir="output/test_report" failonerror="false" />
+		<mkdir dir="output/test_report" />
+		<copy todir="output/test_report">
+			<fileset dir=".test_results" includes="**/*.png" />
+		</copy>
+		<xslt basedir=".test_results" includes="*.xml" destdir="output/test_report" extension=".html" style="test/transform.xsl" />
+
+		<echo file="output/test_report/menu.html" append="false">
+			&lt;html>
+			&lt;body>
+			&lt;h1>Test Reports&lt;/h1>
+			&lt;ul>
+		</echo>
+
+		<first id="first">
+			<fileset dir="output/test_report" includes="*.html" excludes="index.html" />
+		</first>
+		<basename property="first_base" file="${toString:first}" />
+		<echo>${first_base}</echo>
+		<echo file="output/test_report/index.html" append="false">
+			&lt;html>
+			&lt;frameset cols="30%,*">
+			&lt;frame src="menu.html">
+			&lt;frame id="tr_main"  name="tr_main" src="${first_base}">
+			&lt;/frameset>
+			&lt;/html>
+		</echo>
+		<for param="file">
+			<path>
+				<fileset dir="output/test_report" includes="*.html" excludes="index.html, menu.html" />
+			</path>
+			<sequential>
+				<var name="filename" unset="true" />
+				<basename property="filename" file="@{file}" suffix=".js" />
+				<echo file="output/test_report/menu.html" append="true">
+									&lt;li> &lt;a href=&quot;${filename}&quot;" target=&quot;tr_main&quot;"> ${filename}&lt;/a>&lt;/li>
+						</echo>
+			</sequential>
+		</for>
+		<echo file="output/test_report/menu.html" append="true">
+			&lt;/ul>
+			&lt;/body>
+			&lt;/html>
+		</echo>
+	</target>
+
+</project>

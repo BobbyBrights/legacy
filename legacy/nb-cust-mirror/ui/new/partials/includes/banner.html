@@ -1,0 +1,113 @@
+<!-- Carousel -->
+<div class="row">
+    <div class="col-lg-8 col-xs-12 slider-line">
+        <div class="row slider-panel" id="slider-panel">
+            <div id="sequence" class="sequence" img-slider>
+                <ul class="sequence-canvas">
+                    <li class="animate-in">
+                        <div class="info1">
+                            <img src="../assets/images/1.jpg" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="info2">
+                            <img src="../assets/images/2.jpg" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="info3">
+                            <img src="../assets/images/3.jpg" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="info4">
+                            <img src="../assets/images/4.jpg" />
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="info5">
+                            <img src="../assets/images/5.jpg" />
+                        </div>
+                        
+                    </li>
+                </ul>
+                <ul class="sequence-pagination">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </ul>
+            </div>
+        </div>
+        <div class="row slider-panel-mb-static hidden-lg">
+            
+        </div>
+    </div>
+
+    <!-- Right side of banner -->
+    <div class="col-lg-4 right-side-panel banner-right-side-panel">
+        <div class="row line-jackpot cr-wrapper" mb-view-update>
+            <div class="corner-ribbon-wrapper"><div class="corner-ribbon"><p>Just 75p</p><p class="comment">per line</p></div></div>
+            <div class="col-lg-12">
+                <div class="row title-line">GRAND PRIZE</div>
+                <div class="row body-line">&#163;7,000,000</div>
+                <div class="row view-btn-line">
+                    <button ng-click="openPrizesModal()">VIEW ALL PRIZES</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row line-prizeslist">
+            <div class="col-lg-12">
+                <div class="row title-line">TOP PRIZES</div>
+                <div class="row content-line"><p class="prize-num">&#163;7,000,000</p> <p class="match-num">Match 6 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;300,000</p> <p class="match-num">Match 5 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;100,000</p> <p class="match-num">Match 4 +Bonus</p></div>
+                <div class="row view-btn-line"><button ng-click="openPrizesModal()">VIEW ALL</button></div>
+            </div>
+        </div> -->
+
+        <div class="row line-nextdraw" ng-controller="LotteryNextDrawController">
+            <loading-spinner hide="finishLoadingNextDraw"></loading-spinner>
+            <div class="col-lg-12 cr-wrapper" ng-show="finishLoadingNextDraw">
+                <div class="corner-ribbon-wrapper"><div class="corner-ribbon"><p>2 Draws</p><p class="comment">every week</p></div></div>
+                <div class="row title-line">NEXT DRAW</div>
+                <div class="row time-line">{{nextDrawDate}}</div>
+                <div flip-clock class="clock-line"></div>
+                <div class="row time-label-line">
+                    <div>Days</div>
+                    <div>Hours</div>
+                    <div>Mins</div>
+                    <div>Secs</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row line-lastdraw" id="latest-draw-result" ng-controller="LotteryDrawResultController">
+            <div class="col-lg-12">
+                <div class="row title-line">LAST DRAW</div>
+                <div id="result-list">
+                    <loading-spinner hide="finishLoadingLottery"></loading-spinner>
+                    <div ng-show="finishLoadingLottery">
+                        <lottery-numbers  line="resultGroup" ng-repeat="resultGroup in lotteries[0].history.results | limitTo : 1" showtime='true'></lottery-numbers>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="jumbotron" ng-class="$root.bannerType">
+    <div class="container">
+        <img src="/assets/images/novaball-hero.png" alt="Novaball 7 million image" width="734" height="165" />
+        <div class="row secondary-block">
+            <div class="col-md-8">
+                <h2 ng-show="!$root.authenticated">Play Novaball Online in 2 easy steps</h2>
+                <h2 ng-show="$root.firstName">Welcome back {{$root.firstName}}</h2>
+            </div>
+            <div class="col-md-4"><h3>Next Draw: <span>Wed 05 Apr 19:45</span></h3></div>
+        </div>
+    </div>
+</div> -->

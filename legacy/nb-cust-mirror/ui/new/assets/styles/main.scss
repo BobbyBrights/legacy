@@ -1,0 +1,3954 @@
+@import '../bower_components/bootstrap/dist/css/bootstrap.min.css';
+
+@import 'variables';
+@import '3rdParties';
+@import 'sprites';
+@import 'buttons';
+@import 'fonts';
+//@import 'payments-iframe';
+
+/* Move down content because we have a fixed navbar that is 3.571em tall */
+body {
+  //body globle css style
+  font-family: $base-font;
+  //if use fixed navbar then make the following css avaliable
+  //padding-top: 3.571em;
+  //padding-bottom: 1.429em;
+  background: $black-body-bg-color url(../images/blue_bg.jpg) no-repeat top center fixed;
+
+  @include bp(xs){
+    //background: none;    
+  }
+  //--------------------
+
+
+  /* Title */
+
+  @mixin gen-title($size){
+    @extend .nb-font-bold;
+    font-size: $size;
+    color: $white-text-color;
+    line-height: 2em;
+    text-align: left;
+  }
+
+  .title-primary{
+    @include gen-title(1.714em);
+  }
+
+  .title-secondary{
+    @include gen-title(1.5em);
+  }
+
+  .title-panel-primary{
+    @include gen-title(1.214em);
+  }
+
+  //--------------
+
+  /* Text Style */
+  .text-comment{
+    font-size: 1.143em;
+    font-family: $base-font;
+    color: rgb( 138, 138, 138 );
+    line-height: 0.875em;
+  }
+
+  .text-normal{
+    font-size: 1.214em;
+    //font-weight: normal;
+  }
+
+  .text-bold{
+    @extend .nb-font-bold;
+  }
+
+  .text-color-blue{
+    color: $blue-primary-color;
+  }
+  //-----------------------
+
+
+
+
+  //------------------------
+
+  /* Home page */
+
+  .page-path-bar{
+    height:2.143em;
+  }
+
+  .panel-title{
+    @extend .nb-font-bold;
+    @extend .text-normal;
+    @extend .title-panel-primary;
+
+    height: 1.765em;//2em;;
+    line-height: 2.5em;
+  }
+
+  div.numbers-panel{
+    padding-top:1.786em;
+    @extend .gradient-yellow-bg-color;
+
+    .panel-title{
+      @extend .panel-title;
+      @extend .gradient-yellow-bg-color;
+
+      margin-left:0.588em;
+      color: $black-text-color;
+      border-width:0em;
+      border-color: $gradient-yellow-bg-color-1;
+      border-style: solid;
+      border-radius: $panel-main-border-radius $panel-main-border-radius 0em 0em;
+
+      @include bp(xs){
+        display:none;
+      }
+    }
+
+    .title-line{
+      @extend .nb-font-bold;
+      text-align:center;
+      color:$black-text-color;
+      font-size:1.8em;
+    }
+
+    .panel-body{
+      @extend .gradient-yellow-bg-color;
+      width:22.857em;
+      //padding: 1.071em 0.714em 1.071em 0.714em;
+      padding: 1.071em 0em 1.071em 0em;
+      min-height: 2.857em;
+      border-width:0em;
+      border-color:$gradient-yellow-bg-color-1;
+      border-style: solid;
+      margin-left:0.714em;
+      border-radius: 0em $panel-main-border-radius $panel-main-border-radius $panel-main-border-radius;  
+
+      fieldset{
+
+      }
+
+      @include bp(xs){
+        margin:auto;
+        background-image:none;
+        padding-bottom: 0.714em;
+        padding-top:0.357em;
+
+        width:100%;
+      }
+    }
+
+    .panel-line{
+      margin-left:0px;
+      margin-right:0px;
+
+      &.high-light{
+        background-color:rgba(255,255,255,0.5);
+        padding-bottom:0.357em;
+        padding-top:0.143em;
+      }
+    }
+
+    .panel-line-inner{
+      width:22.857em;
+      //padding: 1.071em 0.714em 1.071em 0.714em;
+      padding: 0em 0em 0em 0em;
+      border-width:0em;
+      margin-left:0em;
+
+
+      @include bp(xs){
+        margin:auto;
+        background-image:none;
+        padding-bottom: 0em;
+        padding-top:0em;
+      }
+    }
+
+    @include bp(xs){
+      padding-top:1.071em;
+      padding-bottom:0.714em;
+    }
+
+    @include bp(lg){
+      background-image:none;
+    }
+
+
+
+  }
+
+  //different size on the ball editing page
+  .draw-edit-body div.numbers-panel .panel-body{
+    width:23.929em;
+
+    button.qp{
+      width:3.571em;
+      margin-right:0.357em;
+    }
+
+    button.save{
+      @extend .nb-font-bold;
+      height:2.5em;
+      width:10.714em;
+      padding-top:0.357em;
+      font-size:1.2em;
+      color:$white-text-color;
+      border-width: 0.091em;
+      border-color: $black-border-color;
+      border-style: solid;
+      @include gen-border-radius($button-xs-border-radius);
+      background-color: $orange-primary-color;
+    }
+  }
+
+  //different style for number picker panel on editing page
+  .draw-edit-body div.balls-panel{
+    padding-left:2.857em;
+  }
+
+
+  div.balls-panel{
+    padding-top:1.786em;
+    padding-left:2.143em;
+    height: 16.4em;
+
+    .panel-title{
+      @extend .panel-title;
+
+      background-color: $gradient-bg-color-1;
+      border-radius: $panel-main-border-radius $panel-main-border-radius 0em 0em;
+    }
+
+    .panel-body{
+      @extend .gradient-blue-bg-color;
+      width:23.571em;
+      //background-color: $blue-primary-color;
+      border-radius: 0em $panel-main-border-radius $panel-main-border-radius $panel-main-border-radius;  
+    }
+
+    @include bp(xs){
+      display:none;
+    }
+  }
+
+  div.draws-panel{
+    @include gen-border-radius($panel-main-border-radius);
+    border-width: 0.071em;
+    border-style: solid;
+    border-color:$orange-primary-color;
+
+    height: 3.43em;
+    padding-top:0.8em;
+
+    label {
+      @extend .text-normal;
+      @extend .text-bold;
+      font-style: italic;
+      color: rgb( 42, 42, 42 );
+      line-height: 1em;
+    }
+  }
+
+  .first-arrow{
+    margin-top:5.357em;
+
+    @include bp(xs){
+      display:none;
+    }
+  }
+
+  .second-arrow{
+    margin-left:-1.071em;
+    margin-top:1.429em;
+
+    @include bp(xs){
+      display:none;
+    }
+  }
+
+  div.total-price-panel{
+    text-align: center;
+
+    .title{
+      @extend .inline-elem;
+      @extend .title-primary; 
+      font-style: normal;
+    }
+
+    .content{
+      @extend .inline-elem;
+      @extend .text-normal;
+      color: $white-text-color;
+    }
+    
+
+    @include gen-border-radius($panel-main-border-radius);
+    
+    background-color: $blue-primary-color;
+
+  }
+
+  div.jumbotron {
+    margin-bottom: 0.714em;
+    div.container {
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2.143em;
+        @media (max-width: 54.857em) {
+          display: none;
+        }
+      }
+    }
+    @extend .gradient-blue-bg-color;
+    padding-bottom: 0;
+
+    h1, p {
+      color: $white-text-color;
+    }
+
+    div.secondary-block {
+      margin-top: 1.429em;
+      border-top-left-radius: 0.714em;
+      border-top-right-radius: 0.714em;
+      background-color: $secondary-bar-color;
+      h3, h2 {
+        color: $white-text-color;
+        line-height: 1.429em;
+      }
+      h2 {
+        font-size: 1.425em;
+        text-transform: uppercase;
+      }
+      h3 {
+        @extend .nb-font-bold;
+        font-size: 1em;
+        color: $heading-color;
+        span {
+          color: $white-text-color;
+        }
+      }
+
+    }
+  }
+
+  /* Header Bar */
+
+  .header-bar {
+    color: $navbar-text-main-color;
+
+    //font-size:0.786em;
+
+    .status-bar{
+      background-color: $navbar-primary-color;
+      border-bottom-color: $yellow-topbar-color;
+      border-bottom-width:0.143em;
+      border-bottom-style: solid;
+      $content-height:3.571em;
+
+      .navbar-collapse{
+        border-width:0em;
+      }
+
+      .logo-col{
+        @include bp(xs){
+          //border-right:0.071em solid $black-pure-color;
+          border-left:0.143em solid $blue-light-color;
+          max-height:$content-height;
+          padding-left:1.786em;
+        }
+      }
+
+      .menu-collapse-xs{
+        @include bp(xs){
+          border-right:0.071em solid $black-pure-color;
+          max-height:$content-height;
+        }
+      }
+
+      .login-space-xs{
+        @include bp(xs){
+          border-right:0.071em solid $black-pure-color;
+          height:$content-height;
+        }
+      }
+
+      #nb-navbar-logo{
+        height:3.286em;
+        margin-top:0.143em;
+        margin-bottom:0.143em;
+        display: inline-block;
+
+        @include bp(xs){
+          height:2.214em;
+          display:block;
+          margin-top:0em;
+          margin-bottom:0em;
+        }
+      }
+
+      #bb-navbar-logo{
+        display: inline-block;
+        height:1.429em;
+        margin-top:0.714em;
+
+        @include bp(xs){
+          margin-top:0em;
+          height:0.857em;
+        }
+      }
+
+      .nb-navbar-logo-xs{
+        @include bp(xs){
+          height:3.571em;
+        }
+      }
+
+      .text-box{
+        display:inline-block;
+        p{
+          position:relative;
+          top:0.714em;
+
+          @include bp(xs){
+            font-size:0.7em;
+            margin-bottom:0em;
+            top:0em;
+          }
+        }
+      }
+
+      .container{
+        height:$content-height;
+      }
+
+      .quicklogin-col-xs{
+        height:$content-height;
+        border-left:0.143em solid $blue-light-color;
+        a{
+          position:relative;
+          top:1.071em;
+          color:$white-text-color;
+          margin:auto;
+          display:block;
+          width:3em;
+          text-decoration: none;
+          cursor:pointer;
+        }
+      }
+
+      #quicklogin-row{
+        height: 1.786em;
+        margin-top:0.357em;
+        margin-bottom:0em;
+
+        form{
+          margin-top:0em;
+          margin-bottom:0em;
+        }
+      }
+
+      #quicklogin-assist-row{
+        height:1.429em;
+
+        form{
+          //remove the margin defined in boostrap
+          margin-top:0em;
+          margin-bottom:0em;
+
+          .content{
+            font-size:0.8em;
+            margin-bottom:0em;
+            position:relative;
+            top:-0.143em;
+          }
+        }
+      }
+
+      .mobi-icon-row{
+        
+      }
+
+      .mobi-icon-col{
+        height:$content-height;
+
+        &.active{
+          background-color: $blue-logged-status-bg-color;
+        }
+      }
+
+      .noti-block{
+        width:3.929em;
+        height:3.571em;
+        cursor:pointer;
+        //background-color:$blue-logged-status-bg-color;
+        border-left:0.071em solid $black-border-color;
+        border-right:0.071em solid $black-border-color;
+        padding-top:0.9em;
+        border-width:0em;
+        display:block;
+
+        img{
+          //width:1.786em;
+          display:block;
+          margin:auto;
+        }
+      }
+
+      .logged-panel{
+        height:4.167em;
+        background-color:$blue-logged-status-bg-color;
+        padding: 0.833em 0.417em 0em;
+        font-size:0.857em;
+        text-align:center;
+        border-left:0.083em solid $blue-logged-status-separator-color;
+        border-right:0.083em solid $black-border-color;
+
+        a{
+          text-decoration: none;
+          cursor:pointer;
+        }
+      }
+    }
+
+    #menu-bar{
+      $height-lg:2.500em;
+      $height-xs:3em;
+      background: $black-menubar-bg-color;
+      height: $height-lg;
+
+      @include bp(xs){
+        height:$height-xs;
+      }
+
+      .menu-row-lg{
+
+      }
+
+      .navbar{
+        //remove the background color and border color that defined in boostrap
+        border: 0em solid;
+        background-color: inherit;
+        min-height:$height-lg;
+
+        @include bp(xs){
+
+        }
+      }
+
+      .left-border{
+        border-left: 0.071em solid $black-navbar-boder-color;
+      }
+
+      .right-border{
+        border-right: 0.071em solid $black-navbar-boder-color;
+      }
+
+      .menu-row a,
+      ul li a{
+        @extend .nb-font-bold;
+        padding-top:0.833em;
+        padding-bottom:0.417em;
+        color:$white-text-color;
+        text-decoration:none;
+        font-size:0.857em;
+        cursor: pointer;
+        display:block;
+        line-height:1.667em;
+        text-align:center;
+
+        @include bp(xs){
+          padding-top:0.857em;
+          padding-bottom:0.5em;
+          font-size:1em;
+        }
+
+
+        &.active{
+          background: $yellow-topbar-color;
+          color:$black-pure-color;
+          text-shadow: none;
+        }
+
+        &:hover{
+          -webkit-transition: all 0.2s linear 0s;
+          -moz-transition: all 0.2s linear 0s;
+          -o-transition: all 0.2s linear 0s;
+          -ms-transition: all 0.2s linear 0s;
+          transition: all 0.2s linear 0s;
+          color:$yellow-topbar-color;
+          background-color: $black-menubar-hover-bg-color;
+        }
+      }
+
+      ul.navbar-highlight li a{
+        color: $yellow-topbar-color;
+      }
+    }
+
+    p{
+      display:inline-block;
+      //font-size:0.7em;
+      padding-top:0em;
+    }
+
+    .checkbox{
+      font-size:0.8em;
+    }
+
+    input[type=checkbox]{
+      vertical-align:middle;
+      margin-top:0.182em;
+      margin-bottom:0.35em;
+      margin-right:0.456em;
+    }
+
+    a.navbar-link {
+      margin-right: 1.429em;
+      font-size: 0.875em;
+      color: $navbar-text-link-color;
+    }
+    a.navbar-brand {
+      min-width: 12.214em; // width of the logo
+      //color: $navbar-text-link-color;
+      margin-right: 1.429em;
+      h1 {
+        text-indent: -71.429em;
+      }
+      background: url(/assets/images/novaball-logo-navbar.png) left center no-repeat;
+    }
+
+    button.navbar-toggle {
+      color: $white-text-color;
+    }
+
+    .header-bar {
+      p {
+        color: $white-text-color;
+        margin: 0;
+        line-height: 3.286em;
+      }
+    }
+
+  }
+
+  .primary-buttons {
+    border-radius: 1.429em;
+    background-color: $btn-primary-color;
+    border: none;
+    &:hover {
+      background-color: $btn-secondary-color;
+    }
+  }
+
+  .secondary-buttons {
+    @extend .primary-buttons;
+    background-color: $btn-secondary-color;
+    &:hover {
+      background-color: $btn-primary-color;
+    }
+  }
+
+  .navbar-form {
+    input[type=text], input[type=password] {
+      @include gen-border-radius(0em);
+      font-size: 0.857em;
+      width:98%;
+      max-width:12.917em;
+      height:1.833em;
+      padding-bottom:0.25em;
+      background-color:$grey-input-bg-color;
+
+      &:hover{
+        background-color:$white-text-color;
+      }
+    }
+    button {
+      padding: 0.429em 1.429em;
+
+    }
+    .btn-login {
+      @include gen-border-radius(0em);
+      @extend .nb-font-bold;
+      font-size: 0.857em;
+      height:1.833em;
+      //width: 5em;
+      padding-top:0.187em;
+      padding-left:1.417em;
+      padding-right:1.667em;
+      padding-bottom:0em;
+      color:$blue-text-color;
+    }
+    .btn-register {
+      @extend .secondary-buttons;
+    }
+
+    a{
+      text-decoration:none;
+      cursor:pointer;
+    }
+  }
+
+  //-------------------------------
+
+
+  /* Footer */
+  .footer{
+    height:10.357em;
+    background-color: $blue-bg-color;
+    text-align: center;
+    color: $yellow-topbar-color;
+    font-size:1em;
+    padding-top:1.429em;
+
+    .container{
+
+      .content-line{
+        height:2.500em;
+
+        a{
+          color: $yellow-topbar-color;
+          text-decoration:none;
+          cursor:pointer;
+          display:inline-block;
+          padding: 0.143em 0.714em;
+        }
+      }
+      
+    }
+
+    @include bp(xs){
+      display:none;
+    }
+  }
+  //-------------------------------
+
+  //the row contain sliders
+  .slider-line{
+    padding-left:0em;
+    padding-right:0em;
+  }
+
+  /* Images Slider */
+  //big slider
+  .slider-panel{
+    height: 28.571em;
+    margin-left:0em;
+    margin-right:0em;
+
+    @include bp(xs){
+      height:14.286em;
+      width:100%;
+    }
+
+    @include bp(lg){
+      display:block !important;
+    }
+
+    #sequence{
+      border: black solid 0em;
+      height: 28.571em;
+      width:55.72em;//780px;
+      margin:0em;
+      position: relative;
+      overflow:hidden;
+
+      @include bp(xs){
+        height:14.286em;
+        width:100%;
+      }
+    }
+
+    .sequence-canvas{
+      padding: 0em;
+    }
+
+    #sequence > .sequence-canvas li > * {
+      position: absolute;
+    }
+
+    #sequence > .sequence-canvas{
+      height: 100%;
+      width: 100%;
+    }
+
+    #sequence > .sequence-canvas > li{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #sequence #sequence-preloader {
+      background: white; 
+    }
+
+    #sequence .class-name,
+    #sequence .sequence-class {
+      font-size: 0.8em; 
+    }
+
+
+
+    #sequence .info1,
+    #sequence .info2,
+    #sequence .info3,
+    #sequence .info4,
+    #sequence .info5 {
+        background: #3f7ad6;
+        color: white;
+        height: 28.571em;//400px;
+        padding: 0em;
+        width: 55.714em;//780px;
+        top: 0em;
+        -webkit-transition-property: left;
+        -moz-transition-property: left;
+        -ms-transition-property: left;
+        -o-transition-property: left;
+        transition-property: left;
+    }
+
+    #sequence .info1 {
+      left:-55.714em;//780px;
+    }
+
+    #sequence .info2,
+    #sequence .info3,
+    #sequence .info4,
+    #sequence .info5 {
+      left: -55.714em;//780px;
+      
+    }
+    
+
+    #sequence .animate-in .info1,
+    #sequence .animate-in .info2,
+    #sequence .animate-in .info3,
+    #sequence .animate-in .info4,
+    #sequence .animate-in .info5 {
+      left: 0em;
+      opacity: 1;
+
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      transition-duration: 1s;
+    }
+
+    #sequence .animate-out .info1,
+    #sequence .animate-out .info2,
+    #sequence .animate-out .info3,
+    #sequence .animate-out .info4,
+    #sequence .animate-out .info5 {
+      left: 55.714em;//780px;
+
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      transition-duration: 1s;
+    }
+
+    .sequence-pagination{
+      position:absolute;
+      z-index:3;
+      bottom:0em;
+      margin-left:41%;
+
+      div{
+        width: 1em;
+        height:1em;
+        margin:0em 0.071em;
+
+        display:inline-block;
+        @include gen-border-radius(50%);
+        background-color:$grey-input-bg-color;
+        opacity:0.6;
+
+        &.current{
+          background-color:$white-pure-color;
+        }
+      }
+    }
+  }
+
+  .slider-panel-mb-static{
+    height:6.071em;
+    display:none;
+    width:100%;
+  }
+
+  //small slider
+  .slider-panel-small{
+    @extend .slider-panel;
+
+    height: 17.857em;
+
+    #sequence{
+      height: 17.857em;
+    }
+
+    #sequence .info1,
+    #sequence .info2,
+    #sequence .info3,
+    #sequence .info4,
+    #sequence .info5 {
+        height: 17.857em;
+    }
+
+    #sequence .animate-in .info1,
+    #sequence .animate-in .info2,
+    #sequence .animate-in .info3,
+    #sequence .animate-in .info4,
+    #sequence .animate-in .info5 {
+      left: 0em;
+      opacity: 1;
+
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      transition-duration: 1s;
+    }
+
+    #sequence .animate-out .info1,
+    #sequence .animate-out .info2,
+    #sequence .animate-out .info3,
+    #sequence .animate-out .info4,
+    #sequence .animate-out .info5 {
+      left: 55.714em;//780px;
+
+      -webkit-transition-duration: 1s;
+      -moz-transition-duration: 1s;
+      -o-transition-duration: 1s;
+      -ms-transition-duration: 1s;
+      transition-duration: 1s;
+    }
+
+    .sequence-pagination{
+      position:absolute;
+      z-index:3;
+      bottom:0em;
+      margin-left:41%;
+
+      div{
+        width: 1em;
+        height:1em;
+        margin:0em 0.071em;
+
+        display:inline-block;
+        @include gen-border-radius(50%);
+        background-color:$grey-input-bg-color;
+        opacity:0.6;
+
+        &.current{
+          background-color:$white-pure-color;
+        }
+      }
+    }
+  }
+
+  //---------------
+
+  /* General style of the right side banner */
+  .right-side-panel{
+    text-align: center;
+    padding-right:1.071em;
+
+    .title-line{
+      @extend .nb-font-bold;
+      height:1.810em;
+      font-size:1.5em;
+
+      color: $yellow-topbar-color;
+      padding-top:0.476em;
+
+    }
+
+    //general style for the corner ribbon
+    .cr-wrapper{
+      .corner-ribbon-wrapper{
+        width:7.143em;
+        height:7.143em;
+        .corner-ribbon{
+          height:2.333em;
+          width:9.333em;
+          padding:0.133em 0em;
+          p{
+            margin:0em;
+            padding:0em;
+            color:$black-text-color;
+
+            &.comment{
+              font-size:0.84em;
+            }
+          }
+        }
+      }
+    }
+
+    .line-jackpot{
+      @extend .gradient-blue-bg-color;
+      height:10.714em;
+
+      .body-line{
+        font-size:2.7em;
+        color: $white-text-color;
+      }
+
+      .view-btn-line{
+        //padding-top: 0.714em;
+
+        button{
+          @extend .button-view;
+          height:1.964em;
+          width:10.119em;
+          font-size:1.2em;
+        }
+      }
+
+    }
+
+    //style for the next draw line
+    .line-nextdraw{
+      @extend .gradient-blue-bg-color;
+      height:10em;
+
+      .spinner{
+        margin: 2.857em auto;
+      }
+
+      .time-line{
+        height:1.531em;
+        color:$white-text-color;
+        font-size:1.4em;
+      }
+
+      .clock-line{
+        height:2.857em;
+        .label{
+          display:block;
+        }
+      }
+
+      .time-label-line{
+        margin-top:0.143em;
+        div{
+          display: inline-block;
+          width:4.357em;
+          text-align:center;
+          color:$white-text-color;
+        }
+      }
+
+      @include bp(xs){
+        margin-left:-30px;
+        //margin-right:-30px;
+      }
+
+    }
+
+    //style for the last draw line
+    .line-lastdraw{
+      height:7.857em;
+      @extend .gradient-blue-bg-color;
+
+      .spinner{
+        height:5em;
+        margin:auto;
+      }
+
+      .inner-panel-title{
+        height:1.378em;
+        font-size:1.4em;
+        color: $white-text-color; 
+        margin-bottom:0.051em;
+      }
+
+      .balls-line{
+        margin: auto;
+        display:table;
+
+        .lotto-number{
+          width:2.5em;
+          height:2.5em;
+          padding-top:0.714em;
+        }
+      }
+
+      @include bp(xs){
+        display:none;
+      }
+    }
+
+    //lastdraw line with smaller size
+    .line-lastdraw-big{
+      @extend .line-lastdraw;
+
+      height:17.857em;
+
+      #result-list{
+        min-height:10em;
+      }
+
+      .spinner{
+        height:10.357em;
+      }
+
+      .lotto-line{
+        margin-bottom:0.357em;
+      }
+
+      .button-line{
+        height:4.429em;
+        padding-top:0.714em;
+
+        button{
+          height:1.964em;
+          width:9.940em;
+          font-size:1.2em;
+          @extend .button-view;
+          
+        }
+      }
+    }
+
+    /* subscription lines on the right panel */
+    .subs-line{
+      @extend .gradient-blue-bg-color;
+
+      //number panel style on the right side panel
+      .numbers-panel{
+        padding-top:1.429em;
+        padding-left:2.857em;
+        margin-bottom:1.429em;
+      }
+    }
+
+    .line-prizeslist{
+      height:13.571em;
+      @extend .gradient-blue-bg-color;
+
+      .content-line{
+        height: 2.143em;
+        color: $white-text-color;
+
+        p.prize-num{
+          font-size:1.4em;
+          display:inline-block;
+          color: $yellow-topbar-color;
+        }
+
+        p.match-num{
+          display:inline-block;
+          font-size:1.1em;
+        }
+      }
+
+      .view-btn-line{
+        padding-top: 0.714em;
+
+        button{
+          @extend .button-view;
+          height:1.964em;
+          width:7.738em;
+          font-size:1.2em;
+        }
+      }
+    }
+
+    //--
+
+    .price-line{
+      height:3.571em;
+      padding-top:0.571em;
+
+      p{
+        margin-bottom:0em;
+      }
+
+      p.important{
+        @extend .nb-font-bold;
+        display: inline-block;
+        font-size:1.5em;
+        margin-bottom:0em;
+      }
+      p.content{
+        display: inline-block;
+        font-size:1.1em;
+      }
+      p.note{
+        margin-top:-0.357em;
+        font-size:0.9em;
+      }
+    }
+
+    .intro-line{
+      margin-top:0.714em;
+      p{
+        @extend .nb-font-bold;
+        text-align:center;
+        font-style:italic;
+        margin-bottom:0em;
+        font-size:1.7em;
+      }
+    }
+
+    .comment-line{
+      display: none;
+
+      p{
+        margin-bottom:0em;
+        display:block;
+        text-align:center;
+
+        &.content-important{
+          @extend .nb-font-bold;
+          font-size:1.35em;
+          display:inline-block;
+        }
+
+        &.content-normal{
+          font-size:1.1em;
+          display:inline-block;
+        }
+
+        &.content-sm{
+          font-size:0.9em
+        }
+      }
+    }
+
+    .btn-top-buffer-line{
+      height:3.571em;
+    }
+
+    .submit-btn-line{
+      height:5.571em;
+      padding-top:0.357em;
+
+      button{
+        @include gen-border-radius($panel-main-border-radius);
+        @extend .gradient-yellow-bg-color;
+        @extend .nb-font-bold;
+        height:2.175em;
+        //width:25em;
+        width:100%;
+        font-size:2.2em;
+        border-width:0em;
+        padding-top:0.325em;
+      }
+
+      @include bp(xs){
+        margin-bottom:0.357em;
+
+        button{
+          @include gen-border-radius($button-sm-border-radius);
+        }
+      }
+    }
+
+    .next-draw-line{
+      @extend .next-draw-line;
+    }
+
+    .more-info-line{
+      height:2.976em;
+      padding-top:0.595em;
+      font-size:1.2em;
+      color:$blue-text-color;
+
+      p.content{
+        @extend .nb-font-bold;
+        display: inline-block;
+        font-style:italic;
+      }
+
+      a{
+        @include gen-border-radius($button-lg-border-radius);
+        @extend .nb-font-bold;
+        text-decoration:none;
+        cursor:pointer;
+        padding-top:0.476em;
+        display: inline-block;
+        height:2.083em;
+        width:7.739em;
+        color: $white-text-color;
+        background-color: $blue-bg-color;
+      }
+    }
+
+    //Package line in the right side panel
+    .package-line{
+      @include gen-border-radius($panel-main-border-radius);
+      @extend .gradient-blue-bg-color;
+
+      @include bp(xs){
+        display:none;
+      }
+
+      padding:0.357em 1.429em 0em 1.429em;
+
+      .basic-info{
+        padding-top:0.714em;
+
+        p {
+          margin-bottom:0.357em;
+          display:inline-block;
+          &.title{
+            @extend .nb-font-bold;
+          }
+        }
+      }
+
+      .price-panel{
+        margin-top:0em;
+
+        .price{
+          font-size:3.2em;
+          height:1em;
+        }
+
+        .price-frequency{
+          font-size:1.5em;
+          height:1.4em;
+        }
+
+        .price-comment{
+          @extend .nb-font-bold;
+        }
+      }
+    }
+
+    /* Style for the right side collapse on mobile view */
+
+    .prize-collapse,
+    .more-info-collapse,
+    .package-collapse
+    {
+      @extend .gradient-blue-bg-color;
+      @extend .title-primary;
+      color: $yellow-topbar-color;
+      display:none;
+      height:2.084em;
+      margin-left:-1.250em;
+      //margin-right:-1.250em;
+      padding-left:1.250em;
+      padding-right:1.250em;
+      line-height:2.2em;
+      cursor:pointer;
+
+      @include bp(xs){
+        display:block;
+      }
+    }
+
+    .prize-collapse-content{
+      text-align:left;
+      @extend .gradient-blue-bg-color;
+      margin-left:-1.52em;
+      //margin-right:-1.52em;
+      font-size:1.4em;
+
+      .content-prize{
+        color:$yellow-topbar-color;
+      }
+      .content{
+        color:$white-text-color;
+      }
+    }
+
+    .mi-collapse-content{
+      @extend .gradient-blue-bg-color;
+      margin-left:-1.589em;
+      //margin-right:-1.589em;
+      font-size:1.35em;
+      line-height:1.1em;
+      color:$white-text-color;
+
+      .button-line{
+        margin-top:0.794em;
+        margin-bottom:0.529em;
+
+        button{
+          @extend .nb-font-bold;
+          background-color:$yellow-topbar-color;
+          @include gen-border-radius($button-lg-border-radius);
+          color:$black-text-color;
+          border-width:0em;
+          padding:0.794em 3.175em 0.529em;
+        }
+      }
+    }
+
+    .package-collapse-content{
+      @extend %package-line;
+      margin-left:-2.143em;
+      //margin-right:-2.143em;
+      @include gen-border-radius(0em);
+
+    }
+  }
+
+  #latest-draw-result{
+
+    #result-list{
+      .lotto-line{
+        @extend .lotto-line-normal;
+
+        .lotto-number,
+        .bonus-ball{
+          margin:0em 0.143em 0em 0em;
+        }
+      }
+    }
+  }
+
+  /* Style for the Panels inside the body-right-side-panel */
+  .body-right-side-panel{
+    .line-jackpot{
+      margin-left:-2.143em;
+      margin-right:-2.143em;
+    }
+
+    .line-nextdraw{
+      //margin-left:-2.143em;
+      //margin-right:-2.143em;
+    }
+  }
+
+  //-----------------
+
+  /* Pick Ball Title Bar */
+  .ball-picker-title{
+    @extend .gradient-blue-bg-color;
+    height: 2.857em;
+    padding-top:0.500em;
+
+    p{
+      display: inline-block;
+      margin-bottom:0em;
+
+      &.title{
+        @extend .nb-font-bold;
+        font-size: 1.6em;
+        color:$yellow-topbar-color;
+        margin-left:0.893em;
+        margin-right:1.339em;
+      }
+
+      &.content{
+        font-size:1.1em;
+        color: $white-text-color;
+      }
+
+      &.important{
+        @extend .nb-font-bold;
+        color:$yellow-topbar-color;
+      }
+
+      &.content-res{
+        @extend .nb-font-bold;
+        color: $white-text-color;
+      }
+    }
+
+    @include bp(xs){
+      display:none;
+    }
+  }
+
+  //------------------
+
+  /* Pick Ball Body */
+  .ball-picker-body{
+    min-height:25em;
+    background-color:$white-ball-pick-panel-bg-color;
+
+    .balls-col{
+      @include bp(xs){
+        display:none;
+      }
+    }
+
+    .row-buffer-normal,
+    .operation-line{
+      @include bp(xs){
+        display:none;
+      }
+    }
+
+    .operation-line-short{
+      display:none;
+      @include bp(xs){
+        display:block;
+      }
+
+      button.add-line-btn{
+        @extend .nb-font-bold;
+        height:2.143em;
+        width:9.286em;
+        padding-top:0.357em;
+        font-size:1em;
+        color:$white-text-color;
+        border-width: 0.091em;
+        border-color: $black-border-color;
+        border-style: solid;
+        @include gen-border-radius($button-xs-border-radius);
+        background-color: $orange-primary-color;
+        display:block;
+        margin:auto;
+      }
+    }
+
+    .right-side-panel{
+      padding-right:2.143em;
+
+      @include bp(xs){
+        padding-left:2.143em;
+      }
+
+      .prize-collapse,
+      .prize-collapse-content,
+      .more-info-collapse,
+      .mi-collapse-content,
+      .line-nextdraw{
+        @include bp(xs){
+          margin-right:-30px;
+        }
+      }
+    }
+  }
+  //------------------
+
+  /* Draw-edit-page */
+  //draw-edit-title
+  .draw-edit-title{
+    @extend .gradient-blue-bg-color;
+    height: 2.857em;
+    padding-top:0.500em;
+
+    p{
+      display: inline-block;
+      margin-bottom:0em;
+
+      &.title{
+        @extend .nb-font-bold;
+        font-size: 1.6em;
+        color:$yellow-topbar-color;
+        margin-left:1.429em;
+        margin-right:2.143em;
+      }
+    }
+  }
+
+  //-----------------
+  //Draw edit body
+  .draw-edit-body{
+    min-height:32.143em;
+    background-color:$white-ball-pick-panel-bg-color;
+
+    p{
+      margin-bottom:0em;
+    }
+
+    .row-buffer-normal,
+    .operation-line{
+      @include bp(xs){
+        display:none;
+      }
+    }
+
+    .operation-line-short{
+      display:none;
+      @include bp(xs){
+        display:block;
+      }
+
+      button.add-line-btn{
+        @extend .nb-font-bold;
+        height:2.143em;
+        width:9.286em;
+        padding-top:0.357em;
+        font-size:1em;
+        color:$white-text-color;
+        border-width: 0.091em;
+        border-color: $black-border-color;
+        border-style: solid;
+        @include gen-border-radius($button-xs-border-radius);
+        background-color: $orange-primary-color;
+        display:block;
+        margin:auto;
+      }
+    }
+
+    .right-side-panel{
+
+      .next-draw-line{
+        @include gen-border-radius(0);
+      }
+
+      .more-info-line{
+        height:7.857em;
+        @extend .gradient-blue-bg-color;
+
+        p{
+          display:block;
+          margin-top:0.714em;
+          color:$white-text-color;
+          font-size:1.2em;
+        }
+
+        a{
+          @extend .button-view;
+          color:$black-text-color;
+          padding-top:0.571em;
+        }
+      }
+    }
+  }
+
+  //style for the delete line confirm modal
+  .edit-delLine-modal{
+    @extend .modal-window-style;
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 36.429em;//510px;
+      }
+
+      @media(min-width:$lg-screen){
+        width:36.429em;//510px;
+      }
+    }
+
+    .modal-body{
+      text-align: center;
+      padding-top:1.429em;
+      padding-bottom:1.429em;
+
+      .content{
+        color:$blue-header-bg-color;
+        font-size:1.2em;
+        margin-bottom:0.714em;
+
+      }
+
+      .content-secondary{
+        color:$blue-header-bg-color;
+        font-size:1em;
+        margin-bottom:1.071em;
+      }
+
+      button.btn-submit{
+        padding-top:0.429em;
+        font-size:1.1em;
+        width:8.2em;
+      }
+    }
+  }
+
+  //------------------
+
+  //Draw result page
+  //title
+  .draw-result-title{
+    @extend .gradient-blue-bg-color;
+    height: 2.857em;
+    padding-top:0.500em;
+
+    p{
+      display: inline-block;
+      margin-bottom:0em;
+
+      &.title{
+        @extend .nb-font-bold;
+        font-size: 1.6em;
+        color:$yellow-topbar-color;
+        margin-left:0.893em;
+        margin-right:1.339em;
+      }
+    }
+  }
+
+  //Draw result page body
+  .draw-result-body{
+    min-height:25em;
+
+    .main-body{
+
+      .menu-line{
+        background: $black-menubar-bg-color;
+        height: 6.786em;
+
+      }
+
+      $title-line-height:2.857em;
+      $button-line-height : 2.643em;
+
+      .title-line{
+        @extend .nb-font-bold;
+        color:$white-text-color;
+        height:$title-line-height;
+        padding-top:1.071em;
+      }
+
+      .draw-view-select-col{
+        padding-right:0em;
+
+        @include bp(xs){
+          padding-right:15px;
+        }
+
+        @include bp(sm){
+          padding-right:15px;
+        }
+
+        div{
+          padding-right:0em;  
+          @include bp(xs){
+            padding-right:15px;
+          } 
+
+          @include bp(sm){
+            padding-right:15px;
+          }
+
+        }
+      }
+
+      .draw-view-button-col{
+        padding-left:0.571em;
+      }
+
+      select{
+        @include gen-border-radius(0em);
+        @extend .nb-font-bold;
+        height:$button-line-height/1.1;
+        font-size:1.1em;
+
+        &.day-picker{
+          min-width: 4.351em;
+        }
+
+        &.month-picker{
+          width:5.844em;
+        }
+
+        &.year-picker{
+          min-width:5.195em;
+        }
+      }
+
+      button.go-button{
+        @extend .nb-font-bold;
+        width:4.082em;
+        height:$button-line-height/1.4;
+        color:$blue-text-color;
+        font-size:1.4em;
+        background:$yellow-topbar-color;
+        border-width:0em;
+        padding-top:0.357em;
+      }
+
+      .datepicker-hide{
+        width:0em;
+        height: $button-line-height;
+        padding:0em;
+        border-width:0em;
+      }
+
+      .result-body-line{
+        background-color:$white-ball-pick-panel-bg-color;
+        min-height:39.286em;
+        padding-top:0.714em;
+        padding-bottom:0.714em;
+
+        .date-line{
+          height:1.852em;
+          font-size:1.35em;
+          padding-top:0.529em;
+        }
+
+        .draw-line{
+          height:3.929em;
+          .lotto-number{
+            height:2.083em;
+            width:2.083em;
+            font-size:1.2em;
+            padding-top:0.476em;
+          }
+        }
+
+        .border-line{
+          border-bottom:0.071em $grey-input-bg-color solid;
+        }
+      }
+    }
+
+    .right-side-panel{
+      //padding-right:2.143em;
+      background: $black-menubar-bg-color;
+
+      .spinner{
+        margin-top:1.429em;
+        margin-bottom:1.429em;
+      }
+
+      .more-info-line{
+        @extend .gradient-blue-bg-color;
+        color: $white-text-color;
+
+        a{
+          @extend .gradient-yellow-bg-color;
+          color:$blue-text-color;
+        }
+      }
+    }
+  }
+
+  //subscription result page
+  //subscription result title
+  .subs-result-title{
+    @extend .gradient-blue-bg-color;
+    height: 2.857em;
+    padding-top:0.500em;
+
+    p{
+      display: inline-block;
+      margin-bottom:0em;
+
+      &.title{
+        @extend .nb-font-bold;
+        font-size: 1.6em;
+        color:$yellow-topbar-color;
+        margin-left:0.893em;
+        margin-right:1.339em;
+      }
+    }
+  }
+  //subscription result body
+  .subs-result-body{
+    min-height:25em;
+    background-color:$white-ball-pick-panel-bg-color;
+
+    .main-body{
+      padding-top:0.714em;
+      padding-left:2.143em;
+      padding-right:1.071em;
+
+      .title-line{
+        @extend .nb-font-bold;
+        font-size:1.4em;
+        padding-top:0.510em;
+        margin-bottom:0.510em;
+      }
+
+      .inner-panel-title{
+        height:1.378em;
+        font-size:1.4em;
+        margin-bottom:0.051em;
+      }
+
+      .balls-line{
+
+        .lotto-number{
+          width:2.5em;
+          height:2.5em;
+          padding-top:0.714em;
+        }
+      }
+
+      .button-line{
+        margin-top:1.071em;
+        margin-bottom:0.714em;
+
+        button{
+          @extend .nb-font-bold;
+          background-color:$yellow-topbar-color;
+          @include gen-border-radius($button-lg-border-radius);
+          color:$black-text-color;
+          border-width:0em;
+          font-size:1.2em;
+          padding:0.595em 1.190em 0.298em;
+        }
+      }
+    }
+
+    .right-side-panel{
+      .more-info-line{
+        @extend .gradient-blue-bg-color;
+        color: $white-text-color;
+
+        a{
+          @extend .gradient-yellow-bg-color;
+          color:$blue-text-color;
+        }
+      }
+
+      .numbers-panel{
+        margin-bottom:0.42em;
+        .button-line{
+          margin-top:0.714em;
+          margin-bottom:0.714em;
+
+          button{
+            border-width:0em;
+            font-size:1.2em;
+            padding:0.595em 0.893em 0.298em;
+          }
+        }
+      }
+
+      .package-line{
+        @include gen-border-radius(0em);
+      }
+    }
+  }
+  //------------------
+
+
+  /* Style for the package panel */
+
+  .package-panel{
+    color:$white-text-color;
+    text-align:left;
+
+    p{
+      margin-bottom:0em;
+    }
+
+    .basic-info{
+      padding-right:0em;
+    }
+
+    .price-panel{
+      text-align:center;
+      margin-top:0.714em;
+      margin-bottom:0.714em;
+
+      .price{
+        @extend .nb-font-bold;
+        font-size:2.6em;
+        height:1.044em;
+        color:$yellow-topbar-color;
+      }
+
+      .price-frequency{
+        font-size:1.3em;
+        height:1.264em;
+      }
+
+      .price-comment{
+        color: $yellow-topbar-color;
+      }
+    }
+  }
+  //---------------
+
+  form.login-form {
+    width: 60%;
+  }
+    
+  div.step {
+    @extend .title-primary;
+    @extend .text-bold;
+
+    line-height: 3.571em;
+    width: 100%;
+    float: left;
+
+    height: 3.571em;
+    color: $orange-primary-color;
+    padding-left: 1.071em;
+    margin-right: 1.071em;
+
+    :after {
+      content: ' ';
+      clear: right;
+    }
+  }
+
+  form.bet-form {
+
+    fieldset {
+      &.error {
+        border: 0.143em solid #CC0000;
+      }
+      padding-left: 1.072em;//0.357em;
+      padding-right:0.714em;
+      //margin-bottom : 0.357em;
+      legend {
+        display: none;
+      }
+      div.line-num{
+        float:left;
+        padding-top:0.857em;
+        width:3.571em;
+        margin-right:0.357em;
+      }
+
+      button {
+        &.qp {
+          //@extend .lottery-line-number;
+          @extend .lotto-line-elem-size;
+          float: left;
+          padding:0em;
+          width:2.4em;
+
+          font-family: "Roboto";
+          color: rgb( 255, 255, 255 );
+          font-weight: bold;
+
+          font-style:italic;
+          border-width: 0.091em;
+          border-color: $black-border-color;
+          border-style: solid;
+          @include gen-border-radius($button-xs-border-radius);
+          background-color: $orange-primary-color;
+        }
+        &.close {
+          //line-height: 2.143em;
+
+        }
+      }
+
+      input{
+
+      }
+
+      input.input-line-number {
+        @extend .lotto-line-elem-size;
+        @extend .nb-font-bold;
+
+        background-color:$yellow-ballInput-bg-color;
+        border-width: 0.091em;
+        border-color: rgb( 12, 24, 76 );
+        border-style: solid;
+        border-radius: 0.286em;
+        opacity: 1;
+        line-height:2.4em;
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: 0.071em solid $black-border-color;
+        padding: 0; 
+        //padding-left: 0.429em;
+
+        &.bonus-ball {
+          //background-color: rgb( 255, 205, 188 );
+          background-image: url(../images/star.svg);
+          background-position:4px 4px;
+          background-size:22px;
+          background-repeat: no-repeat;
+          border-width:0em;
+        }
+
+        &:focus{
+          background-color:$white-pure-color;
+        }
+      }
+
+      input.input-line-ball{
+        @extend .lotto-number;
+        @extend .lotto-number.ball-normal;
+
+        border-width:0em;
+        padding-top:0.214em;
+      }
+
+      //style for the deleted line
+      &.deleted-line{
+        opacity:0.4;
+      }
+    }
+  }
+
+  /* Rectangle Number input Area for bonus ball {
+    border-width: 0.091em;
+    border-color: rgb( 12, 24, 76 );
+    border-style: solid;
+    border-radius: 0.286em;
+    background-color: rgb( 255, 205, 188 );
+    opacity: 0.4;
+
+    width: 29.46px;
+    height: 25.46px;
+
+  } */
+
+  div.num-draws {
+    label {
+      //width: 19.65%; 
+      font-size: 1.286em;
+      font-family: $base-font;
+      color: rgb( 42, 42, 42 );
+      line-height: 1em;
+    }
+  }
+
+  div.numbers-grid {
+    .lotto-number {
+      //width: 2.500em; 
+      //height: 2.500em; 
+      //margin-top: 0.857em; 
+      //margin-bottom: 0.286em;
+      //background-color: $blue-ball-color; 
+      //color: $blue-primary-color; 
+      //padding: 0.429em 0;
+      //cursor: pointer;
+    }
+  }
+
+  /* Radio Style */
+  /* label:before {  
+    content: "";  
+    display: inline-block;  
+  
+    width: 1.143em;  
+    height: 1.143em;  
+  
+    margin-right: 0.714em;  
+    position: absolute;  
+    left: 0;  
+    bottombottom: 0.071em;  
+    background-color: #aaa;  
+    box-shadow: inset 0em 0.143em 0.214em 0em rgba(0, 0, 0, .3), 0em 0.071em 0em 0em rgba(255, 255, 255, .8);
+  }
+
+  input[type=radio].draw-picker{
+    display:none;
+  }
+
+  label:before + input[type=radio].draw-picker:checked {  
+      content: "\2022";  
+      color: #f3f3f3;  
+      font-size: 2.143em;  
+      text-align: center;  
+      line-height: 1.286em;  
+  }   */
+
+  //--------------------------------
+
+
+  /* Account page */
+  div.account-info {
+    width: 100%;
+
+    dl {
+      width: 49%; float: left;
+
+    }
+  }
+
+  /* Draw Result Page */
+
+  //button
+
+  .primary-btn-text{
+    @extend .nb-font-bold;
+    font-size: 1.714em;
+    font-family: $base-font;
+    color: rgb( 255, 255, 255 );
+    line-height: 0.501;
+    text-align: center;
+  }
+
+  .ball-edit-comment{
+    clear:both;
+  }
+
+  //ball result group
+  #last-draw-result,
+  #pre-draw-result{
+
+    .lotto-line{
+
+       .lottery-number-std-matched {
+        //padding-top: 0.214em;
+        background-color: $ball-primary-color;
+        //border: 0.143em solid $white-text-color;
+        //box-shadow: 0em 0em 1pt 1pt $orange-primary-color;
+      }
+
+      .lottery-number-bonus-matched{
+        //padding-top: 0.214em;
+        background-color: $orange-primary-color;
+        //border: 0.143em solid $white-text-color;
+        //box-shadow: 0em 0em 1pt 1pt $orange-primary-color;
+      } 
+
+      $unmatched-opacity: 0.3;
+      .lottery-number-std-unmatched{
+        background-color: $ball-primary-color;
+        opacity:$unmatched-opacity;
+      }
+
+      .lottery-number-bonus-unmatched{
+        background-color: $orange-primary-color;
+        opacity:$unmatched-opacity;
+      }
+
+      .matched-num-str{
+        //color: $orange-primary-color;
+        font-family: $base-font;
+        float: left;
+        height:2em;
+        width:10em;
+        //line-height:2em;
+        margin:0.714em 0em 0em 1.786em;
+
+        @include bp(xs){
+          margin-left:0em;
+        }
+      }
+
+      .prize-result-str{
+        font-family: $base-font;
+        float: left;
+        height:2em;
+        //line-height:2em;
+        margin:0.714em 0em 0em 0.714em;
+
+      }
+    }
+
+    .draw-group-footer{
+        color: $orange-primary-color;
+        font-family: $base-font;
+        height: 2em;
+        line-height: 2em;
+        text-align: left;
+      }
+  }
+
+  //********************
+  //some color variable
+  //TODO: catogary this variable later
+  .error-msg-box{
+    background-color: #FBDDDF;
+    border-radius:0.714em;
+  }
+
+  .success-msg-box{
+    background-color: #DBF2E0;
+    border-radius:0.714em;
+  }
+  //********************
+
+  .lotto-group-normal{
+    .lotto-line{
+      //margin: 0.357em 0em 1.071em 0em;
+      @extend .lotto-line-normal;
+
+      .delete-line-btn{
+        @include gen-border-radius(50%);
+        //border-style: solid;
+        //border-width: 0.143em;
+        cursor:pointer;
+        
+        background-image:url(../images/delete-x.svg);
+        opacity:1;
+        background-size:100%;
+        background-repeat:no-repeat;
+
+        /* @extend .lotto-line-elem-size;
+        
+        border-color: $black-border-color;
+        
+        //margin:0.857em 0em 0em 0em;
+        height:1em;
+        line-height: 1em;
+        width: 0.7em;
+        @extend .nb-font-bold;
+        text-shadow: 0 0.071em 0 $white-text-color; */
+        //display: inline-block;
+        font-size: 1.5em;
+        padding-bottom:0.190em;
+        margin-top: 0.476em;
+        height:0.8em;
+        width:0.8em;
+        line-height:0.1em;
+
+      }
+      .star + .delete-line-btn{
+          position: relative;
+          right: 0.929em;
+        }
+    }
+
+    button,
+    input{
+      margin-top: 1.071em;
+    }
+
+    .deleted-line{
+      
+      .lottery-line-number{
+        background-color: #E21830;
+      }
+
+      //only the .bg contained in the css string, then show the background color
+      &.bg{
+        @extend .error-msg-box;
+      }
+
+      //the lotto-number's color in deleted-line is gray
+      &.lotto-line .lotto-number{
+        background-color: #AEB2C3;
+      }
+
+      .lotto-number.bonus-ball{
+        background-color: $grey-primary-color; 
+      }
+    }
+
+    .new-line{
+      
+      .lottery-line-number{
+        background-color: #0EA62F;
+      }
+
+      //only the .bg contained in the css string, then show the background color
+      &.bg{
+        @extend .success-msg-box;
+      }
+    }
+  }
+
+  .lotto-line-normal{
+    .lotto-number{
+      background-color: $ball-primary-color;
+    }
+
+    .bonus-ball{
+      background-color: $orange-primary-color;
+    }
+  }
+
+  //special rules when lotto-line inside the .balls-edit div
+  .balls-edit .lotto-line{
+    padding: 0em 0.357em 0.429em 0.714em;
+    margin: 0em 0.357em 0.143em -1.071em; 
+  }
+
+  /* Right Banner */
+
+  .right-banner-padding-left{
+    padding-left: 1.786em;
+  }
+
+  #next-draw-date{
+    @extend .right-banner-padding-left;
+    @extend .title-secondary;
+    font-weight:normal;
+
+    color: $blue-primary-color;
+
+    .title{
+      @extend .text-bold;
+      display: inline-block;
+    }
+  }
+
+  /* After Edit Page */
+
+  button.view-button{
+    @extend .orange-primary-btn;
+    @extend .primary-btn-text;
+    font-size: inherit;
+    height:1.7em;
+    width: 10em;
+    margin-top: 1.429em;
+  }
+
+  /* Subscription page */
+  .description-area{
+    background-color: rgb(243, 244, 249);
+    padding: 0.714em 0.714em 1.429em 2.143em;
+
+    h4 {
+      @extend .nb-font-bold;
+    }
+
+    button {
+      @extend .primary-buttons;
+      height: 1.7em;
+      font-size: inherit;
+      width: 7.143em;
+    }
+  }
+
+  /* Draws Edit Page */
+  .add-new-line {
+    a{
+      cursor: pointer;
+    }
+  }
+
+  //for the orange star on the top-right corner
+  .lotto-line .bonus-ball + .star{
+    float:left;
+    position:relative;
+    top:0.929em;
+    right:1.071em;
+    font-size:0.429em;
+  }
+
+  .operation-line{
+    height:2.857em;
+  }
+
+  .add-new-line + div{
+    float: left;
+
+    .star-sign{
+      display:inline-block;
+      position:relative;
+      margin-right:0.357em;
+    }
+
+    p{
+      color:$orange-primary-color;
+      display:inline-block;
+      position:relative;
+      top:0.143em;
+    }
+  }
+
+  /* Register Form */
+  .nb-md-alert{
+    padding: 0.357em 0.857em;
+    margin-bottom: 0em;
+    margin-top:0.714em;
+  }
+
+  //modal window style template
+  .modal-window-style{
+    margin-top:3.571em;
+    padding-top:3.571em;
+
+    .modal-content{
+      border-radius:0em;
+      padding-top:0em;
+
+      .modal-header{
+        @extend .nb-font-bold;
+        height:1.905em;
+        border-bottom:$yellow-topbar-color solid 0.095em;
+        font-size:1.5em;
+        color:$yellow-topbar-color;
+        padding-top:0.238em;
+        background-color:$blue-header-bg-color;
+
+        a.close-btn{
+          @extend .nb-font;
+          color:$white-pure-color;
+          text-decoration:none;
+          cursor:pointer;
+        }
+      }
+
+      .sub-title{
+        height:2.597em;
+        color:$white-text-color;
+        background-color:$blue-header-bg-dark-color;
+        padding-left:0.974em;
+        font-size:1.1em;
+
+        .light-bg{
+          background-color:$blue-header-arrow-bg-color; 
+        }
+
+        .dark-bg{
+          background-color:$blue-header-bg-dark-color; 
+        }
+      }
+
+      //secondary title
+      .secondary-title{
+        padding-top:0.649em;
+        padding-bottom:0.649em;
+      }
+
+      //button style
+      $button-height:3.571em;
+      $button-margin-top:0.357em;
+      .btn-submit{
+        @extend %btn-submit-curve-corner;
+        width:7.143em;
+        height:$button-height/1.4;
+        font-size:1.4em;
+      }
+
+      .btn-right-side{
+        @extend %btn-submit-curve-corner-right-side;
+        height:$button-height;
+        width:2em;
+      }
+
+
+
+      //input style
+      input{
+        @extend %input-normal;
+      }
+
+      input[type=text],
+      input[type=password],
+      input[type=date]{
+        height:2.643em;
+      }
+    }
+  }  
+
+  .reg-modal-window{
+    @extend .modal-window-style;
+
+    @include bp(xs){
+      margin-top:0em;
+      padding-top:0em;
+    }
+
+    .modal-dialog{
+      @include bp(xs){
+        margin:0em;
+      }
+    }
+
+    .modal-content{
+
+      @media(min-width:$md-screen){
+        width: 50.714em;//710px;
+      }
+      @media(min-width:$lg-screen){
+        width: 50.714em;//710px;
+      }
+    
+      .modal-header{
+
+        @include bp(xs){
+          padding-top:0em;
+          padding-bottom:0em;
+          font-size:1em;
+          height:2.857em;
+          border-bottom-width:0.143em;
+        }
+
+        //header on the popup window
+        $content-height:2.714em;
+        .navbar-collapse{
+          border-width:0em;
+        }
+
+        .logo-col{
+          @include bp(xs){
+            border-left:0.143em solid $blue-light-color;
+            max-height:$content-height;
+            padding-left:1.786em;
+
+            .logo-block{
+              padding-left:18%;
+            }
+          }
+        }
+
+        .menu-collapse-xs{
+          @include bp(xs){
+            border-right:0.071em solid $black-pure-color;
+            max-height:$content-height;
+          }
+        }
+
+        .nb-navbar-logo{
+          @include bp(xs){
+            height:2.214em;
+            display:block;
+            margin-top:-0.214em;
+            margin-bottom:-0.571em;
+            margin-left:-0.357em;
+          }
+        }
+
+        .bb-navbar-logo{
+          display: inline-block;
+
+          @include bp(xs){
+            margin-top:0em;
+            height:0.714em;
+          }
+        }
+
+        .text-box{
+          display:inline-block;
+          p{
+            position:relative;
+            top:0.714em;
+
+            @include bp(xs){
+              font-size:0.6em;
+              margin-bottom:0em;
+              top:0em;
+            }
+          }
+        }
+        //-----
+      }
+
+      .sub-title{
+        //padding-left:0em;
+        overflow-x:hidden;
+
+        @include bp(xs){
+          font-size:0.8em;
+          height:3.661em;
+        }
+
+        .first-step,
+        .second-step,
+        .third-step{
+          height:2.597em;
+          padding-top:0.649em;
+
+          @include bp(xs){
+            height:3.571em;
+            padding-top:1em;
+          }
+        }
+
+        .first-step{
+          padding-left:1.948em;
+
+          @include bp(xs){
+            padding-left:1em;
+            padding-right:0em;
+          }
+        }
+
+        .first-step-col{
+          padding-right:0em;
+        }
+
+        .second-step-col{
+          padding-right:0em;
+        }
+
+        .third-step{
+          padding-left:0em;
+        }
+
+        .third-step-col{
+          .row{
+            margin-right:-3.442em;
+            margin-left:-0.325em;
+          }
+          
+          padding-left:0.325em;
+        }
+
+        .arrow-right {
+          padding:0em;
+          width: 2.597em; 
+          height: 0; 
+          border-top: 1.299em solid transparent;
+          border-bottom: 1.299em solid transparent;
+          border-left: 1.299em solid $blue-header-arrow-bg-color;
+
+          @include bp(xs){
+            border-left-width:1.071em;
+            width:25%;
+            border-top-width: 1.786em;
+            border-bottom-width:1.786em;
+            border-left-width:1.286em;
+          }
+        }
+
+        .arrow-right-light {
+          @extend .arrow-right;
+          border-left-color:$blue-header-arrow-bg-color;
+        }
+
+        .arrow-right-dark {
+          @extend .arrow-right;
+          border-left-color:$blue-header-bg-dark-color;
+        }
+
+        .light-bg{
+          background-color:$blue-header-arrow-bg-color; 
+        }
+
+        .dark-bg{
+          background-color:$blue-header-bg-dark-color; 
+        }
+      }
+
+      //secondary title
+      .secondary-title{
+        height:2.597em;
+      }
+
+      .modal-body{
+
+        background-color:$grey-form-bg-color;
+
+        //phone number input form
+        #phoneNumInputForm{
+          .body-line{
+            input{
+              @include gen-border-radius(0em);    
+              background-color: $grey-form-input-bg-color;
+            }
+          }
+        }
+
+        #phoneNumReInputForm{
+          .body-line{
+            .phone-icon{
+              width:9em;
+              display:block;
+              margin:auto;
+
+              @include bp(lg){
+                margin-top:20px;
+              }
+            }
+
+            @include bp(xs){
+              text-align:center;
+            }
+          }
+        }
+
+        //pin verification form
+        #pinVerifyForm{
+          .body-line{
+            @include bp(xs){
+              text-align:center;
+            }
+          }
+
+          .content{
+            font-size:0.9em;
+          }
+
+          .pin-resend-line{
+            line-height:2.857em;
+
+            p{
+              margin-bottom:0em;
+              display:inline-block;
+            }
+
+            .loading-spinner{
+              display:none;
+              position:relative;
+              top:0.357em;
+              left:0.357em;
+            }
+
+            .circle-spinner{
+              display:inline-block;
+              margin:0em;
+            }
+
+            .prompt{
+              display:inline-block;
+              padding-left:0.714em;
+            }
+          }
+        }
+
+        //register form
+        #registerForm{
+          .title-line{
+            height: 1.429em;
+            font-weight:normal;
+
+            label{
+              text-align: left;
+              font-weight:normal;
+              color: $blue-header-bg-dark-color;
+              //padding-left:0em;
+            }
+
+            p{
+              margin-bottom:0em;
+              display:inline-block;
+              &.content-comment{
+                font-size:0.8em;
+              }
+            }
+          }
+
+          .content-line{
+            //margin-bottom:0.714em;
+            a{
+              text-decoration:none;
+              cursor:pointer;
+            }
+          }
+
+          //label style
+          .check-label{
+            font-size: 0.8em;
+          }
+
+          .birthmonth-col{
+            padding-left:0px;
+            padding-right:0px
+          }
+
+          [data-toggle="dropdown"]{
+            width:100%;
+          }
+
+          //drop down list style
+          [data-toggle="dropdown"],
+          select{
+            @include gen-border-radius(0em);    
+            background-color: $grey-form-input-bg-color;
+            border-color:$grey-form-input-bg-color;
+            margin-top:0.357em;
+            margin-bottom:0.357em;
+          }
+
+          .dropdown-menu{
+            max-height:300px;
+            overflow-y:auto; 
+          }
+        }
+
+        #chooseCardsForm{
+          margin-top:-1.071em;
+          margin-bottom:-1.071em;
+
+          .has-error{
+            margin-bottom: 0.714em;
+          }
+
+          .content{
+            padding-top:1.429em;
+          }
+        }
+
+        #paymentForm{
+          margin-top:-0.714em;
+          margin-bottom:-1.071em;
+
+          .content-title{
+            padding-top:1.071em;
+          }
+
+          .content{
+            padding-top:1.429em;
+          }
+
+          .msg-line{
+            margin-top:-1.429em;
+            //margin-left:-1.429em;
+            //margin-right:-1.429em;
+            margin-bottom:0.714em;
+            padding: 0.357em 0em;
+            background-color:$white-pure-color;
+            
+            text-align:center;
+
+            .success-msg{
+              color:$green-text-color;
+              @extend .nb-font-bold;
+            }
+
+            .error-msg{
+              color:$red-err-text-color;
+              @extend .nb-font-bold;
+            }
+          }
+
+          label.checkbox-inline{
+            padding-left:1.071em;
+          }
+
+          .form-body-main{
+            padding-top:0.357em;
+
+
+          }
+
+          .package-line{
+            height:9.643em;
+            padding-left:0.357em !important;
+            padding-right:0.357em !important;
+            @extend %package-line;
+            @include gen-border-radius($panel-main-border-radius);
+
+            @include bp(xs){
+              margin-left:-0.714em;
+              margin-right:-0.714em;
+              display:block !important;
+            }
+
+            .basic-info{
+              padding-top:0em !important;
+            }
+
+            .price-panel{
+              .price{
+                font-size:2.6em !important;
+              }
+            }
+
+            .content{
+              padding-top:0em;
+            }
+          }
+
+          .cvv-block{
+            margin-bottom:0em;
+          }
+        }
+
+        iframe#add_payment_card{
+          width: 100%;
+          min-height:42.857em;
+          border-width:0em;
+
+          @include bp(xs){
+            min-height:78.571em;
+          }
+        }
+
+        #existingCardForm{
+          .content{
+            color:$blue-header-bg-color;
+            text-align:center;
+            font-size:1.1em;
+          }
+
+          .button-line{
+            margin-top:0.714em;
+          }
+        }
+
+        #existingSubForm{
+          
+            /* @media(min-width:$md-screen){
+              //width: 36.429em;//510px;
+            }
+            @media(min-width:$lg-screen){
+              //width: 36.429em;//510px;
+            } */
+          .content{
+            text-align:center;
+          }
+
+          .sub-line{
+            position:relative;
+            left:33%;
+          }
+
+          .button-line{
+            margin-top:0.714em;
+
+            button{
+              height:2.857em;
+              width:7.857em;
+            }
+          }
+          
+        }
+
+        #paymentSucceedForm{
+          text-align:center;
+
+          .content-title{
+            @extend .nb-font-bold;
+            font-size:2.3em;
+            font-style:italic;
+            height:1.2em;
+            color:$blue-header-bg-color;
+          }
+
+          .content{
+            color:$blue-header-bg-color;
+            font-size:1.1em;
+            margin-top:0.325em;
+            margin-bottom:0.649em;
+
+
+          }
+
+          .next-draw-line{
+            padding-top:1.429em !important;
+            @extend .next-draw-line;
+
+            .content{
+              margin-top:0.155em;
+              margin-bottom:0.311em;
+            }
+          }
+
+          .button-line{
+            margin-top:0.714em;
+
+            button{
+              height:2.857em;
+              width:10em;
+            }
+          }
+        }
+
+        //form grid style
+        .form-title-line{
+          @extend .nb-font-bold;
+        }
+
+        .form-grid-line{
+          min-height:2.468em;
+          font-size:1.1em;
+          padding-top:0.649em;
+        }
+
+        .form-grid-line-1{
+          @extend .form-grid-line;
+          background-color:$grey-form-grid-1-color; 
+        }
+
+        .form-grid-line-2{
+          @extend .form-grid-line;
+         background-color:$grey-form-grid-2-color; 
+        }  
+
+        //text style
+        div.important-content{
+          @extend .nb-font-bold;
+          font-size: 1.1em;
+          color:$blue-header-bg-dark-color;
+          margin-top:0.267em;
+          margin-bottom:0.267em;
+        }
+
+        div.content{
+          font-size: 1em;
+          color: $blue-header-bg-dark-color;
+          margin-top:0.357em;
+          margin-bottom:0.357em;
+
+          a{
+            text-decoration:none;
+            cursor:pointer;
+          }
+        }
+
+        div.content-comment{
+          font-size: 0.9em;
+          color: $blue-header-bg-dark-color;
+          
+          a{
+            text-decoration:none;
+            cursor:pointer;
+          }
+        }
+
+        //button style
+        .btn-submit{
+        }
+      }
+    }
+    
+          
+  }
+
+  /* Forgot Password Form */
+  .forgotpw-modal-window{
+    @extend .modal-window-style;
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 36.429em;//510px;
+        
+        #emailInputForm .input-field{
+          padding-right:0em;
+        }
+      }
+      @media(min-width:$lg-screen){
+        width: 36.429em;//510px;
+      
+        #emailInputForm .input-field{
+          padding-right:0em;
+        }
+      }  
+
+      #emailInputForm{
+        .content{
+          color:$blue-header-bg-color;
+          font-size:1em;
+        }
+      }
+
+      #emailSentForm{
+        color:$blue-header-bg-color;
+        font-size:1em;
+      }
+    }
+  }
+
+  /* Reset Password Form */
+  .resetpw-modal-window{
+    @extend .modal-window-style;
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 36.429em;//510px;
+        
+      }
+      @media(min-width:$lg-screen){
+        width: 36.429em;//510px;
+      
+      }  
+
+      form{
+        .content-title{
+          padding-right:0em;
+          color:$blue-header-bg-color;
+          font-size:1em;
+          padding-top:1em;
+        }
+
+        .content-small{
+          font-size:0.8em;
+        }
+
+        button.button-view{
+          padding: 0.643em 1.786em 0.429em;
+        }
+      }
+    }
+  }
+
+  /* Login Modal Form */
+  .login-modal-window{
+    @extend .modal-window-style;
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 36.429em;//510px;
+      }
+
+      @media(min-width:$lg-screen){
+        width:36.429em;//510px;
+      }
+    }
+
+    .alert.alert-success{
+      padding-top: 0.714em;
+      padding-bottom:0.714em;
+    }
+
+    .content{
+      color:$blue-header-bg-color;
+      font-size:1em;
+      top:1.071em;
+
+      @include bp(xs){
+        top:0em;
+      }
+    }
+
+    .content-comment{
+      color:$blue-header-bg-color;
+      font-size:0.9em;
+      top:1.429em;
+    }
+  }
+
+  /* Prizes Modal Page -- Reused */
+  .prizes-modal-window{
+    @extend .modal-window-style;
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 24.286em;//340px;
+      }
+
+      @media(min-width:$lg-screen){
+        width:24.286em;//340px;
+      }
+
+      .row{
+        min-height:2.143em;
+      }
+
+      .content{
+        font-size:1.1em;
+        color:$blue-header-bg-color;
+        top:0.429em;
+      }
+
+      .content-prize{
+        @extend .nb-font-bold;
+        font-size: 1.2em;
+        color:$blue-header-bg-color;
+        top:0.143em;
+      }
+
+      .button-line{
+        text-align:center;
+      }
+    }
+  }
+
+  /* Single Notification Modal page */
+  .noti-modal-window{
+    @extend .modal-window-style;
+    @include bp(xs){
+      margin-top:0em;
+    }
+
+    .modal-dialog{
+      @include bp(xs){
+        margin:0em;
+      }
+    }
+
+    .modal-content{
+      @media(min-width:$md-screen){
+        width: 50.714em;//340px;
+      }
+
+      @media(min-width:$lg-screen){
+        width:50.714em;//340px;
+      }
+
+      .row{
+        
+      }
+
+      .content{
+        font-size:1em;
+        color:$blue-header-bg-color;
+        top:0.429em;
+
+        @include bp(xs){
+          text-align:center;
+        }
+
+        p{
+          padding-bottom:0em;
+          margin-bottom:0em;
+        }
+      }
+
+      .content-important{
+        font-size:1.8em;
+        height:1.2em;
+        @extend .nb-font-bold;
+        color:$blue-header-bg-color;
+
+        @include bp(xs){
+          text-align:center;
+        }
+      }
+
+      .button-line{
+        button{
+          @extend .button-view;
+          
+          font-size:1.2em;
+          padding: 0.6em 1em 0.3em;
+
+          @include bp(xs){
+            margin:auto;
+          }
+        }
+
+        @include bp(xs){
+          text-align:center;
+        }
+      }
+
+      .noti-modal-icon-block1{
+
+        img{
+          display:block;
+          width:80%;
+          margin:auto;
+
+          @include bp(xs){
+            width:4.8em;
+          }
+        }
+      }
+    }
+  }
+
+  /* AllNotificaiton Modal Page */
+  .all-noti-modal-window{
+    margin-top:3.571em;
+    padding-top:3.571em;
+
+    .modal-content{
+      border-radius:0em;
+      padding-top:0em;
+
+      .modal-header{
+        height:1.905em;
+        @extend .nb-font-bold;
+        border-bottom:$blue-text-color solid 1px;
+        color:$blue-text-color;  
+        padding-top:0.238em;
+        background-color:rgba(255,255,255,0.9);
+
+        a.close-btn{
+          @extend .nb-font-bold;
+          color:$blue-text-color;
+          text-decoration:none;
+          cursor:pointer;
+        }
+      }
+
+      .modal-body{
+        padding-top:0em;
+        padding-bottom:0em;
+        padding-left:15px;
+        padding-right:15px;
+
+        max-height:400px;
+        overflow-y:auto;
+      }
+
+      %grid{
+        border-top:$blue-text-color solid 1px;
+        font-size:0.9em;
+        cursor:pointer;
+        padding-left:10px;
+        
+        .title{
+          @extend .nb-font-bold;
+        }
+        
+        %icon-block{
+          padding: 12px 5px;
+          margin-top:10px;
+          margin-bottom:10px;
+
+          img{
+            width:24px;
+            display: block;
+            margin:auto;
+          }
+        }
+
+        div.noti-icon-normal{
+          @extend %icon-block;
+          background-color:$orange-primary-color;
+        }
+
+        div.noti-icon-winner{
+          @extend %icon-block;
+          background-color:#2C77C8;
+        }
+
+        .content-body{
+          padding-top:0.8em;
+          padding-bottom:0.8em;
+        }
+      }
+
+      .grid-odd{
+        @extend %grid;
+        background-color: $grey-bg-color;
+      }
+
+      .grid-even{
+        @extend %grid
+      }
+    }
+  }
+
+  /* Style for package-line -- reused */
+  %package-line{
+    @extend .gradient-blue-bg-color;
+
+    padding:0.357em 1.429em 0em 1.429em;
+
+    .basic-info{
+      padding-top:0.714em;
+
+      p {
+        margin-bottom:0.36em;
+        display:inline-block;
+        &.title{
+          @extend .nb-font-bold;
+        }
+      }
+    }
+
+    .price-panel{
+      margin-top:0em;
+
+      .price{
+        font-size:3.2em;
+        height:1em;
+      }
+
+      .price-frequency{
+        font-size:1.5em;
+        height:1.4em;
+      }
+
+      .price-comment{
+        @extend .nb-font-bold;
+      }
+    }
+  }
+
+  //----end of register form----
+
+  /* Account Page Style */
+  .account-body{
+    background: $black-menubar-bg-color;
+    $bodyMinHeight:66.929em;
+    $section-bg-color:rgba(255,255,255,0.9);
+
+    .title{
+      color:$yellow-topbar-color;
+      font-size:1.8em;
+      height:2.3em;
+      padding-top:0.65em;
+    }
+
+    .section-title{
+      @extend .title;
+    }
+
+    .menu-bar{
+      text-align:left;
+
+      .title{
+        @include bp(lg){
+          text-align:left;
+          background:none;
+        }
+       
+        text-align:center;
+        @extend .gradient-blue-bg-color;
+      }
+
+      .back-arrow{
+        a{
+          color:$white-pure-color;
+          text-decoration:none;
+        }
+      }
+
+      .setcion-menu-name{
+        height:1.990em;
+        color:$white-text-color;
+        font-size:1.4em;
+        padding-top:0.357em;
+
+        @include bp(xs){
+          height:2.806em;
+          text-align:center;
+          background-color:$white-pure-color;
+          padding-top:0.616em;
+          padding-bottom:0.616em;
+        }
+
+        a{
+          text-decoration:none;
+          color:$white-text-color;
+
+          @include bp(xs){
+            color:$blue-text-color;  
+          }
+        }
+      }
+
+      .top-border{
+        @include bp(xs){
+          border-top:1px solid $blue-text-color;
+        }
+      }
+
+      .active{
+        background: rgba(255,255,255,0.9);
+
+        & a{
+          color:$blue-text-color;
+        }
+
+        @include bp(xs){
+          display:block;
+        }
+      }
+
+      .inactive{
+        @include bp(xs){
+          display:none;
+        } 
+      }
+    }
+
+    .section-body{
+      background: $white-tran-bg-color-normal;
+    }
+
+    .basic-section{
+      background: $section-bg-color;
+      padding: 1.429em;
+
+      @include bp(xs){
+        padding-top:0em;
+      }
+    }
+
+    .title-line{
+      margin-top:10px;
+    }
+
+    .pw-section{
+      background: rgba(255,255,255,0.8);
+      padding: 1.429em;
+
+      .sub-section-title{
+        font-size:1.7em;
+      }
+
+      @include bp(lg){
+        min-height:40.714em;
+      }
+    }
+
+    .payment-section{
+      @extend .basic-section;
+      @include bp(lg){
+        min-height:$bodyMinHeight;
+      }
+
+      .grid{
+        margin-top:0.357em;
+        margin-bottom:0.357em;
+
+        @include bp(xs){
+          margin-top:0em;
+          margin-bottom:0em;
+
+          font-size:1em;
+          background-color:rgba(255,255,255,0);
+        }
+      }
+
+      .card-panel{
+        margin-top:0.357em;
+        margin-bottom:0.357em;
+
+        @include bp(xs){
+          margin-top:0em;
+          margin-bottom:0em;
+
+          font-size:1.4em;
+          min-height:3.2em;
+          text-align:center;
+          padding-top:1em;
+          border-top:1px solid #C0C9D0;
+        }
+      }
+
+      .panel-collapse{
+        padding-top:0.357em;
+        padding-bottom:0.357em;
+      }
+
+      .content-title{
+        padding-top:1.429em;
+      }
+
+      .content-line{
+        padding-top:0.5em;
+        padding-bottom:0.5em;
+      }
+
+      .month-select-col{
+        padding-right:0.214em;
+
+        select{
+          width:100%;
+        }
+      }
+
+      .month-select-col,
+      .year-select-col{
+        padding-right:0.214em;
+        padding-left:0.214em; 
+
+        @include bp(xs){
+          padding-right:15px;
+        }
+
+        [data-toggle="dropdown"],
+        select{
+          @extend %input-normal;
+          border-width:0em;
+          border-radius:0em;
+          color:$blue-header-bg-color;
+          width:100%;
+          height:2.643em;
+          margin-top:0.857em;
+          text-align:left;
+
+          .caret{
+            float:right;
+            margin-top:0.5em;
+          }
+        }
+
+        .dropdown-menu{
+          margin-top:1em;
+          @include bp(xs){
+            margin-top:0em;
+          }
+        }
+      }
+
+      .cancel-line{
+        padding-top:0.714em;
+      }
+    }
+
+    .withdraw-section{
+      @extend .basic-section;
+      @include bp(lg){
+        min-height:$bodyMinHeight;
+      }
+
+      [data-toggle="dropdown"],
+      input,
+      select{
+        height:2.900em;
+        width:12.5em;
+
+        @include bp(xs){
+          margin-left:auto;
+          margin-right:auto;
+          display:table;
+        }
+
+        .caret{
+          float:right;
+          margin-top:0.5em;
+        }
+      }
+      
+      .dropdown-menu{
+        margin-top:1em;
+        @include bp(xs){
+          margin-top:0em;
+        }
+      }
+
+      .content-line{
+        height:3.5em;
+
+        @include bp(xs){
+          height:2.4em;
+        }
+      }
+
+      .content-title{
+        padding-top:1em;
+
+        @include bp(xs){
+          text-align:center;
+          padding-top:0em;
+        }
+      }
+
+      .button-line{
+        @include bp(xs){
+          margin-left:auto;
+          margin-right:auto;
+          display:table;
+        }
+      }
+    }
+
+    .transaction-section{
+      @extend .basic-section;
+      @include bp(lg){
+        min-height:$bodyMinHeight;
+      }
+
+      .nb-pagination{
+        display:table;
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .grid{
+        @include bp(lg){
+          margin-bottom:-9999px;
+          padding-bottom:9999px;
+        }
+      }
+    }
+
+    [data-toggle="dropdown"],
+    input,
+    select{
+      @extend %input-normal;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=date]{
+      height: 2.643em;
+    }
+
+    .button-line{
+      button{
+        @extend %btn-submit-curve-corner;
+        width:7.143em;
+        height:2.55em;
+        font-size:1.4em;
+      }
+
+      .btn-right-side{
+        @extend %btn-submit-curve-corner-right-side;
+        height:3.571em;
+        width:2em;
+      }
+    }
+
+    .grid{
+      background-color:#C0C9D0;
+      padding-top:0.714em;
+      padding-bottom:0.714em;
+
+      @include bp(xs){
+        font-size:0.8em;
+      }
+    }
+
+    .grid-odd{
+      @extend .grid;
+      
+    }
+
+    .grid-even{
+      @extend .grid;
+      background-color:#D3DBE1;
+    }
+
+    .grid-line{
+      background-color:#C0C9D0;
+      margin-top:0.214em;
+      margin-bottom:0.214em;
+
+      @include bp(lg){
+        overflow:hidden;
+      }
+    }
+
+    .grid-line-odd{
+      @extend .grid-line;
+    }
+
+    .grid-line-even{
+      @extend .grid-line;
+      background-color:#D3DBE1;
+
+    }
+
+    .right-border{
+      border-right:0.214em solid rgba(255,255,255,0.6);
+
+      @include bp(xs){
+        border-right-width:0em;
+      }
+    }
+
+    .text-right{
+      text-align:right;
+    }
+
+
+  }
+  //----end of account page ----
+
+  /* Utility Style */
+
+  .next-draw-line{
+    @include gen-border-radius($panel-main-border-radius);
+    @extend .gradient-blue-bg-color;
+    height:10.714em;
+    padding:0.571em;
+    //width:25em;
+
+    .title{
+      @extend .nb-font-bold;
+      color:$yellow-topbar-color;
+      font-size:1.5em;
+    }
+
+    .content{
+      color:$white-text-color;
+      font-size:2.3em;
+    }
+
+    .note{
+      font-size:1.1em;
+      color:$white-text-color;
+
+      p.important{
+        @extend .nb-font-bold;
+        display:inline-block;
+        color: $yellow-topbar-color;
+      }
+    }
+  }
+
+  .row-buffer-normal{
+    margin-top:1.429em;
+  }
+
+  .row-buffer-small{
+    margin-top:0.714em;
+  }
+
+  .plus-sign{
+    width: 1.429em;
+    height:1.429em;
+    display: inline-block;
+    margin-right:0.214em;
+  }
+
+  .plus-sign + div{
+    display: inline-block;
+    position: relative;
+    top:0.143em;
+    color:$orange-primary-color;
+  }
+
+  //new float line
+  .new-line{
+    clear: left;
+  }
+
+  //inline text
+  .inline-elem,
+  .inline-text{
+    display: inline-block;
+  }
+
+  //no padding at right side
+  .no-padding-right{
+    padding-right: 0em !important;
+  }
+
+  .no-margin-right{
+    margin-right: 0em !important;
+  }
+
+  .ini-load.spinner{
+
+    margin:200px auto;
+    width:160px;
+    height:120px;
+    font-size:14px;
+
+    &>div{
+      width:15px;
+    }
+  }
+  
+}
+
+.text-center{
+  text-align:center;
+}
+
+
+/* Input Style */
+%input-normal{
+  @include gen-border-radius(0em);    
+    background-color: $grey-form-input-bg-color;
+    border-color:$grey-form-input-bg-color;
+    margin-top:0.357em;
+    margin-bottom:0.357em;
+    padding-top:0.45em;
+}
+//----------------
+
+
+.err-msg-model-1{
+  @extend .modal-window-style;
+  
+  .btn-line{
+    @extend .submit-btn-line;
+
+    .btn-right-side{
+      float:right !important;
+    }
+
+    button{
+      @extend .btn-submit;
+      float:right !important;
+    }
+  }
+  
+}
+
+.err-msg-model-2{
+  @extend .modal-window-style;
+
+  .content-title{
+    @extend .nb-font-bold;
+    color:$blue-header-bg-color;
+    text-align:center;
+    font-size:1.1em;
+  }
+
+  .msg-line{
+    text-align:center;
+  }
+
+  .btn-line{
+    text-align:center;
+
+    button{
+      @extend .button-view;
+      width:8em;
+      padding-top:0.5em;
+      padding-bottom:0.5em;
+    }
+
+    .btn-right-side{
+      display:none !important;
+    }
+  }
+  
+}
+
+/* Breadcrumb style */
+.breadcrumb{
+  background:none;
+  padding-left:0px;
+  color: $white-text-color;
+
+  &>li a{
+    color:$white-text-color;
+  }
+
+  &>li+li:before{
+    content:"\003e";
+  }
+}
+

@@ -1,0 +1,121 @@
+<div class="container" ng-show="$root.authenticated">
+    <p>This is the logged in homepage view.</p>
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<div class="container" ng-hide="$root.authenticated">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="step">1.Pick Numbers</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-normal">Pick <b><i>Your Numbers</i></b> by typing or using the <div class="text-color-blue inline-text text-bold"><i>Number Picker</i></div> below:</div>
+                    </div>
+                    <div class="row-buffer-normal"></div>
+                    <div class="row">
+                        <div class="col-md-6 numbers-panel">
+                            <div class="col-md-6 pull-left panel-title">Your Number</div>
+                            <div class="col-md-6"></div>
+                            <form class="bet-form lotto-group-normal">
+                                <div class="col-md-12 panel-body">
+                                <fieldset ng-repeat="line in subscription.lines track by $index" class="cleared lotto-line">
+                                    <button ng-click="randomNumbers($index)" class="btn btn-success qp">QP</button>
+                                    <legend>Line {{$index + 1}}</legend>
+
+                                    <input ng-repeat="a in numbers() track by $index" type="text"
+                                           ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                           class="input-sm input-line-number"
+                                           ng-maxlength="2" ng-focus="focusNumInput($parent.$index, 'std', $index)" ng-unfocus="checkSubscription()" ng-focus="highlightLine($parent.$index)"
+                                           maxlength="2" num-change/>
+
+                                    <input type="text"
+                                           ng-model="subscription.lines[$index].bonus"
+                                           class="input-sm input-line-number bonus-ball"
+                                           ng-maxlength="2" ng-unfocus="checkSubscription()" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                           maxlength="2" num-change/>
+
+                                    <!-- <div class="star"></div> -->
+                                    <button type="button" class="close delete-line-btn" aria-hidden="true" ng-click="removeLine($index)">×</button>
+                                </fieldset>
+                                </div>
+                                <div class="row row-buffer-normal"></div>
+                                <div class="row">
+                                    <div class="row row-buffer-normal"></div>
+                                    <div class="col-md-6 pull-left add-new-line">
+                                        <a ng-click="addLine()"><div class="plus-sign">+</div>Add new line</a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="star"></div> <p>Denotes Bonus Ball</p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 balls-panel">
+                            <div class="row">
+                                <div class="col-md-6 pull-left panel-title">Number Picker</div>
+                                <div class="col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 panel-body new-line">
+                                    <numbers-grid></numbers-grid/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="step">2. Pick Draws</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-normal">Pick the <b><i>Number of Draws</i></b> you would like to enter. There are two draws each week, Wednesdays and Saturdays</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-inline num-draws draws-panel">
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <label class="col-md-2 inline-elem radio" ng-repeat="_d in drawPeriods">
+                                        <input type="radio" ng-model="subscription.numDraws" ng-value="_d"/>
+                                        {{ _d }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row total-price-panel">
+                                <div class="title">
+                                    Total {{subscription.numDraws * subscription.lines.length * 0.50 | toCurrency: { currency: 'GBP'} }}
+                                </div>
+                                <div class="content"> per month</div>
+                                <div ng-show="subscription.recurring">
+                                    (Renewed every {{subscription.numDraws | normalize: { singular: 'draw', plural: 'draws'} }} until cancelled.)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row-buffer-normal"></div>
+                    <div class="row">
+                        <div class="col-md-12">
+                             <div class="control-row">
+                                <label class="checkbox-inline text-normal">
+                                    <input type="checkbox" id="recurring" name="recurring" ng-model="subscription.recurring"> Auto renew
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" ng-click="saveSubscriptionAndRegister()" class="btn go-button">PLAY</button>
+                </div>
+                <div class="col-md-4" ui-view="rightSide"></div>
+               <!--  <pre>{{subscription}}</pre> -->
+               <button ng-click="testBall()">Test ball</button>
+               <input type="checkbox" ng-model="style"> style <br>
+               <div ng-class="['test-css']" style="width:100px; height:50px;border:1px solid red">66</div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<!-- /container -->

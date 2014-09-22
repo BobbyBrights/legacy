@@ -1,0 +1,1587 @@
+/*************************** HEADER *************************/
+body {
+	background: url('../img/android/header@2.jpg') top no-repeat, url('../img/android/background@2.jpg') bottom repeat-y;
+	background-size: 100% 45px, 100%;
+}
+/* ***** ON SCREEN WORK IN PROGRESS ***** */
+#workInProgress {
+	top: 0%;
+}
+/* Remove the orange box on input focus for Androids */
+input:focus {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	/* for 4.0.4*/
+	-webkit-user-modify: read-write-plaintext-only;
+}
+
+
+.header {
+/* 	margin-top: 18px; */
+	width: 100%;
+	box-sizing: border-box;
+	position: static;
+}
+
+.header .left {
+	margin: 10px 0 0 0px;
+}
+
+.header .right {
+	margin: 10px 0 0 0px;
+}
+
+.page:not(.no-header) .header::after {
+	border-bottom: 1px solid #D0CFCD;
+	margin: 0 -3%; /* margin: 0 -5%;*/
+	content: '';
+	display: block;
+	color: transparent;
+	height: 16px;
+	position: relative;
+	top: 7px;
+}
+/*************************** PAGE *************************/
+.page {
+	box-sizing: border-box;
+	padding-left: 3%;/*5%*/
+	padding-right: 3%;/*5%*/
+	width: auto;
+	margin-top: 19px;
+}
+
+.page.no-footer { /* no footer so no need to add bottom padding*/
+	padding-bottom: 0px;
+}
+
+.sub-page {
+	box-sizing: border-box;
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: -3%; /* -5.4% */
+	margin-right: -3%; /* -5.4% */
+	padding-left: 3%;
+	padding-right: 3%;
+	width: auto;
+}
+
+#signUpPage .spacer {
+	height: 135pt;
+}
+
+#loginPage .spacer {
+	height: 15pt;
+}
+
+.spacer {
+	display: block;
+	height: 0;
+}
+
+
+/*************************** NAVIGATION GRID *************************/
+.nav-grid {
+	overflow: hidden;
+}
+
+.nav-block {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	float: left;
+	min-height: 1px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 20%;
+}
+
+.nav-block:first-child {
+	clear: left;
+}
+
+/*************************** BOTTOM SHADOW *************************/
+#bottomShadow {
+	height: 10px;
+	width: 100%;
+	background: url('../img/shadow_bottom.png') repeat-x;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+
+/*************************** FOOTER *************************/
+
+.page-bottom-margin{
+	height: 45px; /* Same height than footer */
+}
+
+#footer {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	display: block;
+	height: 45px;
+	width: 100%;
+	min-width : 320px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	margin: 0;
+	color: white;
+	background: url('../img/nav_background.jpg') repeat center;
+	box-shadow: 0px 0px 7px black;
+	z-index: 50;
+}
+
+.fixfix {
+	visibility: hidden;
+}
+
+#footer ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	display: block;
+	border: 0;
+	max-width: 100%;
+	overflow: visible;
+	zoom: 1;
+}
+
+#footer .ui-nav {
+	display: block;
+	position: relative;
+	padding: 0;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	z-index: 10;
+}
+
+#footer .ui-nav:after {
+	background: url('../img/nav_divider.png') no-repeat center;
+	height: 100%;
+	content: '.';
+	color: transparent;
+	position: absolute;
+	right: -1px;
+	top: 0;
+	background-size: 2px 34px;
+	z-index: 11;
+}
+
+
+#footer .nav-block:last-child .ui-nav:after {
+	background: transparent none;
+}
+
+#footer .ui-nav .ui-nav-inner {
+	display: block;
+	padding: 33px 0px 5px 0px;
+	white-space: nowrap;
+}
+
+#footer .ui-nav-active {
+	background: rgba(0, 0, 0, 0.4);
+}
+
+#footer .ui-nav-icon {
+	width: 100%;
+	height: 80%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#footer .nav-icon-home {
+	background: url(../img/aio_logo_nav.png) 50% 50% no-repeat;
+	background-size: 27px;
+}
+
+#footer .nav-icon-usage {
+	background: url(../img/navigation/icon-usage.png) 50% 50% no-repeat;
+	background-size: 27px;
+}
+
+#footer .nav-icon-bills {
+	background: url(../img/navigation/icon-bills.png) 50% 50% no-repeat;
+	background-size: 27px;
+}
+
+#footer .nav-icon-plan {
+	background: url(../img/navigation/icon-plans.png) 50% 50% no-repeat;
+	background-size: 27px;
+}
+
+#footer .nav-icon-more {
+	background: url(../img/navigation/icon-more.png) 50% 50% no-repeat;
+	background-size: 27px;
+}
+
+/*************************** LOGIN *************************/
+#loginPage input[type="checkbox"] {
+	vertical-align: middle;
+	background-size: 20px;
+	background-position: center top;
+}
+
+#loginPage .form-last-line {
+	display: table;
+	width: 100%;
+	margin-top: 15pt;
+}
+
+#i18n_loginRememberMeLabel {
+	display: table-cell;
+	padding: 0;
+	padding-left: 5pt;
+	float: none;
+	position: relative;
+	top: 2px;
+	vertical-align: top;
+	line-height: 20px;
+}
+
+#loginPage .inline-button {
+	display: table-cell;
+	float: none;
+	vertical-align: middle;
+	width: 44%;
+}
+
+.intro-message {
+	margin: 5pt 0 0 0;
+}
+
+#loginSignUpMessageContainer {
+	width: auto;
+	padding: 0;
+	display: table;
+}
+
+#i18n_loginSignUpNewTo {
+	display: table-cell;
+	float: none;
+	white-space: nowrap;
+	position: relative;
+	text-align: right;
+}
+
+#i18n_loginSignUpBrand {
+	display: table-cell;
+	float: none;
+	text-align: left;
+}
+
+#i18n_loginSignUpMessage {
+	clear: none;
+	display: table-cell;
+	float: none;
+	vertical-align: middle;
+	width: 60%;
+}
+
+#resetPwdPage .spacer {
+	height: 40pt;
+}
+
+/* ***** INPUT type month ***** */
+.iOS input[type=month].notValued::after {
+	content: "Expiration date";
+	color: #AAA;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 2px;
+	height: 100%;
+	padding: 0 5pt;
+	width: 45%;
+}
+.iOS input[type=month]:not(.notValued)::after {
+	display: none;
+}
+
+/* ***** SELECTS ***** */
+body:not(.android_le) .select-label + select {
+	position: absolute!important;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 2;
+ 	opacity: 0;
+ 	-webkit-appearance: none;
+}
+
+/* ***** LISTS ***** */
+.list-container .list-header {
+	color: #960051;
+	padding: 0;
+	margin-top: 0;
+}
+
+.list-container-title {
+	clear: both;
+	color: #960051;
+}
+
+.list-container.light-background {
+	background: none;
+	margin: 0 -10px 0 -10px;
+	padding: 0 10px 25px 25px;
+}
+
+.list-container.dark-background {
+	margin: 0 -8px 0 -8px;
+	padding: 10px 8px 15px 8px;
+}
+
+.list-container.border-top {
+/* 	margin-left: -5.4%; */
+/* 	margin-right: -5.4%; */
+	margin : 0 -3%;
+	margin-top: 0;
+	margin-bottom: 0;
+/* 	padding-left: 5%; */
+/* 	padding-right: 5%; */
+	padding : 0 3%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.list-container.centered {
+	text-align: center;
+}
+
+.list-container .list-item-highlight {
+	display: block;
+	height: 18px;
+	border-bottom: 1px solid #d9d9d9;
+	padding: 0;
+	color: #33B5E5;
+}
+
+/* Items with two lines */
+.list-container .list-item.two-lines {
+	height: 32px;
+	padding: 0;
+}
+
+/* Items with three lines */
+.list-container .list-item.three-lines {
+	height: 46px;
+	padding: 0;
+}
+
+.list-container .list-item-line1 {
+	color: #222;
+}
+
+.list-container .list-item-line2,.list-container .list-item-line3 {
+	color: #777;
+}
+
+/* Items with one line that can be expanded */
+.list-container .list-item.expand {
+	cursor: pointer;
+}
+
+.list-container .list-item.expanded {
+	border-bottom: 0px none;
+	cursor: pointer;
+}
+
+.list-container .list-item.expand .value,.list-container .list-item.expanded .value {
+	float: right;
+	overflow: hidden;
+	padding-right: 7%;
+	position: relative;
+	text-align: right;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 23%;
+}
+
+.list-container .list-item.expand .value:after {
+	background: url("../img/android/icons-18-expand.png") no-repeat scroll 0px center transparent;
+	content: "";
+	display: inline;
+	height: 18px;
+	position: absolute;
+	right: 0;
+	top: -1px;
+	width: 18px;
+}
+
+.list-container .list-item.expanded .value:after {
+	background: url("../img/android/icons-18-expand.png") no-repeat scroll -18px center transparent;
+	content: "";
+	display: inline;
+	height: 18px;
+	position: absolute;
+	right: 0;
+	top: -1px;
+	width: 18px;
+}
+
+.list-container .list-item.expand-desc {
+	border-top: 0px none;
+	height: auto;
+	display: none;
+}
+
+/* ***** FORMS ***** */
+form .list-container .list-item {
+	position: relative;
+	height: auto;
+	border-bottom: 0px none;
+	padding: 0;
+	margin-bottom: 8px;
+}
+
+form .list-container .select-container {
+	margin: 0;
+	width: 90%;
+}
+
+.list-item input[type="checkbox"] {
+	width: 24px;
+	height: 16px;
+}
+
+.list-item input[type="checkbox"]+label {
+	color: #000000;
+	padding: 0;
+}
+
+/* ***** USAGE ***** */
+#usagePageContent,#usagePage .formContent {
+	padding: 12px 5px;
+	margin: 15px;
+}
+	
+/* ***** TERMS AND CONDITIONS ***** */
+
+.termsAndConditions {
+	background: white;
+	display: block;
+	border: 1px solid grey;
+	margin: 1% auto;
+	width: 98%;
+	height: 40%;
+}
+
+#payMyBillTandCPage .button {
+	margin: 0.5em auto;
+}
+
+/* ***** SUPPORT PAGES ****** */
+.chatIFrame {
+	background: white;
+	display: block;
+	border: 1px solid grey;
+	margin: 1% auto;
+	width: 70%;
+	height: 55%;
+}
+
+.chatInputIFrame {
+	background: white;
+	display: block;
+	border: 1px solid grey;
+	margin: 1% auto;
+	width: 70%;
+	height: 10%;
+}
+
+/* ***** MANAGE AUTOPAY ***** */
+#manageAutopayPage ul {
+	margin-top: 15px
+}
+
+/************************ CUSTOMER CARE CHAT OVERLAY **********************/
+#supportChatOverlayPage {
+	padding:0;
+	margin:0;
+}
+#imgOverlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 40;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-image: url(../img/paper_wood_background.png);
+	background-repeat: repeat;
+	display: none;
+}
+#headMessage img{
+	width: 100%;
+	margin-top: 3%;
+	position: absolute;
+}
+#contentMessage img{
+	width: 70%;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+}
+#supportChatOverlayPage .over-navbar{
+	z-index: 60;
+	position: relative;
+	cursor: pointer;
+	display: none;
+}
+
+/*************************************************************************************/
+/*************************** ANDROID LOW END (Android 2.3.x) *************************/
+/*************************************************************************************/
+/* Fixing layout issue on first launch (STZ#8919)*/
+.android_le #loginPage .form-last-line {
+	height: 46px;
+}
+.android_le #loginPage .form-last-line *{
+	display: table-cell;
+}
+.android_le #loginPage  input[type="checkbox"] {
+	width: 15px;
+}
+.android_le #loginPage .inline-button {
+	height: 46px;
+}
+
+/* Fixing layout issue on setup autopay screen */
+.android_le #manageAutopayCardNumberInput,
+.android_le #manageAutopayExpirationDateInput,
+.android_le #manageAutopayPostalCodeInput {
+	width: 43%;
+}
+.android_le #manageAutopaySecurityCodeInput {
+	width: 36%;
+}
+.android_le #manageAutopayPage .query{
+	margin-left: 0px;
+}
+.android_le #manageAutopayPage .select-container select {
+	height: 36px;
+}
+
+/* Fixing layout issue on usage screen */
+.android_le #usagePage .select-container {
+	right: 40px;
+}
+.android_le #usagePage .select-container .select-icon {
+	right: -25px;
+	height: 23px;
+	width: 25px;
+}
+.android_le #usagePage .select-container select {
+	height: 27px;
+}
+
+/* Fixing layout issue on service pay now screen */
+.android_le #servicesPaymentInfo {
+	width: 95%;
+}
+.android_le #servicesPaymentInfo div{
+	vertical-align: bottom;
+}
+.android_le #servicesPaymentInfo .credit-container {
+	width: 60%;
+	top: 0px;
+}
+.android_le #servicesPaymentPage .amount-container {
+	width: 40%;
+	top: 0px;
+}
+.android_le #servicesPaymentPage .amount-container  input{
+	width: 75%;
+}
+.android_le #servicesPaymentCardNumberInput,
+.android_le #servicesPaymentExpirationDateInput,
+.android_le #servicesPaymentPostalCodeInput {
+	width: 43%;
+}
+.android_le #servicesPaymentSecurityCodeInput {
+	width: 36%;
+}
+.android_le #servicesPaymentPage .query{
+	margin-left: 0px;
+}
+.android_le #servicesPaymentPage .select-container {
+	width: 100%;
+}
+.android_le #servicesPaymentPage .select-container.month,
+.android_le #servicesPaymentPage .select-container.year {
+	width: 45%;
+}
+.android_le #servicesPaymentPage .select-container select {
+	height: 36px;
+}
+.android_le #servicesPaymentPage .select-container .select-icon {
+	right: 0px;
+}
+
+/* Fixing layout issue on pay now screen */
+.android_le #payMyBillPage fieldset div:first-child  div{
+	vertical-align: bottom;
+}
+.android_le #payMyBillPage fieldset div:first-child .credit-container {
+	width: 60%;
+	top: 0px;
+}
+.android_le #payMyBillPage .amount-container {
+	width: 40%;
+	top: 0px;
+}
+.android_le #payMyBillPage .amount-container  input{
+	width: 75%;
+}
+.android_le input {
+	width: 95%;
+}
+.android_le #i18n_payMyBillCardNumberInput,
+.android_le #i18n_payMyBillExpirationDateInput,
+.android_le #i18n_payMyBillPostalCodeInput {
+	width: 43%;
+}
+.android_le #i18n_payMyBillSecurityCodeInput {
+	width: 36%;
+}
+.android_le #payMyBillPage .select-container select {
+	height: 36px;
+}
+
+/* Fixing layout issue on pay now review screen */
+.android_le #payMyBillReviewPage fieldset div:first-child div{
+	vertical-align: bottom;
+}
+.android_le #payMyBillReviewPage fieldset div:first-child .credit-container {
+	width: 60%;
+	top: 0px;
+}
+.android_le #payMyBillReviewPage .amount-container {
+	top: 0px;
+	width: 40%;
+}
+.android_le #payMyBillReviewPage .amount-container input{
+	width: 75%;
+}
+
+/* Fixing layout issue on more screen */
+.android_le #morePage .table-cell {
+	border-radius: 14px;
+}
+
+/* Fixing layout issue on edit profile screen */
+.android_le #editProfilePage .list-container .list-item:first-child div input,
+.android_le #i18n_postalCode,
+.android_le #editProfilePage .last-item div select {
+	width: 90%;
+}
+.android_le #editProfilePage select {
+	height: 36px;
+	padding: 3px 5pt 0;
+}
+.android_le #editProfilePage .list-item.last-item div .select-container,
+.android_le #editProfilePage .list-item.last-item div .select-icon {
+	display: block;
+}
+
+/* Fixing layout issue on chat screen */
+.android_le #chatHeaderLine h3 {
+	width: 53%;
+}
+.android_le #i18n_chatInput {
+	width: 70%;
+}
+.android_le #chatContent {
+	height: auto;
+	overflow: auto;
+}
+
+/* Fixing layout issues on header */
+.android_le .header .x-small {
+	line-height: 130%;
+}
+
+/* Fixing layout issues on back buttons */
+.android_le .back-button {
+	padding-top: 5px;
+}
+
+/* Fixing layout issues on points separators */
+.android_le .title .point-separator {
+	background-position: 0 20px;
+}
+.android_le #servicesReviewPage .title .point-separator {
+	background-position: 0 15px;
+}
+.android_le .small .point-separator {
+	background-position: 0 6px!important;
+}
+
+/* Hide CATO specific blocks */
+.android_le .select-label {
+	display: none!important;
+}
+
+
+
+/*************************** MAX 360PX (include all iphones) *************************/
+@media screen and (max-width: 359px) {
+	h1 {
+		margin: 0 0px 10px 0px;
+	}
+	h2 {
+		margin: 0;
+	}
+	.header {
+		height: 33px;
+	}
+	.button, .button-left, .button-right {
+		height: 34px;
+	}
+	input {
+		height: 32px;
+	}
+	#i18n_loginForgotPwdBtn {
+		padding-top: 10px;
+		margin: 5pt 15pt 0 15pt;
+	}
+	.inline-button, .large-button {
+		height: 32px;
+	}
+	#loginPage .inline-button {
+		height: 34px;
+	}
+	#loginPage .large-button {
+		margin-top: 27px;
+	}
+	#i18n_loginSignUpNewTo {
+		top: -9px;
+	}
+	#i18n_loginSignUpMessage {
+		padding-left: 8px;
+	}
+	#loginPage .spacer {
+		height: 15px;
+	}
+	#signUpPage .spacer {
+		height: 119pt;
+	}
+	#resetPwdPage .spacer {
+		height: 41pt;
+	}
+	#homePage .hi {
+		padding-bottom: 6px;
+	}
+	.list-container {
+		margin-top: 15px;
+	}
+	.intro-message {
+		margin-top: 18px;
+	}
+	#editProfilePage .list-container .list-item {
+		height: 30px;
+	}
+}
+
+/*************************** WIDE 320PX (should match iphone 5) *************************/
+@media screen and (max-width: 320px) and (min-height: 481px) {
+}
+
+/*************************** Android probably 480xXXX that lies with 320PX  *************************/
+@media screen and (max-width: 320px) and (-webkit-min-device-pixel-ratio: 1.3) and (-webkit-max-device-pixel-ratio: 1.6) {
+}
+
+/*************************** MIN 360PX *************************/
+/*************************** GALAXY S3 *************************/
+@media screen and (min-width: 360px) and (max-width: 749px) {
+	#resetPwdPage .spacer {
+		height: 157pt;
+	}
+	#lockedPage .spacer {
+		height: 133pt;
+	}
+	h2 {
+		margin: 0;
+		margin-bottom: 16px;
+	}
+	.header {
+		margin-top: 0px;
+		height: 50px;
+	}
+	#loginSignUpMessageContainer {
+		display: block;
+	}
+	#i18n_loginSignUpNewTo {
+		display: inline-block;
+		width: 45%;
+		margin-right: 5px;
+		top: -8px;
+		padding: 0;
+	}
+	#i18n_loginSignUpBrand {
+		display: inline-block;
+		width: 45%;
+		margin-left: 5px;
+	}
+	#i18n_loginSignUpMessage {
+		display: block;
+		width: 60%;
+		margin: 0 auto;
+		text-align: center;
+		margin-bottom: 13px;
+	}
+	.header .left,.header .right {
+		margin-top: 20px;
+		font-weight: normal;
+	}
+	.header .x-small {
+		font-size: 12px;
+	}
+	.page:not(.no-header) .header::after {
+		top: 22px;
+	}
+
+	/* HOME PAGE*/
+	.help {
+		height: 34px;
+	}
+	#homePage .days-left-container div:first-child {
+		height: 58px;
+	}
+	#homePage .days-left-container {
+		padding-right: 16px;
+	}
+	#homePage .credit-container {
+		margin-bottom: 15px;
+	}
+	#homePage .refuel-text-container {
+		padding-left: 19px;
+	}
+	
+	/*Manage */
+	.page .extended,
+	.page .reduced {
+		background-size: 17px; /* background-size: 12px; */
+		background-position: 0px 10px; /* background-position: 3px; */
+	}
+	.list-container.dark-background {
+		margin: 0 -12px 0 -12px;
+		padding: 25px 12px 25px 12px;
+	}
+	.one-bar, .plus-minus-bar{
+		bottom: -5px; /* bottom: 0px; */
+	}
+	.one-bar{
+		width: 35px;
+	}
+	.plus-minus-bar{
+		width: 70px;
+	}
+	.ui-plus, .ui-minus {
+		background-size: 28px 28px;
+	}
+	.ui-shop-icon {
+		width: 35px;
+		height: 28px;
+	}
+	#myPlanPage .title.pointfill {
+		height: 28px;
+	}
+	
+	/* More Page */
+	#morePage .table-cell {
+		width: 100px;
+		height: 82px;
+	}
+	.more-page-list {
+		width: 255px;
+	}
+}
+
+/*************************** MAX 720PX *************************/
+@media screen and (min-width: 361px) and (max-width: 720px) {
+	h1 {
+		margin: 0 0px 10px 0px;
+	}
+	#header {
+		height: 39px;
+	}
+	#header:before {
+		bottom: 1px;
+	}
+	#header:after {
+		bottom: 1px;
+	}
+	.page { 
+		/* Add a bottom padding of the size of the footer*/
+		/* padding-bottom: 235pt; Replace by an empty div */
+		margin: 0 auto;
+		/*because The header is also translated*/
+		margin-top: 9px;
+	}
+	#loginSignUpMessageContainer {
+		width: auto;
+		padding: 0;
+		display: table;
+		margin-left: 15pt;
+		margin-right: 15pt;
+	}
+
+	/*************************** FONT SIZE *************************/
+	.button, 
+	.large-button, 
+	.inline-button, 
+	.button-left, 
+	.button-right, 
+	.plum-button, 
+	.blue-button, 
+	.grey-button, 
+	.dark-grey-button {
+		height: 46px;
+		line-height: 46px;
+	}
+}
+
+/*************************** MIN 750 (ipad 768, roseta 800) *************************/
+@media screen and (min-width: 750px) {
+	body {
+		background: url('../img/android/header@4.jpg') top no-repeat, url('../img/android/background@4.jpg') bottom repeat-y;
+		background-size: 100% 45px, 100%;
+	}
+	h2 {
+		margin: 0;
+	}
+	/* LOADING */
+	.blockui_box {
+		text-indent: 35px;
+		background-size: 30px;
+		background-position-x: 10px;
+	}
+	/* DATE PICKER */
+	.dwbg .dwb{
+		height: 60px;
+	}
+	.dwbc {
+		padding: 15px 0;
+	}
+	/* GENERAL */
+	.page {
+		padding-left: 15%;
+		padding-right: 15%;
+		width: auto;
+		margin-top: 25px;
+	}
+	.sub-page {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-left: 21.2%;
+		padding-right: 21.2%;
+		width: auto;
+		background-size: 25%;
+	}
+	.list-container.medium-background {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-left: 21.2%;
+		padding-right: 21.2%;
+		width: auto;
+		background-size: 25%;
+	}
+	.intro-message {
+		margin: 8pt 0 0 0;
+	}
+	.button-bar {
+		margin-top: 35px !important;
+	}
+	.button {
+		padding-top: 5px;
+		height: 60px;
+	}
+	.large-button {
+		padding-top: 5px;
+		height: 60px;
+	}
+	.inline-button {
+		padding-top: 5px;
+		height: 60px;
+	}
+	.help {
+		height: 44px;
+		padding-top: 5px;
+	}
+	.back-button {
+		background-position-y: 25%;
+	}
+	input, select, .select-label {
+		height: 60px !important;
+	}
+	input[type="checkbox"] {
+		background-size: 25px !important;
+		width: 25px !important;
+	}
+	form .list-container .list-item {margin-top:35px;}
+	.header {
+/* 		margin-top: 0px; */
+		height: 60px;
+	}
+	.page:not(.no-header ) .header::after {
+		margin: 0 -21.2%;
+		height: 40px;
+		border-bottom: 2px solid #D0CFCD;
+		z-index: 10;
+	}
+	.header + .spacer {
+		height: 30px;
+	}
+	.page-bottom-margin {
+		height: 75px;
+	}
+	#footer {
+		height: 75px;
+	}
+	#footer .ui-nav .ui-nav-inner {
+		padding: 55px 0px 5px 0px;
+	}
+	#footer .nav-icon-home {
+		background-size: 47px;
+	}
+	#footer .nav-icon-usage {
+		background-size: 47px;
+	}
+	#footer .nav-icon-bills {
+		background-size: 47px;
+	}
+	#footer .nav-icon-plan {
+		background-size: 47px;
+	}
+	#footer .nav-icon-more {
+		background-size: 47px;
+	}
+	#bottomShadow{bottom:-1px;}
+	
+	/* LOGIN */
+	#loginForm {
+		margin: 0 auto;
+	}
+	#loginPage .form-last-line {margin-top:35px;height: 60px;}
+	#i18n_loginRememberMeLabel{padding:0;}
+	#i18n_loginBtn {
+		margin: 40pt auto 0;
+	}
+	#i18n_loginForgotPwdBtn {
+		margin: 40pt auto 0;
+	}
+	#loginPage .spacer {
+		height: 60pt;
+	}
+	#loginMainLogo {
+		height: 55px;
+	}
+	#loginSignUpMessageContainer {
+		margin: 0 auto;
+	}
+	#loginPage .inline-error {
+		margin: 15px auto 0;
+	}
+	/* HOME PAGE */
+	#homePage .spacer {
+		height: 40px;
+	}
+	#homeMainLogo {
+		height: 47px;
+	}
+	#homeMaxLogo {
+		height: 55px;
+	}
+	#i18n_homeLogOutButton {
+		padding-top: 13px;
+	}
+	#homePage .hi {
+		padding-top: 45px;
+		padding-bottom: 30px;
+	}
+	#homePage .days-left-container div:first-child {
+		height: 85px;
+	}
+	#i18n_daysLeft {
+		margin-top: -3pt;
+	}
+	#homePage .refuel-text-container{
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	#homePage .credit-container{
+		margin: 50px 0 0 0;
+	}
+	#homePage .refuel-button-container{
+		margin: 50px 0 0 0;
+	}
+	/* USAGE */
+	#usagePage h4 {
+		margin-top: 24px;
+	}
+	#usagePage h5 {
+		margin: 15px 0 5px 0;
+	}
+	#usagePage .description {
+		margin-bottom: 15px;
+	}
+	#usagePage .reducedBar .progress {
+		height: 40px;
+	}
+	#usagePage .reducedBar .rightBar .progress {
+		width: 40px;
+	}
+	#usagePage .reducedBar .progress>span {
+		height: 40px;
+	}
+	#usagePage .reducedBar .progress>span:before {
+		height: 40px;
+	}
+	#usagePage .progress {
+		height: 32px;
+	}
+	#usagePage .progress>span {
+		height: 32px;
+	}
+	#usagePage .progress>span:before {
+		height: 32px;
+	}
+	#usagePageForm {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-left: 21.2%;
+		padding-right: 10%;
+		text-align: left;
+		height: 60px;
+		margin-top: 30px;
+	}
+	#usagePage fieldset {
+		padding-top: 7px;
+	}
+	#usagePageForm label {
+		margin: 10px 4px!important;
+	}
+	#i18n_usageDetailsToLabel {
+		margin-left: 20px;
+	}
+	#usagePage .select-container {
+		right: 65px;
+		top: 8px;
+	}
+	#usagePage .select-container .select-icon {
+		right: -50px;
+		height: 45px;
+		width: 50px;
+	}
+	#usagePage .select-container select,
+	#usagePage .select-container .select-label {
+		height: 45px!important;
+	}
+	#usagePage table {
+		width: 142.4%;
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+	}
+	#usagePage table tr {
+		height: 50px;
+	}
+	#usagePage table tr td:nth-child(1) {
+		width: 20%;
+		padding-left: 25%;
+	}
+	#usagePage table tr td:nth-child(2) {
+		width: 25%;
+		padding-left: 5%;
+	}
+	#usagePage table tr td:nth-child(3) {
+		padding-right: 15%;
+	}
+	#usagePage table td {
+		background-size: 36px;
+		background-position: 75% center;
+		vertical-align: middle;
+		padding-top: 10px;
+	}
+	#usagePage table td.centered {
+		padding: 5%!important
+	}
+	#usagePage table td.loading img {
+		height: 32px
+	}
+	/* PAYMENT */
+	#payMyBillPage .history {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-right: 21.2%;
+	}
+	#payMyBillPage fieldset div:first-child .credit-container {
+		top: 53px;
+	}
+	#payMyBillReviewPage fieldset div:first-child .credit-container {
+		top: 47px;
+	}
+	#payMyBillPage .dollar,
+	#i18n_payMyBillReviewAmountInput,
+	#servicesPaymentPage .dollar {
+		background-position: 3px;
+		background-size: 18px;
+	}
+	#payMyBillPage .sub-page.list-container {
+		margin-top: 20px;
+	}
+	form .list-container .select-container {
+		width: 100%
+	}
+	#payMyBillPage .select-container .select-icon,
+	#manageAutopayPage .select-container .ui-icon,
+	#servicesPaymentPage .select-container .select-icon,
+	#multilinePage .select-container .select-icon {
+		height: 60px;
+		background-size: 60px;
+		width: 54px;
+		background-position: center;
+		top: 0px;
+		right: 0px;
+	}
+	#payMyBillPage .query,
+	#manageAutopayPage .query,
+	#servicesPaymentPage .query {
+		background-size: 28px;
+		width: 28px;
+		height: 28px;
+		margin-top: 17px;
+	}
+	#i18n_payMyBillTermsInput {
+		margin: 21px 3px 0 10px!important;
+	}
+	#i18n_payMyBillAutoPayInput {
+		position: relative;
+		top: 5px;
+	}
+	#manageAutopaySecurityCodeInput,
+	#servicesPaymentSecurityCodeInput {
+		width: 43%;
+	}
+	#transactionsHistoryPage table {
+		width: 142.4%;
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+	}
+	#transactionsHistoryPage thead tr {
+		height: 60px;
+		padding-top: 5px;
+	}
+	#transactionsHistoryPage tbody tr {
+		height: 30px;
+	}
+	.transactions-history-date {
+		padding-top: 6px;
+		padding-left: 15%;
+		width: 30%;
+	}
+	.transactions-history-amount {
+		padding-top: 6px;
+	}
+	.transactions-history-balance {
+		width: 35%;
+		padding-top: 6px;
+		padding-right: 15%;
+	}
+	.transactions-history-description {
+		padding-top: 6px;
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+	/* PLAN AND SERVICES */
+	div.medium-background {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-left: 21.2%;
+		padding-right: 21.2%;
+		padding-top: 0;
+		padding-bottom: 10px;
+	}
+	div.list-container.medium-background {
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+		padding-left: 21.2%;
+		padding-right: 21.2%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	#manageServicesPage .list-container {
+		margin: 0 -21.2%;
+		padding: 10px 21.2%;
+	}
+	#myPlanPage .list-content > div,
+	#manageServicesPage .list-container > div{
+		margin-top: 10px;
+	}
+	.title .plan-name,
+	#manageServicesConfirmationPage .plan-name {
+		max-width: 350px;
+	}
+	#servicesReviewRemovedContainer,
+	#deleteOneServiceConfirmationRecContainer {
+		margin-top: 25pt;
+	}
+	#myPlanPage .medium-background.no-border-top{
+		border-top: none;
+		margin-left: -20%;
+		margin-right: -20%;
+		/*padding-left: 21.2%;
+		padding-right: 21.2%;*/
+	}
+	#myPlanServicesContainer .page-subtitle,
+	#myPlanServicesContainer > .list-container > .plan-desc,
+	#myPlanServicesContainer .wp-button-container,
+	#myPlanServicesContainer .list-content {
+    	padding: 0 13%;
+	}
+	#myPlanPage .title.pointfill{
+		height: 35px;
+	}
+	.page .extended,
+	.page .reduced {
+		/*background-size: 13px;
+		background-position: 3px 25%;*/
+		background-size: 17px;
+		background-position: 0px 10px;
+	}
+	.page .extended {
+		background-image: url("../img/my_plan_down_arrow_large.png");
+	}
+	.page .reduced {
+		background-image: url("../img/my_plan_arrow_large.png");
+	}
+	.one-bar{
+		bottom:-3px;
+		width:40px;
+		margin-left: 10px;
+	}
+	.plus-minus-bar{
+		width:80px;
+		bottom:-3px; /* bottom:4px; */
+	}
+	.ui-shop-icon{
+		height: 35px; /* height: 25px; */
+		width: 38px;
+	}
+	.ui-minus{
+		background: transparent url("../img/icon_minus@2_large.png") no-repeat center;
+		background-size: 35px;
+	}
+	.ui-plus{
+		background: transparent url("../img/icon_plus@2_large.png") no-repeat center;
+		background-size: 35px;
+	}
+	
+	#manageServicesConfirmationPage .point-separator,
+	.title .point-separator {
+		background-size: 10px 2px;
+		background-position-y: 32px; /* background-position-y: 70%; */
+	}
+	/* MORE */
+	.more-page-grid-table {
+		margin: 45px auto;
+	}
+	#morePage .cell-spacer {
+		width: 50px;
+		height: 50px;
+	}
+	#morePage .table-cell {
+		width: 200px;
+		height: 164px;
+	}
+	.more-page-cell-icon {
+		width: 60%;
+		padding-bottom: 10% !important;
+	}
+	#myProfilePage .profile-line-separator {
+		position: relative;
+		width: 142%;
+		left: -18%;
+	}
+	#versionNumber{
+		margin-left: -21.2%;
+		margin-right: -21.2%;
+	}
+	#editProfilePage .list-container .list-item {
+		height: 85px;
+	}
+	#editProfilePage .list-container .list-item:first-child div,
+	#editProfilePage .list-container .last-item div {
+		display: inline-block;
+	}
+	#editProfilePage .list-container .list-item:first-child > div,
+	#editProfilePage .list-container .last-item > div {
+		width: 48%;
+	}
+	#editProfilePage .list-container .last-item .select-container,
+	#i18n_state {
+		width: 100%;
+	}
+	#editProfilePage .list-container .list-item:first-child div:first-child,
+	#editProfilePage .list-container .last-item div:first-child {
+		padding-right: 2%;
+	}
+	#editProfilePage .select-container .select-icon {
+		height: 60px;
+		background-size: 60px;
+		width: 54px;
+		background-position: center;
+		top: 0px;
+		right: 0px;
+	}
+	/* Chat Page */
+	#chatHeaderLine h3 {
+		height: 35px !important;
+	}
+	#i18n_chatEndButton {
+		height: 35px !important;
+ 		line-height: 35px !important;
+	}
+
+	/*************************** FONT SIZE *************************/
+	.button, 
+	.large-button, 
+	.inline-button, 
+	.button-left, 
+	.button-right, 
+	.plum-button, 
+	.blue-button, 
+	.grey-button, 
+	.dark-grey-button {
+		font-size: 25px;
+		line-height: 56px;
+	}
+	.back-button {
+		font-size: 19px;
+	}
+	.checkbox-label {
+		font-size: 21px;
+	}
+	.input-label {
+		font-size: 21px;
+	}
+	.link {
+		font-size: 21px;
+	}
+	.page-subtitle {
+		font-size: 24px;
+	}
+	.page-title {
+		font-size: 32px;
+	}
+	.page-title.large {
+		font-size: 56px;
+	}
+	.page-title.largest {
+		font-size: 47px;
+	}
+	.select-label {
+		line-height: 54px;
+	}
+	.select-label.small {
+		line-height: 42px;
+	}
+	input, select, .select-label {
+		font-size: 21px;
+	}
+	.iOS input[type=month].notValued::after {
+		line-height: 56px;
+	}
+	#footer .ui-nav {
+		font-size: 16px;
+	}
+	.xx-small {
+		font-size: 8px;
+	}
+	.x-small {
+		font-size: 15px;
+	}
+	.small {
+		font-size: 20px;
+	}
+	.medium {
+		font-size: 19px;
+	}
+	.large {
+		font-size: 20px;
+	}
+	.x-large {
+		font-size: 22px;
+	}
+	.xx-large {
+		font-size: 23px;
+	}
+	.xxx-large {
+		font-size: 18px;
+	}
+	.header .x-small {
+		font-size: 19px;
+	}
+	/*************************** HOME PAGE FONT SIZE *************************/
+	.hi {
+		font-size: 39px;
+	}
+	#daysLeft {
+		font-size: 85px;
+	}
+	#i18n_daysLeft {
+		font-size: 25px;
+	}
+	#refuelDate {
+		font-size: 32px;
+	}
+	#i18n_homeWhyNot {
+		font-size: 35px;
+	}
+	#homeAutoPay {
+		font-size: 40px;
+	}
+	#homeTitle {
+		font-size: 25px;
+	}
+	#i18n_homeNeedHelpButton {
+		font-size: 25px;
+		line-height: 42px;
+	}
+	#homePage .two-column-grid .large {
+		font-size: 23px;
+	}
+	#homePage .refuel-text-container .medium {
+		font-size: 21px;
+	}
+	/*************************** CHAT FONT SIZE *************************/
+	#i18n_chatSendButton {
+		font-size: 13px;
+		line-height: 34px;
+	}
+	#i18n_chatInput {
+		font-size: 13px;
+	}
+	/*************************** ZALERT FONT SIZE *************************/
+	.zalert-header {
+		font-size: 30px;
+	}
+}
+
+
+/*************************** RATIO *************************/
+@media screen and (min-width: 360px) and (-webkit-min-device-pixel-ratio: 2) {
+	.page .extended {
+		background-image: url("../img/my_plan_down_arrow_large.png");
+	}
+	.page .reduced {
+		background-image: url("../img/my_plan_arrow_large.png");
+	}
+	/*#payMyBillPage .query{
+		background-image: url(../img/query_large.png);
+	}*/
+}

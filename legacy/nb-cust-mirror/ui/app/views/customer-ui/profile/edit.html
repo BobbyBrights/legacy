@@ -1,0 +1,12 @@
+<div ng-controller="ProfileCtrl">
+    <div class="row">
+        <div class="col-md-10">
+            <h1 class="page-header">My Profile <a href="/profile/edit" class="btn btn-primary pull-right">Edit profile</a> </h1>
+        </div>
+        <div class="col-md-2" ng-show="searchable">
+            <form class="navbar-form navbar-right" ng-controller="SearchCtrl">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+</div>

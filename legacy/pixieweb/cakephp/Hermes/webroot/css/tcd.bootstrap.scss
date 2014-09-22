@@ -1,0 +1,65 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import "font-awesome/scss/font-awesome";
+@import url('http://fonts.googleapis.com/css?family=Montserrat+Alternates');
+
+body {
+	
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+#flashMessage {
+	@extend .alert;
+}
+
+#search_form {
+	padding-left: 15px; padding-top: 15px; 
+}
+
+.ticket-info {
+	.span6 {
+		margin-left: 0;
+		dl {
+			width: 100%;
+			dt, dd {
+				float: left; margin: 0; line-height: 30px;
+			}
+			dt {
+				width: 20%; 
+			}
+			dd {
+				width: 80%; 
+			}
+		}
+	}
+}
+
+h2.underlined {
+	border-bottom: 1px solid #999;
+}
+
+.label-hermes-1 {
+	@extend .label-info;	
+}
+
+h1,h2,h3,h4,h5,h6 { font-family: 'Montserrat Alternates', sans-serif; letter-spacing: -2px; }
+.with-margin-top { margin-top: 10px; }
+input, select, textarea { width: 100%; }
+
+/* Responsive breakpoints */
+@media (max-width: 980px) {
+	/* Enable use of floated navbar text */
+	.navbar-text.pull-right {
+	  float: none;
+	  padding-left: 5px;
+	  padding-right: 5px;
+	}
+	
+	body {
+		padding-top: 0px;
+	}
+}

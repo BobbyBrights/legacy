@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>
+				Your Lines
+			</h2>
+			<div class="row" ng-show="showNumGrid">
+				<div class="col-md-12">
+					<p>You can add new lines and remove existing lines</p>
+				</div>
+			</div>
+			<div class="row balls-edit">
+				<div class="col-md-6">
+					<loading-spinner hide="subscription.finishLoad === true"></loading-spinner>
+					<form class="bet-form">
+						<fieldset class="lotto-group-normal">	
+							<lottery-number-edit-objs2 ng-repeat="oneline in subscription.lines track by $index" showlinebg="true"></lottery-number-edit-objs2>
+						</fieldset>
+					</form>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-5 pull-left add-new-line"><a ng-click="addLine()"><div class="plus-sign">+</div>Add Line</div></a>
+						<div class="col-md-6" ng-show="showNumGrid">
+							<div class="star"></div> <p>Denotes Bonus Ball</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6" ng-show="showNumGrid">
+					<numbers-grid />
+				</div>
+			</div>
+			<h2>
+			Pick the Number of Draws to Enter
+			</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+						<p class="text-comment">Select the number of draws,there are two every week, Wednesdays & Saturdays</p>
+						</div>
+					</div>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-inline num-draws">
+								<label class="radio inline" ng-repeat="_d in drawPeriods">
+									<input type="radio" class="draw-picker" ng-model="subscription.numDraws" ng-value="_d">
+									{{ _d | normalize: { singular: 'draw', plural: 'draws' } }}
+								</label>
+								<div class="control-row">
+									<label class="checkbox-inline">
+										<input type="checkbox" id="recurring" name="recurring" ng-model="subscription.recurring" ng-checked="subscription.recurring"> Auto-renew{{subscription.recurring}}
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<small class="text-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Total: {{subscription.numDraws * subscription.lines.length * 0.50 | toCurrency: { currency: 'GBP' } }}</h2>
+					<span ng-show="subscription.recurring">
+						(Renewed every {{subscription.numDraws | normalize: { singular: 'draw', plural: 'draws' } }} until cancelled.)
+					</span>
+				</div>
+			</div>
+			<button type="button" ng-click="" class="btn orange-primary-btn primary-btn-text">Save</button>
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+				<!-- <pre>{{subscription.lines}}</pre> -->
+				<div ui-view="rightSide">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,146 @@
+//import the bootstrap-sass file so the bootsrap variables can be used
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+@import 'variables';
+@import 'fonts';
+@import 'buttons';
+//@import 'main';
+//@import '../bower_components/sass-bootstrap-compass/sass/sass-bootstrap';
+//@import '../bower_components/bootstrap/dist/css/bootstrap.min.css';
+//iframe#add_payment_card{
+	//width: 100%;
+	//min-height:550px;
+
+	%nb-col-xs-12{
+		//@extend .col-xs-12;
+		width:100%
+	}
+
+	body{
+		background:$grey-form-bg-color;
+
+		form{
+
+			.inline_error{
+				@extend .has-error;
+				@extend .alert;
+				@extend .alert-danger;
+				padding: 5px 15px;
+				margin-bottom:5px;
+			}
+
+			div.overlay_wrapper{
+				@extend .row;
+				@extend .col-lg-12;
+				margin-left:0px;
+				margin-right:0px;
+				padding-left:0px;
+				padding-right:0px;
+			}
+
+			& div.column{
+				//width:100%;
+				//@extend .form-horizontal, .form-group;
+				@extend .col-lg-6;
+				@extend .col-xs-6;
+
+				@media(max-width:660px){
+					width:100%;
+				}
+				//@extend .col-xs-12;
+
+				.line-gap{
+					margin-bottom:15px;
+				}
+
+				& label{
+					@extend label;
+					
+					@extend .col-lg-12;
+					@extend .col-md-12;
+					@extend .col-xs-12;
+					@extend .line-gap;
+
+					font-size:14px;
+					text-align:left;
+					color:inherit;
+					padding-left:0px;
+					margin-top:5px;
+					margin-bottom:5px;
+					font-weight:normal;
+					color:$blue-header-bg-dark-color;
+				}
+
+				select,
+				input
+				{
+					@extend .form-control;
+					margin-bottom:5px;
+					background-color:$grey-form-input-bg-color;
+					@include border-left-radius(0px);
+        			@include border-right-radius(0px);
+
+				}
+
+				/* select.registration_input,
+				input.registration_input,
+				input.registration_input2
+				{
+					@extend .col-lg-12;
+					@extend .col-md-12;
+					@extend .col-xs-12;
+					@extend .line-gap;
+					margin-bottom:5px;
+				} */
+			}
+
+			.submit-btn:after{
+				content:'test';
+			}
+
+			.button_bar{
+				@extend .col-lg-12;
+				margin-top:10px;
+
+				$button-height:50px;
+				$button-margin-top:5px;
+
+				#deposit_button{
+ 					@extend .pull-right;
+					@extend .btn;
+					@extend .nb-font-bold;
+			        @include border-top-radius(30px);
+			        @include border-right-radius(0px);
+
+			        background-color:$yellow-topbar-color;
+			        border-width:0px;
+			        width:140px;
+			        height:$button-height;
+			        font-size:1.4em;
+			        font-weight:bold;
+			        color: $black-text-color;
+			        margin-top:$button-margin-top;
+			        padding-top:10px;
+   
+				}
+
+				.deposit-button::after{
+
+		        	@include border-right-radius(5px);
+		        	position:absolute;
+		        	content:'test';
+			        height:50px;
+			        width:28px;
+			        display:inline-block;
+			        margin-top:5px;
+			        border-left:1px solid rgba(0,0,0,0.1);
+			        background-color:$yellow-topbar-color;
+		        }
+			
+			}
+
+			
+
+		}
+	}
+
+//}

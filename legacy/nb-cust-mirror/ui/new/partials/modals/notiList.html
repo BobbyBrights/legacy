@@ -1,0 +1,23 @@
+<!-- Modals -->
+<div class="modal-header">
+    All Notifications
+        <a class="close-btn pull-right" ng-click="close()">X</a>
+</div>
+<div class="modal-body">
+    <div class="row" ng-repeat="noti in notiArray track by $index" ng-class="{'grid-odd':$index%2==0, 'grid-even':$index%2==1}" ng-click="showNotiDetail($index)">
+        <div class="col-lg-1 col-xs-1" ng-class="{'noti-icon-winner': 'prize' === noti.category, 'noti-icon-normal': 'prize' !== noti.category}">
+            <div class="icon-block">
+            <img ng-src="{{noti.category === 'prize' ? 'assets/images/trophy.svg' : 'assets/images/notification.svg'}}" />
+            </div>
+        </div>
+        <div class="col-lg-11 col-xs-11 content-body">
+            <div class="row">
+                <div class="col-lg-10 title">{{noti.title}}</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10">{{noti.body}}</div>
+                <div class="col-lg-2">{{noti.time}}</div>
+            </div>
+        </div>
+    </div>
+</div>

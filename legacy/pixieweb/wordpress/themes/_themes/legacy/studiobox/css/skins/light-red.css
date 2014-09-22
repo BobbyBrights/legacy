@@ -1,0 +1,19 @@
+/*
+Theme Name: Studio Box Wordpress Theme
+Light - Red Skin
+
+*/
+
+#mainpagecontainer{ background: #fff url(../../images/skins/light-red/main-bg.png) repeat-x top;}
+#pagecontainer{ background: #fff url(../../images/skins/light-red/other-bg.png) repeat-x top;}
+#footerwrap {background: #000 url(../../images/skins/light-red/footer-bg.png) repeat-x bottom;}
+#footerbarwrap {background:#0E0403;}
+		
+.ddsmoothmenu ul ul {border-color:#5C1F1F;}
+.sidebartitle { color:#5C1F1F; }
+
+
+
+	#contents .readmorebutton a {
+		background-color: #5C1F1F;
+		}

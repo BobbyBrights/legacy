@@ -1,0 +1,51 @@
+@import url(../bower_components/bootstrap/dist/css/bootstrap.css);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+$about-section-bg-color:    #F90;
+$work-section-bg-color:    #494;
+
+$footer-color:          #D4D4D4;
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 50px;
+
+  .main {
+    padding: 40px 15px;
+    text-align: center;
+  }
+
+  // Sections
+  section {
+    min-height: 20em; padding: 4em 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    background: no-repeat center center fixed;
+  }
+
+  #home {
+    height: 30em;
+    // background-color: $section-1-bg-color;
+    background-image: url("../images/home-background-bicycle.jpg");
+  }
+
+  #about {
+    height: 30em;
+    background-color: $about-section-bg-color;
+  }
+
+  #work {
+    height: 30em;
+    background-color: $work-section-bg-color;
+  }
+
+
+  footer {
+    padding: 14px 0; border-top: 1px solid #CCC; background-color: $footer-color;
+  }
+
+
+}
+

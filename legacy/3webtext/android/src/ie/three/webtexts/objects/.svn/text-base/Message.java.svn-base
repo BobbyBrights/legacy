@@ -1,0 +1,59 @@
+package ie.three.webtexts.objects;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Message implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2566397077945365694L;
+	
+	public String messageText;
+	public ArrayList<String> messageRecipients;
+	public Date scheduledDate;
+	
+	public Message(){
+		
+	}
+	
+	public Message(ArrayList<String> r, String m, Date d){
+		this.messageRecipients = r;
+		this.messageText = m;
+		this.scheduledDate = d;
+	}
+	// For immediate sending
+	public Message(ArrayList<String> r, String m){
+		this.messageRecipients = r;
+		this.messageText = m;
+	}
+
+	public String getMessageText() {
+		return messageText;
+	}
+
+	public void setMessageText(String messageText) {
+		this.messageText = messageText;
+	}
+
+	public ArrayList<String> getMessageRecipients() {
+		return messageRecipients;
+	}
+
+	public void setMessageRecipients(ArrayList<String> messageRecipients) {
+		this.messageRecipients = messageRecipients;
+	}
+
+	public Date getScheduledDate() {
+		return scheduledDate;
+	}
+
+	public void setScheduledDate(Date scheduledDate) {
+		this.scheduledDate = scheduledDate;
+	}
+	
+	
+	
+}

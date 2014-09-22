@@ -1,0 +1,52 @@
+<div class="col-lg-9">
+	<div class="row section-title hidden-xs">
+		<div class="col-lg-12">
+			<div class="col-lg-12">
+			Withdraw
+			</div>
+		</div>
+	</div>
+	<div class="row withdraw-section">
+		<div class="col-lg-6">
+			<div class="row content-line">
+				<div class="col-lg-4 col-xs-12 content-title">Ballance:</div>
+				<div class="col-lg-6 col-xs-12">{{}}</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="row content-line">
+				<div class="col-lg-4 col-xs-12 content-title">Amount &#163;</div>
+				<div class="col-lg-6 col-xs-12"><input class="text-center" ng-model="amount" /></div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="row content-line">
+				<div class="col-lg-4 col-xs-12 content-title">Card:</div>
+				<div class="col-lg-6 col-xs-12">
+					<span class="dropdown" on-toggle="toggled(open)">
+                        <button type="button" data-toggle="dropdown" class="btn btn-primary" >
+                            {{choosedCardName}}<span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          	<li ng-repeat="card in userCards track by $index">
+                                <a ng-click="$parent.choosedCardIndex=$index;$parent.choosedCardName=$parent.userCards[$index].masked;closeDropDown()">{{card.type}} {{card.masked}} Expiry: {{card.expiry}}</a>
+                            </li>
+                        </ul>
+                    </span>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+			<div class="row row-buffer-normal"></div>
+			<div class="row row-buffer-normal visible-xs"></div>
+			<div class="row">
+				<div class="col-lg-4"></div>
+				<div class="col-lg-6 button-line">
+					<div class="btn-right-side pull-right"></div>
+					<button class="pull-right" ng-click="withDraw()">WITHDRAW</button>
+				</div>
+				<div class="col-lg-2"></div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			
+		</div>
+	</div>
+</div>

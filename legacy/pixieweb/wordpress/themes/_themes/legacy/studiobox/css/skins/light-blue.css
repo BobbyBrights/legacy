@@ -1,0 +1,19 @@
+/*
+Theme Name: Studio Box Wordpress Theme
+Light - Blue Skin
+
+*/
+
+#mainpagecontainer{ background: #fff url(../../images/skins/light-blue/main-bg.png) repeat-x top;}
+#pagecontainer{ background: #fff url(../../images/skins/light-blue/other-bg.png) repeat-x top;}
+#footer, #footerwrap {background: #fff url(../../images/skins/light-blue/footer-bg.png) repeat-x bottom;}
+#footerbarwrap {background:#fff;}
+		
+.ddsmoothmenu ul ul {border-color:#194862;}
+.sidebartitle { color:#1f465c; }
+
+
+
+	#contents .readmorebutton a {
+		background-color: #1E455A;
+		}

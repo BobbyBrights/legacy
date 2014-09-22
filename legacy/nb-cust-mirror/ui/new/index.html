@@ -1,0 +1,73 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="nbApp"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" ng-app="nbApp"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" ng-app="nbApp"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="nbApp"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Novaball</title>
+    <meta name="description" content="">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width">
+    <link href="/assets/styles/main.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../assets/styles/lib/jcountdown/jcountdown.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/styles/lib/jquery-ui/redmond/jquery-ui-1.9.2.custom.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/bower_components/bigfoot/dist/bigfoot-default.css" />
+
+    <script type="text/javascript">
+        (function() {
+            var path = '//easy.myfonts.net/v2/js?sid=215481(font-family=ITC+Avant+Garde+Gothic+Std+Bold)&sid=215483(font-family=ITC+Avant+Garde+Gothic+Std+Book)&sid=215491(font-family=ITC+Avant+Garde+Gothic+Std+ExtraLight)&key=GxDEzi5YlG',
+                protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+                trial = document.createElement('script');
+            trial.type = 'text/javascript';
+            trial.async = true;
+            trial.src = protocol + path;
+            var head = document.getElementsByTagName("head")[0];
+            head.appendChild(trial);
+        })();
+    </script>
+</head>
+<body ng-class="$root.pageClass">
+<div class="header-bar">
+    <div ui-view="topNavBar"></div>
+</div>
+<div class="spinner ini-load" ng-hide="iniLoading">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+    <p>Loading, please wait.</p>
+</div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div ui-view="main"></div>
+<div ui-view="footer"></div>
+<!--[if lt IE 9]>
+<script src="/assets/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/assets/bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- Concatenated JS -->
+<script src="/assets/js/dist/built.js"></script>
+<script src="../assets/js/lib/jquery.sequence-min.js"></script>
+
+<script src="../assets/js/lib/jcountdown/jquery.jcountdown.min.js"></script>
+<!-- <script src="../assets/js/lib/jquery-ui/jquery-ui-1.9.2.custom.js"></script> -->
+<script src="../assets/js/lib/jquery-ui/jquery-ui-1.9.2.custom_light.js"></script>
+<script src="../assets/bower_components/enquire/dist/enquire.js"></script>
+<!-- <script src="../assets/js/lib/flipclock/flipclock.js"></script> -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
+
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script src="../assets/bower_components/bigfoot/dist/bigfoot.js"></script>
+<script type="text/javascript">
+    $.bigfoot();
+</script>
+</body>
+</html>

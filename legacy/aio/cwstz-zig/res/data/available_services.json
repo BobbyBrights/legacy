@@ -1,0 +1,82 @@
+[
+    {
+        "serviceId": "16",
+        "serviceName": "Aio International",
+        "serviceShortDescription": "Hola! Bonjour! Hello! Aio! Global calling and texting made easy with Aio International. Only on month's you need it.Unlimited calling to landline phone numbers in ~35 countries, visit http://www.aiowireless.com/intl for list of countries. Expires at the end of your current monthly cycle.",
+        "amount": "10.0",
+        "typeIndicator": "OT",
+        "isStackable": true
+    },
+    {
+        "serviceId": "17",
+        "serviceName": "International SMS",
+        "serviceShortDescription": "100 International SMS",
+        "amount": "55.0",
+        "typeIndicator": "OT",
+        "isStackable": true
+    },
+    {
+        "serviceId": "14",
+        "serviceName": "Casual Browsing - 250MB",
+        "serviceShortDescription": "250MB Data Bundle",
+        "amount": "55.0",
+        "typeIndicator": "REC",
+        "isStackable": true
+    },
+    {
+        "serviceId": "07",
+        "serviceName": "Aio International",
+        "serviceShortDescription": "Hola! Bonjour! Hello! Aio! Global calling and texting made easy with Aio International. Just add it once and you're set every month. Unlimited calling to landline phone numbers in ~35 countries, visit http://www.aiowireless.com/intl for list of countries. Expires at the end of your current monthly cycle.",
+        "amount": "10.0",
+        "typeIndicator": "REC",
+        "isStackable": true
+    },
+    {
+        "serviceId": "08",
+        "serviceName": "FR Unlimited",
+        "serviceShortDescription": "Unlimited calls within France",
+        "amount": "55.0",
+        "typeIndicator": "OT",
+        "isStackable": true
+    },
+    {
+        "serviceId": "09",
+        "serviceName": "Hardcore Browsing 3GB",
+        "serviceShortDescription": "Enjoy a monthly data transfer capacity of 3 GB at a fixed rate",
+        "amount": "25.0",
+        "typeIndicator": "OT",
+        "isStackable": true
+    },
+    {
+        "serviceId": "10",
+        "serviceName": "500 Messages",
+        "serviceShortDescription": "500-message add-on",
+        "amount": "55.0",
+        "typeIndicator": "OT",
+        "isStackable": true
+    },
+    {
+        "serviceId": "11",
+        "serviceName": "Conference Call",
+        "serviceShortDescription": "Talk to several parties at the same time",
+        "amount": "55.0",
+        "typeIndicator": "REC",
+        "isStackable": true
+    },
+    {
+        "serviceId": "21",
+        "serviceName": "ES Unlimited",
+        "serviceShortDescription": "Unlimited calls to Spain",
+        "amount": "55.0",
+        "typeIndicator": "REC",
+        "isStackable": false
+    },
+    {
+        "serviceId": "99",
+        "serviceName": "Aio Protect",
+        "serviceShortDescription": "Since it's impractical to carry your Aio Wireless device in bubble wrap - however tempting the bubble popping opportunities - protect your device from a covered loss with Aio Protect. Come read all about the extra peace of mind our device insurance can bring you. Only available to Aio subscribers in contiguous United States, Alaska and Hawaii. Coverage highlights available at www.aiowireless.com/aioprotect. Program guide and full terms available at www.esecuritel.com/aioprotect.",
+        "amount": "5.0",
+        "typeIndicator": "REC",
+        "isStackable": false
+    }
+]

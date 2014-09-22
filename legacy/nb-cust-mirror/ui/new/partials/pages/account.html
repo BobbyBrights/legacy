@@ -1,0 +1,19 @@
+<div class="header-bar visible-xs">
+	<div ui-view="navBar"></div>
+</div>
+<div class="container">
+	<div class="row account-body">
+		<div class="col-lg-3 menu-bar">
+			<div class="row title">
+				<div class="col-xs-2 visible-xs back-arrow"><a ui-sref="root.account"><</a></div>
+				<div class="col-lg-10 col-lg-offset-2 col-xs-8">My account</div>
+				<div class="col-xs-2 visible-xs"></div>
+			</div>
+			<div class="row setcion-menu-name" ng-class="{'active':'/detail' == currentUrl,'inactive':'/detail' != currentUrl && 'account' !== currentUrl}"><div class="col-lg-10 col-lg-offset-2"><a ui-sref="root.account.detail">My details</a></div></div>
+			<div class="row setcion-menu-name top-border" ng-class="{'active':'/payment' == currentUrl,'inactive':'/payment' != currentUrl && 'account' !== currentUrl}"><div class="col-lg-10 col-lg-offset-2"><a ui-sref="root.account.payment">Payment method</a></div></div>
+			<div class="row setcion-menu-name top-border" ng-class="{'active':'/withdraw' == currentUrl,'inactive':'/withdraw' != currentUrl && 'account' !== currentUrl}"><div class="col-lg-10 col-lg-offset-2"><a ui-sref="root.account.withdraw">Withdraw</a></div></div>
+			<div class="row setcion-menu-name top-border" ng-class="{'active':'/transaction' == currentUrl,'inactive':'/transaction' != currentUrl && 'account' !== currentUrl}"><div class="col-lg-10 col-lg-offset-2"><a ui-sref="root.account.transaction">Transactions</a></div></div>
+		</div>
+		<div ui-view="section"></div>
+	</div>
+</div>

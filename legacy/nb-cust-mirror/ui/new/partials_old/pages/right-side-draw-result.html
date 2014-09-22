@@ -1,0 +1,43 @@
+
+    <div id="next-draw-date" class="">
+        <div class="title">Next Draw:</div> Wed 05 Apr 19:45
+    </div>
+    <div id="latest-draw-result" ng-controller="LotteryDrawResultController">
+        <div class="line-grid right-banner-header">
+            <div class="title-secondary">Latest Draw Results</div>
+        </div>
+        <div id="result-list">
+        	<loading-spinner hide="lotteries[0].history.results && lotteries[0].history.results.length > 0"></loading-spinner>
+            <lottery-numbers line="resultGroup" ng-repeat="resultGroup in lotteries[0].history.results | limitTo : 3" showtime='true'></lottery-numbers>
+        </div>
+        <div class="line-grid right-banner-footer">
+            <div class='row'>
+                <div class='col-md-6'><a href="/lines/after-draw">View all results</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="learn-more-banner">What's NovaBall? <button type="button" class="btn primary-buttons">LEARN MORE</button></div>
+    <div id="prize-banner">
+        <div class="line-grid right-banner-header">
+            <div class="title-secondary">Prizes</div>
+        </div>
+        <div >
+            <div class="line-grid-1">
+                <div class="title-secondary">&#163;7 Million</div>
+                <p>Match 6 numbers plus the bonus</p>
+            </div>
+            <div class="line-grid-2">
+                <div class="title-secondary">&#163;1 Million</div>
+                <p>Match 5 numbers plus the bonus</p>
+            </div>
+            <div class="line-grid-1">
+                <div class="title-secondary">&#163;300,000</div>
+                <p>Match 4 numbers plus the bonus</p>
+            </div>
+        </div>
+        <div class="line-grid right-banner-footer">
+            <div class='row'>
+                <div class='col-md-6'><a href="/lines/after-draw">View all results</a></div>
+            </div>
+        </div>
+    </div>

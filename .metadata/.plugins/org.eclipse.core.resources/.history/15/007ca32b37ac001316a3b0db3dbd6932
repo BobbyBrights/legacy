@@ -1,0 +1,54 @@
+package com.assignment.mail;
+
+import java.util.ArrayList;
+
+public class Mailbox extends ArrayList<Message>{
+
+	public int getNumberOfMessages(){
+		return this.size();
+	}	
+	
+	public Mailbox(){}
+	
+	public Mailbox(String username, String password){
+		this.username = username;
+		this.password = password; 
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	private String username;
+	private String password;
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2226289715147420202L;
+
+	public void addMessage(Message m){
+		this.add(m);
+	}
+	
+	public Message getMessage(int i){
+		return this.get(i);
+	}
+	
+	public void removeMessage(int i){
+		this.remove(i);
+	}
+}

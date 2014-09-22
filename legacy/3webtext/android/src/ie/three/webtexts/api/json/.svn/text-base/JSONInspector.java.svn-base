@@ -1,0 +1,60 @@
+package ie.three.webtexts.api.json;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.util.Log;
+
+public class JSONInspector {
+
+	public JSONObject jsonObject;
+
+	public JSONInspector() {
+
+	}
+
+	public JSONInspector(JSONObject j) {
+		this.jsonObject = j;
+	}
+
+	public int inspect(JSONObject j) {
+		int val = 0;
+		Log.i("Webtext", "JSONInspector inspecting: " + j.toString());
+
+		try {
+
+			if (j.length() > 0) {
+
+				if (j.has("statusCode") && j.getInt("statusCode") == 401) {
+					val = JSONError.UNAUTHORIZED;
+				}
+
+				if (j.has("error")) {
+					if (j.getString("error").trim().equals("socket_timeout")) {
+						val = JSONError.SOCKET_TIMEOUT;
+					}
+				}
+
+				if (j.has("remainingAllowance")
+						&& j.getInt("remainingAllowance") > 0) {
+					val = JSONError.AUTHENTICATED;
+				}
+
+			} else {
+				val = JSONError.NOTHING_RETURNED;
+			}
+
+			Log.i("Webtext", "inspect value: " + val);
+
+		} catch (JSONException je) {
+			je.printStackTrace();
+		}
+
+		return val;
+	}
+
+	public int inspect() {
+		return inspect(this.jsonObject);
+	}
+
+}

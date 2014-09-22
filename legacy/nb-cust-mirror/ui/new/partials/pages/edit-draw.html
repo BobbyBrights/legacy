@@ -1,0 +1,217 @@
+<div class="row draw-edit-title">
+    <p class="title">YOUR NOVABALL</p>
+</div>
+<div class="row draw-edit-body">
+    <div class="col-lg-4 numbers-panel">
+        <div class="row">
+        	<div class="col-md-1 pull-left"></div>
+            <div class="col-md-6 pull-left panel-title">YOUR NUMBERS</div>
+        </div>
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+                <form class="bet-form lotto-group-normal">
+                    <div class="row">
+                        <div class="col-md-12 panel-body">
+                            <fieldset ng-repeat="line in subscription.lines track by $index" class="cleared lotto-line" ng-class="{'deleted-line':subscription.lines[$index].status==='old' && subscription.lines[$index].deleted}">
+                                <button ng-click="randomNumbers($index)" class="btn btn-success qp" ng-hide="'old' === subscription.lines[$index].status">QP</button>
+                                <div class="line-num" ng-show="'old' === subscription.lines[$index].status">Line {{$index + 1}}</div>
+
+                                <input ng-repeat="a in numbers() track by $index" type="text"
+                                       ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                       class="input-sm input-line-number"
+                                       ng-maxlength="2" ng-disabled="'old' === subscription.lines[$parent.$index].status" ng-focus="focusNumInput($parent.$index, 'std', $index)" switch-style ng-unfocus="checkSubscription()" ng-focus="highlightLine($parent.$index)"
+                                       maxlength="2" num-change/>
+
+                                <input type="text"
+                                       ng-model="subscription.lines[$index].bonus"
+                                       class="input-sm input-line-number bonus-ball"
+                                       ng-maxlength="2" ng-disabled="'old' === subscription.lines[$index].status" switch-style ng-unfocus="checkSubscription()" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                       maxlength="2" num-change/>
+
+                                <!-- <div class="star"></div> -->
+                                <button type="button" class="close delete-line-btn" aria-hidden="true" ng-click="removeLine(subscription.lines[$index])" ng-hide="subscription.lines[$index].status==='old' && subscription.lines[$index].deleted"></button>
+                            </fieldset>
+                            <div class="col-lg-7 pull-right" ng-show="linesChanged">
+                            	<div class="row">
+                            		<button class="save pull-right">SAVE CHANGES</button></div>
+                            	</div>
+                        </div>
+                    </div>
+                    <div class="row row-buffer-normal"></div>
+                    <div class="row operation-line">
+                        <div class="row row-buffer-small"></div>
+                        <div class="col-md-5 pull-left add-new-line">
+                            <a ng-click="addLine()"><img class="plus-sign" src="../assets/images/plus.png"><div>Add a line</div></a>
+                            
+                        </div>
+                        <div class="col-md-7">
+                            <img class="star-sign" src="../assets/images/star.png"><p>Denotes bonus ball</p>
+                        </div>
+                    </div>
+                    <div class="row row-buffer-normal"></div>
+                    <div class="row operation-line-short">
+                        <button class="add-line-btn" ng-click="addLine()">ADD A LINE</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="row">
+            <div class="col-lg-12 balls-panel">
+                <div class="row" ng-show="showNumGrid">
+                    <div class="col-md-6 pull-left panel-title">NUMBER PICKER</div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="row" ng-show="showNumGrid">
+                    <div class="col-md-12 panel-body new-line ">
+                        <numbers-grid></numbers-grid/>
+                    </div>
+                </div>
+                <div class="row row-buffer-small"></div>
+                <div class="row">
+            		<div class="col-md-6 pull-left panel-title">YOUR PACKAGE</div>
+                    <div class="col-md-6"></div>
+            	</div>
+            	<div class="row">
+                    <div class="col-md-12 panel-body new-line package-panel">
+                        <div class="row">
+                        	<div class="col-lg-7 basic-info">
+                        		<p><b>Lines:</b> {{subscription.effectiveLineNum}}</p>
+			                    <p><b>Draws:</b> {{subscription.numDraws}}</p>
+			                    <!-- <p><b>Auto Renew:</b> {{ 'recurring' == subscription.type ? 'Yes' : 'No'}}</p> -->
+			                    <p><b>Renewal date :</b> {{ subscription.nextPaymentDate ? switchTimeFormat(subscription.nextPaymentDate) : 'Not Paid' }}</p>
+                        	</div>
+                        	<div class="col-lg-5 price-panel">
+                        		<div class="row">
+                        		<p class="price">&#163;{{subscription.pricePerLine * subscription.effectiveLineNum * subscription.numDraws / 100}}</p> <p class="price-frequency">per month</p> <p class="price-comment">just 69p per line</p>
+                        		</div>
+                        	</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 right-side-panel">
+    	<div class="row line-prizeslist hidden-xs hidden-sm">
+            <div class="col-lg-12">
+                <div class="row title-line">TOP PRIZES</div>
+                <div class="row content-line"><p class="prize-num">&#163;7,000,000</p> <p class="match-num">Match 6 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;300,000</p> <p class="match-num">Match 5 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;100,000</p> <p class="match-num">Match 4 +Bonus</p></div>
+                <div class="row view-btn-line"><button ng-click="openPrizesModal()">VIEW ALL</button></div>
+            </div>
+        </div>
+        <div class="row line-nextdraw">
+            <div class="col-lg-12 cr-wrapper">
+                <div class="corner-ribbon-wrapper"><div class="corner-ribbon"><p>2 Draws</p><p class="comment">every week</p></div></div>
+                <div class="row title-line">NEXT DRAW</div>
+                <div class="row time-line">{{nextDrawDate}}</div>
+                <div flip-clock class="clock-line"></div>
+                <div class="row time-label-line">
+                    <div>Days</div>
+                    <div>Hours</div>
+                    <div>Mins</div>
+                    <div>Secs</div>
+                </div>
+            </div>
+        </div>
+        <div ng-controller="SubscriptionReadController">
+           <div ng-include src="'/partials/includes/packageInfo-collapse.html'"></div>
+        </div>
+        <div class="row more-info-line hidden-xs hidden-sm"><p class="content">What is NovaBall?</p> <a>LEARN MORE</a></div>
+        <div ui-view="prizes"></div>
+        <div ui-view="novainfo"></div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<h2>
+				Your Lines
+			</h2>
+			<div class="row" ng-show="showNumGrid">
+				<div class="col-md-12">
+					<p>You can add new lines and remove existing lines</p>
+				</div>
+			</div>
+			<div class="row balls-edit">
+				<div class="col-md-6">
+					<loading-spinner hide="subscription.finishLoad === true"></loading-spinner>
+					<form class="bet-form">
+						<fieldset class="lotto-group-normal">	
+							<lottery-number-edit-objs2 ng-repeat="oneline in subscription.lines track by $index" showlinebg="true"></lottery-number-edit-objs2>
+						</fieldset>
+					</form>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-5 pull-left add-new-line"><a ng-click="addLine()"><div class="plus-sign">+</div>Add Line</div></a>
+						<div class="col-md-6" ng-show="showNumGrid">
+							<div class="star"></div> <p>Denotes Bonus Ball</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6" ng-show="showNumGrid">
+					<numbers-grid />
+				</div>
+			</div>
+			<h2>
+			Pick the Number of Draws to Enter
+			</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+						<p class="text-comment">Select the number of draws,there are two every week, Wednesdays & Saturdays</p>
+						</div>
+					</div>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-inline num-draws">
+								<label class="radio inline" ng-repeat="_d in drawPeriods">
+									<input type="radio" class="draw-picker" ng-model="subscription.numDraws" ng-value="_d">
+									{{ _d | normalize: { singular: 'draw', plural: 'draws' } }}
+								</label>
+								<div class="control-row">
+									<label class="checkbox-inline">
+										<input type="checkbox" id="recurring" name="recurring" ng-model="subscription.recurring" ng-checked="subscription.recurring"> Auto-renew{{subscription.recurring}}
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row row-buffer-normal"></div>
+					<div class="row">
+						<div class="col-md-12">
+							<small class="text-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Total: {{subscription.numDraws * subscription.lines.length * 0.50 | toCurrency: { currency: 'GBP' } }}</h2>
+					<span ng-show="subscription.recurring">
+						(Renewed every {{subscription.numDraws | normalize: { singular: 'draw', plural: 'draws' } }} until cancelled.)
+					</span>
+				</div>
+			</div>
+			<button type="button" ng-click="" class="btn orange-primary-btn primary-btn-text">Save</button>
+		</div>
+		<div class="col-md-4">
+			<div class="row">
+				
+				<div ui-view="rightSide">
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->

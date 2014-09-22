@@ -1,0 +1,51 @@
+@import '../bower_components/bootstrap/dist/css/bootstrap.min.css';
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css);
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.modal-header {
+  h3 {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+dl {
+  dd { font-size: 1.2em; color: #F90; }
+  dt { margin-bottom: 8px;}
+}
+.image-link {
+  margin-top: 12px;
+}
+div.items {
+  h1 {
+    padding-left: 0;
+    margin-left: 0;
+  }
+  .table-header {
+    margin-left: 0;
+
+    div:first-child {
+      padding-left: 0;
+
+    }
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 6px;
+
+  }
+  a {
+    cursor: pointer;
+  }
+
+  @media(min-width: 768px) {
+    padding-left: 0;
+  }
+
+  .table {
+    td {
+      vertical-align: middle;
+    }
+  }
+}

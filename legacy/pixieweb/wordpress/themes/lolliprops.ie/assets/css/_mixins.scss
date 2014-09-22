@@ -1,0 +1,65 @@
+@mixin transparent($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
+
+@mixin border-radius($a: false, $b: false, $c: false, $d: false, $top-left: 0, $top-right: 0, $bottom-right: 0, $bottom-left: 0, $top: false, $bottom: false, $right: false, $left: false, $radius: false) {
+
+  // Handle shorthand notation like CSS3 would
+  // You shouldn't explictly set these variables when calling the mixin
+  @if $d { $radius: $a $b $c $d; }
+  @else if $c { $radius: $a $b $c; }
+  @else if $b { $radius: $a $b; }
+  @else if $a { $radius: $a; }
+
+  @else {
+
+    // Target individual corners (or groups) instead of using CSS3 shorthand
+    @if $top { $top-left: $top; $top-right: $top; }
+    @if $bottom { $bottom-right: $bottom; $bottom-left: $bottom; }
+    @if $left { $top-left: $left; $bottom-left: $left; }
+    @if $right { $top-right: $right; $bottom-right: $right; }
+
+    // Set the radius
+    $radius: $top-left $top-right $bottom-right $bottom-left;
+  }
+
+  // Webkit, Mozilla, KHTML and standard CSS3
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -khtml-border-radius: $radius;
+  border-radius: $radius; 
+
+}
+
+
+@mixin full-size-bg($url){
+    background: url($url) no-repeat center center fixed;
+    -webkit-background-size: cover; /*for webKit*/
+    -moz-background-size: cover; /*Mozilla*/
+    -o-background-size: cover; /*opera*/
+    background-size: cover; /*generic*/	
+}
+@mixin spotlight-gradient($from, $to) {
+  /* fallback/image non-cover color */
+  $first:	0%;
+  $second: 	35%;
+  
+  background-color: $from;
+ 
+  /* Firefox 3.6+ */
+  background-image: -moz-linear-gradient(top, $from $first, $to $second);
+ 
+  /* Safari 4+, Chrome 1+ */
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+ 
+  /* Safari 5.1+, Chrome 10+ */
+  background-image: -webkit-linear-gradient(top, $from $first, $to $second);
+ 
+  /* Opera 11.10+ */
+  background-image: -o-linear-gradient($from $first, $to $second);
+}

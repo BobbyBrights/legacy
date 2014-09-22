@@ -1,0 +1,22 @@
+{
+  "name": "ten93.ie",
+  "version": "0.0.0",
+  "homepage": "https://github.com/smcelhinney/pixieweb",
+  "authors": [
+    "smcelhinney <mcelhins@tcd.ie>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}

@@ -1,0 +1,47 @@
+package ie.three.webtexts.objects;
+
+public class Contact {
+
+	public String name;
+	public String number;
+
+	public Contact() {
+		super();
+	}
+
+	public Contact(String n, String m) {
+		super();
+		this.name = n;
+		this.number = m;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the number
+	 */
+	public String getNumber() {
+		return number;
+	}
+
+	/**
+	 * @param number
+	 *            the number to set
+	 */
+	public void setNumber(String number) {
+		this.number = number;
+	}
+}

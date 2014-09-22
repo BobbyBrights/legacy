@@ -1,0 +1,17 @@
+[{
+    "Ticket": "current",
+    "AmountDueDate": "Oct, 2nd",
+    "Balance": "137.30",
+    "AutoPayDetails": {
+        "CreditCard": "XXXX-XXXX-XXXX-1234",
+        "NameOnCard": "Doe",
+        "ExpirationDate": "10/2014"
+    },
+    "PreviousBalance": "66.00",
+    "MRC": "27.00",
+    "CreditsAndAdjustments": "36.00",
+    "FeesAndSurcharges": "19.30",
+    "GrandTotalTaxes": "9.00",
+    "TotalCharges": "157.30",
+    "TotalPayments": "-20.00"
+}]

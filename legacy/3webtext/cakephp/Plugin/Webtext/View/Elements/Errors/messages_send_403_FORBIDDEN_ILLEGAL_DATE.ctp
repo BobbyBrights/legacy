@@ -1,0 +1,1 @@
+<div id="flashMessage">Scheduled date invalid. Scheduled messages can only be sent 1 week in advance.</div>

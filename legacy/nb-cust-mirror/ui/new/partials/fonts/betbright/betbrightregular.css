@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'BetBrightRegular';
+    src: url('betbrightregular.eot');
+    src: url('betbrightregular.eot') format('embedded-opentype'),
+         url('betbrightregular.woff') format('woff'),
+         url('betbrightregular.ttf') format('truetype'),
+         url('betbrightregular.svg#BetBrightRegular') format('svg');
+}

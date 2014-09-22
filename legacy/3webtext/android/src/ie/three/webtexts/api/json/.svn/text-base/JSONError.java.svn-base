@@ -1,0 +1,13 @@
+package ie.three.webtexts.api.json;
+
+public interface JSONError {
+	/*
+	 *  Generic Login type stuff
+	 */
+	public final static int UNAUTHORIZED = 401;
+	public final static int SOCKET_TIMEOUT = 408;
+	public final static int AUTHENTICATED = 200;
+	
+	public final static int NOTHING_RETURNED = 700;
+	
+}

@@ -1,0 +1,46 @@
+{
+    "type": "on-demand",
+    "lotteryId": 16626,
+    "created": "1988-08-18T20:00:00 Z",
+    "numDraws": 4,
+    "drawsRemaining": 3,
+    "nextPaymentDate": "2003-10-13T20:00:00 Z",
+    "lines": [
+        {
+            "bonus": 1,
+            "standard": [
+                20,
+                24,
+                26,
+                39,
+                4,
+                40
+            ],
+            "stake": "1.44"
+        },
+        {
+            "bonus": 34,
+            "standard": [
+                19,
+                29,
+                39,
+                43,
+                6,
+                9
+            ],
+            "stake": "0.58"
+        },
+        {
+            "bonus": 33,
+            "standard": [
+                24,
+                30,
+                38,
+                39,
+                40,
+                9
+            ],
+            "stake": "0.43"
+        }
+    ]
+}

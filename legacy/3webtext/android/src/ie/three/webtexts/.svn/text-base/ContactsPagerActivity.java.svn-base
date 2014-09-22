@@ -1,0 +1,104 @@
+package ie.three.webtexts;
+
+import ie.three.webtexts.adapters.ContactsListAdapter;
+import ie.three.webtexts.adapters.ContactsPagerAdapter;
+import ie.three.webtexts.objects.Contact;
+
+import java.util.ArrayList;
+import java.util.Vector;
+
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class ContactsPagerActivity extends Activity {
+
+	/** Called when the activity is first created. */
+
+	private Context mContext;
+	public ArrayList<Contact> selected_contacts;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mContext = this;
+		setContentView(R.layout.webtext_contacts);
+		
+		/* Webtext Contacts View */
+		View header = (View) getLayoutInflater().inflate(
+				R.layout.listview_header_row, null);
+		TextView header_text = (TextView) header.findViewById(R.id.txtHeader);
+		ListView webtext_contacts = new ListView(mContext);
+		header_text.setText("Webtext contacts");
+		webtext_contacts.addHeaderView(header);
+
+		/* Phone Contacts View */
+		header = null; 
+		header_text = null;
+		
+		header = (View) getLayoutInflater().inflate(
+				R.layout.listview_header_row, null);
+		header_text = (TextView) header.findViewById(R.id.txtHeader);
+		
+		ListView phone_contacts = new ListView(mContext);
+		header_text.setText("Phone Contacts");
+		phone_contacts.addHeaderView(header);
+		
+		/* Webtext Groups View */
+		header = null; 
+		header_text = null;
+		
+		header = (View) getLayoutInflater().inflate(
+				R.layout.listview_header_row, null);
+		header_text = (TextView) header.findViewById(R.id.txtHeader);
+		
+		ListView group_contacts = new ListView(mContext);
+		header_text.setText("Webtext Groups");
+		group_contacts.addHeaderView(header);
+
+		
+		Vector<View> pages = new Vector<View>();
+		pages.add(webtext_contacts);
+		pages.add(phone_contacts);
+		pages.add(group_contacts);
+
+		ViewPager vp = (ViewPager) findViewById(R.id.webtext_contacts_viewpager);
+		ContactsPagerAdapter adapter = new ContactsPagerAdapter(mContext, pages);
+		vp.setAdapter(adapter);
+
+		webtext_contacts.setAdapter(new ContactsListAdapter(mContext,
+				R.layout.contacts_list_row, new Contact[] {
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1") }));
+		
+		phone_contacts.setAdapter(new ContactsListAdapter(mContext,
+				R.layout.contacts_list_row, new Contact[] {
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1"),
+						new Contact("text1", "number1") }));
+		
+	}
+
+	public void onContactClicked(View v) {
+		//Log.i("Webtext", "Contact clicked: " + v.getTag().toString());
+	}
+	
+	public void onGroupClicked(View v) {
+		//Log.i("Webtext", "Group clicked" + v.toString());
+	}
+	
+}

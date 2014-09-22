@@ -1,0 +1,46 @@
+<div id="content" class="col-lg-10 col-sm-11 ">
+    <div ng-include="'views/fragments/breadcrumbs.html'"></div>
+
+    <div class="row page-todo">
+
+        <div class="col-sm-8 tasks" style="height: 1239px;">
+
+            <div class="task-list">
+                <h1>Events <a href="#/event/add" class="btn btn-lg btn-success pull-right">Add Event</a></h1>
+
+                <div class="priority high"><span>this month</span></div>
+                <div class="task high" ng-repeat="event in events">
+
+                    <div class="desc">
+                        <div class="title">{{event.name}}</div>
+                        <div>{{event.description}}</div>
+
+                        <div class="btn-group">
+                            <a href="#/event/{{event._id}}" class="btn btn-sm btn-success">View</a>
+                            <a href="#checkins/add?event_id={{event._id}}" class="btn btn-sm btn-default">Check in</a>
+                        </div>
+
+                    </div>
+                    <div class="time">
+                        <div class="date">{{event.date_from}}</div>
+                    </div>
+
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+        <!--/col-->
+
+        <div class="col-sm-4">
+
+
+        </div>
+        <!--/col-->
+
+    </div>
+
+
+</div>

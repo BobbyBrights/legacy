@@ -1,0 +1,1 @@
+<div id="flashMessage" class="success">Your PIN has been sent to your phone.</div>

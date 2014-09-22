@@ -1,0 +1,57 @@
+
+section.logo {
+	text-align:center;
+}
+
+.well-content {
+	margin-top: 20px; 
+	background-color: #FFF; 
+	font-weight: bold;
+	font-size: 1.2em;
+	color: rgb(247, 178, 170);
+	padding: 20px 100px;
+	-webkit-box-shadow:  0px 0px 5px 1px #999999; 
+    box-shadow:  0px 0px 5px 1px #999999;
+}
+
+body {	
+	font-family: 'Open Sans', sans-serif;
+	padding-top:20px;
+	padding-bottom:40px;
+	background:#FFF url(../img/bg.png) top left;
+}
+
+/* Custom container */
+.container-narrow {
+	margin:0 auto;
+	max-width:70em;
+}
+
+.container-narrow > hr {
+	margin:30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	margin:60px 0;
+	text-align:center;
+}
+
+.jumbotron h1 {
+	font-size:72px;
+	line-height:1;
+}
+
+.jumbotron .btn {
+	font-size:21px;
+	padding:14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+	margin:60px 0;
+}
+
+.marketing p + h4 {
+	margin-top:28px;
+}

@@ -1,0 +1,128 @@
+<div class="container items" ng-controller="MainCtrl">
+    <h1>File Manager</h1>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="col-md-1">Thumbnail</th>
+                <th class="col-md-2"><a ng-click="sortBy('type');">Type</a></th>
+                <th class="col-md-5"><a ng-click="sortBy('name');">Name</a></th>
+                <th class="col-md-4"><a ng-click="sortBy('created');">Created</a></th>
+            </tr>
+            </thead>
+            <tbody ng-show="loading">
+            <tr>
+                <th colspan="4">Loading...</th>
+            </tr>
+            </tbody>
+
+            <tbody ng-show="!loading">
+            <tr>
+                <th colspan="4">{{numItems}} items returned. Showing {{offset + 1}} to {{offset + perPage > numItems ? numItems : offset + perPage}}</th>
+            </tr>
+            <tr ng-repeat="item in items">
+                <td><a ng-click="openViewer(item)" ng-bind-html="item | getImage"></a></td>
+                <td>{{item.type}}</td>
+                <td ng-bind-html="item.name.$"></td>
+                <td>{{item.versionCreated.$ | dateFormat}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <pagination total-items="numItems" items-per-page="perPage" page="currentPage"></pagination>
+</div>
+
+<script type="text/ng-template" id="modal.html">
+    <div class="modal-header">
+        <h3 ng-bind-html="item.name.$"></h3>
+    </div>
+    <div class="modal-body" ng-show="item.type == 'Movie'">
+        <video id="_movie" width="100%" preload controls>
+            <!-- For full compatibility, if there were other sources, we would list them here -->
+            <source ng-src="{{item | getLinkByRel:'file'}}"/>
+            Unfortunately, your browser does not support the video element.
+        </video>
+        <div class="video_info">
+            <dl>
+                <dd>Mime-type</dd>
+                <dt>{{item | getSystemAttribute:'Mime-Type'}}</dt>
+            </dl>
+        </div>
+    </div>
+    <div class="modal-body" ng-show="item.type == 'Image'">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="{{item.images[3].file}}" width="{{item.images[3].width}}"
+                     height="{{item.images[3].height}}"/><br/>
+                <a ng-href="{{item.images[3].file}}" class="btn btn-sm btn-primary image-link" target="_blank"><i class="fa fa-search"></i> Full size image.</a>
+            </div>
+            <div class="col-md-8">
+                <dl>
+                    <dd>Width</dd>
+                    <dt>{{item | getFileAttribute:'Width'}} px</dt>
+                    <dd>Height</dd>
+                    <dt>{{item | getFileAttribute:'Height'}} px</dt>
+                    <dd>Date taken</dd>
+                    <dt>{{item | getSystemAttribute:'Capture-Date'}}</dt>
+                    <dd>Size</dd>
+                    <dt>{{item.size.$ | formatBytes}}</dt>
+                    <dd>Tags</dd>
+                    <dt>{{item | getSystemAttribute:'Tags'}}</dt>
+                    <dd>Mime-type</dd>
+                    <dt>{{item | getSystemAttribute:'Mime-Type'}}</dt>
+
+                    <dd ng-show="item | hasPlaylist">Playlist</dd>
+                    <dt ng-show="item | hasPlaylist">{{item | getPlaylist}}</dt>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" ng-show="item.type == 'Folder'">
+        <div class="row">
+            <div class="col-md-4"><img src="images/folder.png" width="100"/></div>
+            <div class="col-md-8">
+                <dl>
+                    <dd>Name</dd>
+                    <dt ng-bind-html="item.name.$"></dt>
+                    <dd>Size</dd>
+                    <dt>{{item.size.$ | formatBytes}}</dt>
+                    <dd>Date created</dd>
+                    <dt>{{item.versionCreated.$ | dateFormat}}</dt>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" ng-show="item.type == 'MP3'">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="{{item.images[0].file}}" width="{{item.images[0].width}}"
+                     height="{{item.images[0].height}}"/>
+            </div>
+            <div class="col-md-8">
+                <dl>
+                    <dd>Name</dd>
+                    <dt ng-bind-html="item.name.$"></dt>
+                    <dd>Size</dd>
+                    <dt>{{item.size.$ | formatBytes}}</dt>
+                    <dd>Mime-type</dd>
+                    <dt>{{item | getSystemAttribute:'Mime-Type'}}</dt>
+                    <dd>Duration</dd>
+                    <dt>{{item | getSystemAttribute:'Duration'}}</dt>
+
+                </dl>
+                <h4>Play file</h4>
+                <audio controls>
+                    <source ng-src="{{item | getLinkByRel:'file'}}" />
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+    </div>
+
+</script>

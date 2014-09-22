@@ -1,0 +1,125 @@
+@import "variables";
+
+body {
+	padding-top:60px;
+	padding-bottom:40px;
+	@media screen and (max-width: $break-point-large) {
+		padding-top:0;
+	}
+}
+
+h1,h2,h3,legend {
+	font-family: 'Open Sans', Arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+
+a.btn,button { 
+	font-family: 'Lobster', Arial, sans-serif; letter-spacing: 0px;
+}
+span.label {
+	a.close { line-height: 10px; margin-left: 40px;}
+	&.selected {
+		margin-right: 20px; margin-bottom: 10px;
+		padding: 5px;
+	}
+}
+
+
+.navbar-text.pull-right {
+	@media screen and (max-width: $break-point-large) {
+		float:none;
+		padding-left:5px;
+		padding-right:5px;
+	}
+}
+.sidebar-nav {
+	padding:9px 0;
+}
+
+#search_form {
+	padding-left:15px;
+	padding-top:15px;
+}
+
+.with-margin-top {
+	margin-top:10px;
+}
+
+div.textarea {
+	margin-bottom:20px;
+}
+
+div.published {
+	margin-top:10px;
+}
+
+h3.filter_title {
+	font-size: 1.3em;
+	color: #999;
+}
+
+div.alert.small-form {
+	margin-left: 0!important;
+	width: 520px;
+}
+
+div.input > label {
+	font-weight:700;
+}
+div.categories {
+	margin-top: 20px;
+}
+div.checkboxes {
+	div.span6 {
+		margin-left:0!important;
+	}
+		
+	> label {
+		float: left;
+		width: 100%;
+	}
+
+	input[type=checkbox] {
+		float: left;
+		margin-right: 10px;
+	}
+	
+	div.span6.span2 {
+		margin-right: 2px;
+		input[type=checkbox] {
+			margin-bottom: 20px;
+		}
+		label { font-size: 0.825em; line-height: 13px; padding-top: 4px; }
+	}
+	
+	&.span6, &.span9 {
+		margin-left:0;
+	}
+}
+
+
+div.badges {
+	width:100%;
+	border-top:1px solid #EFEFEF;
+	line-height:24px;
+	height:30px;
+	padding:8px;
+	padding-bottom:4px;
+	margin-bottom:4px;
+	
+	
+	span.lead-in {
+		margin-right:10px;
+	}
+	
+	span.label {
+		padding:4px 8px;
+	}
+
+
+}
+ 
+span.margin-right {
+	margin-right:7px;
+}

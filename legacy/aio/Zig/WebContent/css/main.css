@@ -1,0 +1,3393 @@
+/*************************** ALL ELEMENTS *************************/
+
+/* Disable the text selection */
+*:not(input):not(select):not(textarea) {
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Remove visual focus effects */
+*:focus {
+	outline: none;
+}
+
+/* Remove visual focus effects and long press */
+* {
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-touch-callout: none;
+}
+
+/*************************** FONT *************************/
+@font-face {
+	font-family: 'AvantGardeMedium';
+	src: url('../font/ITCAvantGardeStd-Md.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'AvantGardeDemi';
+	src: url('../font/ITCAvantGardeStd-Demi.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'LubalinMedium';
+	src: url('../font/LubalinGraphStd-Medium.otf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*************************** GENERAL *************************/
+body {
+	font-family: LubalinMedium, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;	
+	padding-left: 3%;
+	padding-right: 3%;
+	width: auto;
+	overflow-x: hidden;
+}
+
+a {
+	cursor: pointer;
+	display: block;
+}
+
+h1 {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	color: #960051;
+	margin: 0 15pt 0 0;
+}
+
+h2 {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	color: #960051;
+	margin: 0 15pt;
+}
+
+h3 {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	color: #960051;
+	font-weight: normal;
+	margin: 0.3em 0;
+}
+
+.plum {
+	color: #960051;
+}
+
+iframe {
+	background: transparent;
+	display: block;
+	border: 0px none;
+	margin: 0 auto;
+	width: 100%;
+	height: 330px;
+    -webkit-overflow-scrolling: touch !important;
+    overflow: scroll !important;
+}
+
+.textPlume {
+	color: #960051;
+}
+/**************** LAYOUTING ******************************/
+
+.two-column-grid {
+	margin: 0;
+	padding: 0;	
+	display: block;
+	overflow: auto;
+}
+.two-column-grid .column1,  .two-column-grid .column2{
+	display: block;
+	float : left;
+	width: 50%;	
+	overflow: hidden;
+
+}
+.two-column-grid .column1 {
+	clear : left;
+}
+.two-column-grid .column1.sixty {
+	width : 60%;
+}
+.two-column-grid .column2.forty {
+	width : 40%;
+}
+.two-column-grid .column1.thirty {
+	width : 25%;
+}
+.two-column-grid .column2.seventy {
+	width : 75%;
+}
+
+.textCentered {
+	text-align: center;
+}
+.verticalAlignedMiddle {
+	vertical-align: middle;
+}
+
+/*************************** DATE PICKER *************************/
+#datePickerOverlay,#datePicker {
+	display: none;
+}
+
+/*************************** ICONS *************************/
+.ui-icon {
+	background: #666;
+	background: rgba(0, 0, 0, .4);
+	background-image: url(../img/icons-18-white.png);
+	background-repeat: no-repeat;
+	border-radius: 9px;
+	height: 18px;
+	width: 18px;
+	display: inline;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+/*************************** FORMS *************************/
+fieldset {
+/* 	margin-left: -5%; */
+/* 	margin-right: -5%; */
+/* 	padding-left: 5%; */
+/* 	padding-right: 5%; */
+padding: 0;
+margin: 0;
+/* 	margin-top: 0; */
+/* 	margin-bottom: 0; */
+/* 	padding-top: 0; */
+/* 	padding-bottom: 0; */
+	border: none;
+}
+
+select,input {
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	/* need this for ios >5*/
+	border-radius: 0;
+}
+
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+label {
+	display: block;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+}
+
+.wp7{
+	display: none !important;	
+}
+
+input {
+	background: white;
+	width: 100%;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+}
+
+input[type="checkbox"] {
+	background: url(../img/checkbox_unchecked.png) no-repeat center;
+	background-size: 22px;
+	border: 0px none;
+	display: inline-block;
+	margin: 0;
+}
+
+input[type="checkbox"]:checked {
+	background: url(../img/checkbox_checked.png) no-repeat center;
+	background-size: 20px;
+}
+
+input[type="checkbox"]+label {
+	display: table-cell;
+	color: #404040;
+	padding: 2px 5px;
+	position: absolute;
+	cursor: pointer;
+}
+
+input[type=month] {
+	vertical-align: top;
+}
+
+input[disabled] {
+	background: #eee;
+}
+
+.error {
+	background-color: rgb(236, 166, 166)!important;
+	color: white!important;
+}
+
+/*************************** LISTS *************************/
+.list-container {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	list-style: none;
+	padding: 0;
+	color: #404040;
+}
+
+.list-container.border-top {
+	border-top: 1px solid rgb(233, 233, 233);
+}
+
+/* Items with one line */
+.list-container .list-item {
+	display: block;
+	height: 20px;
+	padding: 10px 0px;
+}
+
+/* Texts and values of items */
+.list-container .text {
+	box-sizing: border-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#forgotPwdQuestionPage .text.input-label,
+#forgotPwdQuestionPage .value.xxx-large {
+	overflow: visible;
+}
+
+.list-container .value {
+	box-sizing: border-box;
+	text-align: right;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.list-container .value.new-line {
+	text-align: left;
+	display: block;
+	width: 100%;
+	white-space: normal;
+}
+
+.list-container .description {
+	
+}
+
+/*************************** LOADING *************************/
+#blockUI {
+	background-color: rgba(128, 128, 128, 0.5);
+}
+
+.blockui_box {
+	padding: 15px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	text-indent: 20px;
+	background-image: url("../img/Zig_Spinner_GIF.gif");
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: 5px;
+	background-size: 20px;
+	margin: 0 auto;
+	display: inline;
+	position: fixed;
+	top: 40%;
+	left: 30%;
+	width: 33%;
+	min-width: 106px;/*Fix for bug of collapsed toaster on fast restart*/
+	border-radius: 10px;
+	opacity: 1;
+	color: black;
+	background-color: white;
+	text-align: left;
+	white-space: nowrap;
+}
+
+/*************************** BUTTONS *************************/
+.button-bar {
+	margin-top: 15px !important;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
+.button {
+	display: block;
+	box-sizing: border-box;
+	height: 34px;
+	cursor: pointer;
+	position: relative;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+.button.tap-pressed, 
+.large-button.tap-pressed, 
+.inline-button.tap-pressed, 
+.button-left.tap-pressed, 
+.button-right.tap-pressed, 
+.plum-button.tap-pressed, 
+.blue-button.tap-pressed, 
+.grey-button.tap-pressed, 
+.dark-grey-button.tap-pressed {
+	background-color: #858585;
+	color: #CCCCCC;
+}
+
+.large-button {
+	display: block;
+	box-sizing: border-box;
+	height: 34px;
+	width: auto;
+	cursor: pointer;
+	position: relative;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	margin: 0 auto;
+}
+
+.inline-button {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 35%;
+	height: 34px;
+	cursor: pointer;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+}
+
+.button-left {
+	width: 48%;
+	margin: 0;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.button-right {
+	float: right;
+	margin: 0;
+	width: 48%;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.help {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	border: 0px none;
+	color: #000000;
+	background: #FFFFFF;
+	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	border-bottom-right-radius: 0;
+	padding: 0px 12px;
+	width: auto;
+	height: 27px;
+	margin: 0 5px;
+}
+
+.plum-button {
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	background-color: #960051;
+	color: white;
+}
+
+.blue-button {
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	background-color: #29858F;
+	color: white;
+}
+
+.grey-button {
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	background-color: #a6a6a6;
+	color: white;
+}
+
+.dark-grey-button {
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.3);
+	background-color: #404040;
+	color: white;
+}
+
+.link {
+	cursor: pointer;
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	color: #006D7B;
+	text-decoration: none;
+}
+
+.disabled {
+	background-image: url("../img/button_disabled_stripes.png");
+	background-repeat: repeat;
+	color: rgba(256, 256, 256, 0.7);
+}
+
+.hidden-submit-button {
+	visibility: hidden;
+	position: absolute;
+	left: 0;
+}
+
+.back-button {
+	background: url("../img/back_arrow.png");
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-size: 6px 11px;
+	color: #006D7B;
+	padding-left: 10px;
+	padding-top: 2px;
+	cursor: pointer;
+	display: inline;
+}
+
+/*************************** INLINE ERRORS *************************/
+.inline-error {
+	display: none;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	margin: 5px 0px 0 0px;
+	color: #404040;
+}
+
+.inline-error .warning {
+	display: table-cell;
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	color: #960051;
+	width: 15px;
+}
+
+.inline-error .error-text {
+	display: table-cell;
+}
+
+.inline-error a {
+	cursor: pointer;
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	color: #006D7B;
+	text-decoration: none;
+	display: inline;
+}
+
+/*************************** HEADER *************************/
+.header {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	height: 25px;
+}
+
+.header .headerAccount,.header .headerPhone {
+	font-weight: bold;
+}
+
+.header .left {
+	float: left;
+	width: 45%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.header .right {
+	margin: 20px 10px 0 0;
+	float: right;
+	width: 45%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: right;
+}
+
+/*************************** PAGE *************************/
+.page {
+	display: none;
+}
+
+.page.no-footer {
+	bottom: 0;
+}
+
+/* Set a margin when not possible
+   (after a button when there is no footer) */
+.spacer {
+	display: block;
+	height: 20px;
+}
+#loginPage .page-bottom-margin{
+	height: 0px;
+}
+
+.sub-page {
+	background: url('../img/android/subpage_top.jpg') top repeat-x, url('../img/paper_grey_background.png') bottom repeat;
+	background-size: 50%;
+}
+
+.dark-background {
+	background-image: url("../img/paper_grey_background.png");
+	background-repeat: repeat;
+	background-position: top left;
+	border-top: 1px solid #D0CFCD;
+}
+
+.medium-background {
+	background-image: url("../img/paper_medium_background.png");
+	background-repeat: repeat;
+	background-position: top left;
+	border-top: 1px solid rgb(233, 233, 233);
+}
+
+.dark-background.no-border {
+	border-top: 0px none;
+}
+
+.intro-message {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	margin: 0 15px 0 15px;
+}
+
+.hotlined{
+	margin: 0 -15px 10px -15px;
+	padding: 5px 0 5px 0;
+	color: white;
+	background-color: #960051;
+	text-align: center;
+	display: none;
+}
+.page-bottom-margin.hotlined-bottom{
+	height: 0px;
+}
+
+/*************************** EULA_PAGE *************************/
+
+#eulaMainLogo {
+	width: 40%;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 6px;
+}
+
+.eulaBoxWrap {
+	/*width of the check box*/
+	width: 22px;
+	padding: 5px;
+}
+
+#i18n_EulaDisclamerText {
+	text-transform: uppercase;
+}
+
+#i18n_LegalAgreement {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+}
+
+#eula_separator {
+/* 	background-image: url("../img/black_line.png"); */
+/* 	background-size: 100% auto; */
+/* 	background-repeat : no-repeat; */
+/* 	height: 9px; */
+	margin-bottom: 5px;
+}
+
+.eula_disclaimer_wrap {
+	margin: 10px 0;
+}
+
+#eulaDisclamerPage .link{
+	text-decoration: underline;
+	margin: 5px 0;
+}
+#eulaDisclamerPage .header{
+/* 	height: 0px; */
+}
+
+.eulaFixedBottom {
+	position: fixed;
+	bottom :0;
+	left: 0px;
+	padding: 10px;
+	padding-bottom: 15px;
+	/*FIX fixed position glitch at startup (100%)*/
+	min-width: 320px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.boxTable {
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom: 5px;
+}
+.iOS #eulaDisclamerPage .button-right {
+	display: none;
+}
+
+.iOS #eulaDisclamerPage .button-left {
+	width: 90%;
+	margin-left: 5%;
+}
+
+/**************************** PIN **************************/
+#pinCode {
+	
+}
+
+
+/*************************** LOGIN *************************/
+
+/*#loginHello {
+	display: block;
+	width: 154px;
+	height: 44px;
+	background-image: url("../img/aio_big_logo_home.png");
+	background-size: auto 44px;
+	background-repeat: no-repeat;
+	margin: 15px 0 30px 0;
+}
+#loginHello span{
+	display: none;
+}*/
+
+#i18n_loginBtn {
+	float: right;
+	margin-top: 10px;
+	margin-right: 7px;
+}
+
+#i18n_loginForgotPwdBtn {
+	width: 80%;
+	text-align: center;
+	display: block;
+	padding: 0;
+	margin: 20pt 15pt 0 15pt;
+}
+
+#loginPage .large-button {
+	width: auto;
+	box-sizing: border-box;
+}
+
+#loginSignUpMessageContainer {
+	width: 50%;
+	margin: 0;
+}
+
+#i18n_loginSignUpNewTo {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	color: #404040;
+	padding-top: 20pt;
+	float: left;
+}
+#loginMainTopLogo{
+	height: 45px;
+}
+#loginMainLogo {
+	height: 35px;
+}
+
+#i18n_loginSignUpBrand {
+	font-family: LubalinMedium, Cambria, Bodoni, serif;
+	float: left;
+	color: #960051;
+}
+
+#i18n_loginSignUpMessage {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	clear: both;
+	width: 85%;
+	color: #404040;
+	margin: 0;
+}
+
+/*************************** FORGOT PWD *************************/
+#forgotPwdQuestionPage form {
+	margin-top: 30px;
+}
+#forgotPwdQuestionPage .list-container .list-item {
+	height: auto;
+}
+
+/*************************** HOME *************************/
+.hi { 
+	clear: both;
+}
+
+.home-top {
+	/*force size computing of floating*/
+	overflow: hidden;
+}
+
+#homeTitle {
+	float: left;
+	color: #960051;
+	padding-right: 5px;
+	border-right: 1px solid rgba(111, 111, 111, 0.3);
+}
+
+#homeMainLogo {
+	height: 30px;
+}
+
+#i18n_homeLogOutButton {
+	float: left;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #006D7B;
+	padding-left: 5px;
+	padding-top: 10px;
+}
+
+#i18n_homeNeedHelpButton {
+	float: right;
+}
+
+#homeMaxLogo {
+	float: right;
+	height: 35px;
+	cursor: pointer;
+}
+
+#homePage .hi {
+	color: #960051;
+	padding-top: 25px;
+	padding-bottom: 10px;
+	word-wrap: break-word;
+}
+
+#homePage .days-wrapper {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#homePage .days-left-container {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	padding-right: 8px;
+	color: #960051;
+	border-right: 1px solid rgba(111, 111, 111, 0.3);
+	text-align: center;
+	padding-top: 2px; 
+	padding-bottom: 2px; 
+}
+
+#daysLeft {
+	text-align: center;
+}
+
+#i18n_daysLeft {
+	text-align: center;
+	margin-top: -3pt;
+}
+
+#homePage .refuel-text-container {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	padding-left: 8px;
+	color: #404040;
+	padding-top: 2px; 
+	padding-bottom: 2px; 
+	display : table;
+}
+
+#refuelDate {
+	color: #404040;
+	font-weight: normal;
+}
+
+#homePage .refuel-text-container .monthly-total-container {
+	font-weight: normal;
+}
+
+#monthlyTotal {
+	color: #404040;
+}
+
+#homePage .credit-container {
+	margin: 8px 0 0 0;
+	padding-left: 8px;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	text-align: left;
+	font-weight: normal;
+	color: #404040;
+}
+#homePage .credit-container div :first-child {
+	width: 100px;
+	display: inline-block;
+}
+#i18n_iOweText,#iOwe {
+	color: #960051;
+}
+
+#myCredit,#iOwe {
+	min-width: 40%;
+	display: inline-block;
+	text-align: left;
+}
+
+#homePage .refuel-button-container {
+	margin: 10px 0 0 0;
+	padding-left: 8px;
+	width: 70%;
+}
+#homePage .bill-details-container{
+	margin: 10px 0 0 0;
+	padding-left: 8px;
+	width: 70%;
+}
+#homePage .your-lines{
+	margin: 20px 0 10px 0;
+	border-top: 1px solid rgba(111, 111, 111, 0.3);
+}
+#homePage .line-message div{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.line-message, #homePage .phone-desc .line-message{
+	display: none;
+	color: #960051;
+	font-size: 11px;
+}
+#homePage .phone-desc .line-message{
+	display: block;
+}
+.line-message a, .line-message span{
+	color: #006D7B;
+}
+#i18n_yourLineTitle{
+	color: #960051;
+	padding-top: 15px;
+	word-wrap: break-word;
+	font-size: 18px;
+}
+#yourLines{
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #006D7B;
+	margin: 0px;
+}
+#yourLines .title{	
+	font-size: 12px;
+	margin: 10px 0 5px 0;
+	height: 40px;
+	line-height: 40px;
+}
+#yourLines .extended{
+	background-image: url("../img/my_plan_down_arrow.png"), url("../img/paper_grey_background.png"); 
+}
+#yourLines .reduced{
+	background-image: url("../img/my_plan_arrow.png"), url("../img/paper_grey_background.png");
+}
+#yourLines .extended,
+#yourLines .reduced{
+	background-size: 12px, 100% 100%;
+	background-position: 3px 13px, top left;
+}
+#yourLines .extended span{
+	display: none;
+}
+#yourLines .reduced span{
+	color: #960051;
+	font-size: 11px;
+}
+#homePage .phone-desc{
+	margin: 3px 0;
+}
+#homePage .phone-desc div{
+	color: #404040;
+	margin-left: 20px;
+}
+#homePage .phone-desc div ul{
+	margin: 0px;
+	padding-left: 15px;
+}
+#homePage .phone-desc > li{
+	margin: 7px 0;
+	height: 35px;
+	line-height: 35px;
+}
+#homePage .phone-desc .not-activated{
+	color: #960051;
+}
+#homePage .phone-desc .not-activated:before{
+	content: '!';
+	font-style: normal;
+	font-weight: bold;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	margin-right: 7px;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	width: 16px;
+	line-height: 16px;
+	background-color: #ecdae2;
+}
+/*
+#homePage .phone-desc .node:before{
+	height: 10px;
+	width: 10px;
+	speak: none;
+	content: 'test';
+	position: absolute;
+	margin-left: 3px;
+}*/
+#homePage .phone-desc .node:after{
+	background-image: url("../img/back_arrow.png");
+	background-repeat: no-repeat;
+	background-size: 5px 7px;
+	width: 10px;
+	speak: none;
+	content: '';
+	-webkit-transform: rotate(180deg);
+	position: absolute;
+	margin-left: 3px;
+	height: 30px;
+	background-position: 0 10px;
+}
+#homePage .two-column-grid{
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+#homePage .auto-pay-container {
+	padding-top: 5pt;
+}
+
+#homePage .auto-pay-container:after {
+	clear: both;
+	content: '.';
+	color: transparent;
+	display: block;
+}
+
+#i18n_homeWhyNot {
+	padding-left: 20px;
+	color: #404040;
+}
+
+#homeAutoPay {
+	display: block;
+	color: #006D7B;
+}
+
+#i18n_autoPayLearnMore {
+	padding-top: 16%;
+	padding-right: 10%;
+	
+}
+#i18n_autoPayLearnMore:after{
+	background-image: url("../img/back_arrow.png");
+	background-repeat: no-repeat;
+	background-size: 5px 7px;
+	height: 14px;
+	width: 10px;
+	speak: none;
+	content: '';
+	-webkit-transform: rotate(180deg);
+	position: absolute;
+	margin-left: 3px;
+	margin-top: -3px;
+}
+
+#homePage .homeSetupAutoPayButtonContainer {
+	margin-top: 5px;
+}
+
+/* #pinPage div{ */
+/* 	text-align: center; */
+/* } */
+#pinPage input{
+	width: auto;
+	margin-bottom: 5px;
+}
+#pinPage .text{
+	color: #404040;
+	text-align: left;
+}
+#pinPage .text span{
+	font-weight: bold;
+}
+
+/*************************** MORE *************************/
+.more-page-grid-table {
+	display: table;
+	margin: 15px auto 15px auto;
+}
+
+#morePage .table-row {
+	display: table-row;
+}
+
+#morePage .table-cell {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	text-align:center;
+	vertical-align:bottom;
+	color:white;
+	background-image: url(../img/more/background_button.png);
+	background-repeat:repeat;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-radius: 10%;
+	display: table-cell;
+	padding: 10px;
+	width: 80px;
+	height: 66px;	
+	cursor: pointer;
+	background-size: 100%;
+	box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+	vertical-align: middle;
+}
+
+#morePage .table-cell.plume {
+	background-image: url(../img/more/background_button_plume.png);
+}
+#morePage .table-cell.plume > * {
+	margin-top: -10%;
+}
+#morePage .table-cell.plume > div {
+	height: 14px;
+}
+
+/* The size must be smaller than a cell size (anyway the text will not wrap)*/
+#morePage .more-link-group {
+	white-space: nowrap;
+	width: 100px	
+}
+
+#morePage .cell-spacer {
+	width: 16px;
+	height: 16px;
+	margin: 1px; /* fix some strange white bottom border glitch */
+}
+
+.more-page-cell-icon {
+	width: 50%;
+	padding-bottom: 10%;
+}
+
+#morePage .more-page-button-img {
+	width: 100%;
+	display: block;
+}
+#morePageProfileBtn img.more-page-cell-icon{
+	width: 65%;
+	padding-bottom: 0px;
+}
+
+#morePage .list-container {
+	margin: 15px;
+	list-style: none;
+	padding: 0;
+}
+
+.more-page-list {
+	margin-left: auto;
+	margin-right: auto;
+	width: 218px;
+}
+
+#morePage .list-item {
+	text-decoration: none;
+	border: none;
+	padding: 5px 0px;
+}
+
+#morePage .general-link{
+	background:none; 
+	padding: 0px; 
+	text-align: left; 
+	box-shadow: none;
+	vertical-align: top;
+}
+
+#versionNumber{
+	border-top: 1px solid rgb(213,212,210);
+	/*margin-left: -15px;*/
+	/*margin-right: -15px;*/
+	margin-left: -3%;
+	margin-right: -3%;
+	padding-top: 10px;
+	text-align: center;
+	color: #404040;
+}
+
+#loginVersionNumber{
+	text-align : center;
+	color:  #ACACAC;
+	line-height: 15px;	
+}
+
+#aboutUsPage .wp-button-container a{
+	margin-bottom: 20px;
+}
+
+/***********************  PROFILE PAGE  *********************/
+#myProfilePage .page {
+	margin: 5px 25px 15px 25px;
+}
+
+#myProfilePage .table-title {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	font-size: 14px;
+}
+
+#myProfilePage table {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	border-collapse: collapse;
+	width: 95%;
+	color: #404040;
+	margin: 6px 0 6px 0;
+}
+#myProfilePage div.profile-page-table{
+	background-repeat: repeat;
+	background-position: top left;
+	border-top: 1px solid #E9E9E9;
+	border-bottom: 1px solid #E9E9E9;
+	margin-left: -3%;
+	margin-right: -3%;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+#myProfilePage div.profile-page-table:nth-of-type(odd){
+	background-image: url("../img/paper_grey_background.png");
+}
+#myProfilePage div.profile-page-table:nth-of-type(even){
+	background-image: url("../img/paper_medium_background.png");
+}
+
+#myProfilePage table tr {
+	height: 15px;
+}
+#myProfilePage table.profile-page-table tr{
+	height: 22px;
+}
+#myProfilePage table td {
+	vertical-align: top;
+	width: 50%;
+	padding: 0;
+	margin: 0;
+}
+
+#myProfilePage table td:nth-child(2) {
+	color: #960051;
+}
+
+.profile-line-separator {
+	background-color: rgba(111, 111, 111, 0.2);
+	/*margin: auto;*/
+	margin: 0 -3%;
+	height: 1px;	
+}
+
+#myProfilePage .button {
+	margin-top: 25px;
+	margin-bottom: 20px;
+}
+/*************************** TRANSACTIONS HISTORY *************************/
+#transactionsHistoryPage table {
+	width: 105.9%; /*width: 110.8%;*/
+	border-collapse:collapse;
+	margin: 20px -3% 0; /* margin: 20px -5.4% 0; */
+}
+
+#transactionsHistoryPage thead {
+	color: #404040;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	width: auto;
+	margin-left: -5.4%;
+	margin-right: -5.4%;
+	margin-top: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+	height:46px;
+	box-sizing: border-box;
+	border-top: 1px solid #d8d7d6;
+	border-bottom: 1px solid #bababa;
+	background-image: linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -o-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -moz-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -webkit-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -ms-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.46, #FCFCFC), color-stop(1, #DDDDDD) );
+}
+
+#transactionsHistoryPage thead tr {
+	height: 50px;
+}
+
+#transactionsHistoryPage thead td {
+	padding-bottom: 3px;
+}
+
+#transactionsHistoryPage tbody {
+	color: #404040;
+}
+
+#transactionsHistoryPage tbody tr {
+	vertical-align: middle;
+	height: 18px;
+}
+
+#transactionsHistoryPage tbody tr.descLine {
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+#transactionsHistoryPage tbody tr.odd {
+	background: #e4e4e3;
+}
+
+#transactionsHistoryPage tbody tr.even {
+	background: #f2f2f0;
+}
+
+#transactionsHistoryPage tbody tr.empty {
+	height: 36px;
+	text-align: center;
+}
+
+.transactions-history-date {
+	width: 40%;
+	padding-top: 3px;
+	padding-left: 5%;
+}
+
+.transactions-history-amount {
+	width: 35%;
+	text-align: right;
+	padding-top: 3px;
+}
+
+.transactions-history-balance {
+	width: 25%;
+	text-align: right;
+	padding-top: 3px;
+	padding-right: 5%;
+}
+
+.transactions-history-description {
+	border-bottom: 1px solid #d9d9d9;
+	padding: 0 5% 3px 5%;
+}
+
+/*************************** MY ZIG PLAN *************************/
+.page .title {
+	background-repeat: no-repeat;
+	background-position: top left;
+	padding-left: 20px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.page .myPlanContent {
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
+.page .pointfill {
+	height: 20px;
+}
+
+.page .reduced {
+	background-image: url("../img/my_plan_arrow.png");
+	background-size: 14px; /*background-size: 10px;*/
+	background-position: 3px 9px; /* background-position: 3px 6px; */
+}
+
+.page .extended {
+	background-image: url("../img/my_plan_down_arrow.png");
+	background-size: 14px; /*background-size: 10px;*/
+	background-position: 3px 9px; /* background-position: 3px 6px; */
+}
+
+.page .plan-desc {
+	clear: both;
+	color: #404040;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.plan-desc a,
+.services-list a {
+	display: inline;
+	font-size: inherit;
+	font-weight: inherit;
+	font-family: inherit;
+}
+
+#myPlanPage .list-content {
+	color: #404040;
+}
+
+#myPlanPage .title.pointfill {
+	color: #404040;
+	height: 25px;
+}
+#myPlanPage .medium-background.no-border-top{
+	border-top: none;
+/* 	margin-right: -5.4%; */margin-right: -3%;
+/* 	margin-left: -5.4%; */margin-left: -3%;
+/* 	padding-left: 5%; */padding-left: 3%;
+/* 	padding-right: 5%; */padding-right: 3%;
+}
+#myPlanPage .medium-background.no-border-top{
+	margin-left: -3%; /* margin-left: -5%; */
+	margin-right: -3%; /* margin-right: -5%; */
+}
+#i18n_myPlanButton{
+	margin-bottom: 20px;
+}
+#myPlanAccountInformation {
+	color: #960051;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+}
+#myPlanAccountInformation span{
+	display: block;
+	margin-bottom: 10px;
+}
+#myPlanAccountInformation a{
+	color: #006d7b;
+	display: inline;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+}
+
+.extended + div, .reduced + div {
+	overflow: hidden;
+/* 	-webkit-transition : 200ms; */
+/* 	transition :200ms; */
+}
+
+.page .plan-desc.text {
+	padding-left: 20px;
+	padding-right: 40px;
+	white-space: normal;
+	overflow: visible;
+}
+
+.page .plan-name {
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+.page .value {
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+.page .services-list {
+	color: #006d7b;
+	margin-left: 0px;
+	margin-right: 40px;
+	padding-left: 35px;
+	margin-top: 0px;
+}
+
+.page .services-list li {
+	padding-top: 2px;
+}
+
+.page .services-list li>div {
+	margin-left: -5px;
+}
+
+.page .rightGreenArrow {
+	padding: 0;
+	margin: 0;
+	border: 120px solid rgba(0, 0, 0, 0);
+	border-left-color: rgb(99, 177, 188);
+	height: 0px;
+	width: 0px;
+}
+
+.page .innerPage {
+	margin: 0;
+	padding: 0;
+}
+
+.title.pointfill {
+	display: table;
+	margin-bottom: 4px;
+}
+
+.title .plan-name {
+	white-space: nowrap;
+	display: table-cell;
+	max-width: 152px;/*TODO compute this dynamically*/
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+.title .point-separator {
+	width: 99%;
+	display: table-cell;
+	background-image: url("../img/points.png");
+	background-repeat: repeat-x;
+	background-size: 4px 1px;
+	background-position: bottom;
+	position: relative;
+	bottom: 3px;
+}
+
+.title .value {
+	white-space: nowrap;
+	display: table-cell;
+}
+.plus-minus-bar {
+	width: 60px;
+	position: relative;
+	bottom: -5px;
+}
+.one-bar {
+	width: 30px;
+	position: relative;
+	bottom: -2px;
+}
+
+.plus-minus-bar>div {
+	margin: 0;
+	padding: 0;
+	display: table;
+}
+
+.ui-shop-icon {
+	width: 30px;
+	height: 25px; /* height: 20px; */
+	display: table-cell;
+	vertical-align: middle;
+	
+}
+
+.ui-plus {
+	background: url('../img/icon_plus@2.png') no-repeat center;
+	background-size: 25px 25px; /* background-size: 18px 18px; */
+}
+
+.ui-minus {
+	background: url('../img/icon_minus@2.png') no-repeat center;
+	background-size: 25px 25px; /* background-size: 18px 18px; */
+}
+
+#myPlanOTServicesContainer {
+	margin-right: 30px;
+}
+
+#servicesPaymentPage ul.list-container {
+	margin-top: 10px;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+/*************************** MANAGER SERVICES *************************/
+#manageServicesPage h3{
+/* 	display: none; */
+}
+#manageServicesPage .list-container {
+	margin: 0 -3%; /* margin: 0 -5%; */
+	padding: 10px 3%; /* padding: 10px 5%; */
+}
+
+#manageServicesPage .title .point-separator, #manageServicesPage .title .value{
+	cursor: default;
+}
+
+#manageServicesRecServices {
+	border-top: 1px solid rgb(233, 233, 233);
+}
+
+#manageServicesPage .large-button {
+	margin-bottom: 15px;
+}
+
+#manageServicesPage .summary-total-text {
+	padding-top: 15px;
+	text-align: center;
+	text-align: left;
+}
+
+#manageServicesPage  .button-bar{
+	margin-bottom: 20px;
+}
+
+#manageServicesPage  .multiplicator,
+#myPlanPage  .multiplicator {
+	color: #6E6D6B;
+}
+#i18n_manageSummaryText {
+	color: #404040;
+}
+#manageAutopayReviewPage .confirmation-infos,
+#desactivateAutopayPage .confirmation-infos{
+	margin-left: 0;
+	padding: 0;
+	list-style: none;
+}
+#manageAutopayReviewPage .confirmation-infos span,
+#desactivateAutopayPage .confirmation-infos span{
+	display: inline-block;
+}
+#manageAutopayReviewPage .confirmation-infos span:nth-of-type(1),
+#desactivateAutopayPage .confirmation-infos span:nth-of-type(1){
+	width: 35%;
+}
+#manageAutopayReviewPage .confirmation-infos span:nth-of-type(2),
+#desactivateAutopayPage .confirmation-infos span:nth-of-type(2){
+	width: 65%;
+	color: #960051;
+}
+#autoPayHowItWork{
+	font-weight: bold;
+	padding-top: 5px;
+	margin-top: 15px;
+	text-align: justify;
+	color: #960051;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+}
+#autoPayHowItWorkDesc {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	margin-top: 0;
+}
+/********************** PAY MY BILL / REFUEL PAY ********************/
+#payMyBillPage fieldset div:first-child {
+	display: table;
+	width: 100%;
+}
+
+#payMyBillPage fieldset div:first-child div {
+	display: table-cell;
+}
+
+/* TODO : defect #870 */
+#payMyBillPage .history, #payMyBillPage .details{
+	border-bottom: 1px solid rgb(233, 233, 233);
+	text-align: right;
+	margin-left: -3%; /* margin-left: -15px; */
+	margin-right: -3%; /* margin-right: -15px; */
+	padding-right: 15px;
+	padding-bottom: 5px;
+}
+#payMyBillPage .history a, #payMyBillPage .details a{
+	color: #006d7b;
+	text-align: left;
+	display: inline;
+}
+#payMyBillPage .details{
+	padding-bottom: 0;
+	margin-top: -15px;
+}
+#payMyBillPage fieldset div:first-child .credit-container {
+	padding: 0px 10px 0 0;
+	font-weight: normal;
+	color: #404040;
+	width: 60%;
+	text-align: right;
+	position: relative;
+	/* TODO : defect #870 */
+	/* top: 10px; */
+	top: 20px;
+}
+
+#payMyBillPage fieldset div:first-child .credit-container div {
+	float: left;
+	padding-right: 10px;
+	text-align: right;
+	width: 100%;
+}
+
+#payMyBillPage fieldset div:first-child .credit-container div span {
+	width: 60%;
+}
+
+#payMyBillPage fieldset div:first-child .credit-container div:last-child {
+	color: #960051;
+}
+
+#i18n_payMyBillCredit,#i18n_payMyBillOwe {
+	margin-right: 5px;
+}
+
+#payMyBillPage .amount-container{
+	width: 40%;
+	text-align: center;
+	padding-top: 0px;
+	position: relative;
+	/* TODO : defect #870 */
+	/* top: -25px; */
+	top: -15px;
+}
+#payMyBillPage .dollar{
+	background-image: url(../img/dollar.png);
+	background-repeat: no-repeat;
+	background-position: 7px 7px;
+	padding-left: 20px;
+	background-size: 14px 14px;
+}
+
+#payMyBillPage label {
+	color: #404040;
+	margin-top: 5px;
+	width: 100%;
+}
+
+#payMyBillPage .multiline{
+	display: none;
+}
+
+#i18n_payMyBillCardNumberInput,#i18n_payMyBillExpirationDateInput,#i18n_payMyBillPostalCodeInput, #manageAutopayExpirationDateInput, #servicesPaymentExpirationDateInput, #i18n_payMyBillPinInput {
+	width: 49%;
+}
+
+form .list-container .pin-required{
+	display: none;
+}
+
+#i18n_payMyBillCardNumberInput,#i18n_payMyBillExpirationDateInput, #manageAutopayExpirationDateInput, #servicesPaymentExpirationDateInput {
+	margin-right: 2%;
+}
+
+#i18n_payMyBillSecurityCodeInput {
+	width: 42%;
+}
+
+#payMyBillPage .query{
+	background-image: url(../img/query.png);
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	width: 18px;
+	height: 18px;
+	margin-top: 7px;
+	margin-left: 2px;
+	position: absolute;
+	cursor: pointer;
+}
+
+#payMyBillPage input, #payMyBillReviewPage input, #servicesPaymentPage input, #manageAutopayPage input,
+#payMyBillPage select, #payMyBillReviewPage select, #servicesPaymentPage select, #manageAutopayPage select,
+#payMyBillPage .select-label, #payMyBillReviewPage .select-label, #servicesPaymentPage .select-label, #manageAutopayPage .select-label {
+	font-family: Helvetica, Arial, sans-serif;
+}
+#i18n_payMyBillAmountInput, #payMyBillReviewPage input {
+	padding-left: 20px;
+}
+#payMyBillPage .sub-page {
+	padding-top: 18px;
+	padding-bottom: 10px;
+}
+#payMyBillPage .select-container {
+	position: relative;
+}
+#payMyBillPage .cardExpirationDateControlWrapper {
+	display: inline-block!important;
+	margin-right: 2%!important;
+	vertical-align: top;
+	width: 49%!important;
+}
+#payMyBillPage .select-container.month {
+	display: inline-block;
+	width: 45%;
+}
+#payMyBillPage .select-container.year {
+	display: inline-block;
+	width: 45%;
+}
+#payMyBillPage .slash {
+	display: inline-block!important;
+	text-align: center;
+	width: 10%;
+}
+#payMyBillPage .select-container .select-icon {
+	top: 0px;
+	right: 0px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 29px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+#payMyBillPage .select-container select, 
+#payMyBillPage .select-container .select-label {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+#payMyBillPage .select-container.month select,
+#payMyBillPage .select-container.month .select-label,
+#payMyBillPage .select-container.year select,
+#payMyBillPage .select-container.year .select-label {
+	border-right: 2px solid #AAA;
+}
+#payMyBillPage .notValued:not(:focus),
+#payMyBillPage .notValued:not(:focus),
+#payMyBillPage .select-label.notValued {
+	color: #AAA;
+}
+#payMyBillPage .checkbox-item {
+	display: table;
+}
+#payMyBillPage .checkbox-item.second-checkbox-item {
+	margin-top: 0;
+	vertical-align: middle;
+}
+#payMyBillPage input[type="checkbox"] {
+	background-size: 22px;
+	width: 22px;
+	height: 22px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+#payMyBillPage .checkbox-item input[type="checkbox"]+span, #manageAutopayPage .checkbox-item input[type="checkbox"]+span{
+	display: table-cell;
+}
+#payMyBillPage .checkbox-item label{
+	margin-top: 0px;
+}
+#payMyBillPage .checkbox-item.second-checkbox-item input,
+#payMyBillPage .checkbox-item.second-checkbox-item+label{
+	display: table-cell;
+}
+#payMyBillPage .checkbox-item.second-checkbox-item a{
+	display: inline;
+}
+#i18n_payMyBillTermsInput{
+	margin: 5px 3px 0 10px!important;
+}
+#i18n_payMyBillTermsCondition_2{
+	color: #006D7B;
+	text-decoration: none;
+}
+
+/********************** BILL DETAILS ********************/
+#billDetailsPage{
+	color: #404040;
+}
+#billDetailsPage .button-bar{
+	margin: 10px 0 20px 0;
+}
+#billDetailsPage .query{
+	background-image: url(../img/query.png);
+	background-repeat: no-repeat;
+	background-size: 18px 18px;
+	cursor: pointer;
+	display: inline-block;
+	height: 18px;
+	left: 0;
+	position: absolute;
+	top: -2px;
+	width: 18px;
+}
+#billDetailsPage .totalOwed{
+	color: #960051;
+	text-align: right;
+}
+#billDetailsPage .generatedContent{
+	border-bottom: 1px solid #CCC;
+}
+#billDetailsPage .helpColumn{
+	position: relative;
+	width: 20px;
+}
+#billDetailsPage h4{
+	margin: 15px 0 5px 0;
+}
+#billDetailsPage p{
+	margin: 10px 0;
+}
+#billDetailsPage table{
+	margin: 5px 0;
+	width: 100%;
+}
+#billDetailsPage td{
+	text-align: right;
+	padding-left: 0;
+	padding-right: 0;
+}
+#billDetailsPage table td:first-child{
+	text-align: left;
+}
+#billDetailsPage .button-bar{
+	text-align: right;
+}
+#i18n_billDetailsPayNowButton {
+	display: inline-block;
+	width: 45%;
+}
+
+/********************** PAY MY BILL REVIEW / PAY REVIEW ********************/
+#payMyBillReviewPage fieldset div:first-child{
+	display: table;
+}
+#payMyBillReviewPage fieldset div:first-child div,
+#servicesPaymentInfo div{
+	display: table-cell;
+}
+#payMyBillReviewPage .credit-container,
+#servicesPaymentInfo .credit-container{
+	margin-bottom: -20px;
+}
+#payMyBillReviewPage fieldset div:first-child .credit-container,
+#servicesPaymentInfo .credit-container{
+	margin: 0px 0 5px 0;
+	padding: 0px 10px 0 0;
+	font-weight: normal;
+	color: #404040;
+	width: 60%;
+	text-align: right;
+	position: relative;
+	top: 11px;
+}
+#payMyBillReviewPage fieldset div:first-child .credit-container div,
+#servicesPaymentInfo .credit-container div{
+	float: left;
+	padding-right: 10px;
+	text-align: right;
+	width: 100%;
+}
+#payMyBillReviewPage fieldset div:first-child .credit-container div span,
+#servicesPaymentInfo .credit-container div span{
+	width: 60%;
+}
+#payMyBillReviewPage fieldset div:first-child .credit-container div:last-child,
+#servicesPaymentInfo .credit-container div:last-child{
+	color: #960051;
+}
+#i18n_payMyBillReviewCredit, #i18n_payMyBillReviewOwe{
+	margin-right: 5px;
+}
+#payMyBillReviewPage .amount-container,
+#servicesPaymentPage .amount-container{
+	width: 40%;
+	text-align: center;
+	padding-top: 0px;
+	position: relative;
+	top: -25px;
+}
+#payMyBillReviewPage label,
+#servicesPaymentPage label{
+	color: #404040;
+	margin-top: 5px;
+}
+#i18n_payMyBillReviewAmountInput{
+	background-image: url(../img/dollar.png);
+	background-repeat: no-repeat;
+	background-position: 7px 7px;
+	padding-left: 20px;
+	background-size: 14px 14px;
+}
+#payMyBillReviewPage .list-item span{
+	display: inline-block;
+}
+#payMyBillReviewPage .list-item span:nth-of-type(1){
+	width: 30%;
+}
+#payMyBillReviewPage .list-item span:nth-of-type(2){
+	width: 65%;
+	color: #960051;
+}
+/*
+#payMyBillReviewPage .sub-page{
+	margin-top: 0px;
+	padding-top: 15px;
+}
+#payMyBillReviewPage .sub-page div{
+	display: inline-block;
+}
+*/
+#payMyBillReviewPage .list-container{
+	margin-top: 0px;
+	padding-top: 15px;
+	border-top: 1px solid #E9E9E9; 
+}
+#payMyBillReviewPage .list-container .list-item {
+	color: #404040;
+}
+#payMyBillReviewPage .button-bar a{
+	width: 48%;
+}
+#payMyBillReviewPage .list-container .list-item:first-child {
+	color: #960051;
+	padding-left: 0px;
+}
+#payMyBillReviewPage .list-container .list-item:last-child {
+	padding-left: 0px;
+	padding-top: 25px;
+}
+/********************** PAY MY BILL CONFIRM / PAY CONFIRM ********************/
+#payMyBillConfirmationPage .content-title{
+	color: #960051;
+	padding-left: 0px;
+}
+#payMyBillConfirmationPage .text-box{
+	color: #404040;
+	padding-left: 0px;
+	margin-top: 5px;
+}
+#payMyBillConfirmationPage .text-box .text{
+	margin-bottom: 20px;
+}
+#payMyBillConfirmationPage .text-box ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+#payMyBillConfirmationPage .text-box li{
+	/*height: 18px;*/
+}
+#payMyBillConfirmationPage .text-box li.blue-text{
+	color: #006D7B;
+}
+#payMyBillConfirmationPage .text-box li.marginbot{
+	margin-bottom: 12px; 
+}
+#payMyBillConfirmationPage .text-box li div{
+	display: inline-block;
+}
+#payMyBillConfirmationPage .text-box li div:nth-of-type(1){
+	width: 40%;
+}
+#payMyBillConfirmationPage .text-box li div:last-child{
+	padding-left: 5px;
+}
+#payMyBillConfirmationPage .text{
+	padding: 10px 0 0 0;	
+}
+#i18n_payMyBillConfirmationQuestionText{
+	padding: 10px 10px 0 10px;
+}
+#payMyBillConfirmationPage .sub-page{
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: center;
+	border-top: 1px solid #E9E9E9;
+	background: none;
+}
+#payMyBillConfirmationPage .sub-page div.wp-button-container{
+	margin-top: 25px;
+}
+/*************************** SERVICE REVIEW *************************/
+#servicesReviewPage .phone-number {
+	margin: 10px 0;
+}
+#servicesReviewPage .title {
+	padding-left: 0px;
+	cursor: auto;
+}
+#servicesReviewPage .list-container-title {
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+#servicesReviewPage .dark-background .list-container-title {
+	padding: 25px 0 0 0;
+}
+#servicesReviewOTServicesContainer {
+	margin-bottom: 25px;
+}
+#servicesReviewRecServicesContainer {
+	margin-bottom: 25px;
+}
+#servicesReviewRemovedServicesContainer {
+	margin-bottom: 25px;
+}
+#servicesReviewAmountDueContainer {
+	padding: 25px;
+	text-align: center;
+	color: #960051;
+}
+#servicesReviewAmountDueText, #servicesReviewAmountDue, #servicesReviewTax {
+	display: inline-block;
+}
+#servicesReviewPage .information{
+	color: #404040;
+	margin-top: 10px;
+}
+#servicesReviewOTContainer,#servicesReviewRecContainer,#servicesReviewRemovedContainer,#servicesReviewAmountDueContainer,#servicesReviewAccountInfo {
+	display: none;
+}
+
+/********************** SERVICES PAYMENT ********************/
+#servicesPaymentPage .credit-container {
+/* 	display: block; */
+	display: table-cell;
+	box-sizing: border-box;
+	font-weight: normal;
+	color: #404040;
+	text-align: right;
+}
+
+#servicesPaymentPage .credit-container div {
+	text-align: right;
+	width: 100%;
+}
+
+#servicesPaymentPage .credit-container div:last-child {
+	color: #960051;
+}
+
+#servicesPaymentPage .dollar{
+	background-image: url(../img/dollar.png);
+	background-repeat: no-repeat;
+	background-position: 7px 7px;
+	padding-left: 20px;
+	background-size: 14px 14px;
+}
+#servicesPaymentPage .sub-page{
+	padding-top: 1px;
+}
+#servicesPaymentPage label {
+	color: #404040;
+	margin-top: 5px;
+	width: 100%;
+}
+
+#servicesPaymentCardNumberInput,#servicesPaymentExpirationDateInput,#servicesPaymentPostalCodeInput {
+	width: 49%;
+}
+
+#servicesPaymentSecurityCodeInput {
+	width: 39%;
+}
+
+#servicesPaymentPage .query{
+	background-image: url(../img/query.png);
+	background-size: 18px 18px;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	margin-top: 8px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+#servicesPaymentPage input,
+#servicesPaymentPage select {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#servicesPaymentPage .select-container {
+	position: relative;
+}
+#servicesPaymentPage .cardExpirationDateControlWrapper {
+	display: inline-block!important;
+	margin-right: 2%!important;
+	vertical-align: top;
+	width: 49%!important;
+}
+#servicesPaymentPage .select-container.month {
+	display: inline-block;
+	width: 45%;
+}
+#servicesPaymentPage .select-container.year {
+	display: inline-block;
+	width: 45%;
+}
+#servicesPaymentPage .slash {
+	display: inline-block!important;
+	text-align: center;
+	width: 10%;
+}
+#servicesPaymentPage .select-container .select-icon {
+	top: 0px;
+	right: -29px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 29px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+#servicesPaymentPage .select-container select,
+#servicesPaymentPage .select-container .select-label {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+#servicesPaymentPage .select-container.month select,
+#servicesPaymentPage .select-container.month .select-label,
+#servicesPaymentPage .select-container.year select,
+#servicesPaymentPage .select-container.year .select-label {
+	border-right: 2px solid #AAA;
+}
+#servicesPaymentPage .notValued:not(:focus),
+#servicesPaymentPage .notValued:not(:focus),
+#servicesPaymentPage .select-label.notValued {
+	color: #AAA;
+}
+#servicesPaymentPage .checkbox-item {
+	display: table;
+}
+#servicesPaymentPage input[type="checkbox"] {
+	background-size: 22px;
+	width: 22px;
+	height: 22px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+#servicesPaymentPage .checkbox-item input[type="checkbox"]+span, 
+#manageAutopayPage .checkbox-item input[type="checkbox"]+span{
+	display: table-cell;
+}
+#servicesPaymentPage .checkbox-item a {
+	display: inline;
+}
+#servicesPaymentPage .checkbox-item label{
+	margin-top: 0px;
+	padding-left: 10px;
+}
+#servicesPaymentTermsCondition_2{
+	color: #006D7B;
+	text-decoration: none;
+	padding-left: 3px;
+}
+
+#servicesPaymentPage .button-bar a{
+	width: 48%;
+}
+
+/*********************** SERVICES CONFIRMATION *********************/
+#manageServicesConfirmationPage .phone-number {
+	margin: 10px 0;
+}
+#manageServicesConfirmationPage .text-box {
+	margin-left: 25px;
+}
+
+#manageServicesConfirmationPage .informations {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+/* 	width: 80%; */
+}
+
+#manageServicesConfirmationPage ul {
+	color: #404040;
+	list-style: none;
+	/* width: 80%; */
+}
+
+#manageServicesConfirmationPage .confirmation-infos {
+	color: #29858F;
+}
+
+#manageServicesConfirmationPage .list-sub-title {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+}
+
+#manageServicesConfirmationPage .services-list {
+	color: #404040;
+	margin-left: 0;
+	padding-left: 10px;
+}
+
+#manageServicesConfirmationPage .button-description {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: center;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+#manageServicesConfirmationPage .plan-name {	
+	white-space: nowrap;
+	display: table-cell;
+	max-width: 169px;
+	text-overflow: ellipsis;
+	box-sizing: border-box;
+	vertical-align: bottom;
+}
+
+#manageServicesConfirmationPage .point-separator {
+	width: 99%;
+	display: table-cell;
+	background-image: url("../img/points.png");
+	background-repeat: repeat-x;
+	background-size: 4px 1px;
+	background-position: bottom;
+	position: relative;
+	bottom: 3px;
+}
+
+#manageServicesConfirmationPage .value {
+	white-space: nowrap;
+	display: table-cell;
+	box-sizing: border-box;
+	overflow: visible;
+	text-align: right;
+	vertical-align: bottom;
+	text-overflow: ellipsis;
+}
+/********************** SET AUTO PAY CONFIRMATION ********************/
+#manageAutopayConfirmationPage .content-title{
+	color: #960051;
+	padding-left: 0px;
+}
+#manageAutopayConfirmationPage .text-box{
+	color: #404040;
+	padding-left: 0px;
+	margin-top: 5px;
+	text-align: left;
+}
+#manageAutopayConfirmationPage .text-box .text{
+	margin-bottom: 20px;
+}
+#manageAutopayConfirmationPage .text-box ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+#manageAutopayConfirmationPage .text-box li{
+	/*height: 18px;*/
+}
+#manageAutopayConfirmationPage .text-box li div{
+	display: table-cell;
+}
+#manageAutopayConfirmationPage .text-box li div.value{
+	padding-left: 5px;
+}
+#manageAutopayConfirmationPage .sub-page{
+	text-align: center;
+}
+#manageAutopayConfirmationPage .button{
+	margin-top: 15px;
+	width: 47%;
+}
+
+/*********************** AUTO PAY REVIEWS AND CONFIRMATIONS *********************/
+.autopay .informations {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: left;
+}
+
+.autopay .autopay-infos {
+	color: #404040;
+	list-style: none;
+	width: 80%;
+	padding-left: 20px;
+}
+
+.autopay ul {
+	color: #404040;
+	padding-left: 20px;
+}
+
+.autopay .confirmation-infos {
+	color: #404040;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+}
+
+.autopay .list-container-title {
+	margin-top: 20px;
+	margin-bottom: -20px;
+}
+
+.autopay .list-sub-title {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	font-weight: bold;
+}
+
+.autopay .services-list {
+	color: #404040;
+	margin-left: 0;
+}
+
+.autopay .button-description {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: center;
+	margin-top: 25px;
+	padding: 25px 25px 0 25px;
+}
+
+/************* DESACTIVATE AUTO PAY CONFIRMATION *****************/
+#desactivateAutopayConfirmationPage .informations {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: left;
+	padding-top: 5px;
+}
+
+#desactivateAutopayConfirmationPage .button{
+	margin-top: 15px;
+	width: 47%;
+}
+
+/********************** MANAGE AUTO PAY ********************/
+#manageAutopayPage .informations {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+}
+
+#manageAutopayPage fieldset div:first-child {
+	display: table;
+}
+
+#manageAutopayPage fieldset div:first-child div {
+	display: table-cell;
+}
+
+#manageAutopayPage fieldset div:first-child .credit-container {
+	margin: 0px 0 5px 0;
+	padding: 0px 10px 0 0;
+	font-weight: normal;
+	color: #404040;
+	width: 60%;
+	text-align: right;
+	position: relative;
+	top: 11px;
+}
+
+#manageAutopayPage fieldset div:first-child .credit-container div {
+	float: left;
+	padding-right: 10px;
+	text-align: right;
+	width: 100%;
+}
+
+#manageAutopayPage fieldset div:first-child .credit-container div span {
+	width: 60%;
+}
+
+#manageAutopayPage fieldset div:first-child .credit-container div:last-child {
+	color: #960051;
+}
+
+#manageAutopayCredit,#manageAutopayOwe {
+	margin-right: 5px;
+}
+
+#manageAutopayPage .amount-container{
+	width: 40%;
+	text-align: center;
+	padding-top: 0px;
+	position: relative;
+	top: -25px;
+}
+#manageAutopayPage .dollar{
+	background-image: url(../img/dollar.png);
+	background-repeat: no-repeat;
+	background-position: 7px 7px;
+	padding-left: 20px;
+	background-size: 14px 14px;
+}
+
+#manageAutopayPage label {
+	color: #404040;
+	margin-top: 5px;
+}
+
+#manageAutopayPage .sub-page div {
+	display: inline-block;
+}
+
+#manageAutopayCardNumberInput,#manageAutopayExpirationDateInput,#manageAutopayPostalCodeInput {
+	width: 49%;
+}
+
+#manageAutopaySecurityCodeInput {
+	width: 39%;
+}
+
+#manageAutopayPage .query{
+	background-image: url(../img/query.png);
+	background-size: 18px 18px;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	margin-top: 8px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+#manageAutopayPage input,
+#manageAutopayPage select {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#manageAutopayPage .select-container {
+	position: relative;
+}
+#manageAutopayPage .select-container .ui-icon {
+	top: 0px;
+	right: -29px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 29px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+#manageAutopayPage .cardExpirationDateControlWrapper {
+	display: inline-block!important;
+	margin-right: 2%!important;
+	vertical-align: top;
+	width: 49%!important;
+}
+#manageAutopayPage .select-container.month {
+	display: inline-block;
+	width: 45%;
+}
+#manageAutopayPage .select-container.year {
+	display: inline-block;
+	width: 45%;
+}
+#manageAutopayPage .slash {
+	display: inline-block!important;
+	text-align: center;
+	width: 10%;
+}
+#manageAutopayPage .select-container select,
+#manageAutopayPage .select-container .select-label {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+#manageAutopayPage .select-container.month select,
+#manageAutopayPage .select-container.month .select-label,
+#manageAutopayPage .select-container.year select,
+#manageAutopayPage .select-container.year .select-label {
+	border-right: 2px solid #AAA;
+}
+#manageAutopayPage .notValued:not(:focus),
+#manageAutopayPage .notValued:not(:focus),
+#manageAutopayPage .select-label.notValued {
+	color: #AAA;
+}
+#manageAutopayPage .checkbox-item {
+	display: table;
+}
+#manageAutopayPage .checkbox-item span,
+#manageAutopayPage .checkbox-item>label,
+#manageAutopayPage .checkbox-item a {
+	display: table-cell;
+}
+#manageAutopayPage input[type="checkbox"] {
+	background-size: 22px;
+	width: 22px;
+	height: 22px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	vertical-align: middle;
+}
+#manageAutopayPage label {
+	padding-left: 10px;
+}
+#manageAutopayTermsCondition_2{
+	color: #006D7B;
+	text-decoration: none;
+	padding-left: 3px;
+}
+
+#manageAutopayPage .button-bar a{
+	width: 48%;
+}
+
+/*********************** DELETE ONE SERVICE CONFIRMATION *********************/
+#deleteOneServiceConfirmationPage .phone-number {
+	margin: 10px 0;
+}
+#deleteOneServiceConfirmationPage .informations {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	/*width: 80%;*/
+}
+
+#deleteOneServiceConfirmationPage .list-sub-title {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	font-weight: bold;
+}
+
+#deleteOneServiceConfirmationPage .services-list {
+	color: #404040;
+	margin-left: 0;
+	padding-left: 0px;
+}
+
+#deleteOneServiceConfirmationPage .dark-background {
+	margin-top: 25px;
+}
+
+/*************************** USAGE PAGE *************************/
+#usagePage {
+	font-family: AvantGardeMedium, Cambria, Bodoni, serif;
+	color: #404040;
+}
+
+#usagePage h4 {
+	font-weight: normal;
+	color:#404040;
+	margin-top: 0;
+	margin-bottom: 2px;
+}
+
+#usagePage h5 {
+	font-weight: normal;
+	color:#63b0bb;
+	margin: 6px 0 2px 0;
+}
+#usagePage select {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#usagePage .select-multiline{
+	margin-bottom: 10px;
+}
+#usagePage .text{
+	color: #6F6F6F;
+}
+#usagePage .text + .reducedBar{
+	margin-top: 10px;
+}
+#usagePage .line-message{
+	margin-bottom: 15px;
+}
+#i18n_usageLearnMore {
+	color: #006D7B;
+	text-decoration: none;
+}
+
+#monthlyUsageContent {
+	margin-top: 10px;
+}
+
+#usagePage fieldset {
+	padding-top: 5px;
+	position: relative;
+}
+
+#usagePage .reducedBar {
+	display: table;
+	width: 98%;
+}
+
+#usagePage .reducedBar + h4 {
+	margin-top: 16px;
+}
+
+#usagePage .leftBar {
+	display: table-cell;
+	padding-right: 4%;
+}
+
+#usagePage .leftBar .legend {
+	margin-left: 5%;
+}
+
+#usagePage .rightBar {
+	display: table-cell;
+	min-height: 20px;
+	width: 42px;
+}
+
+#usagePage .legend {
+	font-weight: normal;
+	margin-top: 5px;
+	/*color: #404040;*/
+}
+
+#usagePage .progress {
+	height: 16px;
+	background: #dddddd;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+#usagePage .progress>span {
+	position: relative;
+	float: left;
+	margin: 0 -1px;
+	height: 16px;
+	text-align: left;
+	background: #29858f;
+	border-radius: 20px;
+	color: #404040;
+	text-indent: -9000px;
+	white-space: nowrap;
+}
+
+#usagePage .progress>span.grey {
+	background: #ADADAD;
+	color: white;
+}
+
+#usagePage .progress>span.green {
+	background: #29858f;
+	color: white;
+}
+
+#usagePage .progress>span.yellow {
+	background: #f0c618;
+	color: white;
+}
+
+#usagePage .progress>span.plume {
+	background: #960051;
+	color: white;
+}
+
+#usagePage .progress>span>span {
+	padding: 0 8px;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+#usagePage .progress>span:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	height: 16px;
+	background: url("../img/progress-stripes.png") 0 0 repeat;
+	border-radius: 10px;
+}
+
+#usagePage .reducedBar .progress {
+	height: 23px;
+}
+
+#usagePage .reducedBar .progress>span {
+	height: 23px;
+}
+
+#usagePage .reducedBar .progress>span:before {
+	height: 23px;
+}
+
+#usagePage .reducedBar .rightBar .progress {
+	width: 23px;
+	margin: auto;
+}
+
+#usagePageForm {
+	width: auto;
+	margin-left: -3%; /* margin-left: -5.4%; */
+	margin-right: -3%; /* margin-right: -5.4%; */
+	margin-top: 15px;
+/* 	padding-left: 5%; */
+/* 	padding-right: 5%; */
+	padding-left: 3%;
+	padding-right: 3%;
+	height:46px;
+	box-sizing: border-box;
+	border-top: 1px solid #d8d7d6;
+	border-bottom: 1px solid #bababa;
+	background-image: linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -o-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -moz-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -webkit-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -ms-linear-gradient(top, #FCFCFC 46%, #DDDDDD 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.46, #FCFCFC), color-stop(1, #DDDDDD) );
+}
+
+#usagePageForm label {
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	margin: 0 2px;
+	color:#404040;
+	width: 35%;
+}
+
+#usagePage .select-container {
+	display: inline-block;
+	position: absolute;
+	top: 25%;
+	right: 40px;
+}
+#usagePage .select-container .select-icon {
+	top: 0px;
+	right: -27px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 24px;
+	width: 27px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+	background-position: 0px;
+}
+#usagePage .select-container select,
+#usagePage .select-container .select-label {
+	font-family: AvantGardeMedium, Cambria, Bodoni, serif;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 24px;
+	padding: 0px 2pt ;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+
+#usagePage table {
+	font-weight: normal;
+	color:#404040;
+	width: 105.9%; /* width: 110.8%; */
+	margin-left: -3%; /* margin-left: -5.4%; */
+	margin-right: -3%; /* margin-right: -5.4%; */
+	border-collapse:collapse;
+}
+
+#usagePage table tr {
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+	height: 35px;
+	vertical-align: middle;
+}
+
+#usagePage table td.centered {
+	padding: 5%;
+	text-align: center
+}
+
+#usagePage table td.loading img {
+	height: 20px
+}
+
+#usagePage table tr:nth-child(odd) {
+	background: #e4e4e3;
+}
+
+#usagePage table tr:nth-child(even) {
+	background: #f2f2f0;
+}
+
+#usagePage table tr td:nth-child(1) {
+	width: 18%;
+	padding-left: 5%;
+	text-indent: -9000px;
+}
+
+#usagePage table tr td:nth-child(2) {
+	width: 35%
+}
+
+#usagePage table tr td:nth-child(3) {
+	text-align: right;
+	padding-right: 20%;
+}
+
+#usagePage table td {
+	background-size: 26px;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+#usagePage table td:first-child.call {
+	background-image: url('../img/usage_call.png');
+}
+#usagePage table td:first-child.txt {
+	background-image: url('../img/usage_text.png');
+}
+#usagePage table td:first-child.data {
+	background-image: url('../img/usage_data.png');
+}
+#usagePage .button-bar {
+	display: none;
+	padding: 3% 0%;
+	margin: 0 !important;
+}
+#usageDetailsResultContent .text .datetime {
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+
+
+
+/*************************** MULTILINE SELECTOR *************************/
+#usagePage .select-multiline,
+#myPlanPage .select-container{
+	margin: 10px 0;
+	position: relative;
+}
+#usagePage .select-multiline .select-icon,
+#multilinePage .select-container .select-icon,
+#myPlanPage .select-container .select-icon {
+	top: 0px;
+	right: 0px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 29px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+#usagePage .select-multiline select,
+#usagePage .select-multiline .select-label,
+#multilinePage .select-container select,
+#multilinePage .select-container .select-label,
+#myPlanPage .select-container select,
+#myPlanPage .select-container .select-label{
+	display: block;
+	cursor: pointer;
+	color: #AAA!important;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+/*************************** ABOUT USAGE PAGE *************************/
+#aboutUsagePage .innerPage .text {
+	color: #404040;
+	font-family: AvantGardeMedium, Cambria, Bodoni, serif;
+	font-weight: normal;
+	margin: 0 0 10px;
+}
+#aboutUsagePage h4 {
+	font-family: AvantGardeMedium, Cambria, Bodoni, serif;
+	font-weight: normal;
+	color: #404040;
+	margin-top: 0;
+	margin-bottom: 2px;
+}
+#aboutUsagePage .text a {
+	color: #006D7B;
+	display: inline;
+	text-decoration: none;
+}
+
+/*************************** CHANGE PASSWORD PAGE *************************/
+#changePwdHeading{
+	margin-top: 10px;
+}
+/*************************** EDIT PROFILE PAGE *************************/
+#editProfilePage .page-title {
+	text-transform: capitalize;
+	color: #960051;
+	padding-bottom: 4px;
+}
+#editProfilePage .list-container .list-item{
+	height: 35px;
+}
+#editProfilePage .list-container .list-item:first-child div, #editProfilePage .list-container .last-item div{
+	display: table-cell;
+}
+#editProfilePage .list-container .list-item:first-child div:first-child, #editProfilePage .list-container .last-item div:first-child{
+	padding-right: 2%;
+}
+#editProfilePage .hidden{
+	display: none;
+}
+#editProfilePage .select-container {
+	position: relative;
+}
+#editProfilePage .select-container select {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 0;
+	text-decoration: none;
+	background: white;
+	box-sizing: border-box;
+	height: 32px;
+	padding: 0 5pt;
+	color: #404040;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-right: 0px none;
+	width: 100%;
+}
+#editProfilePage .select-container .select-icon {
+	top: 0px;
+	right: 0px;
+	background: white;
+	background-image: url(../img/down-button.png);
+	background-repeat: no-repeat;
+	height: 32px;
+	width: 29px;
+	position: absolute;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left: 1px solid #AAA;
+	border-radius: 0px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+#i18n_state{
+	width: 155px;
+}
+#editProfilePage .wp-button-container{
+	margin-top: 25px;
+}
+/*************************** RESET VOICEMAIL PASSWORD *************************/
+.voiceMailPassword .informations .text {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: center;
+	padding: 20px 5%;
+}
+#resetVoiceMailPwdConfirmationPage .text{
+	padding: 10px 10px 0 10px;	
+}
+#resetVoiceMailPwdConfirmationPage .sub-page{
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	text-align: center;
+}
+/*************************** SECURITY CODE HELPER *************************/
+#securityCode .overlay {
+	background-color: rgba(0,0,0,0.6);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+#securityCode .card {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	margin: auto;
+}
+
+#securityCode .card.amex {
+	background: url('../img/amex.png') no-repeat center;
+	background-size: 60%;
+}
+
+#securityCode .card.visa {
+	background: url('../img/visa.png') no-repeat center;
+	background-size: 60%;
+}
+
+/********************** LEGAL TEXT ********************/
+.legal-text {
+	text-align: justify;
+	color: #404040;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	margin: 0px 0 0 0 !important;
+	padding: 0 0 10px 0 !important;
+}
+.legal-text .legal-title {
+	display:block !important;
+	font-weight: bold;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 15px;
+}
+.legal-text .really-hide{
+	display: none !important;
+}
+/********************** CLICK 2 CHAT ********************/
+#chatHeaderLine {
+	width: 100%;
+}
+#chatHeaderLine h3 {
+	display: inline-block;
+	width: 63%;
+	margin: 0 2% 0 0;
+	height: 25px;
+}
+#i18n_chatEndButton {
+	display: inline;
+	width: 35%;
+	height: 25px;
+ 	line-height: 25px;
+	padding: 0 20px 0 0;
+	color: #9C9B9B;
+	text-align: right;
+	font-family: AvantGardeDemi, Helvetica, Arial, sans-serif;
+	background: transparent url(../img/chat_end_button.png) no-repeat right 30%;
+	background-size: 15px;
+}
+
+#chatInputLine {
+	width: 100%;
+	height: 40px;
+}
+#i18n_chatInput {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	/**font-size: 9pt;*/
+	width: 75%;
+	height: 30px;
+	margin-right: 2%;
+	resize: none;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	border-radius: 0px;
+	box-sizing: border-box;
+	box-shadow: none;
+	white-space: nowrap;
+	/*padding: 0 5px;*/
+	padding: 8px 5px;
+}
+#i18n_chatSendButton {
+	width: 22%;
+	height: 30px;
+	padding: 0;
+	margin-right: 1%;
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+}
+
+#chatContent {
+	height: auto;
+	padding-top: 0px;
+	margin-bottom: 10px;
+	background-color: white;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+	box-sizing: border-box;
+	overflow: auto;
+	position: relative;
+}
+#chatContent ul.messages {
+	margin: 0;
+	padding: 7px 9px 7px 7px;
+	list-style: none;
+}
+#chatContent ul.messages li {
+	font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+	color: #404040;
+	padding: 2px 0;
+	word-wrap: break-word;
+}
+#chatContent ul.messages li.welcome {
+	color: #404040;
+}
+#chatContent ul.messages li > span {
+	font-weight: bold;
+}
+#chatContent ul.messages li.agent > span {
+	color: #960051;
+}
+#chatContent ul.messages li.customer.sending {
+	color: #A6A6A6;
+	padding-left: 20px;
+	background: transparent url(../img/chat_message_loading.gif) no-repeat left 30%;
+	background-size: 16px;
+}
+#chatContent ul.messages li.customer.failed {
+	color: #D10000;
+	padding-left: 18px;
+	background: transparent url(../img/chat_message_failed.png) no-repeat left 30%;
+	background-size: 10px;
+}
+#chatContent ul.messages li.system {
+	color: #960051;
+	font-style: italic;
+}
+.chatScrollbarV {
+	position: absolute;
+	z-index: 100;
+	width: 5px;
+	bottom: 4px;
+	top: 4px;
+	right: 2px
+}
+
+.chatScrollbarV>div {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	background: #A6A6A6;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+/*************************** DEBUG CONSOLE *************************/
+#debug {
+	display: none;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	border: 1px solid black;
+	padding: 3px;
+	background: whiteSmoke;
+	opacity: 0.7;
+	z-index: 1000;
+	width: 70%;
+	color: red;
+}
+
+#debug a {
+	display: block;
+	text-align: right;
+	color: blue;
+	text-transform: uppercase;
+}
+
+/************** DEVICE ADAPTATION ****************/
+
+/*************************** MAX 320PX *************************/
+/*************************** GALAXY S3 *************************/
+@media screen and (min-width: 360px) {
+	.button-bar {
+		margin-top: 25pt;
+	}
+	#homePage .auto-pay-container {
+		padding-top: 25pt;
+	}
+	.title .plan-name {
+		max-width: 200px;/*TODO compute this dynamically*/
+	}
+}
+
+/* ***** ON SCREEN WORK IN PROGRESS ***** */
+.work-in-progress {
+	display: none;
+	position: absolute;
+	background: url('../img/WIP.png') no-repeat center;
+	z-index: 49;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0
+}
+
+
+/*************************** FONT SIZE *************************/
+.button, 
+.large-button, 
+.inline-button, 
+.button-left, 
+.button-right, 
+.plum-button, 
+.blue-button, 
+.grey-button, 
+.dark-grey-button {
+	font-size: 16px;
+	line-height: 34px;
+}
+.back-button {
+	font-size: 12px;
+}
+.checkbox-label {
+	font-size: 11px;
+}
+.input-label {
+	font-size: 11px;
+}
+.link {
+	font-size: 13px;
+}
+.page-subtitle {
+	font-size: 13px;
+}
+.page-title {
+	font-size: 15px;
+}
+.page-title.large {
+	font-size: 26px;
+}
+.page-title.largest {
+	font-size: 30px;
+}
+.select-label {
+	line-height: 28px;
+}
+.select-label.small {
+	line-height: 22px;
+}
+input, select, .select-label {
+	font-size: 14px;
+}
+input {
+	line-height: 18px;
+}
+select {
+	line-height: 22px;
+}
+.iOS input[type=month].notValued::after {
+	line-height: 30px;
+}
+#footer .ui-nav {
+	font-size: 9px;
+}
+.xx-small {
+	font-size: 8px;
+}
+.x-small {
+	font-size: 9px;
+}
+.small {
+	font-size: 10px;
+}
+.medium {
+	font-size: 11px;
+}
+.large {
+	font-size: 12px;
+}
+.x-large {
+	font-size: 13px;
+}
+.xx-large {
+	font-size: 14px;
+}
+.xxx-large {
+	font-size: 18px;
+}
+/*************************** HOME PAGE FONT SIZE *************************/
+.hi {
+	font-size: 21px;
+}
+#daysLeft {
+	font-size: 45px;
+}
+#i18n_daysLeft {
+	font-size: 11px;
+}
+#refuelDate {
+	font-size: 21px;
+}
+#i18n_homeWhyNot {
+	font-size: 21px;
+}
+#homeAutoPay {
+	font-size: 25px;
+}
+/*************************** CHAT FONT SIZE *************************/
+#i18n_chatSendButton {
+	font-size: 13px;
+}
+#i18n_chatInput {
+	font-size: 13px;
+}
+/*************************** ZALERT FONT SIZE *************************/
+.zalert-header {
+	font-size:30px;
+}

@@ -1,0 +1,271 @@
+var i18n_es = {
+	// Login page
+	"LOGIN_USERNAME_LABEL" : "Username",
+	"LOGIN_USERNAME_INPUT" : "Username",
+	"LOGIN_PWD_LABEL" : "Password",
+	"LOGIN_PWD_INPUT" : "Password",
+	"LOGIN_REMEMBER_ME_LABEL" : "Remember Me",
+	"LOGIN_BTN" : "Sign In",
+	"LOGIN_FORGOT_PWD_BTN" : "Forgot Username or Password?",
+	"LOGIN_SIGN_UP_NEW_TO" : "New to",
+	"LOGIN_SIGN_UP_BRAND" : "?",
+	"LOGIN_SIGN_UP_MESSAGE" : "With just to clicks, you can pay, view usage, and update your plan.",
+	"LOGIN_SIGN_UP_BTN" : "Sign Up",
+
+	// Signup page
+	"SIGN_UP_TEXT" : "Bienvenidos al Cuidado de sí mismo Móvil. A fin de registrarse a nuestro servicio, por favor rellene un impreso abajo.",
+	"SIGN_UP_USERNAME_LABEL" : "USERNAME",
+	"SIGN_UP_USERNAME_INPUT" : "USERNAME",
+	"SIGN_UP_PHONE_LABEL" : "PHONE NUMBER",
+	"SIGN_UP_PHONE_INPUT" : "PHONE NUMBER",
+	"SIGN_UP_CANCEL_BTN" : "Cancel",
+	"SIGN_UP_BTN" : "Matricular",
+
+	// Set password page
+	"SET_PWD_TEXT" : "We've sent you a text message with the <span class='plum'>temporary password</span> you'll need.",
+	"SET_PWD_TMP_PWD_LABEL" : "TEMPORARY PASSWORD",
+	"SET_PWD_TMP_PWD_INPUT" : "TEMPORARY PASSWORD",
+	"SET_PWD_PWD_LABEL" : "NEW PASSWORD",
+	"SET_PWD_PWD_INPUT" : "NEW PASSWORD",
+	"SET_PWD_REPWD_LABEL" : "NEW PASSWORD AGAIN",
+	"SET_PWD_REPWD_INPUT" : "RETYPE",
+	"SET_PWD_CANCEL_BTN" : "Cancel",
+	"SET_PWD_BTN" : "Confirmar",
+
+	// Forgot password "phone" page
+	"FORGOT_PWD_PHONE_TEXT" : "Forgot username/password:<br/>Enter phone number for identification.",
+	"FORGOT_PWD_PHONE_LABEL" : "Phone number",
+	"FORGOT_PWD_PHONE_INPUT" : "PHONE NUMBER",
+	"FORGOT_PWD_PHONE_CANCEL_BTN" : "Cancel",
+	"FORGOT_PWD_PHONE_BTN" : "Next",
+
+	// Forgot password "question" page
+	"FORGOT_PWD_QUESTION_TEXT" : "Answer your recovery question.<br/><br/>A text message will be sent with a recovery password.",
+	"FORGOT_PWD_QUESTION_PHONE_LABEL" : "Phone number",
+	"FORGOT_PWD_QUESTION_LABEL" : "Question",
+	"FORGOT_PWD_QUESTION_ANSWER_LABEL" : "Answer",
+	"FORGOT_PWD_QUESTION_ANSWER_INPUT" : "YOUR ANSWER",
+	"FORGOT_PWD_QUESTION_CANCEL_BTN" : "Cancel",
+	"FORGOT_PWD_QUESTION_BTN" : "Next",
+
+	// Reset password page
+	"RESET_PWD_TEXT" : "Your username is [USERNAME].<br/><br/>Please, change your <span class='plum'>temporary password</span>.",
+	"RESET_PWD_TMP_PWD_LABEL" : "TEMPORARY PASSWORD",
+	"RESET_PWD_TMP_PWD_INPUT" : "TEMPORARY PASSWORD",
+	"RESET_PWD_PWD_LABEL" : "NEW PASSWORD",
+	"RESET_PWD_PWD_INPUT" : "NEW PASSWORD",
+	"RESET_PWD_REPWD_LABEL" : "NEW PASSWORD AGAIN",
+	"RESET_PWD_REPWD_INPUT" : "RETYPE",
+	"RESET_PWD_CANCEL_BTN" : "Cancel",
+	"RESET_PWD_BTN" : "Next",
+
+	// Locked page
+	"LOCKED_TEXT" : "Access to your account has been temporary locked due to three failed login attempts. Please call Customer Care (1-800-123-4567) to regain access to you account.",
+	"LOCKED_CCP_NUMBER_LABEL" : "Customer Care Provided Number",
+	"LOCKED_CCP_NUMBER_INPUT" : "Customer Care Provided Number",
+	"LOCKED_PWD_LABEL" : "Type your new password",
+	"LOCKED_PWD_INPUT" : "New password",
+	"LOCKED_REPWD_LABEL" : "Retype your new password",
+	"LOCKED_REPWD_INPUT" : "Retype",
+	"LOCKED_BTN" : "Unlock",
+	
+	// Header
+	"HEADER_ACCOUNT" : "ACCOUNT: ",
+	"HEADER_PHONE" : "PHONE: ",
+	"HEADER_ACCOUNTS" : " Active Phone Lines",
+
+	// Navigation
+	"NAVIGATION_HOME_LINK" : "HOME",
+	"NAVIGATION_USAGES_LINK" : "USAGE",
+	"NAVIGATION_MY_BILLS_LINK" : "REFUEL",
+	"NAVIGATION_MY_PLAN_LINK" : "MY PLAN",
+	"NAVIGATION_MORE_LINK" : "MORE",
+
+	// Windows phone home page
+	"WP_HOME_MAIN_TITLE" : "bienvenida",
+	"WP_HOME_CONTENT_TITLE" : "navegador",
+	"WP_HOME_TILE_USAGE" : "uso",
+	"WP_HOME_TILE_PLANS" : "proyectos",
+	"WP_HOME_TILE_PROFILE" : "perfil",
+	"WP_HOME_TILE_LOGOUT" : "desconexión",
+	"WP_HOME_TILE_BILLS" : "cuentas",
+
+	// Home page
+	"HOME_LOGOUT" : "LOG OUT",
+	"HOME_NEED_HELP" : "NEED HELP?",
+	"HOME_MISS_OUT" : "DON'T MISS OUT - REFUEL BY",
+	"HOME_MONTHLY_TOTAL" : "YOUR MONTHLY SERVICE TOTAL IS ",
+	"HOME_MY_CREDIT" : "YOUR CREDIT: ",
+	"HOME_I_OWE" : "YOU OWE: ",
+	"HOME_REFUEL_BUTTON" : "REFUEL",
+	"HOME_BILL_BUTTON" : "Bill Details",
+	"HOME_YOUR_LINES" : "Your Lines",
+	"HOME_NOT_ACTIVATED" : "This line hasn't been activated yet.",
+	"HOME_NOT_ACTIVATED_MSG" : "Until activated, this line will not :<ul><li>Show up on your bill or show line discounts</li><li>Show data or feature usage</li></ul>Once you get your new device, you'll need to activate it from your computer.",
+	"HOME_SUSPENDED" : "Your device was reported as lost or stolen. We've disabled cretain account features for you protection. <span>Lean More</span>",
+	"HOME_SUSPENDED_MSG" : "Until activated, this line will not:<ul><li>Show up on your bill or show line discounts</li><li>Show data or feature usage</li></ul>Once you get your new device, you'll need to activate it from your computer.",
+	"HOME_PENDING_MSG" : "You have a new line that isn't activated. Some account functionality will not be available. <span>Lean More</span>",
+	"HOME_TRY_AUTO_PAY" : "WHY NOT TRY<span id='homeautopay'>AUTO PAY?</span>",
+	"HOME_LEARN_MORE" : "LEARN MORE",
+	"HOME_SETUP_AUTO_PAY" : "SETUP AUTO PAY",
+	"HOME_AUTO_PAY_SET" : "AUTO PAY IS ON",
+	"HOME_DISABLE_AUTO_PAY" : "DISABLE AUTO PAY",
+
+	// Usage page
+	"USAGE_TITLE_PAGE" : "uso",
+	"USAGE_INTERNATIONAL_CALLS_TITLE" : "llamadas internacionales 80%",
+	"USAGE_INTERNATIONAL_CALLS_DETAILS" : "72 de 90 minutos",
+	"USAGE_INTERNATIONAL_SMS_TITLE" : "internacionales SMS 36%",
+	"USAGE_INTERNATIONAL_SMS_DETAILS" : "18 de 50 sms",
+	"USAGE_DATA_TITLE" : "datos 4.7%",
+	"USAGE_DATA_DETAILS" : "14.1 of 300 Mb",
+	"USAGE_DETAILS_BUTTON" : " detallar",
+	"USAGE_SUSPENDED_MSG" : "Your device was reported as lost or stolen on {0}. Your usage will show up to that data. <span>Lean More</span>",
+
+	// Usage details page
+	"USAGE_DETAILS_TITLE" : "detalles de uso",
+	"USAGE_DETAILS_FROM_LABEL" : "de",
+	"USAGE_DETAILS_TO_LABEL" : "a",
+	"USAGE_DETAILS_GO_BUTTON" : "ir",
+
+	// My bill
+	"MY_BILL_DUE_DATE" : "AMOUNT DUE ",
+	"MY_BILL_PAY_NOW_BUTTON" : "PAY NOW",
+	"MY_BILL_SET_AUTOPAY_LABEL" : "HAVEN'T SET UP AUTO-PAY YET?",
+	"MY_BILL_SET_AUTOPAY_BUTTON" : "SET UP AUTO-PAY",
+	"MY_BILL_PREVIOUS_BALANCE" : "PREVIOUS BALANCE",
+	"MY_BILL_MRC" : "MONTHLY RECURRING CHARGES",
+	"MY_BILL_CREDITS_ADJUSTEMENTS" : "CREDITS & ADJUSTMENTS",
+	"MY_BILL_FEES_SURCHARGES" : "FEES & SURCHARGES",
+	"MY_BILL_GRAND_TOTAL_TAXES" : "GRAND TOTAL TAXES",
+	"MY_BILL_TOTAL_CHARGES" : "TOTAL CHARGES",
+	"MY_BILL_TOTAL_PAYMENTS" : "TOTAL PAYMENTS",
+	"MY_BILL_TRANSACTION_HISTORY_BUTTON" : "TRANSACTION HISTORY",
+
+	// Pay my bill
+	"PAY_MY_BILL_AMOUNT_LABEL" : "AMOUNT TO PAY",
+	"PAY_MY_BILL_AMOUNT_PLACEHOLDER" : "AMOUNT",
+	"PAY_MY_BILL_CARD_TYPE_LABEL" : "CARD TYPE",
+	"PAY_MY_BILL_CARD_NUMBER_LABEL" : "CARD NUMBER",
+	"PAY_MY_BILL_CARD_NUMBER_PLACEHOLDER" : "CARD NUMBER",
+	"PAY_MY_BILL_EXPIRATION_DATE_LABEL" : "EXPIRATION DATE",
+	"PAY_MY_BILL_EXPIRATION_DATE_PLACEHOLDER" : "EXPIRATION DATE",
+	"PAY_MY_BILL_NAME_LABEL" : "NAME ON CARD",
+	"PAY_MY_BILL_NAME_PLACEHOLDER" : "NAME ON CARD",
+	"PAY_MY_BILL_SECURITY_CODE_LABEL" : "SECURITY CODE",
+	"PAY_MY_BILL_SECURITY_CODE_PLACEHOLDER" : "SECURITY CODE",
+	"PAY_MY_BILL_POSTAL_CODE_LABEL" : "BILLING POSTAL CODE",
+	"PAY_MY_BILL_POSTAL_CODE_PLACEHOLDER" : "BILLING POSTAL CODE",
+	"PAY_MY_BILL_AUTOPAY_LABEL" : "SETUP AUTO-PAY WITH THIS PAYMENT METHOD",
+	"PAY_MY_BILL_PAY_NOW_BUTTON" : "CONTINUE",
+	"PAY_MY_BILL_PIN_PLACEHOLDER" : "PIN Required",
+
+	// Pay my bill review
+	"PAY_MY_BILL_REVIEW_AMOUNT" : "AMOUNT TO PAY:",
+	"PAY_MY_BILL_REVIEW_NAME" : "NAME ON CARD:",
+	"PAY_MY_BILL_REVIEW_CARD_NUMBER" : "CARD NUMBER:",
+	"PAY_MY_BILL_REVIEW_EXPIRATION_DATE" : "EXPIRATION DATE:",
+	"PAY_MY_BILL_REVIEW_BUTTON" : "SUBMIT",
+
+	// Pay my bill confirmation
+	"PAY_MY_BILL_CONFIRMATION_PAYMENT_TEXT" : "YOUR PAYMENT IS BEING PROCESSED WITH YOUR PAYMENT CARD VENDOR.",
+	"PAY_MY_BILL_CONFIRMATION_CODE" : "CONFIRMATION CODE:",
+	"PAY_MY_BILL_CONFIRMATION_AMOUNT" : "PAYMENT RECEIVED:",
+	"PAY_MY_BILL_CONFIRMATION_BALANCE" : "ACCOUNT BALANCE:",
+	"PAY_MY_BILL_CONFIRMATION_NAME" : "NAME ON CARD:",
+	"PAY_MY_BILL_CONFIRMATION_CARD_NUMBER" : "CARD NUMBER:",
+	"PAY_MY_BILL_CONFIRMATION_EXPIRATION_DATE" : "EXPIRATION DATE:",
+	"PAY_MY_BILL_CONFIRMATION_QUESTION_TEXT" : "IF YOU HAVE ANY QUESTION REGARDING YOUR BILL, PLEASE PROVIDE YOUR CONFIRMATION CODE TO A CUSTOMER SERVICES REPRESENTATIVE.",
+	"PAY_MY_BILL_CONFIRMATION_BUTTON" : "OK",
+
+	// Manage autopay
+	"MANAGE_AUTOPAY_CARD_TYPE_LABEL" : "CARD TYPE",
+	"MANAGE_AUTOPAY_CARD_NUMBER_LABEL" : "CARD NUMBER",
+	"MANAGE_AUTOPAY_CARD_NUMBER_PLACEHOLDER" : "CARD NUMBER",
+	"MANAGE_AUTOPAY_EXPIRATION_DATE_LABEL" : "EXPIRATION DATE",
+	"MANAGE_AUTOPAY_EXPIRATION_DATE_PLACEHOLDER" : "EXPIRATION DATE",
+	"MANAGE_AUTOPAY_NAME_LABEL" : "NAME ON CARD",
+	"MANAGE_AUTOPAY_NAME_PLACEHOLDER" : "NAME ON CARD",
+	"MANAGE_AUTOPAY_SECURITY_CODE_LABEL" : "SECURITY CODE",
+	"MANAGE_AUTOPAY_SECURITY_CODE_PLACEHOLDER" : "SECURITY CODE",
+	"MANAGE_AUTOPAY_POSTAL_CODE_LABEL" : "BILLING POSTAL CODE",
+	"MANAGE_AUTOPAY_POSTAL_CODE_PLACEHOLDER" : "BILLING POSTAL CODE",
+	"MANAGE_AUTOPAY_PAY_NOW_BUTTON" : "CONTINUE",
+
+	// Manage autopay review
+	"MANAGE_AUTOPAY_REVIEW_TEXT" : "YOU ARE ABOUT TO SET UP AUTOPAY WITH THE FOLLOWING DETAILS:",
+	"MANAGE_AUTOPAY_REVIEW_NAME" : "NAME ON CARD:",
+	"MANAGE_AUTOPAY_REVIEW_CARD_NUMBER" : "CARD NUMBER:",
+	"MANAGE_AUTOPAY_REVIEW_EXPIRATION_DATE" : "EXPIRATION DATE:",
+	"MANAGE_AUTOPAY_REVIEW_BUTTON" : "CONTINUE",
+
+	// Manage autopay confirmation
+	"MANAGE_AUTOPAY_CONFIRMATION_TEXT" : "YOU HAVE SET UP AUTOPAY WITH THE FOLLOWING DETAILS:",
+	"MANAGE_AUTOPAY_CONFIRMATION_NAME" : "NAME ON CARD:",
+	"MANAGE_AUTOPAY_CONFIRMATION_CARD_NUMBER" : "CARD NUMBER:",
+	"MANAGE_AUTOPAY_CONFIRMATION_EXPIRATION_DATE" : "EXPIRATION DATE:",
+	"MANAGE_AUTOPAY_CONFIRMATION_BUTTON" : "CONTINUE TO MY BILLS",
+
+	// My plan
+	"MY_PLAN_ONE_TIME_ADDON" : "ONE-TIME ADD-ON SERVICES",
+	"MY_PLAN_RECURRING_ADDON" : "MONTHLY ADD-ON SERVICES",
+	"MY_PLAN_BUTTON" : "SHOP ADD-ON'S",
+
+	// Manage services
+	"MANAGE_SERVICES_ONE_TIME_ADDON" : "ONE-TIME SERVICES",
+	"MANAGE_SERVICES_RECURRING_ADDON" : "MONTHLY SERVICES",
+	"MANAGE_SERVICES_BUTTON" : "CONTINUE",
+	"MANAGE_SERVICES_CLEAR_BUTTON" : "Borrar",
+	"MANAGE_SERVICES_SUMMARY_TEXT" : "Selected Add-On's service total : ",          
+	
+  // Review services
+	"REVIEW_TITLE_ADDED" : "Shop Add-On's Review",
+	"REVIEW_TITLE_REMOVED" : "Plan - Remove Add-On",
+	"REVIEW_CANCEL_BUTTON" : "Cancel",
+	"REVIEW_PROCESS_BUTTON" : "Process",
+	"REVIEW_PAY_NOW_BUTTON" : "Pay Now",
+	"REVIEW_CONTINUE_BUTTON" : "Continue",
+	"REVIEW_AMOUNT_DUE_LABEL" : "Amount to Pay",        
+	"REVIEW_CURRENT_BALANCE" : "My Credit",             
+	"REVIEW_BALANCE_AFTER_PROCESSING" : "Credit Remaining",      
+	                
+	// More Page
+	"RESET_VOICEMAIL_PASSWORD" : "RESET VOICEMAIL PASSWORD",
+	"CHANGE_PROFILE_PASSWORD" : "CHANGE PROFILE PASSWORD",
+	
+	// Profile Page
+	"PROFILE_NAME_LABEL" : "NAME",
+	"PROFILE_ACCOUNT_ID_LABEL" : "ACCOUNT",
+	"PROFILE_DEVICE_LABEL" : "DEVICE",
+	"PROFILE_DEVICE_ID_LABEL" : "DEVICE ID",
+	"PROFILE_ZIG_NUMBER_LABEL" : "AIO NUM",
+	"PROFILE_CYCLE_RESTART_LABEL" : "CYCLE RESTART",
+	"PROFILE_ACCOUNT_STATUS_LABEL" : "ACCOUNT STATUS",
+	"PROFILE_PAGE_TITLE" : "YOUR AIO PROFILE",
+	"PROFILE_PAGE_ACCOUNT_TABLE_TITLE" : "ACCOUNT INFORMATION", 
+	"PROFILE_PAGE_CONTACT_TABLE_TITLE" : "CONTACT INFORMATION",
+	"PROFILE_CONTACT_HOME_PHONE_LABEL" : "PROFILE CONTACT HOME PHONE LABEL",
+	"PROFILE_CONTACT_WORK_PHONE_LABEL" : "PROFILE CONTACT WORK PHONE LABEL",
+	"PROFILE_CONTACT_EMAIL_LABEL" : "PROFILE CONTACT EMAIL LABEL",
+	
+
+	"NETWORK_ERROR_TITLE" : "network error",
+	"NETWORK_ERROR_MESSAGE" : "Please check your internet connection and try again.",
+	"404_ERROR_TITLE" : "Not found",
+	"404_ERROR_MESSAGE" : "The resource you are trying to access does not exist.",
+	"500_ERROR_TITLE" : "Internal Server Error",
+	"500_ERROR_MESSAGE" : "Sorry, something wents wrong.",
+	"PARSE_ERROR_TITLE" : "Parse Error",
+	"PARSE_ERROR_MESSAGE" : "Sorry, something wents wrong.",
+	"TIMEOUT_ERROR_TITLE" : "Time Out",
+	"TIMEOUT_ERROR_MESSAGE" : "Sorry, the server took too long to respond.",
+	"UNKNOWN_ERROR_TITLE" : "Unknown Server Error",
+	"UNKNOWN_ERROR_MESSAGE" : "Sorry, something wents wrong.",
+		
+	// Chat page
+	"CHAT_ORACLE_UNKNOWN_ERROR" : "Unknow error",
+	"CHAT_ORACLE_BAD_SESSIONID" : "Sorry… looks like we're having technical difficulties. Please try again later.",
+	"CHAT_API_DISABLED" : "Sorry… API is disabled.",
+	"CHAT_UNAUTHORIZED_IP" : "Sorry… Your IP address is not authorized to communicate with the service.",
+		
+};

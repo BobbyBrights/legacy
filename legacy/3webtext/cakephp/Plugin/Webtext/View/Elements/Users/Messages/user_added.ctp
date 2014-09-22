@@ -1,0 +1,2 @@
+<?php ?>
+<div id="flashMessage" class="success">User added, you should receive your PIN shortly. <?php echo $this->Html->link('Login now.', array('controller' => 'users', 'action' => 'login', 'plugin' => 'webtext')); ?></div>

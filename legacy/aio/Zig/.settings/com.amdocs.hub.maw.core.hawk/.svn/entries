@@ -1,0 +1,71 @@
+10
+
+dir
+14681
+http://illin101.corp.amdocs.com/svn/af/ATT_ZIG/trunk/mobile_application/Zig/.settings/com.amdocs.hub.maw.core.hawk
+http://illin101.corp.amdocs.com/svn/af
+
+
+
+2013-01-07T14:14:44.939659Z
+12942
+sfave
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8f9d3bd3-ea84-42bd-858c-e5c93903bb63
+
+.launches
+dir
+
+configuration
+dir
+
+hawk.xml
+file
+
+
+
+
+2013-12-05T09:37:59.055000Z
+57a13a8aa32ea6df010be7e83db2350a
+2013-01-07T14:14:44.939659Z
+12942
+sfave
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3178
+
+provisioning
+dir
+

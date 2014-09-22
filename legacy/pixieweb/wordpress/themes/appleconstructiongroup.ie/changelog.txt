@@ -1,0 +1,11 @@
+== Changelog ==
+
+= Theme Name: BizWay Theme =
+
+= Version: 1.2 =
+
+* Optimized stylesheet.
+
+= Version: 1.0 =
+
+* BizWay Theme is created on 1/01/2012.

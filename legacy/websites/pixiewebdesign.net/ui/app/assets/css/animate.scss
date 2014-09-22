@@ -1,0 +1,28 @@
+$transition-length: 0.6s;
+$color-transition-length: 0.6s;
+$bgcolor-transition-length: 0.1s;
+
+.page-content {
+  div.inner-page {
+    padding: 100px;
+  }
+  -webkit-transition: color $color-transition-length, background-color $bgcolor-transition-length;
+  -moz-transition: color $color-transition-length, background-color $bgcolor-transition-length;
+  -ms-transition: color $color-transition-length, background-color $bgcolor-transition-length;
+  transition: color $color-transition-length, background-color $bgcolor-transition-length;
+
+
+  &.ng-enter {
+    -webkit-animation: fadeIn $transition-length;
+    -moz-animation: fadeIn $transition-length;
+    -ms-animation: fadeIn $transition-length;
+    animation: fadeIn $transition-length;
+  }
+
+  &.ng-leave {
+    -webkit-animation: fadeOut $transition-length;
+    -moz-animation: fadeOut $transition-length;
+    -ms-animation: fadeOut $transition-length;
+    animation: fadeOut $transition-length;
+  }
+}

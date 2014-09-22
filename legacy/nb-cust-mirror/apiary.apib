@@ -1,0 +1,2833 @@
+FORMAT: 1A
+HOST: www.novaball.com
+
+# Novaball Customer API
+The Novaball API is a *Python driven API* which exposes elements of the Novaball betting service to a front-end service. Most endpoints require token-based authentication. 
+The customer API is a collection of endpoints related to the Customer interface. 
+
+## Changes
+2014-04-03 - Added Scheme section to Conventions (SSL)
+
+2014-03-31 - Initial revision.
+
+## Scope
+This document deals with frontend interactions on the customer facing website only – the Support UI and Affiliate UI API's are dealt with in another document. This document is intended for use by Open Phoenix in the development and testing of the REST interface for Novaball.
+
+## Conventions used
+### Scheme
+To mitigate against potential [MITM](http://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacks, it is recommended to use HTTPS (SSL) as the scheme for all API calls.
+### Data format
+In phase 1 of the project, the only data format required from the API is JSON. For more information on JSON, see www.json.org. UTF-8 formatting is recommended for the framework. 
+
+### Property naming conventions 
+JSON properties should be lowerCamelCase for consistency, and where possible, should not use special characters such as underscores. For example use betId, instead of bet_id or betID. This will ensure readability and predictability of any transformation functions required throughout the application.
+
+### Return types – Arrays and objects, strings, integers and floats
+Single objects sent in the API responses (for example, a user) should be sent as a JSON object using {} notation. Lists or collections of results should be sent as arrays using [] notation. Collections of objects can be nested under collections or single objects. 
+
+Data types are important. As the framework being used allows for on the fly calculation and 2 way data-binding, it is important to sanitize the data, and prevent unnecessary type checking on the client. For example currency should be passed back as floating point number to 2 decimal place precision, quantities should be whole positive integers. An example of this is in the stake per line per number of draws calculation for bets, (e.g. 0.50 * 6 * 10) 
+
+## Specification
+The application has a basic data structure, split over several distinct models. To prevent multiple REST calls per page request, the recommendation is to nest models where appropriate based on some simple cardinality rules. For example a User model will contain one Account model. Account model will contain multiple Payments. A User model will contain multiple Bet models. However, to prevent large JSON responses, the data should be chunked and requested only when necessary, for example, using pagination techniques to split records by identifying information (alphabetically, chronologically using date ranges or months/years, by parent model etc). 
+
+# Group User
+User related resources of the **Novaball API**
+
+## User Collection [/user]
+A user model - *final fields to be confirmed*
+### Create a new user [POST]
++ Request (application/json)
+
+        {
+            "email": "user@host.com",
+            "password": "920138sjf809283(*)(109380",
+            "affiliateID": 12930123,
+            "firstName": "Ted",
+            "lastName": "Phillips",
+            "phone": "+449812093131",
+            "address": "Some Address, Some Street, Some Town, Some County, United Kingdom, SE1 OAP",
+            "active": false
+        }    
+
+
++ Response 201
++ Response 403 (application/json)
+        
+        {
+            "error": "Human readable error message"
+        }
+
+### Get logged in user details [GET]
+One extra parameter is set by the system
+
+- verifiedPIN - set to true if PIN is verified by SMS. 
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
+
++ Response 200
+
+        {
+            "id": 256604,
+            "profile": {
+                "email": "user@host.com",
+                "affiliateID": 12930123,
+                "firstName": "Ted",
+                "lastName": "Phillips",
+                "phone": "+449812093131",
+                "address": "Some Address, Some Street, Some Town, Some County, United Kingdom, SE1 OAP",
+                "active": false,
+                "verifiedPIN": false
+            },
+            "account": {
+                "walletAmt": "35.00",
+                "walletCurrency": "GBP",
+                "nextPaymentDate": "2013-05-11T15:50:13-01:00"
+            }
+        }
+
++ Response 403 (application/json)
+        
+        {
+            "error": "Human readable error message"
+        }
+
+### Update user details [PATCH]
+Full or partial update of user details.
++ Request
+    + Headers
+
+            Authentication: Bearer AUTH_TOKEN
+
+    + Body
+
+            {
+                "email": "user@host.com",
+                "firstName": "Ted",
+                "lastName": "Phillips",
+                "phone": "+449812093131",
+                "address": "Some Address, Some Street, Some Town, Some County, United Kingdom, SE1 OAP",
+                "active": false
+            }
+
+
++ Response 200
++ Response 403 (application/json)
+        
+        {
+            "error": "Human readable error message"
+        }
+
+
+
+## Login [/user/login]
+### Login - generate an auth_token for a user [POST]
++ Request (application/json)
+    + Headers
+    
+            Authorization: Basic BASE64_ENC_USERNAME_PASSWORD
+    
+    + Body
+    
+            {"grant_type": "client_credentials"}
+        
++ Response 200
+
+        { 
+            "success": true, 
+            "auth_token": "FT+j3IhexXWNPVnzIHuZUKH9PbQosMQ9MvL33ftANSU="
+        }
+        
++ Response 401 (application/json)        
+        
+        {
+            "error": "Human readable error message"
+        }
++ Response 403 (application/json)
+        
+        {
+            "error": "Human readable error message"
+        }
+
+## Logout [/user/logout]
+### Logout - invalidate the session [GET]
++ Response 200
+
+# Group Subscription
+A subscription is effectively an intent to place a bet. Subscriptions are stored in the Novaball system and are used to create bets on a recurring basis. For further information on how bets are created from subscriptions please consult this document. This specification is only concerned with retrieving information related to subscriptions/bets which is useful to end-users.
+
+## Subscription [/user/subscription]
+The ability to add a subscription to the system for the current user (using authToken). The most
+likely scenario for creating a subscription is as follows:
+
+[<img src="http://i.imgur.com/QsaxbQ4.jpg">](http://i.imgur.com/QsaxbQ4.jpg)
+
+The Novaball system is only concerned with creating the subscription. A scheduled job will check the
+validity of the subscription and execute downstream processes (payments, bet striking) at a
+predefined interval.
+
+### Create subscription [POST]
++ Request (application/json)
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
+    + Body
+
+            {
+                "lotteryId": 2,
+                "numDraws": 4,
+                "totalStake": 5.95,
+                "lines": [
+                    {
+                        "bonus": 1,
+                        "standard": [
+                            25,
+                            28,
+                            29,
+                            31,
+                            33,
+                            3
+                        ]
+                    },
+                    {
+                        "bonus": 15,
+                        "standard": [
+                            17,
+                            18,
+                            2,
+                            25,
+                            26,
+                            36
+                        ]
+                    }
+                ]
+            }
+
++ Response 201
+        
+        Subscription created.
++ Response 401
+
+        User exists and is authenticated, but does not have access to this resource.
++ Response 403
++ Response 404
+
+        User details not found.
++ Response 400
+    
+        Invalid parameters sent in the request.
+
+### Get subscription [GET]
+For phase 1, users will only be able to create 1 subscription at a time. On-demand bets should not be saved as subscriptions. 
+
+Extra parameters are sent over in the response, calculated by the system.
+
+- *created*: timestamp of subscription creation (note: modification of an existing subscription is creation of a new subscription)
+- *drawsRemaining*: the number of draws remaining for this subscription
+- *nextPaymentDate*: timestamp of next payment due for recurring subscription. 
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "lotteryId": 2,
+            "created": "2011-08-17T14:09:48-01:00",
+            "numDraws": 4,
+            "drawsRemaining": 2,
+            "nextPaymentDate": "2014-08-17T14:09:48-01:00",
+            "amount": ,
+            "active": ,
+            "type": ,
+            "lastEligibleDrawDate":  "2014-08-17T14:09:48-01:00"
+            "lines": [
+                {
+                    "bonus": 1,
+                    "standard": [
+                        25,
+                        28,
+                        29,
+                        31,
+                        33,
+                        39
+                    ]
+                },
+                {
+                    "bonus": 15,
+                    "standard": [
+                        17,
+                        18,
+                        2,
+                        25,
+                        26,
+                        36
+                    ]
+                },
+                {
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                },
+                {
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            ]
+        }
+        
++ Response 401
+
+### Update subscription [PATCH]
+This method allows a user to update their subscription. A PATCH is recommended to ensure that unaffected fields are not unnecessarily updated
+
+The response should send back a parameter *effectiveDate* to inform the UI of when the changes will come into effect. 
+
++ Request (application/json)
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
+    + Body 
+    
+            {
+                "numDraws": 4,
+                "lines": [
+                    {
+                        "bonus": 1,
+                        "standard": [
+                            25,
+                            28,
+                            29,
+                            31,
+                            33,
+                            39
+                        ]
+                    },
+                    {
+                        "bonus": 15,
+                        "standard": [
+                            17,
+                            18,
+                            2,
+                            25,
+                            26,
+                            36
+                        ]
+                    },
+                    {
+                        "bonus": 3,
+                        "standard": [
+                            37,
+                            45,
+                            1,
+                            2,
+                            9,
+                            10
+                        ]
+                    },
+                    {
+                        "bonus": 19,
+                        "standard": [
+                            18,
+                            1,
+                            20,
+                            21,
+                            23,
+                            24
+                        ]
+                    }
+                ]
+            }
+        
++ Response 200 (application/json)
+
+            {
+                "effectiveDate": "2011-08- 17T14:09:48-01:00"
+            }
+            
++ Response 304
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
++ Response 404 
+        
+        User/subscription not found. 
++ Response 400 
+    
+        Invalid number of draws, invalid lottery lines.
+
+### Delete subscription [DELETE]
+This method allows a user to update their subscription. A PATCH is recommended to ensure that unaffected fields are not unnecessarily updated
+
+The response should send back a parameter *effectiveDate* to inform the UI of when the changes will come into effect. 
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
+
++ Response 204
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
++ Response 404 
+        
+        User/subscription not found. 
++ Response 400 
+    
+        Invalid number of draws, invalid lottery lines.
+
+# Group Bet
+
+## Bet Info Collection [/bet]
+A bet model.
+
+### Get bets Information for current user [GET]
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200
+
+        [
+            {
+                "id": 1234,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1235,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1236,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1237,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1238,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1239,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1240,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1241,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1242,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1243,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1244,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1245,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1246,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1247,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1248,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1249,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "bet_effective_date": "2011-01-23T17:01:22-00:00"
+            },
+            {
+                "id": 1250,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1251,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1252,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1253,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1254,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1255,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1256,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1257,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1258,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1259,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1260,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1261,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1262,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1263,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1264,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1265,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "bet_effective_date": "2011-01-27T17:01:22-00:00"
+            },
+            {
+                "id": 1266,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1267,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1268,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1269,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1270,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1271,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1272,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1273,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1274,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1275,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1276,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1277,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1278,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1279,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1280,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1281,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "bet_effective_date": "2011-01-30T17:01:22-00:00"
+            },
+            {
+                "id": 1282,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1283,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1284,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1285,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1286,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1287,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1288,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1289,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1290,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1291,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1292,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1293,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1294,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1295,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1296,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            },
+            {
+                "id": 1297,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "bet_effective_date": "2011-02-03T17:01:22-00:00"
+            }
+        ]
+            
++ Response 403 (application/json)
+        
+        {
+            "error": "Human readable error message"
+        }
+
+## Bet [/bet/{id}]
+Read a single bet object
+
++ Parameters
+    + id (required, numeric, `1`) ... Numeric `id` of the bet object to retrieve.
+    
+### Read single bet [GET]
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+            {
+                "id": 1234,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 7,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            }
+
+
+## Bet [/bet/all]
+Read all bet result collection
+
+    
+### Read all bet result collection [GET]
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1234,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 7,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1235,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1236,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1237,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1238,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 7,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1239,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1240,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1241,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1242,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 7,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1243,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1244,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1245,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1246,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 7,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1247,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1248,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1249,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128733,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-23T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1250,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 9,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1251,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1252,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1253,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1254,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 9,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1255,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1256,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1257,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1258,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 9,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1259,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1260,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1261,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1262,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9847,
+                    "bonus": 9,
+                    "standard": [
+                        14,
+                        18,
+                        10,
+                        21,
+                        23,
+                        29
+                    ]
+                }
+            },
+            {
+                "id": 1263,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9848,
+                    "bonus": 9,
+                    "standard": [
+                        11,
+                        2,
+                        25,
+                        23,
+                        13,
+                        5
+                    ]
+                }
+            },
+            {
+                "id": 1264,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9849,
+                    "bonus": 20,
+                    "standard": [
+                        2,
+                        4,
+                        8,
+                        16,
+                        17,
+                        18
+                    ]
+                }
+            },
+            {
+                "id": 1265,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128734,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-27T17:01:22-00:00",
+                "line" : {
+                    "id": 9850,
+                    "bonus": 9,
+                    "standard": [
+                        24,
+                        8,
+                        10,
+                        31,
+                        33,
+                        39
+                    ]
+                }
+            },
+            {
+                "id": 1266,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1267,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1268,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1269,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1270,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1271,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1272,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1273,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1274,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1275,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1276,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1277,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1278,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1279,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1280,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1281,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128735,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-01-30T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1282,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1283,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1284,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1285,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_4",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1286,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1287,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1288,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1289,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_5",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1290,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1291,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1292,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1293,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_6",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            },
+            {
+                "id": 1294,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9851,
+                    "bonus": 7,
+                    "standard": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6
+                    ]
+                }
+            },
+            {
+                "id": 1295,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9852,
+                    "bonus": 3,
+                    "standard": [
+                        37,
+                        45,
+                        1,
+                        2,
+                        9,
+                        10
+                    ]
+                }
+            },
+            {
+                "id": 1296,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9853,
+                    "bonus": 19,
+                    "standard": [
+                        18,
+                        1,
+                        20,
+                        21,
+                        23,
+                        24
+                    ]
+                }
+            },
+            {
+                "id": 1297,
+                "profile_id": 52411,
+                "lottery_id": 242512,
+                "draw_id": 128736,
+                "settled": false,
+                "winner": false,
+                "paid": false,
+                "numbers_matched": 4,
+                "draw_type": "draw_7",
+                "created": "2011-01-23T15:01:22-00:00",
+                "bet_effective_date": "2011-02-03T17:01:22-00:00",
+                "line" : {
+                    "id": 9854,
+                    "bonus": 10,
+                    "standard": [
+                        1,
+                        23,
+                        29,
+                        11,
+                        12,
+                        13
+                    ]
+                }
+            }
+        ]
+                
+                
+# Group Payment
+The payment portion of the API deals with reading payments information from the system. 
+
+Payments to the system are stored in the BetBright account wallet, and are processed outside of the scope of the application. Withdrawals from the system are handled as per the current BetBright model.
+
+## Payments Collection [/user/payments{?dateFrom,dateTo}]
+
+### Read all payments [GET]
+Retrieve all payments for this user. 
++ Parameters
+    + dateFrom (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Only payments after this time are returned.
+    + dateTo (optional, string) ... Timestamp in ISO 8601 format: `YYYY-MM-DDTHH:MM:SSZ` Only payments up to this time are returned.
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
+
++ Response 200
+
+            [
+                {
+                    "transactionId": 127425,
+                    "date": "2011-01-23T17:01:22-00:00",
+                    "amt": "15.00",
+                    "currency": "USD",
+                    "paymentType": "Withdrawal",
+                    "status": "Complete"
+                },
+                {
+                    "transactionId": 127425,
+                    "date": "2011-01-23T17:01:22-00:00",
+                    "amt": "15.00",
+                    "currency": "USD",
+                    "paymentType": "Payment",
+                    "status": "Complete"
+                },
+                {
+                    "transactionId": 127425,
+                    "date": "2011-01-23T17:01:22-00:00",
+                    "amt": "15.00",
+                    "currency": "USD",
+                    "paymentType": "Withdrawal",
+                    "status": "Complete"
+                }
+            ]
+
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
++ Response 404 
+        
+        User/subscription not found. 
++ Response 400 
+    
+        Invalid number of draws, invalid lottery lines.
+
+# Group Wallet
+## Wallet [/user/wallet]
+
+### Read wallet [GET]
+Read information from the BetBright wallet.
+
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "walletAmt": "35.00",
+            "nextPaymentDate": "2013-05-11T15:50:13-01:00",
+            "creditCard": [{
+                "status": true,
+                "nickname": "Mcphersons Card",
+                "name": "Robertson Ford",
+                "type": "Laser",
+                "masked": "4888xxxxxxxx8557",
+                "expiry": "11/27",
+                "address": {
+                    "address1": "414 Furman Street",
+                    "address2": "Beaumont Street",
+                    "town": "Nebraska",
+                    "county": "Romeville",
+                    "country": "Burundi"
+                }
+            },{
+                "status": true,
+                "nickname": "Mcphersons Card",
+                "name": "Robertson Ford",
+                "type": "Laser",
+                "masked": "4888xxxxxxxx8557",
+                "expiry": "11/27",
+                "address": {
+                    "address1": "414 Furman Street",
+                    "address2": "Beaumont Street",
+                    "town": "Nebraska",
+                    "county": "Romeville",
+                    "country": "Burundi"
+                }
+            }]
+        }
+        
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
+
+# Group Lottery
+This factory provides information about lotteries stored in the BetBright system. 
+
+## Lottery Collection [/lotteries]
+
+### Read lotteries [GET]
+Retrieve all lottery info. 
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+            [
+                {
+                    "id": 30007,
+                    "created": "2011-06-29T17:28:48-01:00",
+                    "name": "UK Lottery",
+                    "active": true
+                },
+                {
+                    "id": 30008,
+                    "created": "2011-06-29T17:28:48-01:00",
+                    "name": "Special Affiliate Lottery",
+                    "active": true
+                }
+            ]
+        
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
+
+## Lottery [/lotteries/{id}]
++ Parameters
+    + id (required, numeric, `1`) ... Numeric `id` of the lottery object to retrieve.
+    
+### Read lottery [GET]
+Retrieve single lottery object
++ Request
+    + Headers
+    
+            Authentication: Bearer AUTH_TOKEN
+
++ Response 200 (application/json)
+
+        {
+            "id": 30007,
+            "created": "2011-06-29T17:28:48-01:00",
+            "name": "Irish Lottery",
+            "active": true,
+            "history": {
+                "dateFrom": "2011-06-29T17:28:48-01:00",
+                "dateTo": "2011-06-29T17:28:48-01:00",
+                "results": [
+                    {
+                        "drawId": 128733,
+                        "drawDate": "2011-06-29T17:28:48-01:00",
+                        "numbersMatched": [],
+                        "line": {
+                            "bonus": 7,
+                            "standard": [
+                                10,
+                                24,
+                                27,
+                                32,
+                                8,
+                                9
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128734,
+                        "drawDate": "2011-07-02T17:28:48-01:00",
+                        "numbersMatched": [24],
+                        "line": {
+                            "bonus": 19,
+                            "standard": [
+                                16,
+                                34,
+                                37,
+                                42,
+                                8,
+                                1
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128735,
+                        "drawDate": "2011-07-05T17:28:48-01:00",
+                        "numbersMatched": [10, 24, 27],
+                        "line": {
+                            "bonus": 3,
+                            "standard": [
+                                2,
+                                14,
+                                37,
+                                45,
+                                18,
+                                6
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128736,
+                        "drawDate": "2011-07-08T17:28:48-01:00",
+                        "numbersMatched": [10, 24],
+                        "line": {
+                            "bonus": 33,
+                            "standard": [
+                                12,
+                                23,
+                                29,
+                                1,
+                                8,
+                                10
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128737,
+                        "drawDate": "2011-07-11T17:28:48-01:00",
+                        "numbersMatched": [10, 24, 27],
+                        "line": {
+                            "bonus": 16,
+                            "standard": [
+                                7,
+                                8,
+                                10,
+                                16,
+                                18,
+                                2
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128738,
+                        "drawDate": "2011-07-13T17:28:48-01:00",
+                        "numbersMatched": [10, 24, 27],
+                        "line": {
+                            "bonus": 1,
+                            "standard": [
+                                8,
+                                14,
+                                27,
+                                35,
+                                48,
+                                6
+                            ]
+                        }
+                    },
+                    {
+                        "drawId": 128739,
+                        "drawDate": "2011-07-17T17:28:48-01:00",
+                        "numbersMatched": [10, 24, 27],
+                        "line": {
+                            "bonus": 29,
+                            "standard": [
+                                4,
+                                24,
+                                27,
+                                15,
+                                18,
+                                6
+                            ]
+                        }
+                    }
+                ]
+            }
+        }        
++ Response 401
+
+        User not authorized (token expiry)
++ Response 403
+    
+        Current logged in user does not have access to this resource (cannot create subscription for the :userId).
+
++ Response 400
+
+        Bad request 
+

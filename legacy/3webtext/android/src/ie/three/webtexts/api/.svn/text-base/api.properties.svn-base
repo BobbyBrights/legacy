@@ -1,0 +1,7 @@
+# API properties file
+api.url_base=https://api.webtext.three.ie/three-webtext/v1
+
+# The following parameters can all be retrieved through the REST component, {0} is subsituted for the value for
+# api.url_base
+api.get_account={0}/user_policies/{1}/send_message
+#api.get_account="http://search.twitter.com/search.json?q=@smcelhinney";

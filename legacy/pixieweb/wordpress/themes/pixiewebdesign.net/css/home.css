@@ -1,0 +1,54 @@
+.story {
+  min-height: 65em;
+  height: auto !important;
+  height: 65em;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  margin: 0 auto; }
+  .story article {
+    padding-top: 60px; }
+
+#home {
+  background: url("../images/girl.jpg") 50% 0 no-repeat fixed; }
+  #home div.container {
+    padding-top: 84px;
+    margin: 0 20px; }
+
+#about {
+  background: url("../images/book.jpg") 50% 0 no-repeat fixed; }
+  #about div.container-fluid {
+    padding-top: 84px; }
+    #about div.container-fluid div.with-background {
+      padding: 20px; }
+
+#portfolio {
+  background: url("../images/portfolio.jpg") 50% 0 no-repeat fixed; }
+
+#services {
+  background: url("../images/pencils.jpg") 50% 0 no-repeat fixed; }
+
+#pixie-web-design-blog {
+  padding-top: 72px;
+  background: url("../images/portfolio.jpg") 50% 0 no-repeat fixed; }
+  #pixie-web-design-blog a {
+    float: left;
+    clear: right;
+    display: inline;
+    margin: 12px;
+    font-size: 2.0em;
+    padding: 10px;
+    background-color: #FFF;
+    display: block;
+    color: #111;
+    min-width: 100px;
+    width: auto; }
+
+#contact {
+  min-height: 40em;
+  height: auto !important;
+  background-position: left bottom !important;
+  background: url("../images/tomatoes.jpg") 50% 0 no-repeat fixed; }
+  #contact .form-container {
+    padding-top: 10em; }

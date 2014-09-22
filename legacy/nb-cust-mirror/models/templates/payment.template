@@ -1,0 +1,8 @@
+{
+    transactionId: '{{numeric(100000,200000)}}',
+    date: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+    amt: '{{numeric(10.00,40.00,0.00)}}',
+    currency: function(){var options=['GBP','EUR','USD']; return options[Math.round(Math.random() * (options.length - 1))];},
+    paymentType: function(){var options=['Payment','Withdrawal']; return options[Math.round(Math.random() * (options.length - 1))];  },
+    status: function(){ var options=['Failed','Complete']; return options[Math.round(Math.random() * (options.length - 1))]; }
+}

@@ -1,0 +1,15 @@
+<!-- <div class="container" ng-show="$root.authenticated">
+    <div class="row page-path-bar"></div>
+    <div ui-view="banner-small"></div>
+    <div ui-view="body-loggedin"></div>
+</div> -->
+<!-- <div class="container" ng-hide="$root.authenticated"> -->
+<div class="container">
+    <div class="row page-path-bar visible-lg">
+    	<div ncy-breadcrumb></div>
+    </div>
+    <div ui-view="banner"></div>
+    <!-- Example row of columns -->
+    <div ui-view="body"></div>
+</div>
+<!-- /container -->

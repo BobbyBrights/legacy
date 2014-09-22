@@ -1,0 +1,146 @@
+/*
+
+Theme Name: Tranquil Reflections
+Version: 1.96
+Theme URI: http://liight.com.au/free-things-2/wordpress-theme-free-download-and-use-on-whatever-you-want/
+Description: Clean subtle and generous with whitespace. Easy to modify the appearance using plain css. A good basic template.
+Tags: white, gray, two-columns, fixed-width 
+Author: liight graphic design
+Author URI: http://liight.com
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+
+*a lot of the non css code originated from the wonderful, Blass theme http://1000ff.de/wordpress-theme-blass-english-version/
+
+*/
+
+/* header
+--------------------------------------------------*/
+
+#header       { padding: 63px 60px 62px } 
+#header h1 a  { color: #59554d; font-size: 150%; font-family: Georgia; font-weight: lighter; text-transform: uppercase; letter-spacing: 1px }
+#header h1 a:hover  { color: #1e2930; text-decoration: none }
+#nav       { background-image: url(images/menu-bg.jpg); background-repeat: repeat-x; padding-top: 17px; padding-left: 30px; width: 930px; height: 33px }
+#nav li      { list-style: none; margin-bottom: 28px; float: left }
+#nav li a       { color: #fff; font-size: 110%; font-family: Georgia; text-transform: uppercase; letter-spacing: 1px; padding: 17px 15px 16px }
+#nav li a:hover   { text-decoration: none; background-image: url(images/menu-selected.jpg); background-repeat: repeat-x }
+.social   { padding-top: 7px; float: right }
+#tagline   { color: #b9bec3; font-size: 110%; font-style: italic }
+#slideshow   { background-image: url(images/banner-by-emerson-ringrose.jpg); background-repeat: no-repeat; display: block; z-index: 99; width: 960px; height: 273px }
+
+/* main
+--------------------------------------------------*/
+
+* { padding:0; margin:0; }
+
+body     { color: #636e75; font-size: 82%; font-family: "Lucida Sans Unicode", verdana, geneva, sans-serif; background-image: url(images/background.jpg); background-repeat: repeat-x; margin: 0 }
+a    { color: #636e75; text-decoration: none }
+a:hover      { color: #525d64; text-decoration: underline }
+a:visited      { color: #525d64 }
+p  { line-height: 150%; margin-bottom: 30px }
+img  { border: solid 0 #fff }
+#wrapper   { background-color: #fff; margin-right: auto; margin-left: auto; position: relative; width: 960px; border-style: solid; border-width: 0 1px 1px; border-color: #cfd4d9 }
+
+#content .date      { background-color: #b9bec3; text-align: center; margin-bottom: 30px; margin-left: 15px; padding-top: 6px; width: 52px; height: 46px; float: right; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px }
+.dateday  { font-size: 70% }
+.date small   { color: #fff; font-size: 170%; font-family: verdana, geneva, sans-serif; font-weight: bold; line-height: 100% }
+#content   { margin-top: 60px; padding-left: 60px; width: 570px; overflow: hidden }
+#content h1    { color: #59554d; font-size: 210%; font-family: Georgia; font-weight: lighter; letter-spacing: 1px; margin-bottom: 30px }
+#content h2    { color: #59554d; font-size: 210%; font-family: Georgia; font-weight: lighter; letter-spacing: 1px; margin-bottom: 30px }
+#content h2  a  { color: #59554d; }
+#content h2  a:hover   { color: #1e2930; text-decoration: none }
+#content h3   { font-weight: lighter; margin-bottom: 30px }
+.info    { background-color: #d1d6db; display: block; margin-bottom: 60px; padding: 5px 15px; clear: both; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px  }
+
+.attachment-post-thumbnail  { margin-bottom: 20px; padding: 15px 15px 20px; border: solid 1px #dae3d7 }
+
+.commentlist  { font-size: 120%; line-height: 120% }
+label   { color: #8b98a0; font-size: 90%; } 
+input  { padding: 5px 15px }
+textarea  { padding: 5px 15px }
+li.current_page_item a   { background-image: url(images/menu-selected.jpg); background-repeat: repeat-x }
+.link-pages { clear:both; }
+
+.wp-caption    { text-align: center; margin: 15px; padding: 8px; border: solid 1px #cbd6dd; max-width:520px;}
+.wp-caption-text     { font-size: 80%; text-align: center; letter-spacing: 1px; padding-top: 8px; padding-right: 8px; padding-left: 8px }
+.sticky  { background-image: url(images/sticky-pin.png); background-repeat: no-repeat; background-position: 480px 0 }
+.gallery .gallery-caption {	color: #cbd6dd;	font-size: 90%;	margin: 0 0 12px; }
+.bypostauthor {}
+.alignright    { margin-left: 30px; float: right }
+.alignleft    { margin-right: 30px; float: left }
+.aligncenter   { margin-right: auto; margin-left: auto; display: block; }
+
+.more-link   { font-weight: bold; display: block; padding-top: 15px }
+.gallery { clear:both; display:block; }
+blockquote  { margin-top: 15px; margin-right: 15px; margin-bottom: 15px; padding: 15px 20px; border: solid 1px #cbd6dd }
+#wp-calendar { width:100%; }
+#wp-calendar td  { text-align: center }
+.pagelink a { padding: 5px;}
+#content .wp-caption img {max-width:500px;}
+#content img {max-width:565px;}
+
+#content table { max-width:565px; }
+#content ul  { list-style-type: circle; list-style-position: outside; margin-bottom: 5px; padding-top: 10px; padding-bottom: 10px }
+#content ol  { list-style-position: inside; margin-top: 5px; margin-bottom: 5px; padding-top: 10px; padding-bottom: 10px }
+#content li  { list-style-position: inside; margin-left: 15; }
+.foothold p  { color: #fff; clear: both }
+.foothold    { clear: both }
+
+table  { margin-top: 5px; margin-bottom: 15px; border: solid 0 #fff; border-collapse: collapse; border-spacing: 0 }
+td { padding: 2px 5px }
+tr {}
+th {}
+ins { color: #000;}
+del  { color: #949494; text-decoration: line-through }
+dl  { font-weight: bold }
+dt {margin-left: 5px}
+ul  { margin-left: 5px }
+ol  { margin-left: 5px }
+li  { margin-left: 5px }
+
+
+/* threaded comments
+--------------------------------------------------*/
+
+.comment-author .fn {margin-left:10px;}
+.commentoff {display:none;}
+.says { display:none; }
+.reply  { font-size: 90%; margin-bottom: 30px; padding-left: 48px }
+#comment-top p    { color: #1c1c1c; margin-top: 30px; padding-left: 48px }
+#comment-top .navigation   { background-color: #d1d6db; margin-top: 15px; padding: 7px 10px 7px 15px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px  }
+#comment-top li { list-style: none; list-style-image: none; }
+.comment-meta a   { color: #b9bec3; font-size: 80%; padding-left: 48px }
+#comment-top textarea { display: block; }
+#comment-top input { display: block; }
+.nocomments{ display:none; }
+.comment-body    { -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; background-color: #d1d6db; margin-top: 15px; margin-bottom: 15px; padding: 20px 15px }
+#content #comment-top ul  { margin: 0; padding: 0 }
+
+li.comment ul.children li.depth-2  { margin-top: 0; margin-right: 0; margin-left: 15px }
+li.comment ul.children li.depth-3  { margin-top: 0; margin-right: 0; margin-left: 15px }
+li.comment ul.children li.depth-4  { margin-top: 0; margin-right: 0; margin-left: 15px }
+li.comment ul.children li.depth-5  { margin-top: 0; margin-right: 0; margin-left: 15px }
+
+/* sidebar
+--------------------------------------------------*/
+
+#sidebar          { font-size: 90%; line-height: 150%; margin-top: 60px; margin-bottom: 30px; margin-left: 30px; padding-right: 30px; padding-left: 40px; width: 210px; float: right; border-left: 1px solid #cfd4d9; } 
+#sidebar h2     { color: #59554d; font-size: 170%; font-family: Georgia; font-weight: lighter; letter-spacing: 1px; margin-top: 30px; margin-bottom: 30px }
+#sidebar h2 a  { color: #59554d; text-decoration: none }
+#sidebar h2 a:hover  { color: #322e26; text-decoration: none }
+#sidebar li    { list-style: none inside; margin-left: 15px }
+.sidetoptxt   { color: #aaafb4; font-size: 110%; font-style: italic }
+
+
+/* footer
+--------------------------------------------------*/
+
+#footer    { background-image: url(images/footer-bg.jpg); background-repeat: repeat-x; margin-right: auto; margin-left: auto; padding-top: 60px; padding-right: 60px; padding-left: 60px; width: 840px; height: 258px; clear: both }
+#footer ul  { margin-top: 15px; clear: both }
+#footer-menu  { padding-top: 15px }
+#footer p  { color: #fff }
+#footer a  { color: #fff }
+#footer li  { list-style: none; float: left }
+#footer li a     { color: #414c53; margin-top: 10px; padding-right: 15px; padding-left: 15px; border-right: 1px solid #fff; border-left: 1px solid #fff }
+#footer li.current_page_item a   { color: #1e2930; background-image: none !important }

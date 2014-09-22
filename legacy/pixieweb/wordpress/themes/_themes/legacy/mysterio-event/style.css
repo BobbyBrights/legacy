@@ -1,0 +1,11 @@
+/*   
+Theme Name: Mysterio (Event Theme) by PixieWebDesign
+Theme URI: http://www.pixiewebdesign.net/portfolio/wordpress-themes/mysterio/event
+Description: Event Management - Child theme (Mysterio)
+Author: Stephen McElhinney
+Author URI: http://www.pixiewebdesign.net
+Version: 1.0
+Tags: events, event management, bootstrap
+*/
+
+@import url('../mysterio-base/style.css');

@@ -1,0 +1,216 @@
+body {
+	font-family:'Oxygen',Arial,serif;
+	font-weight:300;
+	background-color:#fffaef;
+}
+
+/* Sticky footer styles
+  -------------------------------------------------- */
+html,body {
+	height:100%;
+/* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height:100%;
+	height:auto!important;
+	height:100%;
+/* Negative indent footer by it's height */
+	margin:0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,#footer {
+	height:60px;
+}
+
+#footer {
+	background-color:#f5f5f5;
+}
+
+.container .credit {
+	margin:20px 0;
+}
+
+.navbar-wrapper {
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	z-index:10;
+	margin-top:20px;
+	margin-bottom:-90px;
+}
+
+div.page-content {
+	padding-top:60px;
+}
+
+.single-taxonomy-project-type {
+	margin-bottom:20px;
+	border-bottom:1px solid #CCC;
+}
+
+.single-taxonomy-project-type a.btn {
+	margin:10px auto;
+}
+
+.sidebar-nav h2 {
+	font-size:.875em;
+	line-height:12px;
+}
+
+.no-indent {
+	margin-left:0;
+	padding-left:0;
+}
+
+div.top-part {
+	height:20em;
+	background-color:#D33;
+}
+
+.navbar-mysterio {
+	background-color:#eb5b5b;
+	background-image:none;
+	margin:0 auto;
+}
+
+div.primary-nav {
+	margin:auto 0!important;
+}
+
+.navbar-mysterio a {
+	color:#FFF!important;
+	text-shadow:none!important;
+}
+
+.navbar-mysterio .nav > .active > a,.navbar-mysterio .nav > .active > a:hover,.navbar-mysterio .nav > .active > a:focus {
+/* 	background-color: #Ebb179; */
+}
+
+.post-type-page div.top-part,.post-type-portfolio div.top-part,.taxonomy-project-type div.top-part,.post-type-blog div.top-part {
+	height:6em;
+}
+
+#myCarousel {
+	margin:0 auto;
+}
+
+.home-angels {
+	margin:0 auto;
+	padding-top:12px;
+}
+
+div.thumbnail div.caption {
+	padding:1px 9px;
+}
+
+div.thumbnail div.caption h3 {
+	font-size:1em;
+	line-height:inherit;
+	font-family:sans-serif;
+}
+
+.sl-slide-inner img {
+	position:absolute;
+}
+
+.spiderman {
+	right:0;
+	top:10px;
+}
+
+div.related-content {
+	padding-top:12px;
+}
+
+ul.dropdown-menu {
+	margin-top:-1px;
+}
+
+.carousel-btn {
+	margin-top:12px;
+}
+
+div.sl-slide {
+	position:relative;
+}
+
+div.sl-slide a.btn {
+	position:absolute;
+	bottom:25%;
+}
+
+.navbar-inverse .brand,.navbar-inverse .nav > li > a {
+	color:#FFF;
+}
+
+div.page-header {
+	margin:0;
+	padding:0;
+}
+
+div.page-header h1 {
+	font-size:1.5em;
+}
+
+.post-type-page h2 {
+	font-size:1.15em;
+}
+
+.dropdown-menu { 
+	background-color: #8b4848;
+}
+
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+color: #ffffff;
+text-decoration: none;
+background-color: #eb5b5b;
+background-image: none;
+outline: 0;
+}
+
+span.caret { border-color: #eb7979!important;}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+	div.sl-slide-inner p.excerpt {
+		display:none;
+	}
+	
+	div.sl-slide-inner p.carousel-btn {
+		margin-top:10px;
+	}
+	
+	article h2 {
+		font-size:.875em;
+	}
+	
+	#footer {
+		margin-left:-20px;
+		margin-right:-20px;
+		padding-left:20px;
+		padding-right:20px;
+	}
+	
+	.primary-nav {
+		float:left;
+	}
+	
+	.container-fluid {
+		padding:20px;
+	}
+	
+	.navbar-wrapper {
+		margin-top:0;
+	}
+	
+	.carousel-btn {
+		margin:0;
+	}
+}

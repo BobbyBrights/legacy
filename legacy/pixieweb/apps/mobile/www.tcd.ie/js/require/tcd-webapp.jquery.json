@@ -1,0 +1,19 @@
+{
+  "name": "tcd-webapp",
+  "title": "Tcd Webapp",
+  "description": "Collection of JS files for TCD Mobile Webapp",
+  "version": "0.1.0",
+  "author": {
+    "name": "Stephen McElhinney"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/webdes/require/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

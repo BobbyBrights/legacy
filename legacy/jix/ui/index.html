@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="jixApp" id="top">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Angular directives for Bootstrap</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body class="ng-cloak">
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>JIX Ticket Creator</h1>
+    </div>
+
+    <!-- Registration form - START -->
+    <div class="container">
+        <div class="row" ng-controller="TicketController">
+            <tabset>
+                <tab heading="Add New Ticket">
+                    <form role="form" ng-class="{disabled: isLoading}">
+                        <div class="col-lg-8">
+
+                            <div class="form-group">
+                                <label for="originator">Enter Name</label>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="originator" id="originator"
+                                           placeholder="Enter Name" required ng-model="ticket.name">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="originator_email">Enter Email</label>
+
+                                <div class="input-group">
+                                    <input type="email" class="form-control" id="originator_email" name="originator_email"
+                                           placeholder="Enter Email" required ng-model="ticket.email">
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="summary">Enter Summary</label>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="summary" id="summary"
+                                           placeholder="Enter Summary" required ng-model="ticket.summary">
+
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Enter Full Description</label>
+
+                                <div class="input-group">
+                                    <textarea name="description" id="description" class="form-control" rows="5"
+                                              required ng-model="ticket.description"></textarea>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                </div>
+                            </div>
+
+                            <input type="submit" name="submit" id="submit" value="{{isSending ? 'Sending' : 'Send' }}"
+                                   class="btn btn-info pull-right" ng-class="{disabled: isSending}" ng-click="addIssue()">
+                        </div>
+                        <div class="col-lg-4">
+                            <pre>{{ticket}}</pre>
+
+                            <div class="alert alert-success" ng-class="{hidden: !jira || isSending}">
+                                <strong><span class="glyphicon glyphicon-ok"></span>JIRA issue <a href="{{jira.url}}">{{jira.key}}</a>
+                                    has been created.</strong>
+                            </div>
+                            <div class="alert alert-danger hidden">
+                                <span class="glyphicon glyphicon-remove"></span><strong> Error! Please check all page
+                                inputs.</strong>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </tab>
+                <tab heading="View My open tickets" select="updateTickets()">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Summary</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="loading" ng-show="showLoader">
+                            <td colspan="4">Loading..</td>
+                        </tr>
+                        <tr ng-repeat="issue in issues">
+                            <td>{{issue.key}}</td>
+                            <td>{{issue.fields.summary}}</td>
+                            <td>{{issue.fields.status.name}}</td>
+                            <td><a href="{{issue.url}}">View on JIRA</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </tab>
+
+            </tabset>
+        </div>
+    </div>
+    <!-- Registration form - END -->
+
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="dist/js/jix.js"></script>
+</div>
+</body>
+</html>

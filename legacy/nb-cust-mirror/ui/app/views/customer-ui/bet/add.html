@@ -1,0 +1,89 @@
+<div ng-controller="BetsCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">Place a bet</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <form class="bet-form">
+
+                <button ng-click="lineOfRandomNumbers()" class="btn btn-success">Pick random numbers</button>
+                <button ng-click="addLine()" class="btn btn-default">Add another line</button>
+
+
+                <fieldset ng-repeat="line in newBet.lines track by $index" class="cleared">
+                    <legend>Line {{$index + 1}}</legend>
+
+                    <input ng-repeat="a in numbers() track by $index" type="text"
+                           ng-model="newBet.lines[$parent.$index].standard[$index]" class="input-sm input-line-number"
+                           ng-maxlength="2"
+                           maxlength="2" integer/>
+
+                    <input type="text"
+                           ng-model="newBet.lines[$index].bonus" class="input-sm input-line-number bonus-ball"
+                           ng-maxlength="2"
+                           maxlength="2" integer/>
+
+                    <button class="btn btn-danger pull-right" ng-click="deleteLine($index)"
+                            ng-show="newBet.lines.length > 1">
+                        Delete this line
+                    </button>
+
+                    <div class="error pull-right" ng-show="duplicatesFound($index)"><i
+                            class="fa fa-exclamation-triangle"></i> Duplicates found on this line
+                    </div>
+                    <div class="error pull-right" ng-show="invalidNumberFound($index)"><i
+                            class="fa fa-exclamation-triangle"></i> Invalid number found
+                    </div>
+
+                </fieldset>
+
+            </form>
+            <!--<pre class="clearfix cleared">{{lines}}</pre>-->
+        </div>
+        <div class="col-md-4">
+            <div class="input-daterange input-group hide" id="datepicker">
+                <input type="text" class="input-sm form-control" name="start"/>
+                <span class="input-group-addon">to</span>
+                <input type="text" class="input-sm form-control" name="end"/>
+            </div>
+
+
+            <div class="numbers-line" ng-repeat="betline in newBet.lines track by $index">
+                <span>Line {{$index + 1}} ({{stake | toCurrency}})</span>
+
+                <div class="lotto-number number-{{betnumber}}"
+                     ng-repeat="betnumber in betline.standard track by $index">{{betnumber}}
+                </div>
+                <div class="lotto-number bonus-ball" ng-show="betline.bonus">{{betline.bonus}}</div>
+
+            </div>
+
+            <div class="form-inline" ng-show="newBet.lines[0].standard.length == 6 && newBet.lines[0].bonus">
+                <div class="controls-row">
+                    <label class="control-label">Number of draws</label><br/>
+                    <label class="radio inline draws" ng-repeat="draw in totalDraws">
+                        <input type="radio" value="{{draw}}" name="type" ng-model="newBet.numberOfDraws"/>
+                        {{draw}}
+                    </label>
+                </div>
+            </div>
+
+
+            <div ng-show="newBet.lines[0].standard.length == 6 && newBet.lines[0].bonus">
+                <div id="totalStake"><span>Total stake: </span>{{newBet.totalStake | toCurrency}}</div>
+                <hr/>
+                <button ng-click="betNow()" class="btn btn-primary cleared">Bet now
+                </button>
+                <div ng-show="confirm_bet" id="confirm_bet">
+                    Now, if this was a real bet, the following information would be posted:
+                    <pre>{{newBet}}</pre>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

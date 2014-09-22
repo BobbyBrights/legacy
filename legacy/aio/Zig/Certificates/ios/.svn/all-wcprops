@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/af/!svn/ver/13695/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/af/!svn/ver/13687/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios/readme.txt
+END
+myaio_addhoc.mobileprovision
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/af/!svn/ver/13687/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios/myaio_addhoc.mobileprovision
+END
+myaio_appstore.mobileprovision
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/13687/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios/myaio_appstore.mobileprovision
+END
+aio_wireless_llc.cer
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/af/!svn/ver/13687/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios/aio_wireless_llc.cer
+END
+Aio Wireless LLC.p12
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/13695/ATT_ZIG/trunk/mobile_application/Zig/Certificates/ios/Aio%20Wireless%20LLC.p12
+END

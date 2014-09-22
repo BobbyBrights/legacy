@@ -1,0 +1,28 @@
+<div id="content" class="col-lg-10 col-sm-11 ">
+    <!--<pre>{{promoters}}</pre>-->
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="box" ng-repeat="promoter in promoters">
+                <div class="box-header">
+                    <h2><i class="fa fa-asterisk"></i><span class="break"></span>{{promoter.name}}</h2>
+                </div>
+                <div class="box-content">
+                    <div class="col-sm-2">
+                        <a class="quick-button" href="#/promoter/{{promoter._id}}">
+                            <i class="fa fa-group"></i>
+                        </a>
+                    </div>
+                    <div class="col-sm-10">
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+        </div><!--/col-->
+
+    </div>
+
+
+</div>

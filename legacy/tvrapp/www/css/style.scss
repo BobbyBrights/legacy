@@ -1,0 +1,47 @@
+/* Empty. Add your own CSS if you like */
+@import url('http://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import url('../lib/bower_components/components-font-awesome/css/font-awesome.min.css');
+
+$font-family: 'Montserrat', sans-serif;
+$heading-colors: #ef4e3a;
+$link-copy-color: #000;
+$link-action-bar-color: #CCC;
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 1.0em;
+
+  /* Font colors */
+  h1, h2, h3, h4, h5, h6 {
+    color: $heading-colors;
+    margin: 0;
+    a {
+      color: $heading-colors;
+    }
+  }
+
+  a {
+    color: $link-copy-color;
+  }
+  .card {
+    //max-height: 12em;
+
+    .item-image {
+      position: relative;
+      .strapline {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: right;
+        background-color: rgba(255, 255, 255, 0.8);
+        h2 {
+          padding: 20px;
+          font-size: 1.4em;
+        }
+      }
+
+    }
+
+  }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project bin="/.hawk" version="2.0">
+    <custos path=".settings/com.amdocs.hub.maw.core.hawk/configuration">
+        <custo auto_update="false" debug="false" default="true" start="WebContent/index.html" tollkit_version="3.3.0">
+            <platform id="ANDROID">
+                <property id="name" value="Zig"/>
+                <property id="stz_app_version_name" value="0.0.4"/>
+                <property id="project_id"/>
+                <property id="splash_screen" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/android/splash_480x800.png"/>
+                <property id="exit_icon" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/android/exitIcon_72x72.png"/>
+                <property id="screen_orientation">
+                    <value auto="false" enabled="false" erender_mode="true" initial="P0"/>
+                </property>
+                <property id="icon" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/android/defaultIcon_72x72.png"/>
+            </platform>
+            <platform id="PC">
+                <property id="active_x" value="true"/>
+                <property id="name" value="MyApplication"/>
+                <property id="screen_orientation">
+                    <value auto="false" enabled="true" erender_mode="true" initial="P0"/>
+                </property>
+                <property id="archive" value="true"/>
+            </platform>
+            <platform id="IPhone">
+                <property id="cache_size" value="5120"/>
+                <property id="private_key" value="Certificates/certificate.p12"/>
+                <property id="version" value="0.0.3"/>
+                <property id="splash_screen" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/iphone_splash.png"/>
+                <property id="mobile_provision" value="Certificates/8210798D-0C9A-4CE1-AAB0-586276AE28E9.mobileprovision"/>
+                <property id="bundle_identifier" value="com.amdocs.RichMedia.Zig"/>
+                <property id="distribution" value="AD_HOC"/>
+                <property id="icon" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/icon.png"/>
+                <property id="private_key_passphrase" value="toto"/>
+                <property id="certificate" value="Certificates/ios_distribution.cer"/>
+                <property id="status_bar_hidden" value="true"/>
+                <property id="name" value="Zig"/>
+                <property id="company_name" value="Streamezzo"/>
+                <property id="certificate_name" value="streamezzo"/>
+                <property id="screen_orientation">
+                    <value auto="true" enabled="true" erender_mode="false" initial="P0"/>
+                </property>
+                <property id="frame_to_skip" value="1"/>
+                <property id="bkg_color" value="#000000ff"/>
+            </platform>
+            <files>
+                <file path="WebContent"/>
+            </files>
+            <notification active="false" notification_type="0"/>
+        </custo>
+        <resize_policies/>
+    </custos>
+</project>

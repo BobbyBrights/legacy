@@ -1,0 +1,41 @@
+package ie.three.webtexts.objects;
+
+import java.util.ArrayList;
+
+public class Group {
+
+	public String name;
+	public ArrayList<Contact> recipients;
+
+	public Group() {
+		super();
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the recipients
+	 */
+	public ArrayList<Contact> getRecipients() {
+		return recipients;
+	}
+
+	/**
+	 * @param recipients the recipients to set
+	 */
+	public void setRecipients(ArrayList<Contact> recipients) {
+		this.recipients = recipients;
+	}
+}

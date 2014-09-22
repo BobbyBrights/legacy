@@ -1,0 +1,14 @@
+[
+    {
+        "id": 30007,
+        "created": "2011-06-29T17:28:48 -01:00",
+        "name": "Irish Lottery",
+        "active": true
+    },
+    {
+        "id": 30008,
+        "created": "2011-06-29T17:28:48 -01:00",
+        "name": "UK Lottery",
+        "active": true
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Breaking Bad",
+        "guid": "427265616B696E67426164",
+        "image": "http://epguides.com/BreakingBad/cast.jpg",
+        "createdAt": "2014-05-17T21:51:28.842Z",
+        "updatedAt": "2014-05-17T21:51:28.842Z",
+        "objectId": "9wiDA3i8OS"
+    },
+    {
+        "name": "Fringe",
+        "guid": "4672696E6765",
+        "image": "http://epguides.com/Fringe/cast.jpg",
+        "createdAt": "2014-05-17T21:58:56.354Z",
+        "updatedAt": "2014-05-17T21:58:56.354Z",
+        "objectId": "L6eotJE7r0"
+    }
+]

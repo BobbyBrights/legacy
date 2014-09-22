@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/af/!svn/ver/13871/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/build/classes/com/cwstz/zig/session
+END
+MockUserTransaction.class
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/af/!svn/ver/13871/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/build/classes/com/cwstz/zig/session/MockUserTransaction.class
+END
+AccountMap.class
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/af/!svn/ver/13871/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/build/classes/com/cwstz/zig/session/AccountMap.class
+END
+UserSessionMap.class
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/af/!svn/ver/13871/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/build/classes/com/cwstz/zig/session/UserSessionMap.class
+END

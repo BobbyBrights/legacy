@@ -1,0 +1,102 @@
+package ie.three.webtexts.contacts;
+
+import ie.three.webtexts.R;
+import ie.three.webtexts.base.WebtextBaseActivity;
+import ie.three.webtexts.notification.Notify;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.Button;
+import android.widget.LinearLayout;
+
+public class WebtextsContacts extends WebtextBaseActivity {
+	public String selectedNumber;
+	public String selectedName;
+
+	public String getContact(Intent data, Context ctx) {
+
+		String initialValue = "";
+		String[] recipients = new String[] {};
+
+		if (null != data.getExtras()
+				&& null != data.getExtras().get("contacts")
+				&& !data.getExtras().get("contacts").equals("")) {
+			// recipients =
+			initialValue = data.getExtras().get("contacts").toString();
+		}
+
+		/*
+		 * Logic to explode the string into an array
+		 */
+		
+		Cursor cursor = null;
+		String phoneNumber = "";
+		List<String> allNumbers = new ArrayList<String>();
+		int phoneIdx = 0;
+		try {
+			// Gets all phone numbers;
+			Uri result = data.getData();
+			String id = result.getLastPathSegment();
+			cursor = ctx.getContentResolver().query(Phone.CONTENT_URI, null,
+					Phone.CONTACT_ID + "=?", new String[] { id }, null);
+			phoneIdx = cursor.getColumnIndex(Phone.DATA);
+
+			if (cursor.moveToFirst()) {
+				while (cursor.isAfterLast() == false) {
+					phoneNumber = cursor.getString(phoneIdx);
+					allNumbers.add(phoneNumber);
+					cursor.moveToNext();
+				}
+			}
+
+		} catch (Exception e) {
+			Log.e(TAG, e.toString());
+		} finally {
+
+			if (cursor != null) {
+				cursor.close();
+			}
+
+			final CharSequence[] items = allNumbers
+					.toArray(new String[allNumbers.size()]);
+			AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
+			builder.setTitle("Choose a number");
+			builder.setItems(items, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int item) {
+					selectedNumber = items[item].toString();
+					selectedNumber = selectedNumber.replace("-", "");
+				}
+			});
+			AlertDialog alert = builder.create();
+
+			if (allNumbers.size() > 1) {
+				alert.show();
+			} else {
+				selectedNumber = phoneNumber.toString();
+				selectedNumber = selectedNumber.replace("-", "");
+			}
+
+			if (phoneNumber.length() == 0) {
+				new Notify().showValidationError(
+						"No phone numbers for this contact", ctx);
+			}
+		}
+		LayoutInflater inflater = getLayoutInflater();
+		LinearLayout l = (LinearLayout) inflater.inflate(R.layout.send_message, null);
+		Button btn = new Button(this);		
+		btn.setText("Text Default: " + selectedNumber);
+		l.addView(btn);
+
+		return initialValue + "," + selectedNumber;
+	}
+}

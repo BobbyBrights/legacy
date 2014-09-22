@@ -1,0 +1,37 @@
+{
+  "name": "courtmanager",
+  "version": "0.0.0",
+  "description": "A court management service ",
+  "main": "server.js",
+  "dependencies": {
+    "restify": "~2.6.3",
+    "underscore": "~1.6.0",
+    "restify-oauth2": "~3.0.1",
+    "node-static": "~0.7.3",
+    "mongoose": "~3.8.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smcelhinney/courtmanager.git"
+  },
+  "keywords": [
+    "court",
+    "node",
+    "bower",
+    "mongodb",
+    "tennis",
+    "sports",
+    "football"
+  ],
+  "author": "Stephen McElhinney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smcelhinney/courtmanager/issues"
+  },
+  "homepage": "https://github.com/smcelhinney/courtmanager"
+}

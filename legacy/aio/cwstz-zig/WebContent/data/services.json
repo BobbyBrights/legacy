@@ -1,0 +1,151 @@
+{
+    "services": [
+        {
+            "isCategory": true,
+            "name": "Included services",
+            "price": "-",
+            "included": true,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Email Access",
+            "price": "",
+            "included": true,
+            "subscribed": true
+        },
+        {
+            "isCategory": true,
+            "name": "Added services",
+            "price": "-",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "International calls",
+            "price": "5.00",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "International SMS",
+            "price": "5.00",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "Data",
+            "price": "5.00",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "Call Forwarding",
+            "price": "2.99",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "Social Networking",
+            "price": "1.99",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "Real Tone Music",
+            "price": "0.99",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": false,
+            "name": "Navigation and Info",
+            "price": "9.99",
+            "included": false,
+            "subscribed": true
+        },
+        {
+            "isCategory": true,
+            "name": "Add more services",
+            "price": "-",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "DataPlus 300Mb",
+            "price": "3.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "DataPlus 3Gb",
+            "price": "8.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Messaging Unlimited",
+            "price": "5.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Mobile Insurance",
+            "price": "4.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Mobile Protection Pack",
+            "price": "8.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Roadside Assistance",
+            "price": "10.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Detailed Billing",
+            "price": "1.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "FamilyMap 2",
+            "price": "4.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "FamilyMap 5",
+            "price": "8.99",
+            "included": false,
+            "subscribed": false
+        },
+        {
+            "isCategory": false,
+            "name": "Long Distance 100",
+            "price": "9.99",
+            "included": false,
+            "subscribed": false
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+['{{repeat(2,9)}}',
+ {
+    id: '{{numeric(20000,99999)}}',
+    active: '{{bool}}',
+    picture: "http://placehold.it/32x32",
+    name: '{{firstName}} {{surname}}',
+    company: '{{company}}',
+    email: '{{email}}',
+    phone: '+44 {{phone}}',
+    address: '{{numeric(100,999)}} {{street}}, {{city}}, {{state}}, {{numeric(100,10000)}}',
+    registered: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+    support_tickets: [
+         '{{repeat(2,9)}}',
+         {  id: '{{numeric(20000,99999)}}',
+            status: 'in-progress',
+            created: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+            description: '{{lorem(12)}}'
+         }
+    ]
+}]

@@ -1,0 +1,4 @@
+<?php $this->assign('title', 'About aoaku.com'); ?>
+<h1>About</h1>
+<p>Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean lacinia bibendum nulla sed consectetur.</p>
+<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec sed odio dui. Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis.</p>

@@ -1,0 +1,6 @@
+<ol class="breadcrumb" ng-controller="BreadcrumbsController" ng-show="bc">
+    <li ng-repeat="crumb in bc" ng-class="{crumb.active: active}">
+        <a href="#/" ng-show="!crumb.active">{{crumb.label}}</a>
+        <span ng-show="crumb.active">{{crumb.label}}</span>
+    </li>
+</ol>

@@ -1,0 +1,21 @@
+<div class="container" ng-controller="SubscriptionResultController">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Results From Last Draw</h2>
+            <loading-spinner hide="betsResult.finishLoad"></loading-spinner>
+            <div id="last-draw-result">
+                <lottery-result-group class="animate-show" ng-show="betsResult.last.length > 0" group="resultGroup" ng-repeat="resultGroup in betsResult.last"></lottery-result-group>
+            </div>
+            <hr />
+            <h2>Results From Previous Draws</h2>
+            <loading-spinner hide="betsResult.finishLoad"></loading-spinner>
+            <div id="pre-draw-result">
+                <lottery-result-group class="animate-show" ng-show="betsResult.pre.length > 0" group="resultGroup" ng-repeat="resultGroup in betsResult.pre"></lottery-result-group>
+            </div>
+        </div>
+        <div class="col-md-4" ui-view="rightSide"></div>
+    </div>
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<!-- /container -->

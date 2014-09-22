@@ -1,0 +1,205 @@
+/*
+  Variables file: Used for customising colour scheme/typography.
+*/
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+
+$btn-primary-color: #0153a5;
+$btn-secondary-color: lighten($btn-primary-color, 20%);
+
+/* Grid System */
+//media screen from boostrap
+//@media(max-width:767px){}
+//@media(min-width:768px){}
+//@media(min-width:992px){}
+//@media(min-width:1200px){}
+$xs-screen : 767px;
+$sm-screen : 768px;
+$md-screen : 992px;
+$lg-screen : 1200px;
+//$vlg
+
+//Media Queries Mixin
+//bp => break point
+@mixin bp($point){
+	$bp-xs: "(max-width:767px)";
+	//$bp-sm: "(min-width:768px)";
+	$bp-sm: "(max-width:991px)";
+	//$bp-md: "(min-width:992px)";
+	$bp-md: "(max-width:1199px)";
+	$bp-lg: "(min-width:1200px)";
+
+	@if $point == xs {
+		@media #{$bp-xs} { @content; }
+	}
+	@else if $point == sm {
+		@media #{$bp-sm} { @content; }
+	}
+	@else if $point == md {
+		@media #{$bp-md} { @content; }
+	}
+	@else if $point == lg {
+		@media #{$bp-lg} { @content; }
+	}
+}
+
+/* widely used color */
+
+/* Blue color */
+//used in the ball at right side bar, 
+//the header and footer background color of the right side bar
+$blue-right-bar-color: #54AEEB;//rgb(84.174.236);
+
+//used in the login btn, bgc of number picker panel
+$blue-primary-color: #2C93DA;//rgb(44,148,219);
+
+//the balls bgc in the number picker panel
+$blue-ball-color: #7FC2EE;
+
+$blue-text-color:#093788;
+
+$blue-light-color:#23466A; //used in the menu border in mobile version
+
+
+
+/* Blue color */
+$blue-grid-first-color: #CCE7FA;//used in the right side bar, first line in the grid
+$blue-grid-second-color: #E6F3FC;//used in the right side bar, second line in the grid
+$blue-header-bg-color: #00366D;//used in the page header background color
+$blue-header-bg-dark-color: #062341;//used in the pop sub-title bg color
+$blue-header-arrow-bg-color:#164673;
+$blue-bg-color: #0C2D4D;//#13293D;
+$blue-logged-status-bg-color: #001C39;
+$blue-logged-status-separator-color:#102A45;
+
+//this orange color is used for the bonus-ball's color and some buttons
+//$orange-primary-color: rgb( 241, 87, 34 );
+$orange-primary-color: #f15722;
+
+$bonus-ball-star-color: lighten($orange-primary-color, 20%);
+
+/* Border radius definition */
+$panel-main-border-radius: 12px;
+$button-xs-border-radius:4px;
+$button-sm-border-radius:6px;
+$button-md-border-radius:10px;
+$button-lg-border-radius:18px;
+
+
+
+//Balls
+$ball-primary-color: #59b1ec;
+$ball-not-match-color: #C9CBD7;
+
+$ball-noraml-color: $blue-right-bar-color;
+$ball-selected-color: #0A4065;
+$ball-selected-bonus-color: $orange-primary-color;
+
+$grey-primary-color: #9396A6;
+
+/* Yellow */
+$yellow-ballInput-bg-color: #FFF2CF;
+
+$yellow-ballPool-bg-color: #FEBA0E;
+$yellow-topbar-color:#FEBE10;
+
+/* Black color */
+$black-body-bg-color:#00080d;
+$black-menubar-bg-color:rgba(0,0,0,0.5);
+$black-menubar-hover-bg-color:rgba(0,0,0,0.6);
+$black-html-bg-color:#646464;
+$black-pure-color: #000;
+$black-navbar-boder-color:rgba(0,0,0,0.7);
+
+/* White color */
+$white-pure-color: #fff;
+$white-ball-pick-panel-bg-color: #E8F0F5;
+$white-tran-bg-color-normal:rgba(255,255,255,0.7);
+
+/* Grey color */
+$grey-input-bg-color:#CCD6E2;
+$grey-form-input-bg-color:#AAB3B9;
+$grey-form-bg-color:#E4E4E4;
+$grey-form-grid-1-color:#B0B8C0;
+$grey-form-grid-2-color: #C6CACE;
+$grey-bg-color: #C5D0DD; //used as the background color on notification popover
+
+
+/* Green color*/
+$green-text-color: #1BB22F;
+
+// Navbar
+$navbar-primary-color: $blue-header-bg-color;
+$navbar-text-main-color: #FFF;
+$navbar-text-link-color: #FFF;
+$secondary-bar-color: #00aeef;
+
+/* Border color */
+$black-border-color: $black-pure-color;
+
+/* Text color */
+$white-text-color: $white-pure-color;
+$black-text-color: $black-pure-color;
+$blue-text-color: $blue-bg-color;
+$red-err-text-color: #a94442;
+
+/* Gradient color */
+
+.gradient-blue-bg-color{
+	background: #394f66; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI0MyUiIHN0b3AtY29sb3I9IiMzOTRmNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0MyUiIHN0b3AtY29sb3I9IiMzOTRmNjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMGUxYjI4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  #394f66 43%, #394f66 43%, #0e1b28 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(43%,#394f66), color-stop(43%,#394f66), color-stop(100%,#0e1b28)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #394f66 43%,#394f66 43%,#0e1b28 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #394f66 43%,#394f66 43%,#0e1b28 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #394f66 43%,#394f66 43%,#0e1b28 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #394f66 43%,#394f66 43%,#0e1b28 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#394f66', endColorstr='#0e1b28',GradientType=0 ); /* IE6-8 */
+}
+
+$gradient-1-color: rgb(18, 44, 115);
+$gradient-2-color: rgb(11, 74, 154);
+$gradient-3-color: rgb(6, 103, 187);
+$gradient-4-color: rgb(11, 77, 158);
+$gradient-5-color: rgb(14, 27, 85);
+
+$gradient-bg-color-1: #123C67;//light
+$gradient-bg-color-2: #0E1B28;//dark
+
+$gradient-yellow-bg-color-1: #FEDB39;//light
+$gradient-yellow-bg-color-2: #FECA18;//dark 1
+$gradient-yellow-bg-color-3: #FEAF0A;//dark 2
+
+
+.gradient-blue-bg-color {
+  /*
+  @include background-image(linear-gradient(hsla(0, 100%, 100%, 0.25) 0%, hsla(0, 100%, 100%, 0.08) 50%, transparent 50%),
+    linear-gradient(#4e7ba3, darken(#4e7ba4, 10%)));
+
+  @include background-image(
+        linear-gradient($gradient-main-color 0%, #005db2 40%, #0061b4 50%, #005db2 60%, $gradient-main-color 100%));
+ */
+
+  //@include background-image(linear-gradient($gradient-1-color 0%, $gradient-2-color 25%, $gradient-3-color 50%, $gradient-4-color 75%, $gradient-5-color 100%));
+  @include background-image(linear-gradient( $gradient-bg-color-1 0%, $gradient-bg-color-1 25%,  $gradient-bg-color-2 100%));
+}
+
+.gradient-yellow-bg-color{
+	@include background-image(linear-gradient( -150deg, $gradient-yellow-bg-color-1 0%, $gradient-yellow-bg-color-1 30%,  $gradient-yellow-bg-color-2 40%, $gradient-yellow-bg-color-1 50%, $gradient-yellow-bg-color-1 65%,  $gradient-yellow-bg-color-2 70%,$gradient-yellow-bg-color-2 100% ));	
+}
+
+
+
+
+
+
+/* Mixins */
+  //border radius
+  @mixin gen-border-radius($radius-value){
+    border-radius: $radius-value;
+    -webkit-border-radius: $radius-value; 
+    -moz-border-radius: $radius-value;
+  }
+
+  //--------------

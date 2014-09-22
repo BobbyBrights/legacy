@@ -1,0 +1,26 @@
+{
+  "name": "pixiewebdesign.net",
+  "description": "Node.js self contained website, written by Stephen McElhinney",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "restify": "~2.6.3",
+    "restify-oauth2": "~2.1.0",
+    "node-static": "~0.7.3",
+    "underscore": "~1.6.0",
+    "nodemailer": "~0.6.1",
+    "mustache": "~0.8.1",
+    "mongoose": "~3.8.8",
+    "prerender-node": "~0.1.18",
+    "connect-modrewrite": "~0.6.4-pre",
+    "newrelic": "~1.4.0",
+    "marked": "^0.3.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-compass": "~0.7.2"
+  },
+  "security": {
+    "salt": "a<I&s+wnZjWA#y m?}RyzJHP,#BEL}6UQ![lXs|nlKY35L?(*EU6E#dX/$9^rm#b"
+  }
+}

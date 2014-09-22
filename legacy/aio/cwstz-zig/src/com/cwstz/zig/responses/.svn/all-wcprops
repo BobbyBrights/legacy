@@ -1,0 +1,317 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/af/!svn/ver/14637/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses
+END
+PlanArray.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/PlanArray.java
+END
+BillDetailsAddedService.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsAddedService.java
+END
+PlanAndServicesResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/PlanAndServicesResponse.java
+END
+SecurityQuestionsArrayResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/SecurityQuestionsArrayResponse.java
+END
+BillDetailsProfileSubscriberDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsProfileSubscriberDetails.java
+END
+GeneralResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/GeneralResponse.java
+END
+ValidationInfoResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ValidationInfoResponse.java
+END
+AvailableServicesResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/AvailableServicesResponse.java
+END
+AutoPayDetailsObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/AutoPayDetailsObject.java
+END
+ChatInfoResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/af/!svn/ver/13867/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ChatInfoResponse.java
+END
+UsageSummaryResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/UsageSummaryResponse.java
+END
+ProfileInformationResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ProfileInformationResponse.java
+END
+ResponseBody.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ResponseBody.java
+END
+PlanInformationObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/af/!svn/ver/14643/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/PlanInformationObject.java
+END
+UserAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/af/!svn/ver/14684/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/UserAccount.java
+END
+UpdateProfileResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/UpdateProfileResponse.java
+END
+ChangeServiceVerificationResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ChangeServiceVerificationResponse.java
+END
+AvailableServiceInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/AvailableServiceInformation.java
+END
+TransactionsHistoryResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/TransactionsHistoryResponse.java
+END
+TransactionObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/af/!svn/ver/14308/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/TransactionObject.java
+END
+BillDetailsResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsResponse.java
+END
+BillDetailsDiscount.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsDiscount.java
+END
+LimitedServiceObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/af/!svn/ver/14637/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/LimitedServiceObject.java
+END
+VersionResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/VersionResponse.java
+END
+TestAccounts.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/af/!svn/ver/14684/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/TestAccounts.java
+END
+ServiceInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ServiceInformation.java
+END
+TempLoginResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/TempLoginResponse.java
+END
+MakeOTPaymentResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/MakeOTPaymentResponse.java
+END
+BillDetailsCredit.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsCredit.java
+END
+CaptchaInformationResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/CaptchaInformationResponse.java
+END
+ChangePasswordResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ChangePasswordResponse.java
+END
+LoginResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/LoginResponse.java
+END
+SubscriberLineInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/14683/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/SubscriberLineInfo.java
+END
+ErrorResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ErrorResponse.java
+END
+BillDetailsAdjustment.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsAdjustment.java
+END
+SecurityQuestionResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/SecurityQuestionResponse.java
+END
+Todo.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/af/!svn/ver/13503/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/Todo.java
+END
+LineStatusResponseObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/af/!svn/ver/14683/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/LineStatusResponseObject.java
+END
+PaymentObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/PaymentObject.java
+END
+BillDetailsPlan.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/BillDetailsPlan.java
+END
+UsageDetailsResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/af/!svn/ver/13505/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/UsageDetailsResponse.java
+END
+UsageDetailsObject.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/14683/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/UsageDetailsObject.java
+END
+HomeResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/af/!svn/ver/14683/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/HomeResponse.java
+END
+ResultResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ResultResponse.java
+END
+ValidateSecurityQuestionResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/af/!svn/ver/13866/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ValidateSecurityQuestionResponse.java
+END
+SubscriberDetails.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/af/!svn/ver/14526/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/SubscriberDetails.java
+END
+AutoPayment.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/AutoPayment.java
+END
+AddedServiceInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/AddedServiceInformation.java
+END
+ErrorMessagesResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/ErrorMessagesResponse.java
+END
+Address.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/Address.java
+END
+StatusResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/StatusResponse.java
+END
+IncludedServiceInformation.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/src/com/cwstz/zig/responses/IncludedServiceInformation.java
+END

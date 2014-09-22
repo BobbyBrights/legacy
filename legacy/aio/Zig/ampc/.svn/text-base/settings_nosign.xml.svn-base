@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AMPCSettings>
+  <setting name="NetConnectionIP">192.168.100.1</setting>
+  <setting name="AdbHostIP">192.168.100.2</setting>
+  <setting name="StdSigningSelection">None</setting>
+  <setting name="StdSigningSigFile">E:\ZIG\Android_1363017593114\package\uxfme.ks</setting>
+  <setting name="StdSigningKeystorePwd">streamezzo</setting>
+  <setting name="StdSigningPrivateKeyPwd">streamezzo</setting>
+  <setting name="StdSigningAliasName">uxfme</setting>
+  <setting name="SignAPKSelection">None</setting>
+  <setting name="SignAPKSigFile"></setting>
+  <setting name="SignAPKCertFile"></setting>
+  <setting name="PrefAskDeploySelection">No</setting>
+  <setting name="PrefAskEmulSelection">No</setting>
+</AMPCSettings>

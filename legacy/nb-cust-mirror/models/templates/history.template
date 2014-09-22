@@ -1,0 +1,12 @@
+{
+    id: '{{numeric(100000,999999)}}',
+    date: '{{date(YYYY-MM-dd)}}',
+    lottery: function(idx) {var options=['Irish Lottery','UK Lottery']; return options[Math.round(Math.random() * (options.length - 1))]; },
+    line: {
+        bonus: '{{numeric(1,46)}}',
+        standard: function(){var arr = [], min = 1, max = 46, qty = 6; while(arr.length < qty){ var num = Math.round(min + Math.random()*(max-min)); if(arr.indexOf(num) == -1){ arr[arr.length] = num; } } arr.sort(); return arr; }
+    },
+    winner: '{{firstName}} {{surname}}',
+    numbersMatched: '{{numeric(1,7)}}',
+    status: function(idx) {var options=['Settled','Un-settled']; return options[Math.round(Math.random() * (options.length - 1))]; }
+}

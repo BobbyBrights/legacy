@@ -1,0 +1,7 @@
+com.amdocs.hub.maw.cpg.client/debug/cpg_url = http://cpgfront-stg.streamezzo.lan:8081/cpgws/ws/jobs
+com.amdocs.hub.maw.cpg.client/debug = true
+com.amdocs.hub.da.gateway.client/debug = true
+com.amdocs.hub.da.gateway.client/dacloud.url = https://cep-dagw-stg.streamezzo.com/dacloud/rest/{tenantId}
+com.amdocs.hub.maw.ui.hawk/debug = true
+com.amdocs.hub.maw.ui.hawk/debug/apps.manager.url = https://appsmgr-stg.streamezzo.com/daappsmgrconsole/
+com.amdocs.hub.maw.cpg.client/debug/android_package_id = android_njdk_streamezzo_genericdevice_dev

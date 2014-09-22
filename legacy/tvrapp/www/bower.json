@@ -1,0 +1,18 @@
+{
+  "name": "tvremindme",
+  "version": "0.0.0",
+  "authors": [
+    "smcelhinney <mcelhins@tcd.ie>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ionic": "~0.9.27"
+  }
+}

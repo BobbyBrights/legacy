@@ -1,0 +1,248 @@
+/*
+Theme Name: Three.ie
+Theme URI: http://www.three.ie/
+Description: Three.ie v1.0 look and feel.
+Author: Stephen McElhinney
+Version: 1.0
+*/
+a {
+	color:#000;
+	text-decoration:underline;
+	line-height:11pt
+}
+
+a:hover {
+	text-decoration:none
+}
+
+h2.entry-title {
+	font-size:1.388em;
+	font-weight:700
+}
+
+div.entry-utility {
+	padding:12px 0;
+	float:left
+}
+
+div.entry-meta {
+	font-size:1.188em
+}
+
+ul.post-list li {
+	list-style-type:none;
+	list-style-position:outside;
+	margin-bottom:4px;
+	font-size:1.188em
+}
+
+h1,h2 {
+	margin-bottom:8px
+}
+
+.page-title {
+	font-size:1.5em;
+	color:#999
+}
+
+.page-title span {
+	color:#000
+}
+
+div.navigation {
+	padding:8px 0;
+	float:left;
+	width:100%
+}
+
+div.nav-previous {
+	width:50%;
+	float:left
+}
+
+div.nav-next {
+	width:50%;
+	float:right;
+	clear:right;
+	text-align:right
+}
+
+.box_Plan .box_FreeHtml {
+	padding-left:0!important;
+	width:685px!important
+}
+
+div.post {
+	float:left;
+	width:100%
+}
+
+/* Some fixes */
+ul.list_Menu_Sidebar li a {
+	font-size:1.4em!important
+}
+
+li.current_page_item a {
+}
+
+ul.children li {
+	font-size:.875em!important
+}
+
+/* Widgetise! */
+div.horizontal-widget-area {
+	margin-top:20px;
+	float:left
+}
+
+div.horizontal-widget-area div {
+	width:340px;
+	float:left;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+div.horizontal-widget-area div h3 {
+	color:#FFF;
+	font-weight:700;
+	font-size:1.8em;
+	padding:12px 0 12px 8px;
+	margin-bottom:14px
+}
+
+div.horizontal-widget-area div h4 {
+	font-size:1.55em;
+	line-height:16px;
+	color:#777;
+	margin-bottom:10px
+}
+
+div.horizontal-widget-area div p {
+	font-size:1.25em;
+	line-height:15px;
+	width:100%;
+	float:left;
+	margin-bottom:17px
+}
+
+div.horizontal-widget-area div a.btn_Select {
+	background:url(http://www.three.ie/imgs/misc/quad_nero.png) no-repeat scroll right top #009D00;
+	color:#fff!important;
+	cursor:pointer;
+	font-weight:700;
+	height:21px;
+	line-height:21px;
+	padding:3px 8px 3px 4px;
+	text-decoration:none;
+	text-align:left;
+	font-size:1.05em
+}
+
+div.horizontal-widget-area div a.btn_Select span {
+	margin:0 20px 0 0;
+	padding:0 0 0 3px;
+	width:82%
+}
+
+#marque_image {
+	position:relative
+}
+
+.marque_text {
+	display:block;
+	width:600px;
+	background-color:#FFF;
+	opacity:.7;
+	color:#000;
+	position:relative;
+	bottom:-12px;
+	right:0;
+	paddding:6px 0 6px 22px;
+	font-size:1.25em;
+	line-height:16px;
+	text-align:right
+}
+
+.marque_text {
+	display:none!important
+}
+
+/* WP PageNavi */
+.wp-pagenavi {
+}
+
+.wp-pagenavi span {
+	float:left
+}
+
+.wp-pagenavi span.pages,.wp-pagenavi span.current {
+	display:block;
+	margin-right:20px
+}
+
+.wp-pagenavi a {
+	padding:0 7px 0 0
+}
+
+/* Search page */
+#content .press_releases {
+}
+
+.box_FreeHtml .press_releases, .box_FreeHtml div.page, #content .press_releases, #content div.page {
+	width:100%;
+	float:left;
+	clear:right
+}
+
+div.narrow {
+	font-size:1.25em;
+	line-height:1.3em;
+	color:#000;
+	text-align:justify;
+	padding-left:0!important;
+	width:515px!important;
+	clear:both;
+	float:left;
+	display:inline;
+	padding:10px 20px
+}
+
+div.right_sidebar {
+	width:150px;
+	float:right;
+	font-size:1.1em
+}
+
+div.wider { 
+	padding-left:0!important;
+	width:715px!important; 
+	float: none!important;
+}
+span.extend, span.current { display: none!important;}
+
+div.wp-pagenavi { padding-top: 12px; height: 38px; line-height: 26px; }
+div.wp-pagenavi span.pages { margin-bottom: 15px;}
+
+div.search_menu { margin-bottom: 12px; background-color: #EFEFEF; padding: 10px 0 10px 10px; text-align: left!important; }
+div.search_menu div.widget-container { float: left; width: 205px; margin-right: 18px; }
+div.search_menu div.widget-container h3.widget-title { background-color: none!important;}
+
+#searchform label.screen-reader-text { display: none;}
+
+div.wp-pagenavi {
+    border-top: 1px solid #CCCCCC;
+    height: auto; /*was 38px*/
+}
+
+div.wp-pagenavi a {
+    margin-right:10px;
+    text-decoration:none!important;
+}
+
+.wp-pagenavi span {
+    font-weight: bold;
+}
+
+div.box_Main ul.list_Menu_Sidebar li ul li { line-height: 12px; font-size: 0.875em}
+
+

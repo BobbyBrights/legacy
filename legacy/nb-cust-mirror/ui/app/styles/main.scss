@@ -1,0 +1,12 @@
+@import '../bower_components/components-font-awesome/scss/font-awesome';
+@import '../bower_components/sass-bootstrap/lib/bootstrap';
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import '../bower_components/toastr/toastr.min.css';
+
+@import 'sprites';
+@import url(http://fonts.googleapis.com/css?family=Alef);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import 'brand';
+
+// This is where you import affiliate specific branding, maybe as part of a build script
+@import 'affiliates/c421b2c5-f273-4d68-a00e-2b793c6e3d5b';

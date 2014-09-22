@@ -1,0 +1,108 @@
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+$font-family-body: 'Source Sans Pro';
+$font-family-headings: $font-family-body;
+
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+  font-family: $font-family-body, sans-serif;
+  &.is-home {
+    padding-top: 50px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family-headings, sans-serif;
+}
+
+.welcome-msg {
+  margin-left: 20px;
+  padding: 15px 15px;
+  line-height: 20px;
+}
+
+.secondary-nav {
+
+}
+
+.jumbotron {
+  //  @include background-image(linear-gradient(white 0, yellow 50%, transparent 50%));
+  @include background-image(radial-gradient(50% 500%, circle cover, #eee 10%, #1e5799 50%, #efefef));
+  padding: 0;
+  padding-top: 60px;
+  div.container {
+    @include background-image(url('https://www.betbright.com/novaball/assets/img/novaball_promo_desktop.png'));
+    background-position: center right;
+    background-repeat: no-repeat;
+    min-height: 350px;
+
+    // TODO Responsive fix
+    .jumbotron-content {
+      width: 60%;
+    }
+  }
+}
+
+iframe.borderless {
+  border: 0;
+}
+
+.input-sm {
+  width: 40px;
+}
+
+div.numbers-line {
+  display: inline-table;
+  span, div.lotto-number {
+    display: table-cell;
+    line-height: 28px;
+    padding: 0;
+  }
+  div.lotto-number:first-child {
+    margin-left: 15px;
+  }
+}
+
+#totalStake {
+  font-size: 2.0em;
+  font-weight: bold;
+  span {
+    font-size: 0.5em;
+  }
+}
+
+label.draws {
+  margin-right: 6px;
+}
+
+.total-stake-row, .draw-numbers-row {
+  margin-top: 10px;
+
+  .col-md-4 {
+    font-size: 0.875;
+  }
+  .col-md-8 {
+    font-size: 1.275;
+  }
+
+}
+
+.add-card-button {
+  margin: 10px 0 0 4px;
+}
+
+.with-iframe {
+  padding: 0;
+  iframe {
+    border: 0;
+    width: 100%;
+    min-height: 400px;
+  }
+  + div.modal-footer {
+    background-color: #F90;
+    margin-top: 0;
+  }
+}
+
+.cc { margin: 0;}

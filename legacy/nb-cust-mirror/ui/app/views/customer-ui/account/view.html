@@ -1,0 +1,64 @@
+<div ng-include="'/views/common/header.html'"></div>
+<div ng-controller="AccountCtrl" class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">My Account</h1>
+
+            <div class="row">
+                <tabset>
+                    <tab heading="Cards">
+                        <a class="btn btn-small btn-primary add-card-button" ng-click="addCard()" ng-show="account.creditCard.length < 3">Add new card</a>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Type</th>
+                                <th>Expiry</th>
+                                <th>Last 4 digits</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="card in account.creditCard">
+                                <td>{{card.id}}</td>
+                                <td>{{card.type}}</td>
+                                <td>{{card.expiry}}</td>
+                                <td>{{card.masked}}</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </tab>
+                    <tab heading="Payments">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="25%">#</th>
+                                    <th width="25%">Date</th>
+                                    <th width="30%">Description</th>
+                                    <th width="20%">Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="payment in account.payments">
+                                    <td>{{payment.transactionId}}</td>
+                                    <td>{{payment.date}}</td>
+                                    <td>{{payment.paymentType}}</td>
+                                    <td>{{payment | toCurrency}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </tab>
+
+
+                </tabset>
+
+            </div>
+        </div>
+    </div>
+
+
+    <pre ng-show="$root.debug">{{account}}</pre>
+</div>

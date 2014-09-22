@@ -1,0 +1,207 @@
+.body_content { width: 100%; }
+.body_content a{ color:#000; text-decoration: underline;}
+.body_content a:hover{ color:#000; text-decoration: none; }
+.body_content .left_col { width: 510px; float: left;padding:20px; background-color:#f4f4f4; border:1px solid #ccc; min-height:420px;_height:420px;}
+.body_content.webtext.index .left_col { width: 510px; float: left; background-color:#f4f4f4; border:1px solid #ccc; min-height:420px;_height:420px;padding: 20px 0px;}
+
+.body_content .left_col > h1{font-size:1.9em; color:#000;font-weight:bold;padding:0; margin:0 0 10px 0;}
+.body_content .left_col > p{font-size:1.4em; color:#666;padding:0; margin:0 0 10px 0; line-height:1.3em}
+.body_content .right_col { float: right; text-align: right;}
+.body_content.webtext.index .right_col {display:none}
+
+
+#top_menu { width: 100%;  padding-right: 14px; font-size: 1.2em;}
+#top_menu ul { list-style-type: none; float: right;}
+
+#top_menu ul li { float: left; display: block; margin-right: 12px;}
+
+#tab_menu { margin-bottom: 12px; width: 100%; border-bottom:2px solid #09c; }
+
+#tab_menu ul.tabbed { width: 77%; float: left; list-style-type: none;  }
+#tab_menu ul.tabbed li { float: left; display: block; padding: 10px 20px; border: 1px solid #09c; margin: 0 12px 0 0; height:13px; border-bottom:none }
+#tab_menu ul.tabbed li a { font-size: 1.5em; text-decoration: none; font-weight: bold;color:#09c; }
+#tab_menu ul.tabbed li a:hover { text-decoration: underline; }
+
+#tab_menu ul.tabbed li.active{ border: none; background-color:#09c; color:#FFF; font-weight:bold; height:14px  }
+#tab_menu ul.tabbed li.active a{ color:#FFF;text-decoration: none; }
+
+#tab_menu ul.site_links { float: right; width: 23%; }
+#tab_menu ul.site_links li { float: right; display: block; padding: 10px; height:13px; border-bottom:none; text-align: right; }
+#tab_menu ul.site_links li a { font-size: 1.2em; text-decoration: underline; font-weight: bold;color:#09c; }
+
+.body_content.webtext.index .left_col #UserLoginForm, .body_content.webtext.index .left_col #UserRegisterForm { width: 450px; } 
+#MessageSendForm, #ContactAddContactForm,  #ContactEditContactForm, #GroupEditGroupForm, #UserAcceptTermsForm, #GroupAddGroupForm, #UserRequestPinForm{ width: 500px; }
+
+.body_content textarea#MessageMessage {font-size: 13px!important;}
+
+
+#MessageSendForm div, #MessageSendForm div label, #MessageSendForm div textarea, #MessageSendForm div.select select, #MessageSendForm div.input input,
+#ContactAddContactForm div, #ContactAddContactForm div label, #ContactAddContactForm div textarea, #ContactAddContactForm div.select select, #ContactAddContactForm div.input input, 
+#ContactEditContactForm div, #ContactEditContactForm div label, #ContactEditContactForm div textarea, #ContactEditContactForm div.select select, #ContactEditContactForm div.input input, 
+#UserLoginForm div, #UserLoginForm div label, #UserLoginForm div textarea, #UserLoginForm div.select select, #UserLoginForm div.input input,
+#UserRegisterForm div, #UserRegisterForm div label, #UserRegisterForm div textarea, #UserRegisterForm div.select select, #UserRegisterForm div.input input,
+#GroupEditGroupForm div, #GroupEditGroupForm div label, #GroupEditGroupForm div textarea, #GroupEditGroupForm div.select select, #GroupEditGroupForm div.input input,
+#UserAcceptTermsForm div, #UserAcceptTermsForm div label, #UserAcceptTermsForm div textarea, #UserAcceptTermsForm div.select select, #UserAcceptTermsForm div.input input,
+#GroupAddGroupForm div, #GroupAddGroupForm div label, #GroupAddGroupForm div textarea, #GroupAddGroupForm div.select select, #GroupAddGroupForm div.input input,
+#UserRequestPinForm div, #UserRequestPinForm div label, #UserRequestPinForm div textarea, #UserRequestPinForm div.select select, #UserRequestPinForm div.input input
+{ width: 100%; margin: 8px auto; font-size: 1.1em;}
+
+.body_content.webtext.index .left_col #MessageSendForm div, .body_content.webtext.index .left_col #MessageSendForm div label, .body_content.webtext.index .left_col #MessageSendForm div textarea, .body_content.webtext.index .left_col #MessageSendForm div.select select, .body_content.webtext.index .left_col #MessageSendForm div.input input,
+.body_content.webtext.index .left_col #ContactAddContactForm div, .body_content.webtext.index .left_col #ContactAddContactForm div label, .body_content.webtext.index .left_col #ContactAddContactForm div textarea, .body_content.webtext.index .left_col #ContactAddContactForm div.select select, .body_content.webtext.index .left_col #ContactAddContactForm div.input input, 
+#ContactEditContactForm div, #ContactEditContactForm div label, #ContactEditContactForm div textarea, #ContactEditContactForm div.select select, #ContactEditContactForm div.input input, 
+.body_content.webtext.index .left_col #UserLoginForm div, .body_content.webtext.index .left_col #UserLoginForm div label, .body_content.webtext.index .left_col #UserLoginForm div textarea, .body_content.webtext.index .left_col #UserLoginForm div.select select, .body_content.webtext.index .left_col #UserLoginForm div.input input,
+.body_content.webtext.index .left_col #UserRegisterForm div, .body_content.webtext.index .left_col #UserRegisterForm div label, .body_content.webtext.index .left_col #UserRegisterForm div textarea, .body_content.webtext.index .left_col #UserRegisterForm div.select select, .body_content.webtext.index .left_col #UserRegisterForm div.input input,
+.body_content.webtext.index .left_col #GroupEditGroupForm div, .body_content.webtext.index .left_col #GroupEditGroupForm div label, .body_content.webtext.index .left_col #GroupEditGroupForm div textarea, .body_content.webtext.index .left_col #GroupEditGroupForm div.select select, .body_content.webtext.index .left_col #GroupEditGroupForm div.input input,
+.body_content.webtext.index .left_col #UserAcceptTermsForm div, .body_content.webtext.index .left_col #UserAcceptTermsForm div label, .body_content.webtext.index .left_col #UserAcceptTermsForm div textarea, .body_content.webtext.index .left_col #UserAcceptTermsForm div.select select, .body_content.webtext.index .left_col #UserAcceptTermsForm div.input input,
+.body_content.webtext.index .left_col #GroupAddGroupForm div, .body_content.webtext.index .left_col #GroupAddGroupForm div label, .body_content.webtext.index .left_col #GroupAddGroupForm div textarea, .body_content.webtext.index .left_col #GroupAddGroupForm div.select select, .body_content.webtext.index .left_col #GroupAddGroupForm div.input input,
+.body_content.webtext.index .left_col #UserRequestPinForm div, .body_content.webtext.index .left_col #UserRequestPinForm div label, .body_content.webtext.index .left_col #UserRequestPinForm div textarea, .body_content.webtext.index .left_col #UserRequestPinForm div.select select, .body_content.webtext.index .left_col #UserRequestPinForm div.input input
+{ width: 425px; margin: 5px 0px; font-size: 1.1em;}
+
+
+textarea { font-size: 1.2em; }
+button {width:80px; height:30px; font-size:14px; color:#FFF; background-color:#09C;font-family:Arial, Helvetica, sans-serif;float:right; margin: 0 20px 10px 0px;border: none;font-weight: bold;}
+/* button:hover {background-color: #060} */
+button.reset_btn{display:none}
+button.request_pin, button.delete_multiple {width: 120px; }
+
+div.input input  { font-size: 1.6em;}
+div.input label  { font-size: 1.9em; font-weight:bold; color:#666}
+a { font-size: 1.1em;}
+
+
+
+table { border: 1px solid #CCC; margin-bottom: 12px; } 
+table tr th, table tr td { height: 29px; padding-left: 6px; border-bottom: 1px solid #CCC; font-size: 1.2em;background-color: #fff;} 
+table tr td a{ text-decoration: underline; color:#666; font-size:0.9em}
+table tr td a:hover{ text-decoration: none;}
+table tr th { font-weight: bold; background-color: #09c; color: #FFF;} 
+#header_row th { background-color: #66c2e0; } 
+
+#contacts_table h3, #groups_table h3 { font-size: 1.4em!important; margin-bottom: 10px;font-weight:bold; color:#666; }
+#contacts_table h3 a, #groups_table h3 a { font-size: 0.8em!important;font-weight:bold; color:#666; float:right;padding-left:15px; background: url(/webtext/imgs/ico_add.png)no-repeat top left;}
+#contacts_table h3, #groups_table h3 a:hover {text-decoration:none; }
+#groups_table h3 { margin-top:30px;  }
+
+#hub_overview { margin-top: 14px; }
+#hub_overview ul{ list-style-type: none; float: left; margin-left:20px;}
+#hub_overview ul li { float: left; display: block; width:135px; color:#666;}
+#hub_overview ul li span{ color:#999;}
+.readonly { background-color: #CCCCCC; }
+
+.function { padding-right:5px; text-align: right; font-size: 0.925em}
+.function a { padding-left:15px; text-align: right; background: url(/webtext/imgs/ico_edit.png)no-repeat top left;}
+.function a.confirm { background: url(/webtext/imgs/ico_delete.png)no-repeat top left;}
+.function a.message { background: url(/webtext/imgs/ico_message.png)no-repeat top left;}
+
+#GroupEditGroupForm button { margin-top: 12px; height: auto; }
+#GroupEditGroupForm div.input.select label { width: 100%; float: left;}
+
+#upload_contacts {border:1px solid #ccc; padding:10px 20px; height:65px; background-color:#FFF;}
+#upload_contacts h1{font-size:1.5em; color:#666;; font-weight:bold;padding:0; margin:0 0 10px 0;}
+#upload_contacts p{font-size:1.1em;}
+#upload_contacts a{font-size:1.1em; color:#09c; line-height:1.8em; font-weight:bold; float:left}
+#upload_contacts a:hover{text-decoration:none;}
+#upload_contacts img{ margin-right:30px}
+
+form#ContactUploadForm input#ContactFile {width: 100%; margin: 8px auto;}
+
+div.webtext_terms {margin-top: 12px;}
+div.webtext_terms h2, #request_pin_form h2, #csv_info h2, #upload_form h2, #message_form h2  {font-size: 1.675em; margin-bottom: 8px; line-height: 20px; }
+div.webtext_terms ol { list-style-type: square; list-style-position: outside; margin-left: 15px; }
+div.webtext_terms ol li, #request_pin_form p, #csv_info p, #upload_form p {font-size: 1.1em; line-height: 14px; }
+
+#upload_form h3 {font-size: 1.475em; margin-bottom: 8px; line-height: 18px; font-weight: bold;}
+
+
+#csv_info { margin-top: 25px; }
+#csv_info p { margin-top: 12px; } 
+span.notification { font-size: 1.2em;}
+
+div.checkbox { float: right; width: 100%!important; margin-top:10px!important }
+div.checkbox input { width: 5%!important; float: left; margin:0 0 0 342px!important; padding:0}
+div.checkbox label {text-align:right; width: 131px!important; float: right; margin: 2px 0!important; }
+
+a.forgot_pin { margin-top: 12px; line-height: 14px; font-size: 1.105em; color: #000; }
+
+div.error_message { width: 100%; color: #FFF; padding: 12px; background-color: #F00; margin-top: 12px; font-weight: bold; font-size: 1.2em; }
+div.scheduled_date{border-top:1px solid #999; border-bottom:1px solid #999; background-color:#f4f4f4; clear:both; padding:8px 0}
+div.scheduled_date label{color:#666;}
+div.scheduled_date select#MessageScheduledDateMonth{width:80px; }
+div.scheduled_date select#MessageScheduledDateMonth, div.scheduled_date select#MessageScheduledDateDay, div.scheduled_date select#MessageScheduledDateYear{margin: 0 3px;}
+div.scheduled_date select#MessageScheduledDateYear{margin-right: 12px;}
+div.scheduled_date { display: none; }
+
+div.error-message { width: 100%; float: left; color: #F00;}
+
+div.notification { width: 100%; color: #FFF; padding: 12px; background-color: #393; margin-top: 12px; font-weight: bold; font-size: 1.2em; } 
+
+.required {color:#F00}
+div#app_banner {margin-top:30px; padding-top:20px; border-top:1px solid #ccc}
+
+#flashMessage { width: 480px!important;}
+#flashMessage a { color: #FFF!important;}
+
+div.success { background-color: #09c!important}
+
+/* Fixes */
+#UserTermsAccept { margin-left: 294px!important; }
+div.accept_terms label { width: 181px!important; }
+
+a.spaced { color: #FFF; display: inline; padding: 2px 5px 2px 2px; float: left;}
+
+div.pages .left_col { background-color: #FFF!important; border-color: #FFF!important; }
+
+tr.hidden { display: none;}
+
+a.text_link { font-size: 1.2em; color: #000; margin-top: 12px; display: block;}
+
+a.bookmarklet_link { display: block; width: 300px; padding: 14px 20px 4px 20px; border: 1px solid #000; background-color: #FFF; color: #900; font-weight: bold; height: 30px; margin: 10px 0}
+
+div.bookmarklet h1 { font-size: 20px; line-height: 24px; margin-bottom: 12px; }
+div.bookmarklet h2 { font-size: 18px; line-height: 22px; }
+div.bookmarklet p, div.bookmarklet ul, div.bookmarklet ol { line-height: 16px; font-size: 12px; margin-bottom: 12px }
+div.bookmarklet ul, div.bookmarklet ol { list-style-type: square; list-style-position: inside; margin-right: 12px; margin-bottom: 20px }
+div.bookmarklet div.margin_top { margin-top: 140px;}
+
+div.no_margin_left div.checkbox { float: left; margin: 6px auto!important;}
+div.no_margin_left div.checkbox input { margin: 0!important;}
+div.no_margin_left div.checkbox label { font-weight: normal; text-align: left; float: left; width: 300px!important; margin: 0!important; cursor: pointer; }
+
+#dyna_contacts_table, #dyna_groups_table { font-size: 11px!important;}
+#dyna_contacts_table tr { height: 35px; }
+#dyna_contacts_table tr  td { vertical-align: top; padding-top: 6px;  }
+
+div.left_col h2 { font-size: 1.75em; font-weight: bold; margin-top: 20px; line-height: 30px;}
+
+input.delete_multiple { margin-left: 5px; }
+label.check_all { margin-left: 174px; }
+#contact_search { margin-left: 32px; width: 130px}
+#search_icon { display: inline; padding-top: 4px; vertical-align: baseline; margin-left: 4px; margin-top: -8px;}
+
+img.flash_message_icon { display: inline; float: left; margin-right: 9px; margin-top: -5px;}
+
+div.pages { padding: 0!important;}
+div.content img, div.content p { float: left; }
+div.content img { width: 100px; margin: 0 20px 20px 0; }
+div.content p { width: 390px; font-size: 1.25em; line-height: 15px;}
+
+div.webtext.index h1 { }
+div.webtext.index ul { font-size: 1.2em;list-style-type: disc; margin-left: 12px; }
+div.webtext.index ul li { line-height: 16px;}
+
+div.left_col.webtext.index { background-color:#FFF; border:none; }
+div.body_content.webtext.index .left_col { background-color:#FFF!important; border:none!important;width:980px;margin-right:0px }
+div.body_content.index .left_col h2 { font-size: 2em; font-weight: bold; margin:0; line-height: 30px;}
+
+div.body_content.webtext.index .left_col div.webtext-login {background-color:#f4f4f4; border:1px solid #CCC; padding:10px;min-height:230px;_height:230px;width: 430px;margin-left:30px;float:right}
+div.body_content.webtext.index .left_col div.webtext-login > .reset_btn{display:none}
+div.body_content.webtext.index .left_col div.webtext-register {  padding-top:10px;min-height:230px;_height:230px;margin:0px; width: 430px;float:left}
+div.body_content.webtext.index .left_col div.webtext-login p, div.body_content.webtext.index .left_col div.webtext-register p{ font-size: 1.3em;line-height: 18px; margin:0 0 20px 0;}
+div.body_content.webtext.index .left_col div.webtext-login input, div.body_content.webtext.index .left_col div.webtext-register input {  margin: 5px 0px; font-size: 1.1em; width:425px;}
+
+.bottom-line {width:980px; border-top:1px solid #ccc; margin:10px 0px 0px 0px;}
+.js_Description{margin-top:20px;}
+.js_Description_Container {margin: 20px; float: left!important; background-color:#fafafa!important; width:910px!important;}
+
+
+ div.webtext-login > .reset_btn{display:none}

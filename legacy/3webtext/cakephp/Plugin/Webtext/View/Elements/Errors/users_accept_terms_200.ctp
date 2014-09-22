@@ -1,0 +1,1 @@
+<div id="flashMessage" class="success first_run">Terms & Conditions accepted. Welcome to Webtext!.</div>

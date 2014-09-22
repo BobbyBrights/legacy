@@ -1,0 +1,94 @@
+<div class="container" ng-controller="AccountController">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Account</h1>
+
+            <div class="account-info" ng-show="account">
+                <dl class="left-col">
+                    <dt>Name</dt>
+                    <dd>{{account.firstName + " " + account.lastName}}</dd>
+                    <dt>Email</dt>
+                    <dd>{{account.email}}</dd>
+                    <dt>Phone</dt>
+                    <dd>{{account.phone}}</dd>
+
+                </dl>
+                <dl class="right-col">
+                    <dt>Address</dt>
+                    <dd>{{account.address}}</dd>
+                    <dt>Active</dt>
+                    <dd>{{account.active | booleanToString}}</dd>
+                </dl>
+            </div>
+            <div class="clearfix clearfloat"></div>
+            <tabset>
+                <tab select="refreshPayments()">
+                    <tab-heading>
+                        <i class="glyphicon glyphicon-euro"></i> Payments
+                    </tab-heading>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th width="25%">#</th>
+                                <th width="25%">Date</th>
+                                <th width="30%">Description</th>
+                                <th width="20%">Amount</th>
+                            </tr>
+                            </thead>
+                            <tbody ng-hide="payments">
+                            <tr>
+                                <td colspan="4">Loading</td>
+                            </tr>
+                            </tbody>
+                            <tbody ng-show="payments">
+                            <tr ng-repeat="payment in payments">
+                                <td>{{payment.transactionId}}</td>
+                                <td>{{payment.date}}</td>
+                                <td>{{payment.paymentType}}</td>
+                                <td>{{payment.amt | toCurrency }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </tab>
+
+                <tab>
+                    <tab-heading>
+                        <i class="glyphicon glyphicon-credit-card"></i> Cards
+                    </tab-heading>
+                    <a class="btn btn-small btn-primary add-card-button" ng-click="addCard()"
+                       ng-show="account.creditCard.length < 3">Add new card</a>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Type</th>
+                            <th>Expiry</th>
+                            <th>Last 4 digits</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="card in wallet.creditCard">
+                            <td>{{card.id}}</td>
+                            <td>{{card.type}}</td>
+                            <td>{{card.expiry}}</td>
+                            <td>{{card.masked}}</td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </tab>
+
+
+            </tabset>
+        </div>
+        <div class="col-md-4">
+            Side nav for account.
+        </div>
+    </div>
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<!-- /container -->

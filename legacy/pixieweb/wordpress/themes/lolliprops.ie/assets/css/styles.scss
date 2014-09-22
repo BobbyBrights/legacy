@@ -1,0 +1,285 @@
+/* Custom Lolliprops CSS */
+$navbar-color:				#f7c639; 
+$navbar-line-height:		60px;
+$navbar-menu-active-color:	rgb(247, 241, 140); 
+$raspberry:					#c13a37;
+$cool-blue:					#357ebe;
+$lime:						#9dd3af;
+$page-min-height:			780px;
+
+@import "_mixins";
+@import "_responsive";
+
+
+@import url('akkurat-bold/akkurat-bold.css');
+@import url('akkurat-lite/akkurat-light.css');
+
+body {
+	padding-bottom: 40px;
+	font-family: 'AkkuratLight', sans-serif;
+	
+	@media (max-width: 979px) {
+        padding-top: 0;
+    }
+    
+    &.inner-page {
+	    padding-top: $navbar-line-height*1.77;
+    }
+    
+}
+
+/*Responsive reset */
+div.container {
+	@media (max-width: 979px) and (min-width: 768px) {
+		width: 100%;
+	}
+	div.span6 {
+		@media (max-width: 979px) and (min-width: 768px) {
+			width: 45%;
+		}
+	}
+}
+h1,h2,h3,h4,h5,a.btn {
+	font-family: 'AkkuratBold', sans-serif;
+}
+h3 {
+	border-bottom: 7px solid $navbar-color;
+}
+.navbar-lolliprops {
+	
+	.navbar-inner {
+		background-color: $navbar-color;
+		a.btn-navbar {
+			background-color: #000;
+		}
+	}
+	div.nav-collapse {
+		line-height: $navbar-line-height / 3;
+		ul.nav {
+			margin-top: 20px;
+			li {
+				line-height: $navbar-line-height / 3;
+			}
+			.dropdown-toggle .caret {
+				
+			}
+			> li > a {
+				color: #FFF; font-weight: bold;
+			}
+			
+			> .active > a, > .active > a:hover, > .active > a:focus {
+				background: none;
+				//border-top: 4px solid #000; 
+				//line-height: 12px; 
+				color: #FFF;
+			}
+			a:hover {
+				background-color: #000;
+			}
+			
+		}
+		// Responsive - for tablet / mobile	
+		@media (max-width: 979px) {
+        	width: 100%;
+		}	
+			
+	}	
+}
+
+p.testimonial {
+	font-style: italic; 
+	span {
+		font-style: normal; font-weight: bold;
+	}
+	padding-bottom: 10px; border-bottom: 1px solid #EFEFEF;
+	
+}
+a.clear-below {
+	margin-bottom: 12px; 
+}
+
+.marquee-header {    
+	background: url('../img/hero1.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover; /*for webKit*/
+    -moz-background-size: cover; /*Mozilla*/
+    -o-background-size: cover; /*opera*/
+    background-size: cover; /*generic*/
+            
+	h1, p { color: #FFF;
+		
+	}
+	h1 {
+		@media (max-width: 979px) {
+	        font-size: 1.8em;
+	    }
+	}
+	p {
+		@media (max-width: 979px) {
+	        font-size: 80%;
+	        line-height: 16px;
+	    }
+	}
+}
+
+.prop-category { 
+
+h2 {
+	font-size: 1.4em; line-height: 20px;
+}
+a {
+	font-size: 12px; color: #999; display: block;
+}
+width: 33.333%; float: left; min-height: 180px;
+	@media (max-width: 979px) {
+        width: 100%;
+    }
+}
+
+.prop-image { margin-right: 10px; margin-bottom: 10px; }
+.prop-info {
+	h2 {
+		margin-left: 27px; 
+	}
+}
+
+table.prop-meta {
+	th {
+		font-weight: bold; font-family: 'AkkuratBold', sans-serif;
+	}
+}
+.rating-static { 
+    width: 75px; 
+    height: 24px;  
+    display: block; 
+    background: url('../img/star-rating-lg.png') 0 0 no-repeat;
+}
+a.label { font-family: Arial, sans-serif; }
+
+.rating-50 { background-position: 0 0; }
+.rating-40 { background-position: -12px 0; } 
+.rating-30 { background-position: -24px 0; }
+.rating-20 { background-position: -36px 0; }
+.rating-10 { background-position: -48px 0; }
+.rating-0 { background-position: -60px 0; }
+
+.rating-5  { background-position: -48px -16px; }
+.rating-15 { background-position: -36px -16px; }
+.rating-25 { background-position: -24px -16px; }
+.rating-35 { background-position: -12px -16px; }
+.rating-45 { background-position: 0 -16px; }
+
+
+// .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus - #e5e5e5
+
+@import "home-alt";
+.effeckt-caption {
+  width: 100%;
+  margin: 0 4% 0 0;
+}
+
+.effeckt-caption:nth-child(2n) {
+  margin-right: 0;
+}
+
+.effeckt-caption img {
+  width: 100%;
+  display: block;
+}
+
+.effeckt-caption figcaption {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0 0.5em 0 0.5em;
+  h3 {
+	  border:0; margin: 0;
+  }
+  p {
+	  border:0; margin: 0;
+  }
+}
+
+@import url('http://h5bp.github.io/Effeckt.css/dist/assets/css/effeckt.autoprefixed.css'); 
+
+div.hero-unit {
+	min-height: $page-min-height*0.666666666;
+	padding: $navbar-line-height*2 0; 
+	@include full-size-bg('../img/features/hero.jpg');
+	
+	div.container { position: relative; 
+		min-height: $page-min-height*0.666666666;
+		
+	}
+	div.box {
+		@include transparent(#444, 0.8);
+		padding: 20px; 
+		color: #FFF; 
+	}	
+
+	div.inline {
+		h1, p {
+			display: inline-block; background-color: #444; padding: 10px; margin-bottom: 4px; color: #FFF; 
+		}
+	}
+	
+	div.small-block {
+		position: absolute; width: 35%; bottom: 0; right: 0; 
+		@include transparent(#FFF, 0.8);
+		padding: 10px;
+		
+		h1, p {
+			color: #444; 
+		}
+		h1 {
+			font-size: 1.0em; line-height: 20px; margin-bottom: 12px; 
+		}
+		p {
+			line-height: 17px; font-size: 0.875em; 
+		}
+	}	
+}
+
+div.blocks {
+
+	color: #FFF; font-weight: bold;
+	h2 {
+		color: #444;
+	}
+	div.feature {
+		background-color: $raspberry;
+		p {
+			padding: 10px; 
+		}
+	}
+	
+	div.spotlight {
+		background-color: $lime;
+		min-height: 185px; margin-bottom: 10px; 
+		
+	}
+	div.row:last-child {
+		margin-bottom: 20px;
+	}
+
+}
+
+.with-iframe {
+	@media only screen and (max-device-width: 979px) {
+		display: none;		
+		//width: 100%;	
+	}
+}
+	
+div.second-page, 
+div.third-page {
+	min-height: $page-min-height; padding-top: $navbar-line-height*1.77; padding-bottom: $navbar-line-height*1.77; color: #FFF;
+}
+
+div.second-page {
+	background-color: $raspberry;  
+}
+
+div.third-page {
+	background-color: $cool-blue;  
+}
+
+

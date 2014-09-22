@@ -1,0 +1,236 @@
+/*
+Theme Name: Studio Box Wordpress Theme
+Dark Skin
+
+*/
+
+#mainpagecontainer{ background: #000 url(../../images/skins/dark/main-bg.png) repeat-x top;}
+#pagecontainer{ background: #000 url(../../images/skins/dark/other-bg.png) repeat-x top;}
+
+ul.pagination a { background-image:url(../../images/skins/dark/pagination.png);}
+
+#categorytitle { color:#7d7d7d; border-bottom:1px dotted #303030; }
+#fullwidth-categorytitle {color:#7d7d7d;border-bottom:1px dotted #303030; }
+.subcategorytitle { color:#fff; }
+
+#footerwrap {background: #000 url(../../images/skins/dark/footer-bg.jpg) repeat-x bottom;}
+	#footerbarwrap {background:#111;}
+		
+.sidebartitle { color:#fff; }
+
+.sidebaropts a:hover { color:#fff; }
+
+.sidebaropts ul li a { border-color:#303030;}
+	.sidebaropts ul li a:hover { color:#fff; }
+
+.sidebarpopular ul li.popclear { border-bottom:1px dotted #303030; }
+	.sidebarpopular img { border:1px dotted #303030;}
+	.sidebarpopular img:hover { border:1px solid #fff;}
+	.sidebarpopular ul li a:hover { color:#fff; }
+	
+#contents .relatedposts a {color:#B9B9B9;}
+	#contents .relatedposts ul li a:hover { color:#fff;}
+	#contents .relatedposts img { border:1px solid #464646; }
+	#contents .relatedposts img:hover { border:1px solid #fff;}
+	#contents .relatedposts ul li.relatedclear { border-bottom:none;}
+	
+#title { color:#fff; }
+#titleHighlight { color:#7d7d7d;}
+#subtitle { color:#7d7d7d; }
+	
+	
+#contents .datecomment { background: url(../../images/skins/dark/clock.gif) no-repeat left; color:#7d7d7d;}
+	#contents .datecomment a { color:#7d7d7d; text-decoration:none; }
+	#contents .datecomment a:hover {  color:#fff; }
+	
+#contents span.comments { color:#7d7d7d;}
+	#contents span.comments a { color:#7d7d7d; background: url(../../images/skins/dark/comment.gif) no-repeat left;}
+	#contents span.comments a:hover { color:#fff; }
+	
+#contents .postedin { background: url(../../images/skins/dark/drop_box.gif) no-repeat left; color:#7d7d7d;}
+	#contents .postedin a { color:#7d7d7d; }
+	#contents .postedin a:hover { color:#fff; }
+	
+#contents .thetags { background: url(../../images/skins/dark/tag.gif) no-repeat left; color:#7d7d7d; }
+	#contents .thetags a { color:#7d7d7d; text-decoration:none; }
+	#contents .thetags a:hover {  color:#fff; }
+	
+#contents .posttitle { color:#D1D1D1; }
+	#contents .posttitle a { color:#D1D1D1; }
+	#contents .posttitle a:hover { color:#fff; }
+	
+#comments {color:#fff;}
+.commentlist cite, .commentlist cite a {color:#fff;}
+.commentlist cite span a {color:#fff;}
+
+ol.commentlist li.even { background: #2E2E2E; border-bottom: 1px solid #111; }
+	
+#respond{ background:none; color:#fff;}
+	.respondtitle{ color:#fff; }
+	
+	
+	.homeportfoliotitle { color:#D1D1D1;}
+	.homeportfoliotitle a { color:#D1D1D1;}
+	.homeportfoliotitle a:hover { color:#fff;}
+	
+	.mportfoliotitle { font-size:18px; color:#D1D1D1; }
+	.mportfoliotitle a { color:#D1D1D1; }
+	.mportfoliotitle a:hover { color:#fff; }
+	
+	.mblogtitle { color:#D1D1D1;}
+		.mblogtitle a { color:#D1D1D1;}
+		.mblogtitle a:hover { color:#fff; }
+
+	
+	
+	/* -------- Headings -------- */
+	
+	#contents h1 {color:#fff;}
+	#contents h2 {color:#fff;}
+	#contents h3 {color:#fff;}
+	#contents h4 {color:#fff;}
+	#contents h5 {color:#fff;}
+	#contents h6 {color:#fff;}
+	
+	
+	#contents a {color:#fff;}
+	
+	#contents blockquote{
+	border-color: #2E2E2E;
+	}
+	
+	/* -------- Read more -------- */
+	
+
+	#contents .readmorebutton a:hover {
+		background-color: #A2A2A2;
+		color:#111;
+		}
+	
+	/*------ Search ------*/
+	#s {
+		border-bottom: 1px dotted #303030;
+		background: url(../../images/skins/dark/search-bar.gif) no-repeat left bottom;
+		color:#fff;
+	}
+	
+	.search-terms { color:#fff;}
+	
+	
+	
+	
+#wp-calendar {
+	color:#B9B9B9;
+	background:none;
+	border:none;
+	}
+	
+	#wp-calendar td {
+		text-align:center;
+		}
+		
+	#wp-calendar td a{
+		color:#fff; 
+		}
+
+	#wp-calendar td a:hover {
+		color:#fff;
+		}
+		
+		
+/*------ Comments ------*/
+
+			#contents h4#comments { color:#fff; }
+
+			#contents ol.commentlist li .comment-author a {
+				color:#fff;
+			}
+
+			#contents ol.commentlist li .comment-author .fn {
+				color:#fff;
+			}
+			#contents ol.commentlist li .comment-author .avatar{
+				border:1px solid #2E2E2E;
+				background:#000;
+			}
+
+			#contents ol.commentlist li .comment-meta a {
+				color:#a7a7a7;
+			}
+
+			#contents ol.commentlist li .reply a{
+				background:#5D5D5D;
+				color:#fff;
+			}
+			#contents ol.commentlist li .reply a:hover{
+				background:#000;
+				color:#fff;
+			}
+		#contents ol.commentlist li.odd {
+			border:1px solid #464646;
+			background:#2E2E2E;
+		}
+		#contents ol.commentlist li.even {
+			border:1px solid #2E2E2E;
+			background:#171717;
+		}	
+			
+			#contents #respond h4 { color:#fff; }
+			
+			#contents #respond p a { color:#fff; }
+
+				#contents #comment-form #respond #commentform label small {
+					color:#fff;
+				}
+			#contents #comment-form #respond #commentform textarea,#comment-form #respond #commentform input {
+				background:#f8f8f5;
+				border-left:1px solid #d1cec6;
+				border-top:1px solid #d1cec6;
+				border-right:1px solid #edede8;
+				border-bottom:1px solid #edede8;
+			}
+			#contents #comment-form #respond #commentform input#commentSubmit {
+				background:#D1D1D1;
+				border:1px solid #2E2E2E;
+				color:#111;
+				font-weight:normal;
+			}
+			
+	.recent-description {color:#919191;}
+	.recent-highlight {color:#E8E8E8; }
+		.recent-title { color:#E8E8E8; }
+		.recent-title a { color:#E8E8E8; }
+		.recent-title a:hover { color:#fff; }
+
+	.portfoliotitle { color:#E8E8E8;}
+		.portfoliotitle a { color:#E8E8E8; }
+		.portfoliotitle a:hover { color:#fff; }		
+			
+
+	.navigationbox .wp-pagenavi a, .navigationbox .wp-pagenavi a:link {
+		color: #fff;
+		border:1px dotted #464646;
+	}
+	
+	.navigationbox .wp-pagenavi a:hover {	
+		color: #111;
+		background:#E8E8E8;
+		border:1px solid #D1D1D1;
+	}
+	
+	.navigationbox .wp-pagenavi span.pages {
+		color: #B9B9B9;
+	}
+	
+	
+	.caption{color:#E8E8E8;}
+	.caption a { color:#E8E8E8; }
+	
+	
+ol.forms li.buttons button {
+	background: #D1D1D1;
+	color: #111;
+}
+
+ol.forms li.buttons button:hover { color: #000; }
+ol.forms li.buttons button:active { color: #000; }

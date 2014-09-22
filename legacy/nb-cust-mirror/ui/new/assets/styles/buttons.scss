@@ -1,0 +1,89 @@
+@import '../bower_components/bootstrap/dist/css/bootstrap.min.css';
+
+@import 'variables';
+@import '3rdParties';
+@import 'sprites';
+@import 'fonts';
+
+/* Mixin */
+  //Button Style
+@mixin genButton($buttonRadius){
+    @include gen-border-radius($buttonRadius);
+    @extend .nb-font-bold;
+    @extend .gradient-yellow-bg-color;
+    border-width:0em;
+    padding-top:0.357em;
+}
+
+
+//-----------------------------
+
+/* General Button Style */
+.btn-lg{
+	@extend .nb-font-bold;
+	@include gen-border-radius(15px);
+	width: 130px;
+	height:40px;
+	font-size: 1.9em;
+	text-transform: uppercase;
+	background-color: $orange-primary-color;
+	line-height: 0.1em;
+}
+
+%submit-btn{
+	@include gen-border-radius($panel-main-border-radius);
+    @extend .gradient-yellow-bg-color;
+
+    width:100%;
+    font-size:2.2em;
+    border-width:0em;
+    padding-top:0.325em;
+}
+
+%btn-submit-curve-corner{
+	@extend .nb-font-bold;
+	@include border-top-radius(30px);
+	@include border-right-radius(0px);
+
+	background-color:$yellow-topbar-color;
+	border-width:0px;
+	color: $black-text-color;
+	margin-top:5px;
+	padding-top:10px;
+}
+
+%btn-submit-curve-corner-right-side{
+	@include border-right-radius(5px);
+    display:inline-block;
+    margin-top:5px;
+    border-left:1px solid rgba(0,0,0,0.1);
+    background-color:$yellow-topbar-color;
+}
+
+.orange-primary-btn  {
+	border-radius: 0.714em;
+	background-color: $orange-primary-color;
+
+	width: 10.714em;
+	height: 2.571em;
+}
+
+
+
+.button-view{
+	@include genButton($button-sm-border-radius);
+}
+
+
+.button-normal{
+	@include genButton($button-md-border-radius);
+}
+
+.button-normal2{
+	/* @extend .nb-font-bold;
+	background-color:$yellow-topbar-color;
+	@include gen-border-radius($button-lg-border-radius);
+	color:$black-text-color;
+	border-width:0em;
+	padding:1.071em 4.286em 0.714em; */
+}

@@ -1,0 +1,27 @@
+<div class="inner-page">
+    <div class="container">
+        <div class="row grid">
+            <div class="col-md-12">
+                <h3>Our latest work</h3>
+            </div>
+            <div class="mt"></div>
+            <div class="col-lg-4 portfolio-grid-item" ng-repeat="item in portfolio">
+                <a href="#!/portfolio/{{item.title | slugify}}/{{item._id}}"><img src="http://placekitten.com/300/140" alt=""></a>
+            </div>
+        </div>
+
+
+        <div class="row mt">
+            <div class="col-lg-7 col-lg-offset-1 mt">
+                <p class="lead">Looking for a redesign? Or a refresh of an existing site? How about a responsive design
+                    makeover? Talk to us, commitment-free, today.</p>
+            </div>
+            <div class="col-lg-3 mt">
+                <p>
+                    <button type="button" class="btn btn-theme btn-lg">Email Me!</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>

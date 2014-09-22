@@ -1,0 +1,15 @@
+<h1>Events <a href="#/events/add" class="btn btn-primary pull-right">Add event</a></h1>
+
+<div class="panel panel-default" ng-repeat="event in events">
+    <div class="panel-body">
+        <h3>{{event.name}}
+            <div class="btn-group pull-right">
+                <a href="#/event/{{event._id}}" class="btn btn-primary">View event</a>
+                <a href="#/event/{{event._id}}/edit" class="btn btn-default">Edit event</a>
+            </div>
+        </h3>
+    </div>
+    <div class="panel-footer">
+
+    </div>
+</div>

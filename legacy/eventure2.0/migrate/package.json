@@ -1,0 +1,17 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "dependencies": {
+    "restify": "*",
+    "restify-oauth2": "*",
+    "underscore": "*",
+    "mongodb": "*",
+    "save": "*",
+    "save-mongodb": "*",
+    "socket.io": "~0.9.16"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "salt": "kdfjalks78231o2hnsdfmsanoi1u2oi3ujnfamnsdfoiu23oi2391h2jkshfkj"
+}

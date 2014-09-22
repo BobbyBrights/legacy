@@ -1,0 +1,57 @@
+<div ng-include="'/views/common/header.html'"></div>
+
+
+<div class="container" ng-controller="ProfileCtrl">
+    <!-- Example row of columns -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">My Lines</h1>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="well">
+                        <h3>Next payment date</h3>
+
+                        <p>{{subscription.nextPaymentDate}}</p>
+                    </div>
+                    <div class="well">
+                        <h3>Remaining draws for these lines</h3>
+
+                        <p>{{subscription.drawsRemaining}}</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="btn-group-sm pull-right">
+                        <a href="/lines/edit" class="btn btn-primary">Edit Lines</a>
+                        <a class="btn btn-danger" ng-click="confirmDelete()">Cancel Lines</a>
+                    </div>
+                    <div class="panel panel-bet-{{subscription.type}}">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{subscription | outputBetPanelHeader}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <h3>Lines</h3>
+                                </div>
+                                <div class="col-sm-7">
+                                    <lotto-numbers ng-repeat="a in subscription.lines" line="a" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <pre ng-show="$root.debug">{{subscription}}</pre>
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+</div> <!-- /container -->

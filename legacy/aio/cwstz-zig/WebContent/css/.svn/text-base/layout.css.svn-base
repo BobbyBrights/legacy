@@ -1,0 +1,77 @@
+@CHARSET "ISO-8859-1";
+
+.mainTable
+{
+	display:table;
+	width:85%;
+	margin-left:auto;
+	margin-right:auto;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.tableBody
+{
+	display: table-row-group;
+}
+.rqLabel .plLabel .rpLabel
+{
+	display: table-column;
+	
+}
+
+.rqRow
+{
+	margin-top:10px;
+	border-top:thick double #0000aa;
+	background:#eeeeff;
+	display: table-row;
+}
+
+.rpLabelRow
+{
+	background:#eeeeff;
+	display: table-row;
+}
+
+.rpContentRow
+{
+	 width:inherit;
+	 display: table-row;
+	 padding-bottom: 40px;
+}
+
+.rp
+{
+	 width:inherit;
+	 display: table-row;
+}
+
+.plRow 
+{
+	display: table-row;
+}
+
+
+.rpButton .rqString .plString
+{
+	display: table-column;
+}
+
+.plRow-err
+{
+	background:#eeeeff;
+}
+.plRow-err
+{
+	background:#ffeeee;
+}
+
+div span 
+{
+    display: block;
+}
+span.subelement
+{
+	margin-left:15px;
+}

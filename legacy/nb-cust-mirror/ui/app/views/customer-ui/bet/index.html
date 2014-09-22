@@ -1,0 +1,42 @@
+<div ng-controller="BetsCtrl">
+    <div class="row">
+        <div class="col-md-10">
+            <h1 class="page-header">My Bets</h1>
+        </div>
+        <div class="col-md-2" ng-show="searchable">
+            <form class="navbar-form navbar-right" ng-controller="SearchCtrl">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="10%">Date</th>
+                        <th width="20%">Line(s)</th>
+                        <th width="40%">Lottery</th>
+                        <th width="15%">Winner</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="bet in bets">
+                        <td>{{bet.id}}</td>
+                        <td>{{bet.date}}</td>
+                        <td>
+                            <lotto-numbers line="a" ng-repeat="a in bet.lines"/>
+                        </td>
+                        <td>{{bet.lottery}}</td>
+                        <td>Winner: {{bet.winner}}</td>
+                        <td><a href="/bet/{{bet.id}}" class="btn btn-primary">View</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

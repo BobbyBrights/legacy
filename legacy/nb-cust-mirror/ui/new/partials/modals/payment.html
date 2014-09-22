@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div class="modal-header">
+    <h3>{{modalHeading}}</h3>
+</div>
+<div class="modal-body">
+    <form name="forms.paymentForm" role="form"  ng-submit="paySubs(forms.paymentForm.$valid)" novalidate>
+        <div class="row">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label class="">Your Subscriptions</label>
+            </div>  
+        </div>
+        <div class="row">
+            <div class="col-md-offset-2 col-xs-offset-2 lotto-group-normal">
+                <lottery-number-edit-objs2 class="" ng-repeat="oneline in userSubscription.lines" showlinenum='true'></lottery-number-edit-objs2> 
+            </div>
+        </div>
+
+        <div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Number of Draws : </label> {{userSubscription.numDraws}}
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Your Payments</label>
+                <div>
+                    Amount : {{userSubscription.numDraws * userSubscription.lines.length * 0.50 | toCurrency: { currency: 'GBP'} }}
+                </div>  
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <label>Auto Renew : {{true == userSubscription.recurring ? 'Yes' : 'No'}}</label>
+            </div>
+        </div>
+
+        <div class="row row-buffer-normal"></div>
+        <div class="row row-buffer-normal"></div>
+
+        <div ng-class="{ 'form-group': true, 'row': true,'has-error' : payments.formSubmitted && forms.paymentForm.cvv.$invalid}">
+            <div class="col-sm-offset-4 col-sm-8" ng-show="payments.formSubmitted && forms.paymentForm.cvv.$invalid">
+                <div class="alert alert-danger nb-md-alert" ng-show="forms.paymentForm.cvv.$error.required">CVV is required.</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.paymentForm.cvv.$error.required && forms.paymentForm.cvv.$error.maxlength">CVV should not be longer than 5.</div>
+                <div class="alert alert-danger nb-md-alert" ng-show="!forms.paymentForm.cvv.$error.required && !forms.paymentForm.cvv.$error.maxlength && forms.paymentForm.cvv.$error.pattern">Only integers are allowed</div>
+            </div>
+           
+            <label for="cvv" class="col-md-offset-2 col-xs-offset-2 col-sm-2 col-md-2 control-label">* CVV</label>
+            <div class="col-xs-2">
+                <input type="text" placeholder="CVV" class="form-control" ng-trim="false" ng-model="payments.cvv" name="cvv" id="cvv" required ng-maxlength="5" ng-pattern="/^\d*$/">
+            </div>
+           
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-offset-2 col-xs-offset-2">
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="cancel()">Cancel</button>
+</div>

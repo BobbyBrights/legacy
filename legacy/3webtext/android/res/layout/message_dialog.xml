@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:ignore="ContentDescription" >
+
+    <TextView
+        android:id="@+id/dialog_message_recipients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:textColor="#FFFFFF"
+        android:textSize="14dip"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/dialog_message_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_message_recipients"
+        android:layout_marginLeft="10dip"
+        android:textColor="#FFFFFF"
+        android:textSize="19dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/dialog_message_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_message_detail"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="4dip"
+        android:textColor="#FFFFFF"
+        android:textSize="14dip"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

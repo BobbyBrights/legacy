@@ -1,0 +1,30 @@
+[
+    {
+        "id": "PR",
+        "name": "Aio Protect",
+        "type": "REC",
+        "price": "5.00",
+        "description": "Since it's impractical to carry your Aio Wireless device in bubble wrap - however tempting the bubble popping opportunities - protect your device from a covered loss with Aio Protect. Come read all about the extra peace of mind our device insurance can bring you. Only available to Aio subscribers in contiguous United States, Alaska and Hawaii. Coverage highlights available at www.aiowireless.com/aioprotect. Program guide and full terms available at www.esecuritel.com/aioprotect."
+    },
+    {
+        "id": "GR",
+        "name": "Aio Gig",
+        "type": "REC",
+        "price": "10.00",
+        "description": "Need more high-speed data every month? Add a gig to surf and play to your heart's content! Additional 1 GB of high-speed data access for each month. Used when the high-speed access included in the base rate plan is consumed. Any remaining high-speed data expires at the end of each monthly plan cycle."
+    },
+    {
+        "id": "PSR",
+        "name": "Aio Passport",
+        "type": "REC",
+        "price": "15.00",
+        "description": "Hola, Bonjour, Hello, Aio! In any language, Aio Passport gives you unlimited calling to landline numbers and unlimited messaging to mobile phones in 35 countries like Mexico, Canada, Dominican Republic, Columbia, United Kingdom and China. Plus, you get 100 minutes to mobile numbers. For a complete list of the 35 countries see www.aiowireless.com/international"
+    },
+    {
+        "id": "OTG",
+        "name": "Aio Gig",
+        "type": "OT",
+        "price": "10.00",
+        "description": "Add a gig to surf and play to your heart's content! Additional 1 GB of high-speed data access. Used when the high-speed access included in the base rate plan is consumed. Any remaining high-speed data expires at the end of your cycle."
+    }
+]

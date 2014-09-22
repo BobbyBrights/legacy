@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Generic strings -->
+    <string name="app_name">Webtext</string>
+	<!--  Login screen -->
+	<string name="username_prompt">Enter your username</string>
+	<string name="password_prompt">Enter your PIN</string>
+	<string name="login_button_text">Login to Webtext</string>
+	<string name="login_validation_error">Username and password are required fields</string>
+	<string name="lbl_save_for_later">Save these details for future use.</string>
+	<!--  Menu items -->
+	<string name="new_message">Send New Message</string>
+	<string name="history">View History</string>
+	<string name="logout">Logout</string>
+	<string name="contacts">Contacts</string>
+		<!--  Send message view -->
+		<string name="send_message_title">Send Message</string>
+	<string name="send_message">Send Message</string>
+	<string name="dismiss_dialog">Dismiss</string>
+	<string name="message_queued">Your message has been queued and will be sent shortly.</string>
+	<string name="message_failed">Your message could not be sent at this time, please try later.</string>
+	<string name="login_validation_error_incorrect_details">Either phone number or PIN are incorrect</string>
+	<string name="socket_timeout_exception">The connection timed out</string>
+	<!--  Toast notifications -->
+	<string name="login_success">Logged in successfully.</string>
+	
+	<!--  Activity Names -->
+	<string name="activity_send_screen_label">Send Message</string>
+	
+	<string name="no_network_available">You have no internet connection, please try later.</string>
+	<string name="lbl_choose_contacts">Choose contacts</string>
+	
+	<!--  UI Elements -->
+	<string name="remaining_texts">{0} remaining texts this month.</string>
+</resources>

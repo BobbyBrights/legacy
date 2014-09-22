@@ -1,0 +1,56 @@
+package ie.three.webtexts.adapters;
+
+import ie.three.webtexts.R;
+import ie.three.webtexts.objects.Contact;
+import ie.three.webtexts.objects.Group;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+public class GroupsListAdapter extends ArrayAdapter<Group> {
+
+	Context context;
+	int layoutResourceId;
+	Group data[] = null;
+
+	public GroupsListAdapter(Context context, int layoutResourceId,
+			Group[] data) {
+		super(context, layoutResourceId, data);
+		this.layoutResourceId = layoutResourceId;
+		this.context = context;
+		this.data = data;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		View row = convertView;
+		GroupsHolder holder = null;
+
+		if (row == null) {
+			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+			row = inflater.inflate(layoutResourceId, parent, false);
+			holder = new GroupsHolder();
+			holder.txtName = (TextView) row.findViewById(R.id.contact_name);
+			holder.selected = (CheckBox) row.findViewById(R.id.checkbox);
+			row.setTag(holder);
+		} else {
+			holder = (GroupsHolder) row.getTag();
+		}
+
+		Group group = data[position];
+		holder.txtName.setText(group.name);
+		holder.group = group;
+		return row;
+	}
+
+	static class GroupsHolder {
+		TextView txtName;
+		CheckBox selected;
+		Group group;
+	}
+}

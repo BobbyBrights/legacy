@@ -1,0 +1,279 @@
+/*
+ * Custom styles here.
+ *
+ */
+$dark-blue: 		#34495e;
+$footer-height:		4em;
+$header-bg-color:	rgba(46, 46, 46, .8);
+$footer-bg-color:	rgba(106, 106, 106, .8);
+$footer-fg-color:	rgba(255, 255, 255, 1);
+$site-font:			'Noto Sans'; 
+
+@import 'fonts';
+@import url('bootstrap/bootstrap.css');
+@import url('bootstrap/font-awesome/css/font-awesome.min.css');
+@import 'components/default';
+@import 'components/flex-header';
+@import 'components/split-layout';
+@import 'components/onscroll';
+@import 'components/mixins';
+@import 'components/searchbar';
+@import 'components/slidescroll';
+@import 'components/split-section-effects';
+@import 'components/mobile-menu';
+
+
+// Base styles, including footer push
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+	font-family: $site-font, sans-serif; 
+}
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto (-$footer-height );
+	.container {
+		// Reverse margin for padding.
+		margin-top: 0;
+		padding-top: 15em;
+	}
+}
+#home-footer, #push {
+	height: $footer-height;
+	.container {
+		margin-top: 0;
+	}
+}
+#home-footer {
+	background: $footer-bg-color;
+	h2, h2 a {
+		color: $footer-fg-color;
+	}
+	/* Lastly, apply responsive CSS fixes as necessary */
+	@media (max-width: 767px) {
+		h2, h2 a {
+			font-size: 16px!important; line-height: 16px!important;
+		}		
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+
+body {
+	color: #111;
+	&.bg-color-left {
+		background-color: $dark-blue;		
+	}
+	&.bg-color-right {
+		background-color: #FFF;
+	}
+	
+	&.page-who-we-are {
+		.page-left {
+			outline: 5px solid $dark-blue;
+			background: $dark-blue;
+		}
+		// Customise split layout
+		.side-left {
+			background: $dark-blue;
+			outline: 1px solid $dark-blue;
+		}
+		
+		.page-right {
+			outline: 5px solid #FFF;
+			background: #FFF;
+		}
+	}
+	&.page-what-we-do, &.page-how-we-work {
+		@include coverbgtrans('../images/home-background.jpg');	
+		.page-content {
+			padding-bottom: 5em;
+		}	
+	}
+	&.page-get-in-touch {
+		.page-content {
+			padding-top: $footer-height * 1.5;
+		}	
+	}
+	&.page-how-we-work {
+		.ss-container:before {
+			margin-left: -26px;
+		}
+		.ss-container {
+			padding-top: 9em;
+			padding-bottom: 8em;
+		}
+		.ss-row {
+			margin-bottom: 6em;
+			&:first-child {
+				margin-bottom: 9em;
+			}
+			h3 {
+				color: rgba(255, 255, 255, 0.9);
+			}
+			.ss-circle-1 {
+				background-image: url('../images/how-we-work/brief.png');
+			}
+			.ss-circle-2 {
+				background-image: url('../images/how-we-work/scope.png');
+			}
+			.ss-circle-3 {
+				background-image: url('../images/how-we-work/data.png');
+			}
+			.ss-circle-4 {
+				background-image: url('../images/how-we-work/ideas.png');
+			}
+			.ss-circle-5 {
+				background-image: url('../images/how-we-work/strategy.png');
+			}
+			.ss-left {
+				padding-left: 10%;
+				.ss-circle {
+					margin-right: 35%;
+				}
+			}
+		}
+	}
+	&.front-page {
+		position: relative;
+		.cbp-af-header {
+		    background: $header-bg-color;
+		    h1 a, nav a {
+			    color: #FFF!important;
+		    }
+		}
+		@include coverbg('../images/home-background-bicycle.jpg');        
+        // Front page elements
+        .page-content {
+/*
+        	position: absolute; right: 5px; bottom: -50px;
+			@media (max-width: 767px) {
+				position: relative;
+			}        	
+*/
+	        h1, p {
+		        display: inline-block; background: #FFF; padding: 12px; margin-bottom: 4px; clear: both; float: left;
+	        }
+	        a.btn {
+		        float: left; clear: both;
+	        }
+		}
+	}
+	
+	/* Post types */
+	&.post-type-client-stories {
+		.container {
+			margin: 0; padding: 0; width: 100%;
+			
+			.page-content {
+				text-align: center;
+				section {
+					padding-top: 2em;
+					width: 100%; margin: 0;
+					min-height: 40em;
+					&:nth-child(odd){
+						background-color: $dark-blue; 
+						h1,h2,h3,h4 {
+							color: #FFF;
+						}
+					}
+					&:nth-child(even){
+						background-color: #FFF; 
+						color: $dark-blue;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+#masthead {
+	// Masthead is visible on large devices only
+	h1 {
+		padding: 0; margin: 0;
+		letter-spacing: 0.5px; text-transform: lowercase; font-weight: 700; font-size: 2em; 
+		font-family: 'Noto Sans', sans-serif;
+		width: 48%;
+		span {
+			height: 50%;
+		}
+		a {
+			color: #aaa;
+			text-decoration: none;
+		}
+	}
+	#menu {
+		float: right;
+		> a {
+			line-height: 100px;
+			font-size: 1.5em; margin-left: 2em;
+			&:hover {
+				color: #FFF; text-decoration: none;
+			}
+		}
+		nav {
+			float: left;
+/*     		display: none; */
+			-webkit-transition: all 0.5s ease;
+			-moz-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+			-ms-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+			opacity: 0;
+			left: -100px;
+			a {
+				font-size: 0.9em;
+				text-decoration: none;
+				text-transform: lowercase;
+			}		
+			&.open {
+				opacity: 1;
+				left: 0;
+			}
+		}
+
+
+	}
+}
+
+
+.two-col-list {
+	li {
+		width: 50%;
+		float: left;
+		padding: 5px 0; 
+	}
+	li:nth-child(even) {
+		width: 50%;
+		float: right; 
+	}
+	li:nth-child(odd) {
+		width: 50%;
+		float: left;
+	}
+}
+
+.cbp-af-header-shrink {
+	#masthead h1 {
+		font-size: 1.5em; 
+	}
+	#masthead nav {
+		font-size: 0.75em; 
+	}
+}
+
+
+// Components
+#splitlayout {
+	h1 {
+		font-size: 20px;
+	}
+}

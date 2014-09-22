@@ -1,0 +1,86 @@
+<div class="row subs-result-title">
+    <p class="title">YOUR DRAW RESULT</p>
+</div>
+<div class="row subs-result-body">
+    <div class="col-lg-8 main-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row title-line">
+                	<div class="col-lg-12">YOUR RESULTS FROM LAST DRAW</div>
+                </div>
+                <loading-spinner class="" hide="betsResult.finishLoad == true"></loading-spinner>
+
+                <div id="pre-draw-result" ng-repeat="resultGroup in betsResult.all track by $index">
+            		<lottery-numbers  line="lotteries[0].history.results[lotteries[0].history.results.length - $index-1]"  showtime="true"></lottery-numbers>
+            		<div class="row row-buffer-normal"></div>
+            		<lottery-result-group class="animate-show" ng-show="betsResult.pre.length > 0" group="resultGroup" draw-result-obj="lotteries[0].history.results[$index]" showMatchResult='true' ></lottery-result-group>
+                </div>
+                <div class="row button-line">
+                    
+                </div>
+            </div>
+       </div>
+       <div class="row"></div>
+    </div>
+
+    <div class="col-lg-4 right-side-panel">
+        <div class="row subs-line" ng-controller="SubscriptionReadController">
+            <loading-spinner hide="subsFinishLoad"></loading-spinner>
+            <div class="col-lg-12 numbers-panel" ng-show="subsFinishLoad">
+                <div class="row">
+                    <div class="col-md-6 pull-left panel-title">YOUR NUMBERS</div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="bet-form lotto-group-normal">
+                            <div class="row">
+                                <div class="col-md-12 panel-body">
+                                    <fieldset ng-repeat="line in subscription.lines track by $index" class="cleared lotto-line">
+                                        <div class="line-num">Line {{$index + 1}}</div>
+
+                                        <input ng-repeat="a in numbers() track by $index" type="text"
+                                               ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                               class="input-sm input-line-number"
+                                               ng-disabled="true" ng-maxlength="2" ng-focus="focusNumInput($parent.$index, 'std', $index)" switch-style ng-unfocus="checkSubscription()" ng-focus="highlightLine($parent.$index)"
+                                               maxlength="2" num-change/>
+
+                                        <input type="text"
+                                               ng-model="subscription.lines[$index].bonus"
+                                               class="input-sm input-line-number bonus-ball"
+                                               ng-disabled="true" ng-maxlength="2" switch-style ng-unfocus="checkSubscription()" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                               maxlength="2" num-change/>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    	<div class="row line-prizeslist">
+            <div class="col-lg-12">
+                <div class="row title-line">TOP PRIZES</div>
+                <div class="row content-line"><p class="prize-num">&#163;7,000,000</p> <p class="match-num">Match 6 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;300,000</p> <p class="match-num">Match 5 +Bonus</p></div>
+                <div class="row content-line"><p class="prize-num">&#163;100,000</p> <p class="match-num">Match 4 +Bonus</p></div>
+                <div class="row view-btn-line"><button ng-click="openPrizesModal()">VIEW ALL</button></div>
+            </div>
+        </div>
+        <div class="row line-nextdraw">
+            <div class="col-lg-12 cr-wrapper">
+                <div class="corner-ribbon-wrapper"><div class="corner-ribbon"><p>2 Draws</p><p class="comment">every week</p></div></div>
+                <div class="row title-line">NEXT DRAW</div>
+                <div class="row time-line">{{nextDrawDate}}</div>
+                <div flip-clock class="clock-line"></div>
+                <div class="row time-label-line">
+                    <div>Days</div>
+                    <div>Hours</div>
+                    <div>Mins</div>
+                    <div>Secs</div>
+                </div>
+            </div>
+        </div>
+        <div class="row more-info-line"><p class="content">What is NovaBall?</p> <a>LEARN MORE</a></div>
+    </div>
+</div>

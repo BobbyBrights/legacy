@@ -1,0 +1,25 @@
+<div class="row package-line">
+    <div class="col-md-12 panel-body new-line package-panel">
+        <div class="row">
+            <div class="col-lg-6 basic-info">
+            <div>
+                <p class="title">Lines:</p> <p class="content">{{subscription.effectiveLineNum}}</p>
+            </div>
+            <div>
+                <!-- <p class="title">Draws:</p> <p class="content">{{subscription.numDraws}}</p> -->
+            </div>
+            <!-- <div>
+                <p class="title">Auto Renew:</p> <p class="content">{{ true == subscription.recurring ? 'Yes' : 'No'}}</p>
+            </div> -->
+            <div>
+                <p class="title">Renewal:</p> <p class="content">{{ subscription.nextPaymentDate ? switchTimeFormat(subscription.nextPaymentDate) : 'Not Paid' }}</p>
+            </div>
+            </div>
+            <div class="col-lg-6 price-panel">
+                <div class="row">
+                <p class="price">&#163;{{subscription.pricePerLine * subscription.effectiveLineNum * subscription.numDraws / 100}}</p> <p class="price-frequency">per month</p> <p class="price-comment">just 69p per line</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

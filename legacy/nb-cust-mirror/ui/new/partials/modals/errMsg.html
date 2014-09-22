@@ -1,0 +1,33 @@
+<!-- Modals -->
+<div class="modal-header">
+    {{mainTitle}}
+</div>
+<div class="sub-title" ng-show="''!==modalHeading">
+    <div class="row secondary-title">
+        <div class="col-lg-12">
+            {{modalHeading}}
+        </div>
+    </div>
+    
+</div>
+<div class="modal-body">
+    <form name="forms.loginForm" role="form" id="errMsgForm" ng-show="true" ng-submit="submitFunc()" novalidate>
+        <div class="row body-line" >
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12 content-title">{{contentTitle}}</div>
+                </div>
+                <div class="msg-line" ng-repeat="errorMsg in errorMsgArray">
+                    <div class="col-lg-12">{{errorMsg}}</div>
+                </div>
+                <div class="row-buffer-normal"></div>
+                <div class="row btn-line">
+                    <div class="col-lg-12">
+                        <div class="btn-right-side"></div>
+                        <button type="submit" class="" ng-click="login(forms.loginForm.$valid)">{{submitBtnText}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

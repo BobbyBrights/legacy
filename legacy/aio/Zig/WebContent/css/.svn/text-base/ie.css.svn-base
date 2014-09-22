@@ -1,0 +1,2769 @@
+/*body:AFTER {
+	content: 'default';
+}*/
+@-ms-viewport {
+	width: device-width;
+	user-zoom: fixed;
+}
+body { 
+	/*background: url('../img/windows_phone/header_background.png') top no-repeat, url('../img/paper_background.png') bottom repeat-y;*/
+	background-image: url('../img/windows_phone/header_background.png'), url('../img/paper_background.png');
+	background-position: center top, center bottom;
+	background-repeat: no-repeat, repeat-y;
+/*font-family: "ITC Lubalin Graph Std" sans-serif;*/
+	background-size: 100%;
+	padding-left: 0%;
+	padding-right: 0%;
+	-ms-user-select: none;
+	user-select: none;
+	 -ms-touch-action: pan-y;
+	/*  overflow: hidden; */
+}
+
+#blockUI {
+	 -ms-touch-action: none;
+}
+
+#myPlanPage .spacer{
+	height: 135px;
+}
+.list-container {
+	margin: 0;
+}
+.select-label {
+	display: none!important;
+}
+input {
+	width: 100%;
+	padding: 0;
+	border: 2px solid;
+	border-bottom-color: #CECECD;
+	border-right-color: #AFAFAF;
+	border-top-color: #9C9C9C;
+	border-left-color: #AAA;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+.placeholder {
+	color:#999;
+}
+input[disabled],
+input[readonly],
+input:disabled,
+textarea[disabled],
+textarea[readonly],
+textarea:disabled {
+	background-color:rgb(235, 235, 228);
+}
+.header {
+	position: static;
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+}
+.header .top_left {
+	text-align: left;
+	position: absolute;
+}
+.header .top_right {
+	text-align: right;
+	position: absolute;
+}
+
+.page.failed_to_load .innerPage {
+	visibility: hidden;
+}
+.page.failed_to_load:AFTER {
+	content : "Failed to load page, try later";
+	width: 100%;
+	text-align: left;
+	top: 187px;
+	position: absolute;
+}
+
+/* *** FOOTER *** */
+#footer {
+	-ms-touch-action: none;
+	position: absolute;
+	height: 110px;
+	top: 68px;
+	width: 100%;
+	background-image: url("../img/windows_phone/top_bar_bg.jpg");
+	background-position: left;
+	background-position: top;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+	color: white;
+}
+
+.page {
+	display: none;
+	width: 100%;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	margin-top: 25px;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+.page.no-footer {
+	top: 47px;
+}
+/* ***** FORMS ***** */
+form {
+	margin: 0;
+}
+
+.button-bar {
+	margin: 0;
+}
+
+form input {
+	padding: 0 0 0 5px;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+form .list-container .list-item {
+	height: auto;
+	border-bottom: 0px none;
+	padding: 0;
+}
+
+.select-container {
+	border-bottom: 2px solid #C7C7C7;
+	margin: 0 auto;
+	width: 60%;
+	background: url('../img/down-button.png') no-repeat bottom right;
+	padding-right: 7px;
+}
+
+.select-container .ui-icon {
+	display: none;
+}
+
+.select-container select {
+	border-width: 0px;
+	background: transparent;
+	width: 100%;
+	padding: 0 5px;
+}
+
+form .list-container .select-container {
+	margin: 0;
+	width: 90%;
+}
+
+.list-item input[type="checkbox"]+label {
+	color: transparent;
+	border: 0px;
+	padding: 0 5px 0 0;
+	cursor: pointer;
+}
+
+/* EULA */
+
+.eulaFixedBottom.dark-background {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+/*
+ * LOGIN PAGE
+ */
+#loginPage .large-button {
+	margin: 20px 0 0 0;
+}
+#loginPage form .list-container .first-item {
+	margin-top: 20px;
+}
+
+#i18n_loginSignUpMessage {
+	/*font-family: "ITC Avant Garde Gothic MM", Helvetica, Arial, sans-serif;*/
+	margin: 0;
+	padding: 0;
+	padding-right: 10px;
+	text-align: left;
+	position: relative;
+	left: 10pt;
+	clear: none;
+	display: table-cell;
+	float: none;
+	vertical-align: middle;
+}
+
+#i18n_loginForgotPwdBtn {
+	font-weight: normal;
+	padding: 0;
+	width: auto;
+}
+
+#loginSignUpMessageContainer {
+	width: 100%;
+	display: table;
+}
+
+#i18n_loginSignUpNewTo {
+	display: table-cell;
+	float: none;
+	white-space: nowrap;
+	position: relative;
+}
+
+#i18n_loginSignUpBrand {
+	display: table-cell;
+	float: none;
+	text-align: center;
+}
+
+#loginPage .form-last-line {
+	display: table;
+	width: 100%;
+	margin-top: 24px;
+}
+
+#loginRememberMe+span, 
+#payMyBillAutoPayCheckBox+span, 
+#termsAndConditions+span,
+#manageAutopayTermsAndConditions+span,
+#eulaChekBox+span,
+#servicesPaymentTermsAndConditions+span {
+	display: table-cell;
+	float: none;
+	background: url(../img/checkbox_unchecked.png) no-repeat center;
+	background-size: 17pt 17pt;
+	background-position: top left;
+	width: 32px;
+	height: 27px;
+	vertical-align: top;
+	cursor: pointer;
+}
+#payMyBillAutoPayCheckBox+span, 
+#termsAndConditions+span,
+#manageAutopayTermsAndConditions+span,
+#servicesPaymentTermsAndConditions+span {
+	background-position: center left;
+}
+#loginRememberMe:checked+span,
+#eulaChekBox:checked+span,
+#payMyBillAutoPayCheckBox:checked+span,
+#termsAndConditions:checked+span,
+#manageAutopayTermsAndConditions:checked+span,
+#servicesPaymentTermsAndConditions:checked+span {
+	background: url(../img/checkbox_checked.png) no-repeat center;
+	background-size: 17pt 17pt;
+	background-position: top left;
+}
+#payMyBillAutoPayCheckBox:checked+span,
+#termsAndConditions:checked+span,
+#manageAutopayTermsAndConditions:checked+span,
+#servicesPaymentTermsAndConditions:checked+span {
+	background-position: center left;
+}
+#loginRememberMe,
+#eulaChekBox,
+#payMyBillAutoPayCheckBox, 
+#payMyBillPage .checkbox-item.second-checkbox-item input,
+#manageAutopayTermsAndConditions,
+#servicesPaymentTermsAndConditions {
+	display: none;
+}
+.cardExpirationDateControlWrapper .select-container {
+	border-right: 2px solid #AFAFAF;
+}
+.cardExpirationDateControlWrapper .select-container.month {
+	display: inline-block;
+	overflow: hidden;
+	padding-right: 0;
+	width: 50%!important;
+}
+.cardExpirationDateControlWrapper .select-container.month select {
+	width: 150%!important;
+}
+.cardExpirationDateControlWrapper .select-container.year {
+	display: inline-block;
+	overflow: hidden;
+	padding-right: 0;
+	width: 37%!important;
+}
+.cardExpirationDateControlWrapper .select-container.year select {
+	width: 170%!important;
+}
+.cardExpirationDateControlWrapper .slash {
+	position: relative;
+	top: -14px;
+}
+#i18n_payMyBillTermsInput, #manageAutopayTermsCondition_1{
+	margin-left: 0px!important;
+}
+
+#i18n_loginRememberMeLabel {
+	vertical-align: text-top;
+	display: table-cell;
+	float: none;
+	position: static;
+	padding: 0;
+	padding-top: 4px;
+}
+
+#loginPage .inline-button {
+	width: 45%;
+	display: table-cell;
+	float: none;
+	vertical-align: middle;
+	margin: 0;
+}
+
+/* Sign up page*/
+.intro-message {
+	margin: 20px 0 34px 0;
+}
+
+#i18n_signUpCancelBtn {
+	width: 48%;
+}
+
+#i18n_signUpBtn {
+	width: 48%;
+}
+
+/* Set Password page*/
+#i18n_setPasswordCancelBtn {
+	width: 48%;
+	margin: 0;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#i18n_setPasswordBtn {
+	float: right;
+	margin: 0;
+	width: 48%;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Reset password page*/
+#i18n_resetPasswordCancelBtn {
+	width: 48%;
+	margin: 0;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#i18n_resetPasswordBtn {
+	float: right;
+	margin: 0;
+	width: 48%;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* *** FORGOT PASSWORD *** */
+
+/* Forgot password page 1/2*/
+#i18n_forgotPasswordPhoneCancelBtn {
+	width: 48%;
+	margin: 0;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#i18n_forgotPasswordPhoneBtn {
+	float: right;
+	margin: 0;
+	width: 48%;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Forgot password page 2/2*/
+#i18n_forgotPasswordQuestionCancelBtn {
+	width: 48%;
+	margin: 0;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#i18n_forgotPasswordQuestionBtn {
+	float: right;
+	margin: 0;
+	width: 48%;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* *** HOME *** */
+.header .left {
+	margin: 0;
+	width: 48%;
+}
+.header .right {
+	margin: 0;
+	width: 48%;
+}
+.spacer {
+	height: 125px;
+}
+
+/* *** USAGE *** */
+#usagePage .rightBar {
+	width: 60px;
+}
+
+/* *** MORE *** */
+#morePage .space {
+	height: 130px;
+}
+#morePage .table-row {
+	box-sizing: border-box;
+}
+#morePage .table-cell {
+	box-sizing: border-box;
+	width: 150px;
+	height: 150px;
+ 	line-height: 20px;
+}
+.more-page-list{
+	width: 75%;
+	margin-top: 25px;
+}
+.more-page-grid-table {
+	box-sizing: border-box;
+/* 	width: 75%; */
+/* 	margin: 0 0 0 60px; */
+}
+.more-page-list-table {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+}
+/* *** My Profile page *** */
+#editProfilePage .spacer{
+	height: 125px;
+}
+/* *** My Plan *** */
+.page .plan-desc{
+	margin-top: 3px;
+}
+.page .myPlanContent{
+	margin-right: 0px;
+}
+.page .services-list li div{
+/* 	font-weight: bold; */
+}
+#myPlanPage .list-container{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+/* *** Refuel *** */
+#payMyBillPage .select-container, 
+#manageAutopayPage .select-container, 
+#servicesPaymentPage .select-container, 
+#editProfilePage .select-container{
+	width: 100%;
+	background-image: none;
+	border-bottom: none;
+}
+#payMyBillPage .select-container select, 
+#manageAutopayPage .select-container select, 
+#servicesPaymentPage .select-container select, 
+#editProfilePage .select-container select{
+	height: 51px;
+}
+#payMyBillPage .select-container .select-icon, 
+#manageAutopayPage .select-container .select-icon,  
+#servicesPaymentPage .select-container .select-icon, 
+#editProfilePage .select-container .select-icon{
+	right: 7px;
+	height: 51px;
+	background-position-y: 50%;
+}
+
+/************************ CUSTOMER CARE CHAT OVERLAY **********************/
+#supportChatOverlayPage {
+	padding:0;
+	margin:0;
+}
+#supportChatOverlayPage * {
+	 -ms-touch-action: none;
+}
+#imgOverlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 40;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-image: url(../img/paper_wood_background.png);
+	background-repeat: repeat;
+	display: none;
+}
+#wp_quitButton img{
+	position: absolute;
+	top: 21px;
+	right: 21px;
+	height: 26px;
+	width: 26px;
+}
+#wp8_navbar img{
+	position: absolute;
+	height: 110px;
+	top: 68px;
+	width: 100%;
+}
+#headMessage img{
+	width: 100%;
+	top: 33%;
+	position: absolute;
+	z-index: 42;
+}
+#contentMessage img{
+	width: 78%;
+	top: 190px;
+	right: 10px;
+	position: absolute;
+	z-index: 41;
+}
+.over-navbar{
+	cursor: pointer;
+	display: none;
+	height: 45px;
+	position: absolute;
+	top: 40px;
+	width: 100%;
+	z-index: 60;
+}
+/************************ CUSTOMER CARE CHAT **********************/
+#chatContent {
+	-ms-touch-action: none;
+	overflow: scroll;
+}
+
+
+/* ************** */
+/* *** MEDIAS *** */
+@media screen and (min-width: 320px) and (max-width: 420px) {
+	
+
+
+	.blockui_box {
+		/*
+			There are some issues with the fixed position on wp7.x with top in percent.
+			So we use a top in pixel instead of % .
+		*/
+		top	: 212px;
+	}
+	/***************/
+	/* *** WP7 *** */
+	/*body:AFTER {
+		content: 'min-width: 320px';
+	}*/
+	h1{
+		margin-top: 0px;
+	}
+	h2{
+		margin-left: 0px;
+	}
+	label{
+		margin-top: 10px;
+		margin-bottom: 2px;
+	}
+	li.wp7{
+		display: block !important;
+		height: 20px !important;
+	}
+	li.wp7 label{
+		display: inline-block !important;
+		width: 49% !important;
+		padding-left: 0px !important;
+	}
+	#manageAutopayPage li.wp7 label, #servicesPaymentPage li.wp7 label{
+		width: 48% !important;
+	}
+	li.wp7 label:first-child{
+		margin-right: 2% !important;
+	}
+	input{
+		height: 32px;
+	}
+	.page{
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.header{
+		height: 15px;
+	}
+	.sub-page,
+	#resetVoiceMailPwdConfirmationPage .sub-page{
+		margin-top: 10px;
+		margin-left: -15px;
+		margin-right: -15px;
+		padding-top: 10px;
+		padding-right: 15px;
+		padding-left: 15px;
+		padding-bottom: 10px;
+	}
+	.intro-message{
+		margin-bottom: 10px;
+	}
+	
+	.button-bar{
+		margin-top: 15px;
+	}
+	.button {
+		padding-top: 0px;
+		margin-top: 5px;
+		height: 40px;
+	}
+	.inline-button {
+		height: 40px;
+	}
+	.large-button {
+		height: 40px;
+	}
+	.list-container .list-item{
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.spacer,
+	#myPlanPage .spacer,
+	#editProfilePage .spacer{
+		height: 55px;
+	}
+	.nav-grid {
+		overflow: hidden;
+	}
+	
+	.nav-block {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		float: left;
+		min-height: 1px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+		width: 20%;
+		height: 45px;
+	}
+	
+	.nav-block:first-child {
+		clear: left;
+	}
+	
+	/* *** Footer *** */
+	#footer{
+		top: 40px;
+		height: 45px;
+ 		line-height: 45px;
+	}
+
+
+	#footer {
+		font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+		display: block;
+		height: 45px;
+		width: 100%;
+		/*position: fixed;
+		bottom: 0;
+		left: 0;*/
+		margin: 0;
+		background: url('../img/nav_background.jpg') repeat center;
+		box-shadow: 0px 0px 7px black;
+		z-index: 50;
+	}
+/* 	#footer.fixfix { */
+/* 		visibility: hidden; */
+/* 	}	 */
+	#footer ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		display: block;
+		border: 0;
+		max-width: 100%;
+		overflow: visible;
+		zoom: 1;
+	}
+	
+	#footer .ui-nav {
+		display: block;
+		position: relative;
+		padding: 0;
+		text-align: center;
+		text-decoration: none;
+		vertical-align: middle;
+		z-index: 10;
+		color: white;
+	}
+	
+	#footer .ui-nav:after {
+		background: url('../img/nav_divider.png') no-repeat center;
+		height: 100%;
+	/* 	width: 4px; */
+		content: '.';
+		color: transparent;
+		position: absolute;
+		right: -2px;
+		top: 0;
+		background-size: 2px 34px;
+	}
+	
+	
+	#footer .nav-block:last-child .ui-nav:after {
+		background: transparent none;
+	}
+	
+	#footer .ui-nav .ui-nav-inner {
+		display: block;
+		padding: 15px 0px 5px 0px;
+		white-space: nowrap;
+	}
+	
+	#footer .ui-nav-active {
+		background: rgba(0, 0, 0, 0.4);
+	}
+	
+	#footer .ui-nav-icon {
+		width: 100%;
+		height: 80%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	
+	#footer .nav-icon-home {
+		background: url(../img/aio_logo_nav.png) 50% 25% no-repeat;
+	/* 	background-size: 48px; */
+		background-size: 27px;
+	}
+	
+	#footer .nav-icon-usage {
+		background: url(../img/navigation/icon-usage.png) 50% 25% no-repeat;
+	/* 	background-size: 48px; */
+		background-size: 27px;
+	}
+	
+	#footer .nav-icon-bills {
+		background: url(../img/navigation/icon-bills.png) 50% 25% no-repeat;
+	/* 	background-size: 45px; */
+		background-size: 27px;
+	}
+	
+	#footer .nav-icon-plan {
+		background: url(../img/navigation/icon-plans.png) 50% 25% no-repeat;
+	/* 	background-size: 35px; */
+		background-size: 27px;
+	}
+	
+	#footer .nav-icon-more {
+		background: url(../img/navigation/icon-more.png) 50% 25% no-repeat;
+	/* 	background-size: 30px; */
+		background-size: 27px;
+	}
+	/* *** Login page *** */
+	#loginMainLogo {
+		height: 40px;
+	}
+	#i18n_loginSignUpMessage {
+		padding-right: 15px;
+	}
+	#loginPage .spacer {
+		height: 10px;
+	}
+	#loginFirstPagePart{
+		margin-top: 0px;
+	}
+	#loginRememberMe+span, 
+	#payMyBillAutoPayCheckBox+span, 
+	#termsAndConditions+span,
+	#manageAutopayTermsAndConditions+span,
+	#servicesPaymentTermsAndConditions+span {
+		background-size: 13pt 13pt;
+		width: 20px;
+	}
+	#loginRememberMe:checked+span, 
+	#payMyBillAutoPayCheckBox:checked+span, 
+	#termsAndConditions:checked+span,
+	#manageAutopayTermsAndConditions:checked+span,
+	#servicesPaymentTermsAndConditions:checked+span {
+		background-size: 13pt 13pt;
+	}
+	#i18n_loginRememberMeLabel{
+		padding-top: 2px;
+	}
+	#forgotPwdQuestionPageForm form{
+		margin-top: 10px;
+	}
+	#forgotPwdQuestionPage .spacer{
+		height: 70px;
+	}
+	.two-column-grid .thirty.column1{
+		width: 82px;
+	}
+	.two-column-grid .seventy.column2{
+		width: 71%;
+	}
+	/* *** Homepage *** */
+	#homePage .spacer {
+		height: 65px;
+	}
+	#homeTitle {
+		padding-right: 0;
+	}
+	#homeMaxLogo{
+		height:30px;
+	}
+	#i18n_homeNeedHelpButton{
+		height: 25px!important;
+ 		line-height: 25px!important;
+	}
+	#homePage .refuel-button-container{
+		margin-bottom: 10px;
+	}
+	/* *** Usage *** */
+	#usagePage .select-container {
+		right: 15px;
+		border-bottom: 0px;
+		width: auto;
+	}
+	#usagePage .select-container .select-icon {
+		right: 0px;
+		height: 24px;
+		width: 26px;
+	}
+	#usagePage .select-container select {
+		height: 24px;
+	}
+	#usagePage .reducedBar .progress,#usagePage .reducedBar .progress > span, #usagePage .rightBar .reducedBar .progress{
+		height: 18px;
+	}
+	#usagePage .reducedBar .rightBar .progress{
+		width: 18px;
+	}
+	#usagePage .rightBar{
+		width: 18px;
+	}
+	/* *** Pay My Billpage *** */
+	#payMyBillPage .list-container{
+		margin-top: 0px;
+	}
+	#payMyBillPage .checkbox-item label{
+		margin-top: 7px;
+	}
+	#payMyBillPage fieldset div:first-child .credit-container{
+		height: 50px;
+	}
+	.cardExpirationDateControlWrapper .select-container {
+		position: relative;
+		top: -4px;
+	}
+	#payMyBillPage .list-container .list-item,
+	#manageAutopayPage .list-container .list-item,
+	#servicesPaymentPage .list-container .list-item{
+		height: 40px;
+		vertical-align: middle;
+	}
+	#editProfilePage .list-container .list-item{
+		height: 40px;
+		vertical-align: bottom;
+	}
+	#manageAutopayCardNumberInput,#manageAutopayExpirationDateInput,#manageAutopayPostalCodeInput {
+		width: 48%;
+	}
+	#manageAutopayExpirationDateInput, #manageAutopayCardNumberInput{
+		margin-right: 2%;
+	}
+	#payMyBillPage .select-container,
+	#manageAutopayPage .select-container,
+	#servicesPaymentPage .select-container,
+	#editProfilePage .select-container{
+		margin-top: 4px;
+	}
+	#payMyBillPage .select-container select, 
+	#manageAutopayPage .select-container select, 
+	#editProfilePage .select-container select,
+	#servicesPaymentPage .select-container select{
+		height: 32px;
+		padding-left: 2px;
+	}
+	#payMyBillPage .select-container .select-icon, 
+	#manageAutopayPage .select-container .select-icon,  
+	#servicesPaymentPage .select-container .select-icon, 
+	#editProfilePage .select-container .select-icon{
+		height: 32px;
+	}
+	#payMyBillPage .list-container .checkbox-item,
+	#manageAutopayPage .list-container .checkbox-item,
+	#servicesPaymentPage .list-container .checkbox-item,
+	#editProfilePage .list-container .checkbox-item{
+		height: 25px;
+	}
+	#servicesPaymentPostalCodeInput {
+		width: 49%;
+	}
+	#payMyBillConfirmationPage .sub-page{
+		margin-top: 0px;
+		height: 165px;
+	}
+	#manageServicesConfirmationPage .list-container{
+		margin-top: 20px;
+	}
+	/* *** My Plan *** */
+	#myPlanPage .medium-background.no-border-top{
+		margin-left: -15px;
+		margin-right: -15px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	#myPlanPage .list-container.border-top {
+		margin-left: -15px;
+		margin-right: -15px;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	/* *** More page *** */
+/* 	.more-page-grid-table{ */
+/* 		margin-left: 20px; */
+/* 		width: 85%; */
+/* 	} */
+	#morePage .table-cell{
+		width: 130px;
+		height: 110px;
+	}
+	#myProfilePage .table-title{
+		margin-top: 15px;
+	}
+	#editProfilePage label{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	#editProfilePage .list-container{
+		padding-bottom: 10px;
+	}
+	#editProfilePage .list-container .list-item{
+		height: 45px;
+	}
+	#editProfilePage input{
+		padding-left: 7px;
+	}
+	#editProfilePage .last-item div.select-container{
+		padding-top: 4px;
+	}
+	#editProfilePage .last-item div.select-container .select-icon{
+		top: 4px;
+	}
+	
+	/*  EULA PAGE*/
+	#eulaDisclamerPage td.eulaBoxWrap {
+		width : 32px;/*Checkbox widht*/
+	}
+	
+	/*  CHAT OVERLAY */
+	#wp_quitButton img{
+		position: absolute;
+		top: 14px;
+		right: 14px;
+		height: 14px;
+		width: 14px;
+	}
+	#headMessage img{
+		width: 100%;
+		top: 30%;
+		position: absolute;
+		z-index: 42;
+	}
+	#contentMessage img{
+		width: 78%;
+		top: 90px;
+		right: 10px;
+		position: absolute;
+		z-index: 41;
+	}
+}
+@media screen and (min-width: 480px) {
+	
+	.inline-error {
+		margin: 15px 0px 0 0px;
+	}
+	
+	.inline-error .warning {
+		font-size: 20px
+	}
+	
+/* 	#usagePage .select-container select { */
+/* 		height: 42px!important; */
+/* 	} */
+	.page .extended {
+		background-image: url("../img/my_plan_down_arrow_large.png");
+	}
+	.page .reduced {
+		background-image: url("../img/my_plan_arrow_large.png");
+	}
+	h1{
+		margin-top: 65px;
+	}
+	h2 {
+		margin: 0;
+/* 		margin-top: 45px; */
+	}
+	label {
+		margin: 10px 0 0 0;
+	}
+	input{
+/* 		line-height: 40px; */
+/* 		height: 51px; */
+		margin: 5px 0 5px 0;
+		text-indent:12px;
+	}
+	iframe{
+		height: 500px;
+	}
+	
+	/*  EULA PAGE*/
+	
+	#eulaDisclamerPage td.eulaBoxWrap {
+		width : 32px;/*Checkbox widht*/
+	}
+	#eulaDisclamerPage .link {
+		margin: 5px 0;
+	}
+	.boxTable {
+		margin-bottom: 15px;
+	}
+	/* *** LOGIN PAGE *** */
+	#loginPage .spacer{
+		height: 11px;
+	}
+	#loginHello {
+		display: block;
+		width: 154px;
+		height: 44px;
+		background-image: url("../img/windows_phone/hello_h1.png");
+/* 		background-image: url("../img/aio_big_logo_home.png"); */
+		background-repeat: no-repeat;
+		margin: 15px 0 30px 0;
+	}
+	#loginHello span{
+		display: none;
+	}
+	#loginMainLogo {
+		height: 55px;
+	}
+	#loginFirstPagePart{
+		margin-top: 30px;
+	}
+	#loginPage .sub-page {
+		margin-top: 36px;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-top: 38px;
+		padding-right: 3%;
+		padding-left: 3%;
+		padding-bottom: 40px;
+	}
+	#i18n_loginForgotPwdBtn {
+		margin-top: 36px;
+	}
+	#loginSignUpMessageContainer {
+		margin-bottom: 42px;
+	}
+	#i18n_loginSignUpNewTo {
+		top: -11pt;
+	}
+	#signUpHeading {
+		display: block;
+		width: 139px;
+		height: 35px;
+		background-image: url("../img/windows_phone/sign_up_h1.png");
+		background-repeat: no-repeat;
+/* 		margin: 80px 0 0 0; */
+	}
+	
+	#signUpHeading span{
+		display: none;
+	}
+	
+	.forgotPwdHeading{
+		background-image: url("../img/windows_phone/forgot_password.png");
+		background-repeat: no-repeat;
+/* 		margin: 80px 0 0 0; */
+		display: block;
+		width: 298px;
+		height: 35px;
+	}
+	
+	.forgotPwdHeading span{
+		display: none;
+	}
+	
+	#resetPwdHeading {
+		display: block;
+		width: 280px;
+		height: 28px;
+		background-image: url("../img/windows_phone/reset_password.png");
+		background-repeat: no-repeat;
+/* 		margin: 80px 0 0 0; */
+	}
+	
+	#resetPwdHeading span{
+		display: none;
+	}
+	
+	
+	#loginRememberMe+span, 
+	#payMyBillAutoPayCheckBox+span, 
+	#termsAndConditions+span,
+	#manageAutopayTermsAndConditions+span,
+	#servicesPaymentTermsAndConditions+span {
+		width: 32px;
+		background-size: 17pt 17pt;
+	}
+	#loginRememberMe:checked+span, 
+	#payMyBillAutoPayCheckBox:checked+span, 
+	#termsAndConditions:checked+span,
+	#manageAutopayTermsAndConditions:checked+span,
+	#servicesPaymentTermsAndConditions:checked+span {
+		background-size: 17pt 17pt;
+	}
+	
+	/* *** HEADER *** */
+	.header .top_left{
+		top: 18px;
+		left: 20px;
+	}
+	.header .top_right {
+		top: 18px;
+		right: 20px;
+	}
+	.header{
+		height: 40px;
+		padding-top: 15px;
+		margin: 0;
+	}
+	.header .left {
+		margin: 0;
+	}
+	.header .right {
+		margin: 0;
+	}
+	
+	/* *** FOOTER *** */
+	#footer {
+		top: 68px;
+		height: 115px;
+ 		line-height: 115px;
+	}
+	#footer a {
+		text-decoration: none;
+		padding: 0;
+	}
+	
+	#footer .nav-block.nav-selected a {
+		color: white;
+	}
+	
+	#footer  .nav-grid {
+		padding: 0;
+	}
+	
+	#footer  .nav-block {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		float: none;
+		min-height: 103px;
+	}
+	
+	#footer .ui-nav {
+		text-align: left;
+		text-indent: 10px;
+	}
+	
+	#footer .ui-nav-icon {
+		width: 46px;
+		height: 30px;
+		position: absolute;
+		right: -56px;
+		top: 10px;
+		display: block;
+	}
+	#footer img {
+		border: 0;
+		position: relative;
+		top: 10px;
+	}
+	
+	#i18n_navigationHomeLink{
+		background: url(../img/navigation/title-home.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+		color: transparent;
+		padding-right: 20px;
+	}
+	#footer .nav-icon-home {
+		background: url(../img/windows_phone/icon-home.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+	}
+	#i18n_navigationUsagesLink{
+		background: url(../img/navigation/title-usage.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+		color: transparent;
+		padding-right: 20px;
+	}
+	#footer .nav-icon-usage {
+		background: url(../img/windows_phone/icon-usage.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+	}
+	#i18n_navigationMyBillsLink{
+		background: url(../img/navigation/title-pay.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+		color: transparent;
+		padding-right: 20px;
+	}
+	#footer .nav-icon-bills {
+		background: url(../img/windows_phone/icon-bills.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+	}
+	#i18n_navigationMyPlanLink{
+		background: url(../img/navigation/title-plan.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+		color: transparent;
+		padding-right: 20px;
+	}
+	#footer .nav-icon-plan {
+		background: url(../img/windows_phone/icon-plan.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+	}
+	#i18n_navigationMoreLink{
+		background: url(../img/navigation/title-more.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+		color: transparent;
+		padding-right: 20px;
+	}
+	#footer .nav-icon-more {
+		background: url(../img/windows_phone/icon-more.png);
+		background-position-y: center;
+		background-repeat: no-repeat;
+	}
+	
+	.ui-nav-inner {
+		background-image: url("../img/windows_phone/menu_separator.png");
+		background-position-x: right;
+		background-position-y: center;
+		background-repeat: no-repeat;
+		padding-right: 10px;
+		position: relative;
+	}
+
+	/* *** *** */
+	.spacer {
+		height: 135px;
+	}
+	.hotlined{
+		margin-bottom: 20px;
+	}
+/* 	.select-container select { */
+/* 		height: 40px; */
+/* 	} */
+	#homePage .sub-page {
+		margin-top: 28px;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-top: 38px;
+		padding-right:  3%;
+		padding-left:  3%;
+		padding-bottom: 30px;
+	}
+	#homePage .sub-page .autopay-on{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+/* 	#homePage .help { */
+/* 		height: 42px; */
+/* 	} */
+	#homeTitle{
+/* 		margin-top: 42px; */
+	}
+	#homeMainLogo{
+		height: 40px;
+	}
+	#i18n_homeLogOutButton{
+/* 		margin-top: 42px; */
+	}
+	#i18n_homeNeedHelpButton{
+/* 		height: 42px!important; */
+/* 		width: 158px; */
+/*  		line-height: 42px!important; */
+/* 		margin-top: 55px; */
+		margin-right: 15px;
+	}
+	#homeMaxLogo{
+/* 		margin-top: 57px; */
+		height: 52px;
+	}
+	
+	#homePage .hi{
+		font-weight: bold;
+		padding-top: 32px;
+	}
+	#homePage .days-left-container{
+		padding-right: 18px;
+	}
+	#homePage .refuel-text-container{
+		padding-right: 18px;
+		padding-left: 18px;
+	}
+	#daysLeft{
+/* 		height: 55pt; */
+	}
+	#homePage .credit-container{
+		margin-top: 37px;
+	}
+	#homePage .refuel-button-container{
+		margin-top: 30px;
+	}
+	#i18n_autoPayLearnMore {
+		padding-top: 10%;
+		padding-right: 10%;
+	}
+	.button {
+/*		padding-top: 15px;*/
+/* 		margin-top: 5px; */
+/* 		height: 55px; */
+	}
+/* 	.inline-button { */
+/* 		height: 54px; */
+/* 	} */
+	.large-button {
+		height: 54px;
+	}
+	#signUpPage form {
+		margin-top: 20px;
+		margin-bottom: 27px;
+	}
+	.button-bar {
+		margin-top: 20px;
+	}
+
+	.dark-background{
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-bottom: 15px;
+		padding-left:  3%;
+		padding-right:  3%;
+	}
+	.plus-minus-bar {
+		width: 80px;
+	}
+	.ui-shop-icon {
+		width : 50px;
+		height: 45px;
+		background-size: 45px 45px;
+	}
+	.plus-minus-bar {
+		width : 96px;
+	}
+	.one-bar {
+		width: 48px;
+	}
+	
+	/* START OF WA*/
+	/* in MSIE the rel positioning change the size of the cell, so we need to use an abs/rel trick to center the icons*/
+	.plus-minus-bar,.one-bar {
+		height: 45px;
+		bottom: 0px;
+		position: relative;
+	}
+	.plus-minus-bar > div, .one-bar > div {
+		position: absolute;
+		bottom: -10px
+	}
+	/* END OF WA*/
+	
+	.page .title{
+		padding-left: 37px;
+	}
+	#myPlanPage .title.pointfill {
+		height: 45px;
+	}
+	.list-container-title{
+		margin-top: 15px;
+	}
+	.page .plan-desc{
+		margin-top: 3px;
+	}
+	.page .extended, .page .reduced {
+		background-size: 26px 26px;
+		background-position: 3px 19px;
+	}
+	.page ul.services-list{
+		margin-top: 5px;
+		list-style-type: disc;
+	}
+	.page .services-list li div{
+/* 		font-weight: bold; */
+	}
+		
+	/* *** Pay My Bill page | Pay my bill review | manage auto pay *** */
+	#payMyBillPage fieldset div:first-child .credit-container, 
+	#payMyBillReviewPage fieldset div:first-child .credit-container,
+	#servicesPaymentInfo .credit-container{
+		height: 50px;
+	}
+	/* TODO : defect #870 */
+	#payMyBillPage .history{
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-right:  3%;
+		padding-left:  3%;
+	}
+	#payMyBillPage .history a{
+		line-height: 18px;
+	}
+	#payMyBillPage fieldset div:first-child .credit-container{
+		top: 35px;
+	}
+	#payMyBillPage .dollar, 
+	#i18n_payMyBillReviewAmountInput,
+	#servicesPaymentAmountInput.dollar{
+		background-size: 22px 22px;
+		background-position-y: 11px;
+	}
+	#payMyBillPage .sub-page, 
+	#payMyBillReviewPage .sub-page, 
+	#manageAutopayPage .sub-page, 
+	#servicesPaymentPage .sub-page,
+	#resetVoiceMailPwdConfirmationPage .sub-page{
+		margin-top: 0px;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-top: 20px;
+		padding-right:  3%;
+		padding-left:  3%;
+		padding-bottom: 40px;
+	}
+	#servicesPaymentPage .sub-page{
+		margin-top: 40px;
+	}
+	
+	#servicesPaymentPage .credit-container {
+		display: table-cell;
+	}
+	#payMyBillPage .sub-page{
+		margin-top: -15px;
+		padding-bottom: 5px;
+	}
+	#payMyBillPage .amount-container{ 
+		top: -25px;
+	}
+	#payMyBillReviewPage .amount-container,
+	#servicesPaymentPage .amount-container{
+		top: -50px;
+	}
+	#payMyBillPage .query, #manageAutopayPage .query, #servicesPaymentPage .query{
+		background-size: 30px 30px;
+		margin-top: 17px;
+		width: 30px;
+		height: 30px;
+	}
+	#payMyBillPage .list-container .list-item, #payMyBillReviewPage .list-container .list-item,
+	#manageAutopayPage .list-container .list-item, #manageAutopayPage .list-container .list-item{
+		vertical-align: middle;
+		margin-bottom: 10px;
+	}
+	#payMyBillPage .list-container .checkbox-item{
+		height: 45px;
+		margin-bottom: 0px;
+	}
+	#payMyBillPage .list-container .list-item input[type='checkbox']+ span + label, #manageAutopayPage .list-container .list-item input[type='checkbox'] + span + label{
+		position: static;
+	}
+	#payMyBillPage .select-container select,
+	#manageAutopayPage .select-container select,
+	#servicesPaymentPage .select-container select {
+		padding-left: 13px;
+	}
+	#payMyBillPage .spacer{
+		height: 135px;
+	}
+	.cardExpirationDateControlWrapper {
+		margin-top: 5px;
+	}
+	
+	#transactionsHistoryPage tbody tr {
+		height: 40px;
+	}
+/* *** Pay my bil review page *** */
+	#payMyBillReviewPage .list-container .list-item{
+		margin: 0;
+		padding: 0;
+	}
+	#payMyBillReviewPage .list-container :first-child.list-item{
+		margin-bottom: 10px;
+	}
+	/* *** Pay my bil confirmation page | autopay confirmation *** */
+	#payMyBillConfirmationPage .text-box, #payMyBillConfirmationPage .text-box .text,
+	#manageAutopayConfirmationPage .text-box, #manageAutopayConfirmationPage .text-box .text{
+		padding-left: 0px;
+	}
+	#manageAutopayConfirmationPage .sub-page,
+	#payMyBillConfirmationPage .sub-page, 
+	#manageServicesConfirmationPage .sub-page{
+		margin-top: 40px;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-top: 20px;
+		padding-right:  3%;
+		padding-left:  3%;
+		padding-bottom: 40px;
+	}
+	#servicesConfirmationRecContainer{
+		margin-top: 20px;
+	}
+	/* *** auto pay page *** */
+	#manageServicesConfirmationPage .spacer{
+		height: 135px;
+	}
+	#manageServicesConfirmationPage .text-box {
+		margin-top: 17px;
+		margin-left: 0px;
+	}
+	#manageServicesConfirmationPage .confirmation-infos{
+		margin-top: 32px;
+		margin-bottom: 32px;
+	}
+	#manageAutopayPage .spacer{
+		height: 130px;
+	}
+	#manageAutopayPage .list-container .checkbox-item{
+		height: 35px;
+		margin-bottom: 0px;
+	}
+	#manageAutopayPage .sub-page{
+		padding-bottom: 17px;
+	}
+	/* *** My Plan *** */
+	#myPlanPage .list-container{
+/* 		margin-left: -3%; */
+/* 		margin-right: -3%; */
+/* 		width: 106%; */
+/* 		box-sizing: border-box; */
+		padding-left: 3%,;
+		padding-right: 3%;
+	}
+	#myPlanPage .medium-background.no-border-top{
+/* 		margin-left: -3%; */
+/* 		margin-right: -3%; */
+/* 		width: 106%; */
+/* 		box-sizing: border-box; */
+		padding-left: 3%;
+		padding-right: 3%;
+	}
+	
+	/* *** my profile *** */
+	#myProfilePage .spacer{
+		height: 135px;
+	}
+	#myProfilePage h3{
+		font-family: AvantGardeMedium, Helvetica, Arial, sans-serif;
+		margin-bottom: 22px;
+	}
+	#myProfilePage .profile-line-separator{
+		margin-top: 25px;
+		margin-bottom: 25px;
+	} 
+	/* *** Edit profile *** */
+	#editProfilePage .sub-page {
+		margin-top: 0px;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-top: 0px;
+		padding-right:  3%;
+		padding-left:  3%;
+		padding-bottom: 40px;
+	}
+	#editProfilePage label{
+		margin-top: 0px;
+		padding-top: 0px;
+	}
+	#editProfilePage .list-container{
+		padding-top: 10px;
+	}
+	#editProfilePage .list-container .list-item{
+		height: 75px;
+	}
+	#editProfilePage .list-container .list-item:first-child div, #editProfilePage .list-container .last-item>div{
+		height: 75px;
+		vertical-align: middle;
+	}
+	#editProfilePage .list-container .last-item>div{
+		margin-top: 5px;
+	}
+	#editProfilePage .list-container .group-item{
+		display: table-row;
+		margin-top: 5px;
+	}
+	#editProfilePage .select-container select, #editProfilePage .select-container .select-icon{
+		height: 51px;
+	}
+	#i18n_state{
+		width: 270px;
+	}
+	#editProfilePage .inline-button{
+		width: 48%;
+	}
+	#editProfilePage .inline-button:first-child{
+		margin-right: 10px;
+	}
+	#editProfilePage .list-container .last-item div:last-child label{
+		margin-top: 5px;
+	}
+	#editProfilePage input{
+		margin-top: 0px;
+	}
+	/* *** USAGE *** */
+	#usagePage .content {
+		margin-top: 100px;
+	}
+	#usagePage .header{
+		padding-top: 15px;
+	}
+	#usagePage .spacer{
+		height: 135px;
+	}
+	#usagePage .description {
+		margin-bottom: 12px;
+	}
+	#usagePage .reducedBar{
+		width: 100%;
+	}
+	#usagePage .reducedBar .progress, #usagePage .progress, #usagePage .reducedBar .progress>span, #usagePage .progress>span{
+		height: 30px;
+	}
+	#usagePage .reducedBar .rightBar .progress{
+		width: 30px;
+	}
+	#usagePage .reducedBar .progress > span::before{
+		height: 40px;
+	}
+	
+	#usagePage table tr {
+		height: 70px;
+	}
+	#usagePage table td {
+		background-size: 50px;
+	}
+	
+	#usagePageForm{
+		height: 78px;
+		vertical-align: middle;
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-left:  3%;
+		padding-right:  3%;
+		width: 106%;
+		text-align: center;
+	}
+	#usagePageForm fieldset{
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	#usagePageForm label{
+		display: block;
+		margin: 23px 0 0 0;
+	}
+	#usagePage .select-container {
+		right: 15px;
+		border-bottom: 0px;
+		width: auto;
+	}
+	#usagePage .select-container .select-icon {
+		right: 0px;
+		height: 51px;
+		width: 31px;
+	}
+/* 	#usagePage .select-container select { */
+/* 		height: 28px; */
+/* 	} */
+	
+	#usagePage fieldset{
+		height: 50px;
+	}
+	#usagePage table{
+		margin-left: -3%;
+		margin-right: -3%;
+		width: 106%;
+		box-sizing: border-box;
+		padding-left:  3%;
+		padding-right:  3%;
+		width: 106%;
+	}
+	/************************ CUSTOMER CARE CHAT OVERLAY **********************/
+	#wp8_navbar img{
+		height: 115px;
+	}
+	#contentMessage img{
+		top: 200px;
+	}
+	/************************ CUSTOMER CARE CHAT **********************/
+	#supportChatPage .spacer {
+		height: 125px;
+	}
+	#i18n_chatEndButton {
+		padding: 0 22px 0 0;
+		background-size: 18px;
+	}
+	#chatInputLine {
+		height: 50px;
+	}
+	#i18n_chatInput {
+		height: 40px;
+	}
+	#i18n_chatSendButton {
+		height: 40px;
+	}
+
+
+	/*************************** FONT SIZE *************************/
+	.button, 
+	.large-button, 
+	.inline-button, 
+	.button-left, 
+	.button-right, 
+	.plum-button, 
+	.blue-button, 
+	.grey-button, 
+	.dark-grey-button {
+		font-size: 22px;
+		line-height: 49px;
+		height: 51px;
+	}
+	input, select, #usagePage .select-container select {
+		height: 51px;
+		line-height: 49px;
+	}
+	.back-button {
+		font-size: 18px;
+	}
+	.checkbox-label {
+		font-size: 18px;
+		line-height: 45px;
+	}
+	.input-label {
+		font-size: 18px;
+	}
+	.link {
+		font-size: 18px;
+	}
+	.page-subtitle {
+		font-size: 20px;
+	}
+	.page-title {
+		font-size: 26px;
+	}
+	.page-title.large {
+		font-size: 26px;
+	}
+	.page-title.largest {
+		font-size: 30px;
+	}
+	input, select {
+		font-size: 22px;
+	}
+	#footer .ui-nav {
+		font-size: 30px;
+	}
+	.xx-small {
+		font-size: 16px;
+	}
+	.x-small {
+		font-size: 17px;
+	}
+	.small {
+		font-size: 18px;
+	}
+	.medium {
+		font-size: 19px;
+	}
+	.large {
+		font-size: 20px;
+	}
+	.x-large {
+		font-size: 21px;
+	}
+	.xx-large {
+		font-size: 25px;
+	}
+	.xxx-large {
+		font-size: 28px;
+	}
+	.header .x-small {
+		font-size: 16px;
+	}
+	#footer .ui-nav, #footer .ui-nav-inner {
+		font-size: 42px;
+	}
+	/*************************** HOME PAGE FONT SIZE *************************/
+	.hi {
+		font-size: 30px;
+	}
+	#daysLeft {
+		font-size: 64px;
+	}
+	#i18n_daysLeft {
+		font-size: 16px;
+	}
+	#refuelDate {
+		font-size: 30px;
+	}
+	#i18n_homeWhyNot {
+		font-size: 21px;
+	}
+	#homeAutoPay {
+		font-size: 25px;
+	}
+	#homeTitle {
+		font-size: 18px;
+	}
+	#i18n_homeLogOutButton {
+		font-size: 17px;
+	}
+	/*************************** EULA FONT SIZE ***************************/
+	#i18n_eulaChekBoxText {
+/* 		font-size: 13px!important; */
+		line-height: 14px;
+	}
+	#eulaDisclamerPage .checkbox-label {
+/* 		font-size: 13px!important; */
+		line-height: 14px;
+		margin-top: 0px!important;
+}
+	/*************************** Login *************************/
+	#i18n_loginRememberMeLabel {
+		font-size: 20px;
+		line-height: 22px;
+		padding-top: 0;
+	}
+	/*************************** CHAT FONT SIZE *************************/
+	#i18n_chatSendButton {
+		font-size: 17px;
+	}
+	#i18n_chatInput {
+		font-size: 16px;
+	}
+	/*************************** ZALERT FONT SIZE *************************/
+	.zalert-header {
+		font-size: 64px;
+	}
+}
+@media screen and (min-width: 720px) {
+	
+	.inline-error {
+		margin: 25px 0px 0 0px;
+	}
+	.inline-error .warning {
+		font-size: 38px
+	}
+	
+	.header {
+		height: 59px;
+		margin: 0;
+	}
+	.header .left {
+		margin: 0;
+	}
+	.header .right {
+		margin: 0;
+	}
+	.page.no- {
+		top: 59px;
+	}
+	h1 {
+		margin-top: 100px;
+	}
+	h2 {
+/* 		margin-top: 90px; */
+	}
+	label {
+		padding: 4px 0 4px 0;
+		margin: 15px 0 0 0;
+	}
+	input {
+		text-indent: 10pt;
+		height: 68px;
+		margin: 4px 0 0 0;
+	}
+	form {
+		margin: 0;
+	}
+	iframe{
+		height: 700px;
+	}
+	
+	.page.failed_to_load:AFTER {
+		top: 240px;
+	}
+	
+	/*  EULA PAGE*/
+	#eulaDisclamerPage td.eulaBoxWrap {
+		width : 46px;/*Checkbox widht*/
+	}
+	#loginRememberMe+span, #payMyBillAutoPayCheckBox+span, #termsAndConditions+span, #manageAutopayTermsAndConditions+span, #eulaChekBox+span, #servicesPaymentTermsAndConditions+span {
+		background-size: 40px 40px;
+		width: 44px;
+		height: 44px;
+	}
+	
+	#loginRememberMe:checked+span, #eulaChekBox:checked+span, #payMyBillAutoPayCheckBox:checked+span, #termsAndConditions:checked+span, #manageAutopayTermsAndConditions:checked+span, #servicesPaymentTermsAndConditions:checked+span {
+		background-size: 40px 40px;
+		width: 44px;
+		height: 44px;
+	}
+	#eulaDisclamerPage .link {
+		margin: 15px 0;
+	}
+	.spacer{
+		height: 180px;
+	}
+	.button-bar {
+		margin: 0;
+	}
+	.button {
+		vertical-align: middle;
+		margin: 0;
+		padding-top: 0;
+		height: 80px;
+	}
+	.large-button {
+		height: 80px;
+	}
+	.blockui_box {
+		background-size: 40px;
+		min-height: 3em;
+		text-indent: 40px;
+	}
+	
+	#usagePageForm label{
+		display: block;
+		margin: 8px 0 0 0;
+	}
+	
+	
+	#loginHello {
+		display: block;
+		width: 247px;
+		height: 71px;
+		background-image: url("../img/windows_phone/large/hello_h1.png");
+/* 		background-image: url("../img/aio_big_logo_home.png"); */
+		background-size: auto 71px;
+		background-repeat: no-repeat;
+		margin: 0;
+	}
+	#loginHello span {
+		display: none;
+	}
+	#signUpHeading {
+		width: 203px;
+		height: 55px;
+		background-image: url("../img/windows_phone/large/sign_up_h1.png");
+		margin: 0;
+	}
+	#signUpHeading  span {
+		display: none;
+	}
+	.forgotPwdHeading{
+		background-image: url("../img/windows_phone/large/forgot_password.png");
+		width: 488px;
+		height: 55px;
+	}
+	.forgotPwdHeading span{
+		display: none;
+	}
+	#resetPwdHeading {
+		width: 458px;
+		height: 44px;
+		background-image: url("../img/windows_phone/large/reset_password.png");
+	}
+	#resetPwdHeading span{
+		display: none;
+	}
+	#setPwdHeading {
+		width: 455px;
+		height: 42px;
+		background-image: url("../img/windows_phone/large/create_password_h1.png");
+		margin: 0;
+	}
+	#setPwdHeading  span {
+		display: none;
+	}
+	form .list-container .list-item {
+		margin-top: 10px;
+	}
+	#loginSignUpMessageContainer {
+		display: block;
+	}
+	#i18n_loginSignUpNewTo {
+		position: static;
+		top: 0px;
+		float: left;
+		text-align: right;
+		margin: 0;
+		width: 50%;
+		display: block;
+		vertical-align: top;
+		padding-top: 50px;
+	}
+	#loginMainLogo {
+		height: 70px;
+		padding-top: 30px;
+	}
+	#i18n_loginSignUpBrand {
+		display: block;
+		width: 50%;
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		float: left;
+		display: block;
+	}
+	#i18n_loginSignUpMessage {
+		display: block;
+		margin: 0 auto;
+		clear: both;
+		width: 50%;
+		font-weight: lighter;
+		top : 20px;
+		text-align: justify;
+	}
+	#forgotPwdQuestionPageForm{
+		margin-top: 70px;
+	}
+/* 	#loginRememberMe+span,  */
+/* 	#payMyBillAutoPayCheckBox+span,  */
+/* 	#termsAndConditions+span, */
+/* 	#manageAutopayTermsAndConditions+span, */
+/* 	#servicesPaymentTermsAndConditions+span  { */
+/* 		background-size: 32px 32px; */
+/* 		width: 44px; */
+/* 		height: 44px; */
+/* 	} */
+/* 	#loginRememberMe:checked+span,  */
+/* 	#payMyBillAutoPayCheckBox:checked+span,  */
+/* 	#termsAndConditions:checked+span, */
+/* 	#manageAutopayTermsAndConditions:checked+span, */
+/* 	#servicesPaymentTermsAndConditions:checked+span  { */
+/* 		background-size: 32px 32px; */
+/* 	} */
+	#i18n_loginRememberMeLabel {
+		padding-top: 8px;
+	}
+
+	/*Sign up*/
+	.intro-message {
+		margin: 0;
+	}
+	.inline-button {
+		height: 80px;
+	}
+	.page {
+		box-sizing: border-box;
+		margin-top: 50px;
+/* 		padding-left: 38px; */
+/* 		padding-right: 38px; */
+	}
+	/* **** LOGIN **** */
+	#loginPage .large-button {
+		margin: 60px 0 0 0;
+	}
+	#loginPage form .list-container .first-item {
+		margin-top: 40px;
+	}
+	#loginPage .form-last-line {
+		margin-top: 40px;
+	}
+	#i18n_loginForgotPwdBtn {
+		width: auto;
+		margin-top: 58px;
+	}
+	#loginPage .sub-page {
+		margin-top: 50px;
+/* 		margin-left: -38px; */
+/* 		margin-right: -38px; */
+		padding-top: 40px;
+		padding-right: 38px;
+		padding-left: 38px;
+		padding-bottom: 143px;
+	}
+	/* *** HOME *** */
+	#homePage .page {
+		padding-left: 44px;
+	}
+	#homePage .sub-page {
+		padding-top: 40px;
+		padding-bottom: 160px;
+/* 		margin-right : -38px; */
+/* 		margin-left : -38px; */
+	}
+	#i18n_homeNeedHelpButton {
+		height: 58px;
+/* 		width: 158px; */
+ 		line-height: 58px;
+		margin-right: 25px;
+	}
+	.intro-message {
+		margin: 28px 0 0 0;
+	}
+	#signUpPage form {
+		margin-top: 40px;
+	}
+	.button-bar {
+		margin-top: 40px;
+	}
+	#homePage .spacer {
+		height: 200px;
+	}
+	#homeMainLogo {
+		height: 60px;
+		background-image: url("../img/windows_phone/large/zig_logo.png");
+	}
+	
+	#i18n_autoPayLearnMore {
+		padding-top: 8%;
+		padding-right: 10%;
+	}
+	#homeMaxLogo{
+		float: right;
+		height: 72px;
+	}
+	#homePage .hi {
+		font-weight: bold;
+		padding-top: 64px;
+		padding-bottom: 18px;
+	}
+	#i18n_daysLeft {
+		text-align: center;
+	}
+	#homePage .refuel-text-container {
+		padding-left: 32px;
+	}
+	#homePage .days-left-container {
+		padding-right: 32px;
+	}
+	#homePage .credit-container {
+		margin-top: 64px;
+		margin-bottom: 45px;
+/* 		width: 220px; */
+	}
+	#homePage .refuel-button-container {
+		margin-top: 60px;
+		margin-bottom: 45px;
+	}
+	#homePage .auto-pay-container {
+		margin-bottom: 40px;
+	} 
+	#i18n_homeSetupAutoPayButton {
+		margin-top : 35px;
+	}
+	/* *** FORGOT PASSWORD *** */
+	#i18n_forgotPasswordQuestionAnswer {
+		width: 628px;
+	}
+
+	/* *** MY PLAN *** */
+	#myPlanPage .spacer{
+		height: 160px;
+	}
+	#myPlanPage .list-container{
+/* 		margin-left: -38px; */
+/* 		margin-right: -38px; */
+		padding-top: 25px;
+		padding-left: 38px;
+		padding-right: 38px;
+	}
+	#myPlanPage .text.plan-desc{
+		padding-left: 30px;
+	}
+	#myPlanPage ul.services-list{
+		padding-left: 40px;
+	}
+	#myPlanPage .medium-background.no-border-top{
+/* 		margin-left: -38px; */
+/* 		margin-right: -38px; */
+	}
+	/* *** USAGE *** */
+	#usagePage .rightBar {
+		width: 92px;
+	}
+	#usagePage .spacer{
+		height: 180px;
+	}
+	#usagePage .content {
+		margin-top: 200px;
+	}
+	#usagePage h4{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	#usagePage .description {
+		margin-bottom: 20px;
+	}
+	#usagePage .reducedBar{
+		width: 100%;
+	}
+	#usagePage .reducedBar .progress, #usagePage .progress, #usagePage .reducedBar .progress>span, #usagePage .progress>span{
+		height: 40px;
+	}
+	#usagePage .reducedBar .progress > span::before{
+		height: 40px;
+	}
+	#usagePage .reducedBar .rightBar .progress{
+		width: 40px;
+	}
+	
+	#usagePage table tr {
+		height: 90px;
+	}
+	#usagePage table td {
+		background-size: 70px;
+	}
+	
+	#usagePageForm{
+		height: 75px;
+/* 		margin-left: -38px; */
+/* 		margin-right: -38px; */
+		padding-left: 38px;
+		padding-right: 38px;
+/* 		width: 732px; */
+	}
+	#usagePageForm label{
+		text-align: left;
+	}
+	#usagePage .select-container {
+		right: 15px;
+		width: auto;
+		border-bottom: 0px;
+	}
+	#usagePage .select-container .select-icon {
+		right: 0px;
+		height: 50px;
+		width: 36px;
+	}
+	#usagePage .select-container select {
+		height: 50px;
+	}
+	#usagePage table{
+/* 		margin-left: -38px; */
+/* 		margin-right: -38px; */
+		padding-left: 38px;
+		padding-right: 38px;
+/* 		width: 732px; */
+	}
+	/* *** ABOUT USAGE *** */
+	#aboutUsagePage h4{
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+	#aboutUsagePage .text{
+		margin-bottom: 24px;
+	}
+	.ie_workaround_bottom_margin_transaction_link {
+		height : 25px;
+	}
+	#payMyBillPage .spacer{
+		height: 180px;
+	}
+	
+	#payMyBillPage .query, #manageAutopayPage .query, #servicesPaymentPage .query {
+		background-size: auto 45px;
+		margin-top: 17px;
+		width: 45px;
+		height: 45px;
+	}
+
+	#transactionsHistoryPage tbody tr {
+		height: 60px;
+	}
+	
+	#payMyBillPage .history a {
+		line-height: 22px;
+	}
+	.list-container-title, .list-container .first-item{
+		line-size: 35px;
+	}
+	#payMyBillPage .sub-page, 
+	#payMyBillReviewPage .sub-page, 
+	#manageAutopayPage .sub-page,
+	#servicesPaymentPage .sub-page,
+	#resetVoiceMailPwdConfirmationPage .sub-page{
+/* 		margin-left: -40px; */
+/* 		margin-right: -40px; */
+		padding-top: 40px;
+	}
+	#payMyBillPage .amount-container{
+		top: -55px;
+	}
+	#payMyBillReviewPage .amount-container,
+	#servicesPaymentPage .amount-container{
+		top: -80px;
+	}
+	#payMyBillPage .dollar, 
+	#i18n_payMyBillReviewAmountInput,
+	#servicesPaymentAmountInput.dollar{
+		background-size: 32px 32px;
+		background-position-y: 14px;
+		padding-left: 30px;
+	}
+	/* *** AUTOPAY *** */
+	#manageAutopayPage .spacer{
+		height: 180px;
+	}
+	#manageAutopayPage .list-container .list-item{
+		height: 80px;
+	}
+	/* *** PAY MY BILL AND REVIEW *** */
+	#manageServicesPage .innerPage{
+		margin-top: 0px;
+	}
+	/* *** PAY MY BILL AND REVIEW *** */
+	#manageAutopayPage .list-container .list-item label{
+		line-height: 80px;
+	}
+	#payMyBillPage .list-container .list-item{
+		margin-bottom: 30px;
+	}
+	#payMyBillPage .list-container .checkbox-item{
+		margin-bottom: 0px;
+	}
+	#payMyBillPage .select-container select,
+	#payMyBillPage .select-container .select-icon,
+	#manageAutopayPage .select-container select,
+	#manageAutopayPage .select-container .select-icon,
+	#servicesPaymentPage .select-container select,
+	#servicesPaymentPage .select-container .select-icon{
+		height: 68px;
+		line-height: normal;
+	}
+	.cardExpirationDateControlWrapper {
+		margin-top: 5px;
+	}
+	/* *** Pay my bil confirmation page | autopay confirmation *** */
+	#payMyBillConfirmationPage .spacer, #manageAutopayConfirmationPage .spacer{
+		height: 200px;
+	}
+	#payMyBillConfirmationPage .text-box, #manageAutopayConfirmationPage .text-box{
+		margin-bottom: 40px;
+	}
+	#payMyBillConfirmationPage .text-box .text, #manageAutopayConfirmationPage .text-box .text{
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+	#payMyBillConfirmationPage .text-box li.marginbot{
+		margin-bottom: 30px; 
+	}
+	#payMyBillConfirmationPage .sub-page, 
+	#servicesReviewPage .sub-page, 
+	#manageServicesPage .sub-page, 
+	#manageAutopayConfirmationPage .sub-page, 
+	#manageServicesConfirmationPage .sub-page{
+/* 		margin-left: -40px; */
+/* 		margin-right: -40px; */
+/* 		padding-right: 40px; */
+/* 		padding-left: 40px; */
+		/*margin-top: 40px;
+		padding-top: 20px;
+		padding-right: 30px;
+		padding-left: 30px;
+		padding-bottom: 40px;*/
+	}
+	/* *** SERVICES CONFIRMATION *** */
+	#manageServicesConfirmationPage .spacer{
+		height: 180px;
+	}
+	#servicesConfirmationRecContainer{
+		margin-top: 35px;
+	}
+	/* *** *** */
+	.dark-background{
+		margin-left: -3%;
+		margin-right: -3%;
+		padding-bottom: 15px;
+		width: 106%;
+		box-sizing: border-box;
+	}
+	.list-container-title{
+		margin-top: 15px;
+	}
+	.page .title{
+		padding-left: 35px;
+	}
+	.page .plan-desc{
+		margin-top: 8px;
+	}
+	.page .extended, .page .reduced {
+		background-size: 24px 24px;
+		background-position-x: 3px;
+		background-position-y: 34px;
+	}
+	.page ul.services-list{
+		margin-top: 5px;
+		list-style-type: disc;
+	}
+	.page .services-list li div{
+/* 		font-weight: bold; */
+	}
+	.add-remove-rec {
+		width : 100px;
+		text-align: center;
+	}
+	
+	.ui-shop-icon {
+		width : 66px;
+		height: 60px;
+		background-size: 60px 60px;
+	}
+	.plus-minus-bar {
+		width : 132px;
+	}
+	.one-bar {
+		width: 66px;
+	}
+	
+	/* START OF WA*/
+	/* in MSIE the rel positioning change the size of the cell, so we need to use an abs/rel trick to center the icons*/
+	.plus-minus-bar,.one-bar {
+		height: 60px;
+		bottom: 0px;
+		position: relative;
+	}
+	.plus-minus-bar > div, .one-bar > div {
+		position: absolute;
+		bottom: -15px
+	}
+	/* END OF WA*/
+	
+	.page .title{
+		padding-left: 37px;
+	}
+	#myPlanPage .title.pointfill {
+		height: 60px;
+	}
+/* 	.plus-minus-bar { */
+/* 		width : 106px; */
+/* 		bottom: -12px; */
+/* 	} */
+/* 	.one-bar { */
+/* 		width : 55px; */
+/* 		bottom: -12px;   */
+/* 	} */
+/* 	.ui-shop-icon { */
+/* 		width: 55px; */
+/* 		height: 55px; */
+/* 		background-size: 50px 50px; */
+/* 		padding-left: 15px;  */
+/* 		padding-right: 15px;  */
+/* 	} */
+/* 	#myPlanPage .title.pointfill { */
+/* 		height: 55px; */
+/* 	} */
+	/* *** MORE *** */
+	#morePage .spacer {
+		height: 180px;
+	}
+/* 	#morePage .more-page-grid-table{ */
+/* 		width: 90%; */
+/* 		margin-left: 45px; */
+/* 	} */
+	#morePage .table-row {
+		box-sizing: border-box;
+	}
+	#morePage .table-cell {
+		box-sizing: border-box;
+		width: 290px;
+		height: 260px;
+		background-size: 290px 250px;
+ 		line-height: 40px;
+	}
+/* 	.more-page-grid-table { */
+/* 		box-sizing: border-box; */
+/* 		width: 100%; */
+/* 		margin: 0 50 0 50px; */
+/* 	} */
+	.more-page-list-table {
+		box-sizing: border-box;
+		width: 100%;
+		margin: 0;
+	}
+	/* *** MY PROFILE *** */
+	#myProfilePage .spacer{
+		height: 160px;
+	}
+	#myProfilePage .table-title{
+		margin-top: 30px;
+	}
+	#myProfilePage table{
+		margin-top: 25px;
+		margin-bottom: 35px;
+	}
+	#myProfilePage .button{
+		margin-top: 50px;
+	}
+	/* *** EDIT MY PROFILE *** */
+	#editProfilePage .spacer{
+		height: 180px;
+	}
+	#editProfilePage .list-container .list-item{
+		height: 120px;
+	}
+	#editProfilePage .sub-page{
+/* 		margin-left: -40px;  */
+/* 		margin-right: -40px; */
+/* 		padding-left: 40px;  */
+/* 		padding-right: 40px;  */
+	}
+	#editProfilePage .select-container select, #editProfilePage .select-container .select-icon{
+		height: 68px;
+	}
+	/* *** FOOTER *** */
+	#footer {
+		top: 100px;
+	 	line-height: 165px;
+	 	height: 165px;
+		background-size: 100%;
+	}
+	#footer .nav-block {
+ 		line-height: 165px;
+	}
+	#footer .ui-nav-inner{
+		background-size: 2px 70px;
+	}
+	#footer .ui-nav-icon{
+		background-size: auto 70px;
+		width: 70px;
+		height: 50px;
+		right: -75px;
+	}
+	#i18n_navigationHomeLink,
+	#i18n_navigationUsagesLink,
+	#i18n_navigationMyBillsLink,
+	#i18n_navigationMyPlanLink,
+	#i18n_navigationMoreLink
+	{
+		background-size: 100%;
+	}
+	/* *** Z-Alert *** */
+	#zAlert .zalert-popup {
+		width: 100%;
+		max-width: 80%;
+	}
+	
+	.title .plan-name {
+		white-space: nowrap;
+		display: table-cell;
+		max-width: 350px;/*TODO compute this dynamically*/
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	/************************ CUSTOMER CARE CHAT OVERLAY **********************/
+	#wp_quitButton img{
+		top: 34px;
+		right: 34px;
+		height: 32px;
+		width: 32px;
+	}
+	#wp8_navbar img{
+		height: 165px;
+		top: 100px;
+	}
+	#contentMessage img{
+		width: 70%;
+		top: 300px;
+	}
+	/************************ CUSTOMER CARE CHAT **********************/
+	#supportChatPage .spacer {
+		height: 180px;
+	}
+	#chatHeaderLine {
+		height: 35px;
+	}
+	#chatHeaderLine h3 {
+		height: 32px;
+ 		line-height: 32px;
+	}
+	#i18n_chatEndButton {
+		padding: 0 36px 0 0;
+		background-size: 30px;
+		height: 32px;
+ 		line-height: 32px;
+	}
+	#chatInputLine {
+		height: 100px;
+	}
+	#i18n_chatInput {
+		height: 80px;
+	}
+	#i18n_chatSendButton {
+		height: 80px;
+	}
+
+
+	/*************************** FONT SIZE *************************/
+	.button, 
+	.large-button, 
+	.inline-button, 
+	.button-left, 
+	.button-right, 
+	.plum-button, 
+	.blue-button, 
+	.grey-button, 
+	.dark-grey-button {
+		font-size: 40px;
+		line-height: 80px;
+	}
+	.back-button {
+		font-size: 25px;
+	}
+	.checkbox-label, .checkbox-item a, .checkbox-item span {
+		font-size: 26px;
+	}
+	.input-label {
+		font-size: 35px;
+	}
+	.link {
+		font-size: 28px;
+	}
+	.page-subtitle {
+		font-size: 30px;
+	}
+	.page-title {
+		font-size: 45px;
+	}
+	.page-title.large {
+		font-size: 56px;
+	}
+	.page-title.largest {
+		font-size: 58px;
+	}
+	input, select {
+		font-size: 32px;
+	}
+	#footer .ui-nav, #footer .ui-nav-inner {
+		font-size: 60px;
+	}
+	.xx-small {
+		font-size: 16px;
+	}
+	.x-small {
+		font-size: 18px;
+	}
+	.small {
+		font-size: 24px;
+	}
+	.medium {
+		font-size: 26px;
+	}
+	.large {
+		font-size: 27px;
+	}
+	.x-large {
+		font-size: 29px;
+	}
+	.xx-large {
+		font-size: 35px;
+	}
+	.xxx-large {
+		font-size: 39px;
+	}
+	.header .x-small {
+		font-size: 24px;
+	}
+	/*************************** HOME PAGE FONT SIZE *************************/
+	.hi {
+		font-size: 34px;
+	}
+	#daysLeft {
+		font-size: 86px;
+	}
+	#i18n_daysLeft {
+		font-size: 18px;
+	}
+	#refuelDate {
+		font-size: 32px;
+	}
+	#i18n_homeWhyNot {
+		font-size: 38px;
+	}
+	#homeAutoPay {
+		font-size: 40px;
+	}
+	#homeTitle {
+		font-size: 28px;
+	}
+	#i18n_homeLogOutButton {
+		font-size: 28px;
+	}
+	/*************************** CHAT FONT SIZE *************************/
+	#i18n_chatSendButton {
+		font-size: 30px;
+	}
+	#i18n_chatInput {
+		font-size: 28px;
+	}
+	/*************************** EULA FONT SIZE ***************************/
+	#i18n_eulaChekBoxText {
+		line-height: 18px;
+	}
+	#eulaDisclamerPage .checkbox-label {
+		font-size: 20px;
+		line-height: 22px;
+	}
+	/*************************** Login *************************/
+	#i18n_loginRememberMeLabel {
+		font-size: 30px;
+		line-height: 33px;
+	}
+	/*************************** ZALERT FONT SIZE *************************/
+	.zalert-header {
+		font-size: 64px;
+	}
+	/*************************** BLOCKUI FONT SIZE ************************/
+	.blockui_box {
+		background-size: 40px;
+		min-height: 36px;
+		line-height: 36px;
+		text-indent: 40px;
+ 		font-size: 36px;
+	}
+}

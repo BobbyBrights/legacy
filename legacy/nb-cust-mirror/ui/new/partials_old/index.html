@@ -1,0 +1,36 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="nbApp"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" ng-app="nbApp"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" ng-app="nbApp"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="nbApp"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Novaball</title>
+    <meta name="description" content="">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width">
+    <link href="/assets/styles/main.css" rel="stylesheet"/>
+</head>
+<body ng-class="$root.pageClass">
+<div class="navbar navbar-fixed-top" role="navigation">
+    <div ui-view="topNavBar"></div>
+</div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div ui-view="banner"></div>
+<div ui-view="main"></div>
+<div ui-view="footer"></div>
+<!--[if lt IE 9]>
+<script src="/assets/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/assets/bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- Concatenated JS -->
+<script src="/assets/js/dist/built.js"></script>
+
+</body>
+</html>

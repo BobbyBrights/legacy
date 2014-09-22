@@ -1,0 +1,58 @@
+
+// Numbers
+.lotto-line {
+  display: table;
+  width: 100%;
+}
+
+.lotto-number {
+  border-radius: 50%;
+  float: left;
+  width: 2em;
+  height: 2em;
+  margin: 4px 5px 0 0;
+  background-color: #F90;
+  padding: 5px 0 0 2px;
+  text-align: center;
+  font-weight: bold;
+}
+
+// Dynamic coloring
+$class-slug: number !default;
+
+@for $i from 1 through 46 {
+  // This function changes ball color every 5 balls
+  @if $i == 1 {
+
+  }
+
+  $fg-color: #FFF;
+  $bg-color: #000080 !default;
+
+  @if $i % 6 == 0 {
+    $bg-color: #994;
+  } @else {
+    @if $i % 5 == 0 {
+      $bg-color: #018;
+    } @else {
+      @if $i % 4 == 0 {
+        $bg-color: #930;
+      } @else {
+        @if $i % 3 == 0 {
+          $bg-color: #190;
+        } @else {
+          @if $i % 2 == 0 {
+            $bg-color: #890;
+          } @else {
+            $bg-color: #F90;
+          }
+        }
+      }
+    }
+  }
+
+  .#{$class-slug}-#{$i} {
+    background-color: $bg-color;
+    color: $fg-color;
+  }
+}

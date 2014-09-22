@@ -1,0 +1,379 @@
+/* Sinalysis Custom Stylesheet 
+ *
+ * Developed by: Stephen McElhinney (c) 2013
+ */
+@import url('../flatstrap/assets/css/bootstrap-responsive.min.css');
+@import url('webfonts/helvetica/stylesheet.css');
+@import 'default';
+@import 'menu';
+
+// Mixins
+@import "_mixins";
+
+// Custom Synalysis Styles
+$navbar-height:		195px;
+$navbar-bg-color:	#00a4e4; 
+$navbar-fg-color:	#FFF; 
+
+
+// Modify navbar styles 
+.navbar-synalysis {
+	line-height: $navbar-height / 2;	
+	@include box-shadow(0, 0);
+	background-color: $navbar-bg-color!important;
+	color: $navbar-fg-color;
+	.brand {
+		@media (max-width: 767px) {
+			display: none;
+		}
+		color: $navbar-fg-color;
+		background-image: url('../img/logo.png');
+		padding-left: 5em; padding-right: 2em;
+		background-repeat: no-repeat;
+		font-size: 2.0em;
+		text-shadow: none;
+		//font-family: 'Helvetica Bold', sans-serif; letter-spacing: 0;
+		span {
+			font-size: 0.6em; vertical-align: top; line-height: 5em;
+		}
+	}
+	ul.nav {
+		line-height: $navbar-height / 2;
+		> li {
+			line-height: $navbar-height / 4;
+			a {
+				color: $navbar-fg-color;
+				line-height: $navbar-height / 2;
+				font-size: 1.2em;
+				&.dropdown-toggle {
+					b.caret {
+						color: $navbar-fg-color!important;
+						line-height: $navbar-height; margin-top: $navbar-height / 4;
+					}
+				}
+			}
+		}
+	}
+}
+
+p.lead {
+	letter-spacing: 0; 
+}
+.navbar-inverse .nav li.dropdown > .dropdown-toggle .caret{
+	color: $navbar-fg-color!important;
+}
+
+div.social-links {
+	padding: ($navbar-height * 0.4)/2 0;  
+	ul {	
+		display: table; margin: 0 auto;	
+		li { 
+			list-style-type: none; float: left;
+			a {			
+				text-indent: -9999em;
+			    display: block; width: 36px; height: 36px; margin-right: 10px; background-repeat: no-repeat;
+			    
+			}	
+			&.linked_in {
+				a {
+					background-image: url('../img/icons/social/linkedin.png');
+					
+				}
+			}
+			&.twitter {
+				a {
+					background-image: url('../img/icons/social/twitter.png');
+					
+				}
+			}
+			&.facebook {
+				a {
+					background-position: 2px 2px; /* Something wrong with this icon, have to shift it slightly */
+					background-image: url('../img/icons/social/facebook.png');
+					
+				}
+			}
+		}
+	}
+
+}
+
+
+body {
+	@media (max-width: 767px) {
+		padding: 0;
+		div.social-links {
+			display: none;
+		}
+	}
+	font-family: 'Helvetica Light', sans-serif;
+	letter-spacing: 1px; 
+	&.inner {
+		padding-top: $navbar-height; 
+		@media (max-width: 979px){
+			padding-top: 0;
+			div.page-content {
+				padding: 6px;
+			}
+		}
+		footer {
+			@media (max-width: 979px){
+				padding: 5px;
+			}
+		}
+		div.container {
+			div.row > h1 {
+				padding-left: 30px;
+			}
+		}
+	}
+}
+
+div.carousel {
+	@media (max-width: 767px) {
+		margin: 0;
+	}
+	
+	div.item {
+		height: auto;
+	}
+	img {
+		
+		@media (max-width: 767px) {
+			max-width: 100%; height: auto;
+			margin-top: -1px;
+		}		
+	}
+	
+	div.carousel-caption {
+		@media (max-width: 767px) {
+			margin-top: auto!important;
+		}
+
+		h1, p, a {
+			background-color: $navbar-bg-color;
+		}
+		a {
+			@media (max-width: 767px) {
+				font-size: 0.75em;
+				padding: 5px;
+				float: left;
+			}
+
+			&:hover {
+				background-color: darken( $navbar-bg-color, 19%) ; 
+			}
+		}
+		h1, p {
+			display: inline-block; padding: 6px 12px; background-color: $navbar-bg-color; margin-bottom: 4px;
+		}
+		h1 {
+			@media (max-width: 767px) {
+				font-size: 1.25em;
+			}
+			font-family: 'Helvetica Bold', sans-serif; letter-spacing: 0; 
+		}
+		@media (max-width: 767px) {
+			p.lead {
+				visibility: hidden; height: 1px; font-size: 1px; padding: 0;
+			}
+		}
+	}	
+}
+
+
+.arrow_box:after {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #ffffff;
+	border-width: 20px;
+	left: 50%;
+	margin-left: -20px;
+}
+
+div.spotlights {
+	div.span4 {
+		padding-bottom: 5em; position: relative; 	
+		a {
+			font-size: 1.2em; color: $navbar-bg-color; text-decoration: none; 
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	@media (max-width: 767px) {
+	  display: none;
+	}	
+}
+
+// Homepage tabs 
+div.homepage-tabs {
+	background-color: #494949;
+	div.content {
+		padding: 2em 0;
+		 
+		div.tab {
+			color: #FFF; font-size: 2.0em; line-height: 1.2em;
+			display: none; 
+			@media (max-width: 767px) {
+				padding: 10px;
+	  		}
+	  		
+			&:first-child {
+				display: block;
+			}
+			@media (max-width: 767px) {
+				display: block;
+				font-size: 1.2em;
+			}
+		
+		}
+	}
+}
+
+div.footer-div {
+	padding-top: 1.4em;
+	@media (max-width: 767px){ 
+		padding-top: 0;
+	}
+}
+
+div.footer-menu {
+	ul { 
+		margin-left: 0;
+	li { 
+		list-style-type: none; margin: 0;
+		a {
+		display: block;
+		padding: 12px 6px; width: 100%; 
+		background-color: $navbar-bg-color;
+		color: $navbar-fg-color;
+		&:hover {
+			background-color: lighten($navbar-bg-color, 10%); text-decoration: none;
+		}
+				ul.dropdown-menu  { display: block; 
+
+			li { 
+		list-style-type: none;
+			
+			a {
+				
+				padding-left: 12px;
+				display: block;
+			}
+			}
+		}
+		span.caret { display: none;}
+		}
+	}
+	}
+}
+
+.navbar .nav .dropdown-toggle .caret {
+	margin-top: $navbar-height / 4;
+	@media (max-width: 979px){ 
+		margin-top: $navbar-height / 6;
+	}
+}
+
+.navbar-inverse .nav li.dropdown>.dropdown-toggle .caret {
+	border-top-color: #FFF; 
+	border-bottom-color: #FFF; 
+}
+
+.navbar-inverse .nav .active>a,
+.navbar-inverse .nav .active>a:hover,
+.navbar-inverse .nav .active>a:focus  {
+	color: $navbar-fg-color!important;
+	background-color: lighten($navbar-bg-color, 10%)!important;
+}
+
+
+.navbar-inverse .nav li.dropdown.open>.dropdown-toggle,
+.navbar-inverse .nav li.dropdown.active>.dropdown-toggle,
+.navbar-inverse .nav li.dropdown.open.active>.dropdown-toggle{
+	color: $navbar-fg-color!important;
+	background-color: $navbar-bg-color!important;
+
+}
+
+ul.dropdown-menu {
+	min-width: 260px; line-height: 30px!important; top: 65%;
+	li {
+		line-height: inherit; 
+		a {
+			line-height: 30px!important;
+			color: $navbar-bg-color!important;
+			@media (max-width: 979px){ 
+				color: $navbar-fg-color!important;
+			}
+			&:hover {
+				color: $navbar-fg-color!important;
+				background-color: $navbar-bg-color!important; 
+			}
+		}
+	}
+}
+// Responsive fixes
+@media (max-width: 767px) {
+	div.navbar {
+		margin: 0; 
+		div.navbar-inner {
+			padding: 0; margin: 0;
+		}
+	} 
+	footer {
+		border-top: 1px solid $navbar-bg-color; 
+		padding: 14px 5px ;
+	}
+}
+
+@media (max-width: 979px){
+	.navbar-inverse .nav-collapse .nav>li>a, .navbar-inverse .nav-collapse .dropdown-menu a {
+		color: #FFF; padding-left: 12px; 
+	}
+	.navbar-synalysis ul.nav {
+		line-height: $navbar-height / 3;
+		li {
+			line-height: inherit;
+			a {
+				line-height: inherit;
+			}
+		}
+	}
+}	
+
+div.mean-bar {
+	background-color: $navbar-bg-color !important;
+}
+
+nav.mean-nav {
+	background-color: $navbar-bg-color;
+	a.logo {
+		position: absolute; top: 4px; left: 8px; margin: 0; color: #FFF; font-size: 1.4em;
+		background-image: url("../img/logo.png"); line-height: 44px; background-size: 40px 40px; background-repeat: no-repeat; padding-left: 44px;	
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+.mean-container .mean-nav {
+	background-color: $navbar-bg-color;
+}        
+.mean-container .mean-nav ul li a.mean-expand:hover {
+	background: lighten($navbar-bg-color, 5%);
+}
+.mean-container .mean-nav ul li a:hover {
+	background: lighten($navbar-bg-color, 5%);
+}
+
+// Make sure this goes down the end of the file Stephen!

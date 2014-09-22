@@ -1,0 +1,17 @@
+<ion-view title="{{court.name}}">
+    <ion-content has-header="true" padding="false">
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="img/categories/{{court._category._id}}.jpg" />
+                <h2>{{court.name}}</h2>
+                <p>Category: {{court._category.name}}</p>
+            </div>
+            <google-map center="map.center" zoom="map.zoom" draggable="true"></google-map>
+            <a class="item item-icon-left assertive" href="#/tab/courts/{{court._id}}/book">
+                <i class="icon ion-clipboard"></i>
+                Book now
+            </a>
+            <div class="item item-text-wrap" ng-bind-html="court.description"></div>
+        </div>
+    </ion-content>
+</ion-view>

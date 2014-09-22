@@ -1,0 +1,17 @@
+<div class="container" ng-controller="SubscriptionResultController">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Results From Last Draw</h1>
+            <div id="last-draw-result">
+                <lottery-result-group ng-show="betsResult.last.length > 0" group="resultGroup" ng-repeat="resultGroup in betsResult.last"></lottery-result-group>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary view-button" ng-click="viewAllResult()">View all Result</button>
+            </div>
+        </div>
+        <div class="col-md-4" ui-view="rightSide"></div>
+    </div>
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<!-- /container -->

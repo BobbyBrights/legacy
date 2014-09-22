@@ -1,0 +1,35 @@
+<ion-view title="Dashboard">
+    <ion-content class="has-header padding">
+        <h1>Shows</h1>
+
+        <div class="list card" ng-repeat="show in shows">
+
+            <a href="#" ui-sref="#/shows/{{show.guid}}">
+                <div class="item item-image">
+                    <img src="{{show.image}}">
+
+                    <div class="strapline">
+                        <h2>{{show.name}}</h2>
+                    </div>
+                </div>
+            </a>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#" ui-sref="#/user/favorites/{{show.guid}}">
+                    <i class="icon ion-heart"></i>
+                    Favorite
+                </a>
+                <a class="tab-item" href="#" ui-sref="#/user/reviews/{{show.guid}}">
+                    <i class="icon ion-compose"></i>
+                    Review
+                </a>
+                <a class="tab-item" href="#"  ui-sref="#/user/reminders/{{show.guid}}">
+                    <i class="icon ion-ios7-clock"></i>
+                    Reminder
+                </a>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

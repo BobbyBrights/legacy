@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="author" content="Streamezzo AMDOCS" />
+<meta name="description" content="Mobile Self-Care" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no">
+
+<link rel="stylesheet" href="css/main.css" />
+<!-- <link rel="stylesheet" href="css/chooser.css" /> -->
+<!-- <link rel="stylesheet" href="css/typo_large.css" /> -->
+<!-- <link rel="stylesheet" href="css/typo_medium.css" /> -->
+<!-- [#if DEVICE] 
+<script src="js/hawk/hawk.js"></script>
+<!-- [#endif] -->
+<!-- [@if DEV] -->
+<!--<script src="hawk-debug.js"></script> -->
+<!-- style>
+body:AFTER {
+	content: 'version : @@VERSION@@';
+	position: absolute;
+	font-size: xx-small;
+	right: 10px;
+	top: 5px;
+}
+</style-->
+<!-- [@endif] -->
+
+<!-- jQuery and plugins -->
+
+<!-- [$if OPT] 
+<script src="js/jquery-1.8.2.min.js"></script>
+<!-- [$endif] -->
+<!-- [$if NO_OPT] -->
+<script src="js/jquery-1.8.2.js"></script>
+<!-- [$endif] -->
+<script src="js/jquery.i18n.min.js"></script>
+<!-- MVC Light FW -->
+<script src="js/app.mvc.js"></script>
+
+<script src="js/jquery.hashchange.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/lib/iscroll.js"></script>
+<script src="js/lib/touch-tap.js"></script>
+<!-- Application scripts -->
+<!-- [$if OPT] 
+<script src="js/pages/pages-all.min.js"></script>
+<!-- [$endif] -->
+<!-- [$if NO_OPT] -->
+<script src="js/pages/eulapage.js"></script>
+<script src="js/pages/loginpage.js"></script>
+<script src="js/pages/signuppage.js"></script>
+<script src="js/pages/setpwdpage.js"></script>
+<script src="js/pages/forgotpwdphonepage.js"></script>
+<script src="js/pages/forgotpwdquestionpage.js"></script>
+<script src="js/pages/resetpwdpage.js"></script>
+<script src="js/pages/lockedpage.js"></script>
+<script src="js/pages/homepage.js"></script>
+<script src="js/pages/myplanpage.js"></script>
+<script src="js/pages/billdetailspage.js"></script>
+<script src="js/pages/paymybillpage.js"></script>
+<script src="js/pages/paymybillreviewpage.js"></script>
+<script src="js/pages/paymybillconfirmationpage.js"></script>
+<script src="js/pages/transactionshistorypage.js"></script>
+<script src="js/pages/shopservicespage.js"></script>
+<script src="js/pages/servicespaymentpage.js"></script>
+<script src="js/pages/servicesreviewpage.js"></script>
+<script src="js/pages/servicesconfirmationpage.js"></script>
+<script src="js/pages/deleteoneserviceconfirmationpage.js"></script>
+<script src="js/pages/manageautopayreviewpage.js"></script>
+<script src="js/pages/desactivateautopaypage.js"></script>
+<script src="js/pages/desactivateautopayconfirmationpage.js"></script>
+<script src="js/pages/manageautopaypage.js"></script>
+<script src="js/pages/manageautopayconfirmationpage.js"></script>
+<script src="js/pages/usagepage.js"></script>
+<script src="js/pages/aboutusagepage.js"></script>
+<script src="js/pages/editprofilepage.js"></script>
+<script src="js/pages/changepwdpage.js"></script>
+<script src="js/pages/changepwdconfirmationpage.js"></script>
+<script src="js/pages/myprofilepage.js"></script>
+<script src="js/pages/iframepage.js"></script>
+<script src="js/pages/morepage.js"></script>
+<script src="js/pages/supportchatpage.js"></script>
+<script src="js/pages/supportchatoverlaypage.js"></script>
+<script src="js/pages/aboutuspage.js"></script>
+<script src="js/pages/resetvmpwdpage.js"></script>
+<script src="js/pages/resetvmpwdconfirmpage.js"></script>
+<script src="js/pages/pinpage.js"></script>
+<script src="js/pages/remotepage.js"></script>
+<script src="js/pages/onlinesecuritypage.js"></script>
+<!-- [$endif] -->
+<script src="js/app.main.js"></script>
+<script src="js/chatclient.js"></script>
+<!-- <script src="js/lib/zdropdown.js"></script> -->
+
+
+<!-- Connector scripts -->
+<script src="js/app.connector.js"></script>
+
+<!-- Form validator -->
+<script src="js/app.form.validator.js"></script>
+<link rel="stylesheet" href="css/zAlert.css" />
+<script src="js/util.alerts.js"></script>
+<!-- Internationalization -->
+<script src="js/app.i18n.en.js"></script>
+<script src="js/app.i18n.es.js"></script>
+<script src="js/widget.pivot.js"></script>
+<script src="js/app.wp8.navigation.js"></script>
+<script type="text/javascript">
+// window.alert('A');
+	(function(ua, d) {
+		zAddScript = function(filename) {
+			var fileref = d.createElement('script')
+			fileref.setAttribute("type", "text/javascript");
+			fileref.setAttribute("src", filename);
+			d.getElementsByTagName('head')[0].appendChild(fileref);
+		}
+
+		var element = d.createElement('link');
+		element.type = 'text/css';
+		element.rel = 'stylesheet';
+		if (ua.match(/MSIE|IEMobile/gi)) {
+			//Mobile JavaScript
+			element.href = 'css/ie.css';
+			d.getElementsByTagName('head')[0].appendChild(element);
+		} else {
+			element.href = 'css/webkit.css';
+			d.getElementsByTagName('head')[0].appendChild(element);
+		}
+		//Desktop JavaScript
+	})(navigator.userAgent, document);
+	var application;
+	function myReady() {
+// 		window.alert('document ready');
+		//allow to add specific style depending on platform
+		var wp = navigator.userAgent.match(/MSIE|IEMobile/gi);
+		var android_le = navigator.userAgent.match(/Android 2/gi);
+		if(wp) {
+			$('body').addClass('wp');
+		} else if(android_le) {
+			$('body').addClass('android_le');
+		} else {
+			var iOS = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/i) ? true : false );
+			$('body').addClass(iOS?'iOS':'android');
+		}
+		//Patch force usage of gotoPage
+		$('a').each(function(index){
+			var $tel = $(this);
+			var href = $tel.attr('href');
+			if(href && href.indexOf('#ns-')!=-1){
+				$tel.removeAttr('href');
+				$tel.attr('data-href',href);
+				//replace with a click callback
+				$tel.tap(function(){
+					application.gotoPage(href.replace('#ns-', ''));
+				});
+			}
+		});
+// 		new FastClick($('#footer')[0]);
+		// Create App Object
+		application = new App();
+		if ($.browser.msie) {
+			$.support.cors = true;
+			if(navigator.userAgent.match(/IEMobile\/10/gi)){
+				application.setNavigationHandler(new WP8Navigation());
+			}
+		}
+		$(document).bind("BackKeyPressed", function() {
+			application.handleBack();
+		});
+
+		application.init();
+		
+		
+
+		//[@if DEV] 
+		$('.header').tap(function(){
+			var fileref = document.createElement('script');
+			fileref.setAttribute("type", "text/javascript");
+			fileref.setAttribute("src", "http://ec2-54-247-127-234.eu-west-1.compute.amazonaws.com:8080/target/target-script-min.js#myToken");
+			document.getElementsByTagName('body')[0].appendChild(fileref);
+			window.alert('Debug Injected');
+		});
+		//[@endif] 
+	}
+	
+	
+	var appSecureData = {login : "", pwd : "", eula : "false", showOverlay : "false" };
+	
+	window.restoreSecureData = function(doneCallback){
+				window.applicationStorage.getItem("secureData.login",function(value){
+					appSecureData.login = (value==null)?"":value;
+					window.applicationStorage.getItem("secureData.pwd",function(value) {
+						appSecureData.pwd = (value==null)?"":value;
+						window.applicationStorage.getItem("secureData.eula",function(value) {
+							appSecureData.eula = (value==null)?"false":value;
+							window.applicationStorage.getItem("secureData.showOverlay",function(value) {
+								appSecureData.showOverlay = (value==null)?"false":value;
+								window.applicationStorage.getItem("secureData.fontSize",function(value) {
+									appSecureData.fontSize = (value==null)?"Normal":value;
+									doneCallback();
+								});
+							});
+						});
+					});
+				});
+	}
+	
+	window.saveSecureData  = function(){
+// 			window.alert('saving data ....');
+// 			var value = JSON.stringify(appSecureData);
+// 			window.alert('saving data is ' + value);
+			window.applicationStorage.setItem("secureData.login",appSecureData.login);
+			window.applicationStorage.setItem("secureData.pwd",appSecureData.pwd);
+			window.applicationStorage.setItem("secureData.eula",appSecureData.eula);
+			window.applicationStorage.setItem("secureData.showOverlay",appSecureData.showOverlay);
+			window.applicationStorage.setItem("secureData.fontSize",appSecureData.fontSize);
+	}
+	
+	window.appSecureData = appSecureData;
+
+	if (typeof deviceapis !== "undefined") {
+// 		window.alert('There is a d Api');
+		deviceapis.ready(function() {
+// 			window.alert('Device Api ready');
+			deviceapis.webview.statusbar.show();
+			deviceapis.application.listenBackKey();
+			window.applicationStorage = {};
+			window.applicationStorage.setItem = function(key,value) {
+				deviceapis.context.save(key,value);
+			}
+			window.applicationStorage.getItem = function(key,callback) {
+				deviceapis.context.load(key,callback);
+// 				caldlback(value);
+			};
+			
+			window.restoreSecureData(function(){
+				if(navigator.userAgent.match(/Android 2./gi)){
+					myReady();
+				} else {
+					$(document).ready(myReady);
+				}
+			});
+		});
+	} else {
+// 		window.alert('No  d Api');
+		window.applicationStorage = {};
+		window.applicationStorage.setItem = function(key,value) {
+			if(window.localStorage) {
+				window.localStorage.setItem(key,value);
+			}
+		}
+		window.applicationStorage.getItem = function(key,callback) {
+			if(window.localStorage) {
+				var value = window.localStorage.getItem(key);
+			}
+			callback(value);
+		};
+		window.restoreSecureData(function(){
+			$(document).ready(myReady);
+		});
+		//PC Debug code
+		$(window).bind("keydown", function(e) {
+			if (e.which === 36/*touche debut*/) {
+				$(document).trigger("BackKeyPressed");
+			}
+		});
+	}
+	
+</script>
+
+<!--  [@if DEV] --
+  <script type="text/javascript" src="../test/jasmine/lib/jquery.mockjax.js"></script>
+  <script type="text/javascript" src="../test/jasmine/lib/jasmine-1.3.1/jasmine.js"></script>
+  <script type="text/javascript" src="../test/jasmine/lib/jasmine-1.3.1/jasmine-html.js"></script>
+  <script type="text/javascript" src="../test/jasmine/lib/jasmine-1.3.1/jasmine-console.js"></script>
+  <script type="text/javascript" src="../test/jasmine/lib/jasmine-1.3.1/jasmine-jquery-1.3.1.js"></script>
+  <script type="text/javascript" src="../test/jasmine/lib/jasmine-1.3.1/junit_reporter.js"></script>
+  <script type="text/javascript" src="../test/jasmine/spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="../test/jasmine/spec/test-pay.js"></script>
+  <script type="text/javascript" src="../test/jasmine/myRunner.js"></script>
+  <link rel="stylesheet" href="../test/jasmine/lib/jasmine-1.3.1/jasmine.css" />
+  <script>
+	window.JUNITResults = {};
+    window.JUNITResults.names = [];
+    window.JUNITResults.texts = [];
+    window.fs_path_separator = "\\";
+    window.__phantom_writeFile = function(filename, text) {
+     window.JUNITResults.names.push(filename);
+     window.JUNITResults.texts.push(text);
+    };
+    
+    window.callPhantom = function(data){
+    	if(data && data.cmd && data.cmd == 'capture'){
+    		console.log('taking screenshot ' + data.name);
+    	}
+    }
+  </script>
+<!-- [@endif] -->
+
+<title>Aio Self-Care</title>
+</head>
+<body role="application">
+	<!-- =============== -->
+	<!--     HEADER      -->
+	<!-- =============== -->
+	<div id="header" class="x-large">
+		<div class="left x-small fix-size">
+			<span class="i18n_headerAccount" data-i18n="HEADER_ACCOUNT"></span><span class="headerAccount"></span>
+		</div>
+		<div class="right x-small fix-size">
+			<span class="i18n_headerPhone" data-i18n="HEADER_PHONE"></span><span class="headerPhone"></span>
+		</div>
+	</div>
+	
+	<!--  ============ -->
+	<!--     EULA      -->
+	<!--  ============ -->
+	<div id="eulaDisclamerPage" class="page no-header no-footer" role="region">
+		<div>
+			<img id="eulaMainLogo" src="img/aio_big_logo_home.png" alt="Aio"/>
+			<div class="textCentered page-title largest" role="heading" aria-level="1">
+				<span id="i18n_LegalAgreement" class="textPlume">Legal Agreement</span>
+			</div>
+			<div id="eula_separator">
+				<!-- Can be changed in css (by hidding this and using bg image) -->
+				<img  src="img/black_line.png" width="100%" alt="black line" role="separator"/>
+			</div>
+			<div class="textCentered x-large">
+				<span id="i18n_LegalAgreementDesc" role="heading" aria-level="2">My Aio End User License Agreement</span>
+			</div>
+		</div>
+		<div class="eula_disclaimer_wrap medium">
+			<span id="i18n_EulaDisclamerText">
+			If you do not agree to the terms of this license, do not click the "accept" button or install or use the application.
+			This application is not intended for use by persons under the age of 13. If you are under 13 years old, you may not use this application or provide AIO with any personally identifiable information.  If you are 13 or older but not of legal age to enter into a contract, you should review these terms and conditions with your parent or guardian to make sure that you and your parent or guardian understand these terms and conditions.
+			</span>
+		</div>
+		
+		<div class="eulaFixedBottom dark-background">
+				<div class="textCentered un"><a id="i18n_eulaLink" class="link" role="link">My Aio End User License Agreement</a></div>
+				<div class="textCentered"><a id="i18n_ppLink" class="link" role="link">Privacy Policy</a></div>
+				<table class="boxTable">
+					<tr>
+						<td class="eulaBoxWrap verticalAlignedMiddle">
+							<input id="eulaChekBox" type="checkbox" role="checkbox" aria-required="true" aria-describedby="i18n_eulaChekBoxText"/>
+							<span></span>
+						</td>
+						<td class="verticalAlignedMiddle">
+							<label for="eulaChekBox" class="checkbox-label small">
+								<span id="i18n_eulaChekBoxText" class="x-small">By clicking the box, I acknowledge that I have read,
+								understand, and agree to the terms and conditions of the End User License Agreement.</span>
+							</label>
+						</td>
+					</tr>
+				</table>
+				<div >
+					<a class="inline-button blue-button button-left disabled" id="i18n_eulaAcceptButton" role="button" aria-disabled="true">Accept</a>
+					<a class="inline-button grey-button button-right" id="i18n_eulaDeclineButton" role="button">Decline</a>
+				</div>
+		</div>
+		<div class="eulaFixedBottomPlaceHolder">
+		</div>
+	</div>
+	
+	<!-- ============= -->
+	<!--     LOGIN     -->
+	<!-- ============= -->
+	<div id="loginPage" class="page no-header no-footer" role="region">
+		<div id="loginFirstPagePart">
+			<h1 id="loginHello" class="page-title largest" role="heading" aria-level="1">
+				<span>Hello</span>
+			</h1>
+			<form id="loginForm">
+				<ul class="list-container">
+					<li class="list-item first-item login-form">
+						<fieldset>
+							<label id="i18n_loginUsernameLabel" for="i18n_loginUsername" class="input-label" data-i18n="LOGIN_USERNAME_LABEL"></label>
+							<input id="i18n_loginUsername" type="text" autocorrect="off" autocapitalize="off" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="LOGIN_USERNAME_INPUT"/>
+						</fieldset>
+					</li>
+					<li class="list-item last-item login-form">
+						<fieldset>
+							<label id="i18n_loginPwdLabel" for="i18n_loginPwd" class="input-label" data-i18n="LOGIN_PWD_LABEL"></label>
+							<input id="i18n_loginPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="LOGIN_PWD_INPUT"/>
+						</fieldset>
+					</li>
+					<li class="form-last-line">
+						<input id="loginRememberMe" type="checkbox" role="checkbox" aria-describedby="i18n_loginRememberMeLabel" />
+						<span></span>
+						<label id="i18n_loginRememberMeLabel" for="loginRememberMe" class="checkbox-label" data-i18n="LOGIN_REMEMBER_ME_LABEL"></label>
+						<a id="i18n_loginBtn" class="inline-button blue-button disabled" role="button" aria-disabled="true" data-i18n="LOGIN_BTN"></a>
+						<button type="submit" class="hidden-submit-button" id="i18n_loginBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</form>
+			<div id="lockedlineError" class="inline-error">
+				<div class="warning">!</div>
+				<div class="error-text large">Your account is locked. Wait 15 mins and choose Forgot Password to reset.</div>
+			</div>
+			<a id="i18n_loginForgotPwdBtn" class="link" href="#ns-forgotPwdPhonePage" role="link" data-i18n="LOGIN_FORGOT_PWD_BTN"></a>
+			<div id="loginInlineError" class="inline-error">
+				<div class="warning">!</div>
+				<div class="error-text large">
+					Looks like your information is not correct. Please try again, or go
+					<a href="#ns-forgotPwdPhonePage" role="link">HERE</a>
+					if you forgot your username or password.
+				</div>
+			</div>
+			<div class="spacer" role="separator">
+				<div id="loginVersionNumber" class="xx-small" data-buildnb="@@VERSION@@"><span></span></div>
+			</div>
+		</div>
+		<div id="loginSignUp" class="sub-page sign-up">
+			<div id="loginSignUpMessageContainer">
+				<div id="i18n_loginSignUpNewTo" class="large" data-i18n="LOGIN_SIGN_UP_NEW_TO"></div>
+				<img id="loginMainLogo" src="img/aio_logo_login.png" alt="Aio" />
+				<div id="i18n_loginSignUpMessage" class="medium" data-i18n="LOGIN_SIGN_UP_MESSAGE"></div>
+			</div>
+			<a class="large-button blue-button" id="i18n_loginSignUpBtn" href="#ns-signUpPage" role="button" data-i18n="LOGIN_SIGN_UP_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =============== -->
+	<!--     SIGN UP     -->
+	<!-- =============== -->
+	<div id="signUpPage" class="page no-header no-footer" role="region">
+		<h2 id="signUpHeading" class="page-title large" role="heading" aria-level="1">
+			<span id="i18n_signUpHeading">Sign Up</span>
+		</h2>
+		<div class="intro-message xx-large" id="i18n_signUpText" data-i18n="SIGN_UP_TEXT"></div>
+		<form id="signUpPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item first-item">
+						<label id="i18n_signupUsernameLabel" for="i18n_signupUsername" class="input-label" data-i18n="SIGN_UP_USERNAME_LABEL"></label>
+						<input id="i18n_signupUsername" type="text" autocorrect="off" autocapitalize="off" role="textbox" aria-required="true" data-i18n-placeholder="SIGN_UP_USERNAME_INPUT"/>
+					</li>
+					<li class="list-item last-item">
+						<label id="i18n_signupPhoneNumberLabel" for="i18n_signupPhoneNumber" class="input-label" data-i18n="SIGN_UP_PHONE_LABEL"></label>
+						<input id="i18n_signupPhoneNumber" type="tel" maxlength="10" role="textbox" aria-required="true" data-i18n-placeholder="SIGN_UP_PHONE_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_signUpBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_signUpCancelBtn" href="#ns-loginPage" role="button" data-i18n="SIGN_UP_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_signUpBtn" role="button" aria-disabled="true" data-i18n="SIGN_UP_BTN"></a>
+		</div>
+		<div id="signUpInlineError" class="inline-error">
+			<div class="warning">!</div>
+			<div class="error-text large">
+				It looks like you already have an online account for this number. Please
+				<a href="#ns-loginPage" role="link">LOGIN</a>
+				or go
+				<a href="#ns-forgotPwdPhonePage" role="link">HERE</a>
+				if you've forgotten your username or password.
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =============== -->
+	<!--     SET PWD     -->
+	<!-- =============== -->
+	<div id="setPwdPage" class="page no-header no-footer" role="region">
+		<h2 id="setPwdHeading" class="page-title large" role="heading" aria-level="1">
+			<span>Create Password</span>
+		</h2>
+		<div class="intro-message xx-large" id="i18n_setPasswordText" data-i18n="SET_PWD_TEXT"></div>
+		<form id="setPwdPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item first-item">
+						<label id="i18n_setPasswordTmpPwdLabel" for="i18n_setPasswordTmpPwd" class="input-label" data-i18n="SET_PWD_TMP_PWD_LABEL"></label>
+						<input id="i18n_setPasswordTmpPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="SET_PWD_TMP_PWD_INPUT" />
+					</li>
+					<li class="list-item">
+						<label id="i18n_setPasswordPwdLabel" for="i18n_setPasswordPwd" class="input-label" data-i18n="SET_PWD_PWD_LABEL"></label>
+						<input id="i18n_setPasswordPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="SET_PWD_PWD_INPUT" />
+					</li>
+					<li class="list-item last-item">
+						<label id="i18n_setPasswordRePwdLabel" for="i18n_setPasswordRePwd" class="input-label" data-i18n="SET_PWD_REPWD_LABEL"></label>
+						<input id="i18n_setPasswordRePwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="SET_PWD_REPWD_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_setPasswordBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_setPasswordCancelBtn" href="#ns-loginPage" role="button" data-i18n="SET_PWD_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_setPasswordBtn" role="button" aria-disabled="true" data-i18n="SET_PWD_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ===================== -->
+	<!--     FORGOT PWD 1/2    -->
+	<!-- ===================== -->
+	<div id="forgotPwdPhonePage" class="page no-header no-footer" role="region">
+		<h2 class="forgotPwdHeading page-title large" role="heading" aria-level="1">
+			<span>Forgot Password</span>
+		</h2>
+		<div class="intro-message xx-large" id="i18n_forgotPasswordPhoneText" data-i18n="FORGOT_PWD_PHONE_TEXT"></div>
+		<form id="forgotPwdPhonePageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item">
+						<label id="i18n_forgotPasswordPhoneLabel" for="i18n_forgotPasswordPhone" class="input-label" data-i18n="FORGOT_PWD_PHONE_LABEL"></label>
+						<input id="i18n_forgotPasswordPhone" type="tel" class="vb" maxlength="10" role="textbox" aria-required="true" data-i18n-placeholder="FORGOT_PWD_PHONE_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_forgotPasswordPhoneBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_forgotPasswordPhoneCancelBtn" href="#ns-loginPage" role="button" data-i18n="FORGOT_PWD_PHONE_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_forgotPasswordPhoneBtn" role="button" aria-disabled="true" data-i18n="FORGOT_PWD_PHONE_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ===================== -->
+	<!--     FORGOT PWD 2/2    -->
+	<!-- ===================== -->
+	<div id="forgotPwdQuestionPage" class="page no-header no-footer" role="region">
+		<h2 class="forgotPwdHeading page-title large" role="heading" aria-level="1">
+			<span>Forgot Password</span>
+		</h2>
+		<div class="intro-message xx-large" id="i18n_forgotPasswordQuestionText" data-i18n="FORGOT_PWD_QUESTION_TEXT"></div>
+		<ul class="list-container">
+			<li class="list-item">
+				<label id="i18n_forgotPasswordQuestionPhoneLabel" class="text input-label" data-i18n="FORGOT_PWD_QUESTION_PHONE_LABEL"></label>
+				<div id="forgotPasswordQuestionPhone" class="value xxx-large"></div>
+			</li>
+			<li class="list-item">
+				<label id="i18n_forgotPasswordQuestionLabel" class="text input-label" data-i18n="FORGOT_PWD_QUESTION_LABEL"></label>
+				<div id="forgotPasswordQuestion" class="value new-line xxx-large"></div>
+			</li>
+		</ul>
+		<form id="forgotPwdQuestionPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item">
+						<label id="i18n_forgotPasswordQuestionAnswerLabel" for="i18n_forgotPasswordQuestionAnswer" class="input-label" data-i18n="FORGOT_PWD_QUESTION_ANSWER_LABEL"></label>
+						<input id="i18n_forgotPasswordQuestionAnswer" class="large-input vb" type="text" role="textbox" aria-required="true" data-i18n-placeholder="FORGOT_PWD_QUESTION_ANSWER_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_forgotPasswordQuestionBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_forgotPasswordQuestionCancelBtn" href="#ns-loginPage" role="button" data-i18n="FORGOT_PWD_QUESTION_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_forgotPasswordQuestionBtn" role="button" aria-disabled="true" data-i18n="FORGOT_PWD_QUESTION_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ===================================== -->
+	<!--     RESET PWD                         -->
+	<!-- (displayed after login with temp pwd) -->
+	<!-- ===================================== -->
+	<div id="resetPwdPage" class="page no-header no-footer pin-auth" role="region">
+		<h2 id="resetPwdHeading" class="page-title large" role="heading" aria-level="1">
+			<span>Reset Password</span>
+		</h2>
+		<div class="intro-message xx-large" id="i18n_resetPasswordText" data-i18n="RESET_PWD_TEXT"></div>
+		<form id="resetPwdPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item first-item">
+						<label id="i18n_resetPasswordTmpPwdLabel" for="i18n_resetPasswordTmpPwd" class="input-label" data-i18n="RESET_PWD_TMP_PWD_LABEL"></label>
+						<input id="i18n_resetPasswordTmpPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placholder="RESET_PWD_TMP_PWD_INPUT"/>
+					</li>
+					<li class="list-item">
+						<label id="i18n_resetPasswordPwdLabel" for="i18n_resetPasswordPwd" class="input-label" data-i18n="RESET_PWD_PWD_LABEL"></label>
+						<input id="i18n_resetPasswordPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="RESET_PWD_PWD_INPUT"/>
+					</li>
+					<li class="list-item last-item">
+						<label id="i18n_resetPasswordRePwdLabel" for="i18n_resetPasswordRePwd" class="input-label" data-i18n="RESET_PWD_REPWD_LABEL"></label>
+						<input id="i18n_resetPasswordRePwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="RESET_PWD_REPWD_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_resetPasswordBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_resetPasswordCancelBtn" href="#ns-loginPage" role="button" data-i18n="RESET_PWD_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_resetPasswordBtn" role="button" aria-disabled="true" data-i18n="RESET_PWD_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ================================== -->
+	<!--     LOCKED ACCOUNT                 -->
+	<!-- ================================== -->
+	<div id="lockedPage" class="page no-header no-footer" role="region">
+		<h2 class="page-title large" role="heading" aria-level="1">Account Locked</h2>
+		<div class="intro-message xx-large" id="i18n_lockedText" data-i18n="LOCKED_TEXT"></div>
+		<form id="lockedPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item">
+						<label id="i18n_lockedCcpNumberLabel" for="i18n_lockedCcpNumber" class="input-label" data-i18n="LOCKED_CCP_NUMBER_LABEL"></label>
+						<input id="i18n_lockedCcpNumber" type="text" role="textbox" aria-required="true" data-i18n-placeholder="LOCKED_CCP_NUMBER_INPUT"/>
+					</li>
+					<li class="list-item">
+						<label id="i18n_lockedPwdLabel" for="i18n_lockedPwd" class="input-label" data-i18n="LOCKED_PWD_LABEL"></label>
+						<input id="i18n_lockedPwd" type="password" role="textbox" aria-required="true" data-i18n-placeholder="LOCKED_PWD_INPUT"/>
+					</li>
+					<li class="list-item last-item">
+						<label id="i18n_lockedRePwdLabel" for="i18n_lockedRePwd" class="input-label" data-i18n="LOCKED_REPWD_LABEL"></label>
+						<input id="i18n_lockedRePwd" type="password" role="textbox" aria-required="true" data-i18n-placeholder="LOCKED_REPWD_INPUT"/>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<!-- TODO: temporary hard coded link since we don't have any unlock API -->
+			<a class="large-button blue-button disabled" id="i18n_lockedBtn" role="button" aria-disabled="true" data-i18n="LOCKED_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================== -->
+	<!--       CHAT OVERLAY       -->
+	<!-- ======================== -->
+	<div id="supportChatOverlayPage" class="page no-header" role="region">
+		<div id="imgOverlay" aria-live="assertive">
+			<div id="wp_quitButton"></div>
+			<div id="wp8_navbar"></div>
+			<div id="headMessage"></div>
+			<div id="contentMessage"></div>
+		</div>
+		<div class="page-bottom-margin over-navbar"></div>
+	</div>
+	<!-- ============= -->
+	<!--     HOME      -->
+	<!-- ============= -->
+	<div id="homePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+		<div class="home-top">
+			<div id="homeTitle">
+				My<img id="homeMainLogo" src="img/aio_logo_home.png" alt="Aio" />
+			</div>
+			<a class="logout medium" id="i18n_homeLogOutButton" role="button" data-i18n="HOME_LOGOUT"></a>
+			<img id="homeMaxLogo" src="img/max_logo.png" alt="Need help?" role="button" aria-hidden="true"/>
+			<a class="inline-button help medium" id="i18n_homeNeedHelpButton" href="#ns-morePage" role="button" data-i18n="HOME_NEED_HELP"></a>
+		</div>
+		<div class="hi" id="homeUserLogin">Hi !</div>
+		<div class="days-wrapper two-column-grid">
+			<div  class="column1 thirty">
+				<div class="days-left-container">
+					<div id="daysLeft" class="medium">00</div>
+					<div id="i18n_daysLeft"></div>
+				</div>
+			</div>
+			<div  class="column2 seventy">
+				<div class="refuel-text-container">
+					<div id="i18n_refuelText" class="medium" data-i18n="HOME_MISS_OUT"></div>
+					<div id="refuelDate"></div>
+					<div class="monthly-total-container medium">
+						<span id="i18n_monthlyTotalText"></span>
+					</div>
+				</div>
+				<div class="credit-container large">
+					<div>
+						<span id="i18n_myCreditText" data-i18n="HOME_MY_CREDIT"></span><span id="myCredit"></span>
+					</div>
+					<div>
+						<span id="i18n_iOweText" data-i18n="HOME_I_OWE"></span><span id="iOwe"></span>
+					</div>
+				</div>
+				<div class="refuel-button-container">
+					<a class="button blue-button" id="i18n_homeRefuelButton" href="#ns-payMyBillPage" role="button" data-i18n="HOME_REFUEL_BUTTON"></a>
+				</div>
+				<div class="bill-details-container">
+					<a class="link" id="i18n_billDetails" role="link" href="#ns-billDetailsPage" data-i18n="HOME_BILL_BUTTON"></a>
+				</div>
+			</div>
+		</div>
+		<div class="your-lines">
+			<div id="i18n_yourLineMessage" class="line-message"></div>
+			<div id="i18n_yourLineTitle"></div>
+			<div id="yourLines"></div>
+		</div>
+		<div class="sub-page">
+			<div class="two-column-grid">
+				<div class="column1 sixty">
+					<!--div class="auto-pay-container"-->
+					<div id="i18n_homeWhyNot" data-i18n="HOME_TRY_AUTO_PAY"></div>
+				</div>
+				<div class="column2 forty">
+					<a class="link" id="i18n_autoPayLearnMore" role="link" data-i18n="HOME_LEARN_MORE"></a>
+				</div>
+			</div>
+			<div class="homeSetupAutoPayButtonContainer">
+				<a class="large-button blue-button" id="i18n_homeSetupAutoPayButton" role="button" data-i18n="HOME_SETUP_AUTO_PAY"></a>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+		</div>
+	</div>
+	<!-- ============= -->
+	<!--     USAGE     -->
+	<!-- ============= -->
+	<div id="usagePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			
+			<div>
+				<h3 class="page-title" role="heading" aria-level="1" data-i18n="USAGE_TITLE_PAGE"></h3>
+				
+				<div id="usageSelectorInfo" class="multiline small" data-i18n="USAGE_MULTILINE_DESCRIPTION"></div>
+				
+				<div class="multiline select-multiline" style="display:none;">
+					<select id="usageMultilineSelectNumber" class="vb ap notValued" role="combobox" aria-required="true">
+						<option role="option" value="" data-i18n="USAGE_MULTILINE_PLACEHOLDER"></option>
+					</select>
+					<div id="usageMultilineArrow" class="ui-icon select-icon"></div>
+				</div>
+				
+				<div id="usageSuspendedMessage" class="line-message" data-i18n="USAGE_SUSPENDED_MSG"></div>
+				
+				<div id="usageMessage" class="x-large" data-i18n="USAGE_TITLE_TEXT"></div>
+			
+				<div id="monthlyUsageContent"></div>
+			</div>
+			
+			<!-- Input dates -->
+			<form id="usagePageForm">
+				<fieldset>
+					<label id="i18n_usageDetailsSelectLabel" class="label with-label input-label" for="usageDetailsSelect" data-i18n="USAGE_DETAILS_SELECT_LABEL"></label>
+					<div class="select-container">
+						<select id="usageDetailsSelect" role="combobox" class="vb small"></select>
+						<div id="usageDetailsSelectArrow" class="select-icon"></div>
+					</div>
+				</fieldset>
+			</form>
+			
+			<!-- Result content -->
+			<table id="usageDetailsResultContent" class="x-small">
+			</table>
+	
+			<div class="button-bar">
+				<a class="large-button dark-grey-button" id="i18n_usageBackToTopButton" role="button" data-i18n="USAGE_BACK_TOP_BUTTON"></a>
+			</div>
+	
+			<div class="page-bottom-margin"></div>
+		</div>
+	</div>
+	<!-- =============== -->
+	<!--   ABOUT USAGE   -->
+	<!-- =============== -->
+	<div id="aboutUsagePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+
+		<div class="innerPage">
+			<div class="back-button" role="button">Back</div>
+			<div>
+				<h3 class="page-title" role="heading" aria-level="1" data-i18n="ABOUT_DATA_TITLE"></h3>
+				<h4 class="page-subtitle" role="heading" aria-level="2" data-i18n="ABOUT_DATA_SUBTITLE_1"></h4>
+				<div class="medium text" data-i18n="ABOUT_DATA_TEXT_1"></div>
+				<h4 class="page-subtitle" role="heading" aria-level="2" data-i18n="ABOUT_DATA_SUBTITLE_2"></h4>
+				<div class="medium text" data-i18n="ABOUT_DATA_TEXT_2"></div>
+			</div>
+		</div>
+
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =================== -->
+	<!--   ABOUT DISCOUNTS   -->
+	<!-- =================== -->
+	<div id="aboutDiscountsPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+
+		<div class="innerPage">
+			<div class="back-button" role="button">Back</div>
+			<div>
+				<h3 class="page-title" role="heading" aria-level="1">Discounts</h3>
+				<h4 class="page-subtitle" role="heading" aria-level="2">Learn more</h4>
+				<p class="medium text">It doesn’t matter which plan you choose, you get the following savings based on the number of phone lines you have on one account:</p>
+				<ul class="medium text list-container"">
+					<li>2 Phone Lines - $15</li>
+					<li>3 Phone Lines - $30</li>
+					<li>4 Phone Lines - $45</li>
+					<li>5 Phone Lines - $60</li>
+				</ul>
+				<h4 class="page-subtitle" role="heading" aria-level="2">Close to using all your high-speed data?</h4>
+				<p class="medium text">Include information here about the process to add a line ... must add them one at a time, all other lines must be active before adding a new line.</p>
+				<h4 class="page-subtitle" role="heading" aria-level="2">When do I get the discount?</h4>
+				<p class="medium text">The discount is applied once the new line is active.</p>
+			</div>
+		</div>
+
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =============== -->
+	<!--     MY BILL     -->
+	<!-- =============== -->
+	<div id="billDetailsPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1">Bill Details</h3>
+			<div class="generatedContent"></div>
+			<div>
+				<p class="totalOwed xxx-large">Total Owed : <span id="billDetailsTotalOwed"></span></p>
+				<p class="medium information">New phone numbers and their discounts appear after the new line of service is activated.</p>
+			</div>
+			<div class="button-bar">
+				<a class="button blue-button" href="#ns-payMyBillPage" id="i18n_billDetailsPayNowButton" role="button">Pay Now</a>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ============================ -->
+	<!--     TRANSACTIONS HISTORY     -->
+	<!-- ============================ -->
+	<div id="transactionsHistoryPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<h3 class="page-title" role="heading" aria-level="1">Transactions</h3>
+
+		<table class="medium">
+			<thead>
+				<tr>
+					<td class="transactions-history-date">Date</td>
+					<td class="transactions-history-amount">Amount paid</td>
+					<td class="transactions-history-balance">Balance</td>
+				</tr>
+			</thead>
+			<tbody id="historyContainer"></tbody>
+		</table>
+
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =================== -->
+	<!--     PAY MY BILL     -->
+	<!-- =================== -->
+	<div id="payMyBillPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+		<!-- <div class="back-button">Back</div> TODO: defect #870 -->
+		<div class="hotlined page-title"></div>
+		<div class="history">
+			<a id="i18n_payMyBillTransactionHistoryButton" class="button large" href="#ns-transactionsHistoryPage" role="button" data-i18n="PAY_MY_BILL_TRANSACTION_HISTORY_BUTTON"></a>
+		</div>
+		<div class="ie_workaround_bottom_margin_transaction_link"></div>
+		<form id="payMyBillPageForm">
+			<fieldset>
+				<div>
+					<div class="credit-container x-large">
+						<div>
+							<span id="i18n_payMyBillCredit" data-i18n="PAY_MY_BILL_CREDIT"></span> <span id="payMyBillCredit"></span>
+						</div>
+						<div>
+							<span id="i18n_payMyBillOwe" data-i18n="PAY_MY_BILL_OWE"></span> <span id="payMyBillOwe"></span>
+						</div>
+					</div>
+					<div class="amount-container">
+						<label id="i18n_payMyBillAmountLabel" for="i18n_payMyBillAmountInput" class="input-label" data-i18n="PAY_MY_BILL_AMOUNT_LABEL"></label> <input id="i18n_payMyBillAmountInput" type="number" class="vb" pattern="\d+(\.\d{2})?" role="textbox" aria-required="true" data-i18n-placeholder="PAY_MY_BILL_AMOUNT_PLACEHOLDER"/>
+					</div>
+				</div>
+				<div class="details">
+					<a id="i18n_payMyBillDetailsLink" class="button large" href="#ns-billDetailsPage" role="button" data-i18n="PAY_MY_BILL_DETAILS"></a>
+				</div>
+				<ul class="sub-page list-container">
+					<li class="list-item wp7" aria-hidden="true">
+						<label id="i18n_payMyBillNameLabel" for="i18n_payMyBillNameInput" class="input-label" data-i18n="PAY_MY_BILL_NAME_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<input id="i18n_payMyBillNameInput" type="text" class="vb ap" role="textbox" aria-required="true" data-i18n-placeholder="PAY_MY_BILL_NAME_PLACEHOLDER"/>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label id="i18n_payMyBillCardTypeLabel" for="payMyBillCardType" class="input-label" data-i18n="PAY_MY_BILL_CARD_TYPE_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<div class="select-container">
+							<select id="payMyBillCardType" class="vb ap notValued" role="combobox" aria-required="true">
+								<option value="" role="option">Card type</option>
+								<option value="AE" role="option">American Express</option>
+								<option value="DINE" role="option">Diners</option>
+								<option value="DISC" role="option">Discover</option>
+								<option value="MC" role="option">Master card</option>
+								<option value="VISA" role="option">Visa</option>
+							</select>
+							<div id="payMyBillCardTypeArrow" class="select-icon"></div>
+						</div>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label id="i18n_payMyBillCardNumberLabel" for="i18n_payMyBillCardNumberInput" class="input-label" data-i18n="PAY_MY_BILL_CARD_NUMBER_LABEL"></label><label id="i18n_payMyBillSecurityCodeLabel" for="i18n_payMyBillSecurityCodeInput" class="input-label" data-i18n="PAY_MY_BILL_SECURITY_CODE_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<input id="i18n_payMyBillCardNumberInput" type="tel" maxlength="16" class="vb ap" role="textbox" aria-required="true" data-i18n-placeholder="PAY_MY_BILL_CARD_NUMBER_PLACEHOLDER"/><input id="i18n_payMyBillSecurityCodeInput" type="tel" maxlength="4" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="PAY_MY_BILL_SECURITY_CODE_PLACEHOLDER"/><span class="query" role="button" aria-label="Help"></span>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label id="i18n_payMyBillExpirationDateLabel" for="i18n_payMyBillExpirationDateInput" class="input-label" data-i18n="PAY_MY_BILL_EXPIRATION_DATE_LABEL"></label><label id="i18n_payMyBillPostalCodeLabel" for="i18n_payMyBillPostalCodeInput" class="input-label" data-i18n="PAY_MY_BILL_POSTAL_CODE_LABEL"></label>
+					</li>
+					<li class="list-item"><!-- 
+					 --><input id="i18n_payMyBillExpirationDateInput" type="month" role="textbox" aria-required="true" placeholder="Expiration date" class="vb notValued" data-i18n-placeholder="PAY_MY_BILL_EXPIRATION_DATE_PLACEHOLDER"/><!--
+					 --><div class="cardExpirationDateControlWrapper"><!-- 
+						 --><div class="select-container month"><!-- 
+						 	--><select id="payMyBillExpirationDateMonth" role="combobox" aria-required="true" class="vb ap month notValued">
+									<option role="option" value="">Month</option>
+									<option role="option" value="01">01</option>
+									<option role="option" value="02">02</option>
+									<option role="option" value="03">03</option>
+									<option role="option" value="04">04</option>
+									<option role="option" value="05">05</option>
+									<option role="option" value="06">06</option>
+									<option role="option" value="07">07</option>
+									<option role="option" value="08">08</option>
+									<option role="option" value="09">09</option>
+									<option role="option" value="10">10</option>
+									<option role="option" value="11">11</option>
+									<option role="option" value="12">12</option>
+								</select><!-- 
+						 --></div><!-- 
+						 --><div class="slash">/</div><!--
+						 --><div class="select-container year"><!-- 
+						 	 --><select id="payMyBillExpirationDateYear" role="combobox" aria-required="true" class="vb ap year notValued">
+						 	 		<option role="option" value="">Year</option>
+						 	 	</select>
+							</div><!-- 
+					 --></div><!--
+					 --><input id="i18n_payMyBillPostalCodeInput" type="tel" maxlength="5" class="vb ap" role="textbox" aria-required="true" placeholder="Postal code" data-i18n-placeholder="PAY_MY_BILL_POSTAL_CODE_PLACEHOLDER"/>
+					</li>
+					<li id="payMyBillAutoPay" class="list-item checkbox-item">
+						<input id="payMyBillAutoPayCheckBox" type="checkbox" role="checkbox" aria-describedby="i18n_payMyBillAutoPayInput" />
+						<span></span>
+						<label id="i18n_payMyBillAutoPayInput" class="wp7-autopay-label checkbox-label" for="payMyBillAutoPayCheckBox" data-i18n="PAY_MY_BILL_AUTOPAY_LABEL"></label>
+					</li>
+					<li class="list-item wp7 multiline" aria-hidden="true">
+						<label id="i18n_payMyBillMultilineLabel" for="payMyBillMultilineSelect" class="input-label"></label>
+					</li>
+					<li class="list-item multiline">
+						<div class="select-container">
+							<select id="payMyBillMultilineSelect" class="vb ap notValued" role="combobox" aria-required="true">
+								<option role="option" value="">Phone number to text payment details</option>
+							</select>
+							<div id="payMyBillMultilineArrow" class="select-icon"></div>
+						</div>
+					</li>
+					<li class="list-item wp7 pin-required" aria-hidden="true">
+						<label id="i18n_payMyBillPinLabel" for="i18n_payMyBillPinInput" class="input-label" data-i18n="PAY_MY_BILL_PIN_PLACEHOLDER"></label>
+					</li>
+					<li class="list-item pin-required">
+						<input id="i18n_payMyBillPinInput" type="tel" maxlength="4" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="PAY_MY_BILL_PIN_PLACEHOLDER"/><span class="query" role="button" aria-label="Help"></span>
+					</li>
+					<li class="list-item checkbox-item second-checkbox-item">
+						<input type="checkbox" id="termsAndConditions" role="checkbox" aria-required="true" aria-describedby="i18n_payMyBillTermsInput" />
+						<span></span>
+						<label id="i18n_payMyBillTermsInput" class="wp7-autopay-label checkbox-label" for="termsAndConditions">
+							<span id="i18n_payMyBillTermsCondition_1" data-i18n="PAY_MY_BILL_CONFIRM_TERMS"></span>
+							<a id="i18n_payMyBillTermsCondition_2" class="medium" role="link" data-i18n="PAY_MY_BILL_TERMS_CONDITIONS"></a>
+						</label>
+					</li>
+					<li class="list-item button-bar">
+					<!--
+						TODO : defect #870 
+						<a class="inline-button grey-button button-left" id="i18n_payMyBillCancelButton" href="#ns-myBillPage">Cancel</a>
+						<a class="inline-button grey-button button-left" id="i18n_payMyBillCancelButton" href="#ns-homePage" role="button">Cancel</a>
+					-->
+						<a class="button blue-button disabled" id="i18n_payMyBillPayNowButton" role="button" aria-disabled="true" data-i18n="PAY_MY_BILL_PAY_NOW_BUTTON"></a>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	
+	<!-- ========================== -->
+	<!--     PAY MY BILL REVIEW     -->
+	<!-- ========================== -->
+	<div id="payMyBillReviewPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<form id="payMyBillReviewPageForm">
+			<fieldset>
+				<div>
+					<div class="credit-container xx-large">
+						<div>
+							<span id="i18n_payMyBillReviewCredit" data-i18n="PAY_MY_BILL_CREDIT"></span> <span id="payMyBillReviewCredit"></span>
+						</div>
+						<div>
+							<span id="i18n_payMyBillReviewOwe" data-i18n="MY_BILL_OWE"></span> <span id="payMyBillReviewOwe"></span>
+						</div>
+					</div>
+					<div class="amount-container">
+						<label id="i18n_payMyBillReviewAmountLabel" for="i18n_payMyBillReviewAmountInput" class="input-label" data-i18n="PAY_MY_BILL_AMOUNT_LABEL"></label>
+						<input id="i18n_payMyBillReviewAmountInput" type="number" disabled role="textbox" aria-disabled="true" />
+					</div>
+				</div>
+				<ul class="list-container medium">
+					<li class="list-item"><h3 class="page-title" role="heading" aria-level="1">Payment Review</h3></li>
+					<li class="list-item">
+						<span id="i18n_payMyBillReviewAmount" data-i18n="PAY_MY_BILL_REVIEW_AMOUNT"></span> <span id="i18n_payMyBillReviewAmountToPayValue"></span>
+					</li>
+					<li class="list-item">
+						<span id="i18n_payMyBillReviewName" data-i18n="PAY_MY_BILL_REVIEW_NAME"></span> <span id="i18n_payMyBillReviewNameCardValue"></span>
+					</li>
+					<li class="list-item">
+						<span id="i18n_payMyBillReviewCardNumber" data-i18n="PAY_MY_BILL_REVIEW_CARD_NUMBER"></span> <span id="i18n_payMyBillReviewCardNumberValue"></span>
+					</li>
+					<li class="list-item">
+						<span id="i18n_payMyBillReviewExpirationDate" data-i18n="PAY_MY_BILL_REVIEW_EXPIRATION_DATE"></span> <span id="i18n_payMyBillReviewExpirationCardValue"></span>
+					</li>
+					<li class="list-item button-bar">
+						<a class="inline-button grey-button button-left" id="i18n_payMyBillReviewCancelButton" role="button" data-i18n="PAY_MY_BILL_REVIEW_CANCEL_BUTTON"></a>
+						<a class="inline-button blue-button button-right" id="i18n_payMyBillReviewButton" role="button" data-i18n="PAY_MY_BILL_REVIEW_BUTTON"></a>
+					</li>
+					<!-- <li class="list-item legal-text">
+						<div class="legal-title">One-time Payment</div>
+						I authorize Aio Wireless to charge any credit/debit card payments to my credit/debit card(s) on the payment date(s) indicated above. If Aio Wireless is unable to secure funds from my
+						credit/debit card(s) or my bank for any reason, Aio Wireless may undertake further collection action, including application of fees to the extent permitted by law. If my Aio Wireless account
+						balance is less than the amount of my scheduled payment on the day of payment, the scheduled payment will be reduced to match the amount of the Aio Wireless account balance. A late fee may be
+						applied to my Aio Wireless account, if I schedule a payment to occur after my due date. Payment cancellation or unsuccessful payment may cause an interruption of my service and additional
+						reactivation fees. You may save and/or print your payment confirmation or download, print, or save your monthly statements.
+						<div class="legal-title autopay">Enrolling in Auto Pay</div>
+						<span class="autopay">By selecting Enroll in Auto Pay, I authorize Aio Wireless and my financial institution to deduct the amount due to continue my monthly Aio Wireless service from the checking/savings account
+						and/or I certify that I am the card owner or have authorization to charge to the credit/debit card I have designated. I may choose another payment method in the future by contacting Aio Wireless
+						and providing the new payment method information. I understand that my automatic payment will be deducted and/or my credit/debit card will be charged on the date indicated on my monthly bill. I
+						have the right to terminate this deduction by notifying Aio Wireless at aiowireless.com/myaio or calling customer care at (855) 246-2461 (or 611 from my Aio Wireless phone) at least five (5)
+						business days prior to the deduction date. My authorization and the Aio Wireless Auto Pay service will remain in full force and effect until revoked by me, my financial institution, or Aio
+						Wireless.</span>
+					</li> -->
+				</ul>
+			</fieldset>
+		</form>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ================================ -->
+	<!--     PAY MY BILL CONFIRMATION     -->
+	<!-- ================================ -->
+	<div id="payMyBillConfirmationPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<h3 class="content-title page-title" role="heading" aria-level="1">Your Payment Confirmation</h3>
+			<div class="text-box">
+				<div id="i18n_payMyBillConfirmationPaymentText" class="text large" data-i18n="PAY_MY_BILL_CONFIRMATION_PAYMENT_TEXT"></div>
+				<ul class="large">
+					<li class="blue-text">
+						<div id="i18n_payMyBillConfirmationCode" data-i18n="PAY_MY_BILL_CONFIRMATION_CODE"></div>
+						<div id="payMyBillConfirmationCode" class="value"></div>
+					</li>
+					<li class="blue-text">
+						<div id="i18n_payMyBillConfirmationAmount" data-i18n="PAY_MY_BILL_CONFIRMATION_AMOUNT"></div>
+						<div id="payMyBillConfirmationAmount" class="value"></div>
+					</li>
+					<li class="blue-text marginbot" style="visibility: hidden" aria-hidden="true">
+						<div id="i18n_payMyBillConfirmationBalance" data-i18n="PAY_MY_BILL_CONFIRMATION_BALANCE"></div>
+						<div id="payMyBillConfirmationBalance" class="value"></div>
+					</li>
+					<li>
+						<div id="i18n_payMyBillConfirmationName" data-i18n="PAY_MY_BILL_CONFIRMATION_NAME"></div>
+						<div id="payMyBillConfirmationName" class="value"></div>
+					</li>
+					<li>
+						<div id="i18n_payMyBillConfirmationCardNumber" data-i18n="PAY_MY_BILL_CONFIRMATION_CARD_NUMBER"></div>
+						<div id="payMyBillConfirmationCardNumber" class="value"></div>
+					</li>
+					<li>
+						<div id="i18n_payMyBillConfirmationExpirationDate" data-i18n="PAY_MY_BILL_CONFIRMATION_EXPIRATION_DATE"></div>
+						<div id="payMyBillConfirmationExpirationDate" class="value"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="sub-page">
+				<div id="i18n_payMyBillConfirmationQuestionText" class="text small" data-i18n="PAY_MY_BILL_CONFIRMATION_QUESTION_TEXT"></div>
+				<div class="wp-button-container">
+					<a class="button blue-button" id="i18n_payMyBillConfirmationButton" role="button" data-i18n="PAY_MY_BILL_CONFIRMATION_BUTTON"></a>
+				</div>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ====================== -->
+	<!--     MANAGE AUTOPAY     -->
+	<!-- ====================== -->
+	<div id="manageAutopayPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_AUTOPAY_TITLE"></h3>
+		<div class="informations medium" data-i18n="MANAGE_AUTOPAY_TEXT"></div>
+		<form id="manageAutopayPageForm">
+			<fieldset>
+				<ul class="sub-page list-container">
+					<li class="list-item wp7" aria-hidden="true">
+						<label for="manageAutopayNameInput" class="input-label" data-i18n="MANAGE_AUTOPAY_NAME_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<input id="manageAutopayNameInput" type="text" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="MANAGE_AUTOPAY_NAME_PLACEHOLDER"/>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label for="manageAutopayCardType" class="input-label" data-i18n="MANAGE_AUTOPAY_CARD_TYPE_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<div class="select-container">
+							<select id="manageAutopayCardType"  class="vb notValued" role="combobox" aria-required="true">
+								<option value="" role="option" data-i18n="MANAGE_AUTOPAY_CARD_TYPE_PLACEHOLDER"></option>
+								<option value="AE" role="option">American Express</option>
+								<option value="DINE" role="option">Diners</option>
+								<option value="DISC" role="option">Discover</option>
+								<option value="MC" role="option">Master card</option>
+								<option value="VISA" role="option">Visa</option>
+							</select>
+							<div id="manageAutopayCardTypeArrow" class="ui-icon select-icon"></div>
+						</div>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label for="manageAutopayCardNumberInput" class="input-label" data-i18n="MANAGE_AUTOPAY_CARD_NUMBER_LABEL"></label>
+						<label for="manageAutopaySecurityCodeInput" class="input-label" data-i18n="MANAGE_AUTOPAY_SECURITY_CODE_LABEL"></label>
+					</li>
+					<li class="list-item">
+						<input id="manageAutopayCardNumberInput" type="tel" class="vb" maxlength="16" role="textbox" aria-required="true" data-i18n-placeholder="MANAGE_AUTOPAY_CARD_NUMBER_PLACEHOLDER"/>
+						<input id="manageAutopaySecurityCodeInput" type="tel" class="vb" maxlength="4" role="textbox" aria-required="true" data-i18n-placeholder="MANAGE_AUTOPAY_SECURITY_CODE_PLACEHOLDER"/>
+						<span class="query" role="button" aria-label="Help"></span>
+					</li>
+					<li class="list-item wp7" aria-hidden="true">
+						<label for="manageAutopayExpirationDateInput" class="input-label" data-i18n="MANAGE_AUTOPAY_EXPIRATION_DATE_LABEL"></label>
+						<label for="manageAutopayPostalCodeInput" class="input-label" data-i18n="MANAGE_AUTOPAY_POSTAL_CODE_LABEL"></label>
+					</li>
+					<li class="list-item"><!-- 
+					 --><input id="manageAutopayExpirationDateInput" type="month" role="textbox" aria-required="true" class="vb notValued" data-i18n-placeholder="MANAGE_AUTOPAY_EXPIRATION_DATE_PLACEHOLDER"/><!--
+					 --><div class="cardExpirationDateControlWrapper"><!-- 
+						 --><div class="select-container month"><!-- 
+						 	--><select id="manageAutopayExpirationDateMonth" role="combobox" aria-required="true" class="vb ap month notValued">
+									<option role="option" value="" data-i18n="MANAGE_AUTOPAY_EXPIRATION_MONTH_PLACEHOLDER"></option>
+									<option role="option" value="01">01</option>
+									<option role="option" value="02">02</option>
+									<option role="option" value="03">03</option>
+									<option role="option" value="04">04</option>
+									<option role="option" value="05">05</option>
+									<option role="option" value="06">06</option>
+									<option role="option" value="07">07</option>
+									<option role="option" value="08">08</option>
+									<option role="option" value="09">09</option>
+									<option role="option" value="10">10</option>
+									<option role="option" value="11">11</option>
+									<option role="option" value="12">12</option>
+								</select><!-- 
+						 --></div><!-- 
+						 --><div class="slash">/</div><!--
+						 --><div class="select-container year"><!-- 
+						 	 --><select id="manageAutopayExpirationDateYear" role="combobox" aria-required="true" class="vb ap year notValued">
+						 	 		<option role="option" value="" data-i18n="MANAGE_AUTOPAY_EXPIRATION_YEAR_PLACEHOLDER"></option>
+						 	 	</select>
+							</div><!-- 
+					 --></div><!--
+					 --><input id="manageAutopayPostalCodeInput" type="tel" maxlength="5" class="vb ap" role="textbox" aria-required="true" class="year" data-i18n-placeholder="MANAGE_AUTOPAY_POSTAL_CODE_PLACEHOLDER"/>
+					</li>
+					<li class="list-item wp7 multiline" aria-hidden="true">
+						<label id="i18n_manageAutopayMultilineLabel" for="manageAutopayMultilineSelect" class="input-label"></label>
+					</li>
+					<li class="list-item multiline">
+						<div class="select-container">
+							<select id="manageAutopayMultilineSelect" class="vb ap notValued" role="combobox" aria-required="true">
+								<option role="option" value="" data-i18n="MANAGE_AUTOPAY_LINE_SELECTOR_PLACEHOLDER"></option>
+							</select>
+							<div id="manageAutopayMultilineArrow" class="ui-icon select-icon"></div>
+						</div>
+					</li>
+					<li class="list-item multiline" aria-hidden="true">
+						<div id="i18n_manageAutopayMultilineDesc" class="small" data-i18n="MANAGE_AUTOPAY_PAY_MULTILINE_DESCRIPTION"></div>
+					</li>
+					<li class="list-item checkbox-item">
+						<input type="checkbox" id="manageAutopayTermsAndConditions" role="checkbox" aria-required="true" aria-describedby="manageAutopayTermsInput" />
+						<span></span>
+						<label id="manageAutopayTermsInput" class="wp7-autopay-label checkbox-label" for="manageAutopayTermsAndConditions">
+							<span id="manageAutopayTermsCondition_1" data-i18n="MANAGE_AUTOPAY_CONFIRM_TERMS"></span>
+							<a id="manageAutopayTermsCondition_2" class="checkbox-label" role="link" data-i18n="MANAGE_AUTOPAY_TERMS_CONDITIONS"></a>
+						</label>
+					</li>
+					<li class="list-item button-bar">
+						<a class="inline-button grey-button button-left" id="manageAutopayCancelButton" role="button" data-i18n="MANAGE_AUTOPAY_CANCEL_BUTTON"></a>
+						<a class="inline-button blue-button button-right disabled" id="manageAutopayConfirmButton" role="button" aria-disabled="true" data-i18n="MANAGE_AUTOPAY_VALIDATE_BUTTON"></a>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ====================== -->
+	<!--     AUTOPAY REVIEW     -->
+	<!-- ====================== -->
+	<div id="manageAutopayReviewPage" class="page autopay pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button" data-i18n="MANAGE_AUTOPAY_REVIEW_BACK"></div>
+		<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_AUTOPAY_REVIEW_TITLE"></h3>
+
+		<div class="content">
+
+			<div class="text informations medium" data-i18n="MANAGE_AUTOPAY_REVIEW_TEXT"></div>
+			
+			<ul class="confirmation-infos medium">
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_REVIEW_NAME"></span><span id="manageAutopayReviewNameOnCard"></span>
+				</li>
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_REVIEW_CARD_NUMBER"></span><span id="manageAutopayReviewCardNumber"></span>
+				</li>
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_REVIEW_EXPIRATION_DATE"></span><span id="manageAutopayReviewExpirationDate"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="manageAutopayReviewCancelButton" role="button" data-i18n="MANAGE_AUTOPAY_REVIEW_CANCEL">Cancel</a>
+			<a class="inline-button blue-button button-right" id="manageAutopayReviewButton" role="button" data-i18n="MANAGE_AUTOPAY_REVIEW_BUTTON">Continue</a>
+		</div>
+
+		<div class="list-item medium">
+			<div id="autoPayHowItWork" role="heading" aria-level="2" data-i18n="MANAGE_AUTOPAY_REVIEW_HOW_IT_WORKS_TITLE">Here's how it works:</div>
+			<ul id="autoPayHowItWorkDesc" class="medium" data-i18n="MANAGE_AUTOPAY_REVIEW_HOW_IT_WORKS_TEXT"></ul>
+		</div>
+
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ============================ -->
+	<!--     AUTOPAY CONFIRMATION     -->
+	<!-- ============================ -->
+	<div id="manageAutopayConfirmationPage" class="page autopay pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_TITLE"></h3>
+			<div class="text-box">
+				<div id="i18n_manageAutopayConfirmationText" class="text large" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_TEXT"></div>
+				<ul class="medium confirmation-infos">
+					<li>
+						<div id="i18n_manageAutopayConfirmationName" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_NAME"></div>
+						<div id="autopayConfirmationName" class="value"></div>
+					</li>
+					<li>
+						<div id="i18n_manageAutopayConfirmationCardNumber" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_CARD_NUMBER"></div>
+						<div id="autopayConfirmationCardNumber" class="value"></div>
+					</li>
+					<li>
+						<div id="i18n_manageAutopayConfirmationExpirationDate" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_EXPIRATION_DATE"></div>
+						<div id="autopayConfirmationExpirationDate" class="value"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="wp-button-container">
+				<a class="button blue-button" id="i18n_manageAutopayConfirmationButton" href="#ns-homePage" role="button" data-i18n="MANAGE_AUTOPAY_CONFIRMATION_BUTTON"></a>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ====================== -->
+	<!--   DESACTIVATE AUTOPAY  -->
+	<!-- ====================== -->
+	<div id="desactivateAutopayPage" class="page autopay pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button" data-i18n="MANAGE_AUTOPAY_DEACTIVATION_BACK"></div>
+		<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_AUTOPAY_DEACTIVATION_TITLE"></h3>
+		<div class="content">
+
+			<div class="text informations medium" data-i18n="MANAGE_AUTOPAY_DEACTIVATION_TEXT"></div>
+			
+			<ul class="confirmation-infos medium">
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_DEACTIVATION_NAME"></span><span id="desactivateAutopayNameOnCard"></span>
+				</li>
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_DEACTIVATION_CARD_NUMBER"></span><span id="desactivateAutopayCardNumber"></span>
+				</li>
+				<li>
+					<span data-i18n="MANAGE_AUTOPAY_DEACTIVATION_EXPIRATION_DATE"></span><span id="desactivateAutopayExpirationDate"></span>
+				</li>
+			</ul>
+		</div>
+		<div class="button-bar">
+			<a id="i18n_desactivateAutopayCancelButton" class="inline-button grey-button button-left" role="button" data-i18n="MANAGE_AUTOPAY_DEACTIVATION_CANCEL"></a>
+			<a id="i18n_desactivateAutopayContinueButton" class="inline-button blue-button button-right" role="button" data-i18n="MANAGE_AUTOPAY_DEACTIVATION_SUBMIT"></a>
+		</div>
+	</div>
+	<!-- ======================================= -->
+	<!--    DESACTIVATE AUTOPAY CONFIRMATION     -->
+	<!-- ======================================= -->
+	<div id="desactivateAutopayConfirmationPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1" id="desactiveAutopayConfirmationTitle" data-i18n="MANAGE_AUTOPAY_DISABLE_CONFIRMATION_TITLE"></h3>
+			<div class="informations">
+				<div id="desactiveAutopayConfirmationText" class="text medium" data-i18n="MANAGE_AUTOPAY_DISABLE_CONFIRMATION_TEXT"></div>
+			</div>
+			<div class="wp-button-container">
+				<a id="dACP_deactivateConfirmButton" class="button blue-button" role="button" data-i18n="MANAGE_AUTOPAY_DISABLE_CONFIRMATION_BUTTON"></a>
+			</div>
+		</div>
+	</div>
+	<!-- =============== -->
+	<!--     MY PLAN     -->
+	<!-- =============== -->
+	<div id="myPlanPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1" data-i18n="MY_PLAN_TITLE"></h3>
+			
+			<div class="multiline text medium" style="display:none;" data-i18n="MY_PLAN_MULTILINE_TEXT"></div>
+			<div class="multiline select-container" style="display:none;">
+				<select id="myPlanMultilineSelectNumber" class="vb ap notValued" role="combobox" aria-required="true"></select>
+				<div id="myPlanMultilineArrow" class="ui-icon select-icon"></div>
+			</div>
+			
+			<div id="myPlanAccountInformation" class="small"></div>
+			<div id="myPlanAccountDiscount" class="medium"></div>
+	
+			<div id="myPlanContainer" class="myPlanContent"></div>
+	
+			<div id="myPlanServicesContainer" class="no-border-top">
+				<div class="list-container border-top">
+					<div class="list-container-title page-subtitle" role="heading" aria-level="2" data-i18n="MY_PLAN_ONE_TIME_ADDON"></div>
+					<div class="plan-desc small" id="myPlanOTAddedServicesDesc" data-i18n="MY_PLAN_ONE_TIME_ADDON_TEXT"></div>
+		
+					<div id="myPlanOTServicesContainer" class="list-content"></div>
+				</div>
+		
+				<div class="list-container border-top">
+					<div class="list-container-title page-subtitle" role="heading" aria-level="2" data-i18n="MY_PLAN_RECURRING_ADDON"></div>
+					<div class="plan-desc small" id="myPlanRecAddedServicesDesc" data-i18n="MY_PLAN_RECURRING_ADDON_TEXT"></div>
+		
+					<div id="myPlanRecServicesContainer" class="list-content"></div>
+				</div>
+			
+				<div class="wp-button-container">
+					<a id="i18n_myPlanButton" class="button blue-button" href="#ns-manageServicesPage" role="button" data-i18n="MY_PLAN_BUTTON"></a>
+				</div>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================= -->
+	<!--     MANAGE SERVICES     -->
+	<!-- ======================= -->
+	<div id="manageServicesPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<!--  <div class="back-button" role="button">Back</div>-->
+			<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_SERVICES_TITLE"></h3>
+			<div class="text large phone-number"></div>
+			<ul id="manageServicesOTServices" class="list-container"></ul>
+			<ul id="manageServicesRecServices" class="list-container"></ul>
+			<div class="summary-pan">
+				<div class="summary-total-text">
+					<span id="i18n_manageSummaryText" class="large" data-i18n="MANAGE_SERVICES_SUMMARY_TEXT"></span><span class="total-value large"></span>
+				</div>
+				<div class="button-bar">
+					<a class="inline-button grey-button button-left" id="i18n_manageServicesClearButton" role="button" data-i18n="MANAGE_SERVICES_CLEAR_BUTTON"></a>
+					<a class="inline-button blue-button button-right disabled" id="i18n_manageServicesButton" role="button" aria-disabled="true" data-i18n="MANAGE_SERVICES_BUTTON"></a>
+				</div>
+			</div>
+			<div class="page-bottom-margin"></div>
+		</div>
+	</div>
+	<!-- ======================= -->
+	<!--     SERVICES REVIEW     -->
+	<!-- ======================= -->
+	<div id="servicesReviewPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1" data-i18n="MANAGE_SERVICES_REVIEW_TITLE_ADDED"></h3>
+			<div class="text large phone-number"></div>
+
+			<div id="conflictsInlineError" class="inline-error">
+				<div class="warning">!</div>
+				<div class="error-text large" data-i18n="MANAGE_SERVICES_REVIEW_ADDONS_CONFLICT"></div>
+				</div>
+	
+			<div id="servicesReviewOTContainer" class="list-container">
+				<div class="list-container-title page-subtitle" role="heading" aria-level="2" data-i18n="MANAGE_SERVICES_REVIEW_OT_ADDONS_TITLE"></div>
+				<div id="servicesReviewOTServicesContainer"></div>
+			</div>
+	
+			<div id="servicesReviewRecContainer" class="list-container">
+				<div class="list-container-title page-subtitle" role="heading" aria-level="2" data-i18n="MANAGE_SERVICES_REVIEW_REC_ADDONS_TITLE"></div>
+				<div id="servicesReviewRecServicesContainer"></div>
+			</div>
+	
+			<div id="servicesReviewRemovedContainer" class="text-box">
+				<div class="text informations medium" data-i18n="MANAGE_SERVICES_REVIEW_REMOVE_TEXT"></div>
+			</div>
+	
+			<div id="servicesReviewAmountDueContainer">
+				<div id="servicesReviewAmountDueText"><span id="i18n_amountDueLabel" class="xxx-large" data-i18n="MANAGE_SERVICES_REVIEW_AMOUNT_DUE_LABEL"></span> <span id="servicesReviewTax" class="large">(includes tax and fees)*</span> : <span id="servicesReviewAmountDue" class="xxx-large"></span></div>
+			</div>
+
+			<div id="servicesReviewAccountInfo" class="list-container">
+				<div class="list-container-title page-subtitle" role="heading" aria-level="2" data-i18n="MANAGE_SERVICES_REVIEW_ACCOUNT_CREDIT_TITLE"></div>
+				<div id="servicesReviewCurrentBalance" class="title pointfill">
+					<div id="i18n_reviewCurrentBalance" class="plan-name large" data-i18n="MANAGE_SERVICES_REVIEW_CURRENT_BALANCE"></div>
+					<div class="point-separator large"></div>
+					<div class="value large"></div>
+				</div>
+				<div id="servicesReviewNextBalance" class="title pointfill">
+					<div id="i18n_reviewBalanceAfter" class="plan-name large" data-i18n="MANAGE_SERVICES_REVIEW_BALANCE_AFTER_PROCESSING"></div>
+					<div class="point-separator large"></div>
+					<div class="value large"></div>
+				</div>
+			</div>
+	
+			<div id="servicesReviewButtonBar">
+				<div class="button-bar">
+					<a class="inline-button grey-button button-left" id="i18n_servicesReviewCancelBtn" href="#ns-myPlanPage" role="button" data-i18n="MANAGE_SERVICES_REVIEW_CANCEL_BUTTON"></a>
+					<a class="inline-button blue-button button-right" id="i18n_servicesReviewBtn" role="button" data-i18n="MANAGE_SERVICES_REVIEW_PAY_NOW_BUTTON"></a>
+				</div>
+			</div>
+			
+			<div class="information medium" data-i18n="MANAGE_SERVICES_REVIEW_VISIT_AIO_TEXT"></div>
+			<div class="page-bottom-margin"></div>
+		</div>
+	</div>
+	<!-- =============================== -->
+	<!--     MANAGE SERVICES PAYMENT     -->
+	<!-- =============================== -->
+	<div id="servicesPaymentPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<div id="servicesPaymentInfo">
+			<div class="credit-container xx-large">
+				<div style="visibility: hidden;" aria-hidden="true">
+					<span>my Credit: </span> <span id="servicesPaymentCredit"></span>
+				</div>
+				<div>
+					<span>I Owe</span> <span id="servicesPaymentOwe"></span>
+				</div>
+			</div>
+			<div class="amount-container">
+				<label id="servicesPaymentAmountLabel" for="servicesPaymentAmountInput" class="input-label">Amount to pay</label>
+				<input id="servicesPaymentAmountInput" type="number" disabled  role="textbox" aria-disabled="true" aria-required="true"/>
+			</div>
+		</div>
+		<div class="sub-page">
+			<form id="servicesPaymentPageForm">
+				<fieldset>
+					<ul class="list-container">
+						<li class="list-item wp7" aria-hidden="true">
+							<label for="servicesPaymentNameInput" class="input-label">Name on Card</label>
+						</li>
+						<li class="list-item">
+							<input id="servicesPaymentNameInput" type="text" placeholder="Name on Card" class="vb ap" role="textbox" aria-required="true" />
+						</li>
+						<li class="list-item wp7" aria-hidden="true">
+							<label for="servicesPaymentCardType" class="input-label">Card type</label>
+						</li>
+						<li class="list-item">
+							<div class="select-container">
+								<select id="servicesPaymentCardType" class="vb ap notValued" role="combobox">
+									<option value="" role="option">Card type</option>
+									<option value="AE" role="option">American Express</option>
+									<option value="DINE" role="option">Diners</option>
+									<option value="DISC" role="option">Discover</option>
+									<option value="MC" role="option">Master card</option>
+									<option value="VISA" role="option">Visa</option>
+								</select>
+								<div id="servicesPaymentCardTypeArrow" class="select-icon"></div>
+							</div>
+						</li>
+						<li class="list-item wp7" aria-hidden="true">
+							<label for="servicesPaymentCardNumberInput" class="input-label">Card number</label>
+							<label for="servicesPaymentSecurityCodeInput" class="input-label">Security code</label>
+						</li>
+						<li class="list-item">
+							<input id="servicesPaymentCardNumberInput" type="tel" placeholder="Card number" class="vb ap" maxlength="16" role="textbox" aria-required="true" />
+							<input id="servicesPaymentSecurityCodeInput" type="tel" placeholder="Security code" class="vb" maxlength="4" role="textbox" aria-required="true" />
+							<span class="query" role="button" aria-label="Help"></span>
+						</li>
+						<li class="list-item wp7" aria-hidden="true">
+							<label for="servicesPaymentExpirationDateInput" class="input-label">Expiration date</label>
+							<label for="servicesPaymentPostalCodeInput" class="input-label">Billing Postal Code</label>
+						</li>
+						<li class="list-item"><!-- 
+						 --><input id="servicesPaymentExpirationDateInput" type="month" role="textbox" aria-required="true" placeholder="Expiration date" class="vb notValued"/><!--
+						 --><div class="cardExpirationDateControlWrapper"><!-- 
+							 --><div class="select-container month"><!-- 
+							 	--><select id="servicesPaymentExpirationDateMonth" role="combobox" aria-required="true" class="vb ap month notValued">
+										<option role="option" value="">Month</option>
+										<option role="option" value="01">01</option>
+										<option role="option" value="02">02</option>
+										<option role="option" value="03">03</option>
+										<option role="option" value="04">04</option>
+										<option role="option" value="05">05</option>
+										<option role="option" value="06">06</option>
+										<option role="option" value="07">07</option>
+										<option role="option" value="08">08</option>
+										<option role="option" value="09">09</option>
+										<option role="option" value="10">10</option>
+										<option role="option" value="11">11</option>
+										<option role="option" value="12">12</option>
+									</select><!-- 
+							 --></div><!-- 
+							 --><div class="slash">/</div><!--
+							 --><div class="select-container year"><!-- 
+							 	 --><select id="servicesPaymentExpirationDateYear" role="combobox" aria-required="true" class="vb ap year notValued">
+								 	 	<option role="option" value="">Year</option>
+							 	 	</select>
+								</div><!-- 
+						 --></div><!--
+						 --><input id="servicesPaymentPostalCodeInput" type="tel" maxlength="5" class="vb ap" role="textbox" aria-required="true" placeholder="Postal code"/>
+						</li>
+						<li class="list-item checkbox-item">
+							<input type="checkbox" id="servicesPaymentTermsAndConditions" role="checkbox" aria-required="true" aria-describedby="servicesPaymentTermsInput"/>
+							<span></span>
+							<label id="servicesPaymentTermsInput" class="wp7-autopay-label checkbox-label" for="servicesPaymentTermsAndConditions">
+								<span id="servicesPaymentTermsCondition_1">I agree with the </span>
+								<a id="servicesPaymentTermsCondition_2" class="checkbox-label" role="link">Terms & Conditions</a>
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+			</form>
+			<div class="button-bar">
+				<a class="inline-button grey-button button-left" id="servicesPaymentCancelButton" href="#ns-myPlanPage" role="button">Cancel</a>
+				<a class="inline-button blue-button button-right disabled" id="servicesPaymentPayNowButton" role="button" aria-disabled="true">Next</a>
+			</div>
+
+			<div class="list-item legal-text medium">
+				<div class="legal-title">One-time Payment</div>
+				I authorize Aio Wireless to charge any credit/debit card payments to my credit/debit card(s) on the payment date(s) indicated above. If Aio Wireless is unable to secure funds from my credit/debit
+				card(s) or my bank for any reason, Aio Wireless may undertake further collection action, including application of fees to the extent permitted by law. If my Aio Wireless account balance is less
+				than the amount of my scheduled payment on the day of payment, the scheduled payment will be reduced to match the amount of the Aio Wireless account balance. A late fee may be applied to my Aio
+				Wireless account, if I schedule a payment to occur after my due date. Payment cancellation or unsuccessful payment may cause an interruption of my service and additional reactivation fees. You may
+				save and/or print your payment confirmation or download, print, or save your monthly statements.
+			</div>
+		</div>
+
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ==================================== -->
+	<!--     MANAGE SERVICES CONFIRMATION     -->
+	<!-- ==================================== -->
+	<div id="manageServicesConfirmationPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<h3 class="page-title" role="heading" aria-level="1">Your Payment Confirmation</h3>
+			<div class="text large phone-number"></div>
+	
+			<div class="text informations small">Your payment is being processed with your payment card vendor.</div>
+	
+			<ul class="list-container confirmation-infos medium">
+				<li>
+					<span id="i18n_serviceConfirmationConfirmationCode" data-i18n="CONFIRM_CONFIRMATION_CODE"></span> <span id="confirmationCodeValue"></span>
+				</li>
+				<li>
+					<span id="i18n_serviceConfirmationPaymentReceiced" data-i18n="CONFIRM_SERVICE_CARD_CHARGED"></span> <span id="paymentReceivedValue"></span>
+				</li>
+				<li>
+					<span id="i18n_serviceConfirmationCreditUsed" data-i18n="CONFIRM_SERVICE_CREDIT_USED"></span> <span id="accountDebitfromBalance"></span>
+				</li>
+				<li style="visibility : hidden" aria-hidden="true">
+					Account balance: <span id="accountBalanceValue"></span>
+				</li>
+			</ul>
+	
+			<ul class="list-container card-infos medium">
+				<li>
+					Name on card: <span id="nameOnCardValue"></span>
+				</li>
+				<li>
+					Card number: <span id="cardNumberValue"></span>
+				</li>
+				<li>
+					Expiration date: <span id="expirationDateValue"></span>
+				</li>
+			</ul>
+	
+			<div class="list-container-title page-subtitle" role="heading" aria-level="2">Purchase Details</div>
+	
+			<div id="servicesConfirmationOTContainer" class="list-container">
+				<div class="list-sub-title large">One-time Add-On Services</div>
+				<div class="services-list small" id="servicesConfirmationOTServicesContainer"></div>
+			</div>
+	
+			<div id="servicesConfirmationRecContainer" class="list-container">
+				<div class="list-sub-title large">Monthly Add-On Services</div>
+				<div class="services-list small" id="servicesConfirmationRecServicesContainer"></div>
+			</div>
+	
+			<div class="button-description large">If you have any question regarding your bill, please provide your confirmation code to a customer services representative.</div>
+	
+			<div class="no-border">
+				<div class="button-bar">
+					<a class="button blue-button" href="#ns-myPlanPage" role="button">OK</a>
+				</div>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================================= -->
+	<!--     DELETE ONE SERVICE CONFIRMATION     -->
+	<!-- ======================================= -->
+	<div id="deleteOneServiceConfirmationPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<h3 class="page-title" role="heading" aria-level="1">Remove Feature Confirmation</h3>
+		<div class="text large phone-number"></div>
+
+		<div class="text informations medium">You have removed this feature from your account:</div>
+
+		<div id="deleteOneServiceConfirmationRecContainer" class="list-container">
+			<div class="list-container-title x-large">Monthly Features</div>
+			<div class="services-list large" id="deleteOneServiceConfirmationRecServicesContainer"></div>
+		</div>
+
+		<div class="button-bar">
+			<a class="button blue-button" href="#ns-myPlanPage" role="button">OK</a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ================== -->
+	<!--        MORE        -->
+	<!-- ================== -->
+	<div id="morePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<!--  TODO This table design reveals very hard to maintain in css; this should be refactored -->
+			<div class="more-page-grid-table">
+				<div class="cell-spacer" role="separator"></div>
+				<div class="table-row">
+					<div id="morePageChatBtn" class="table-cell xx-large" role="button">
+						<img src="./img/more/icon_chat.png" class="more-page-cell-icon" alt="Aio chat"/>
+						<div>Aio Chat</div>
+					</div>
+					<div class="cell-spacer" role="separator"></div>
+					<div id="morePageCallBtn" class="table-cell xx-large" role="button">
+						<img src="./img/more/icon_call.png" class="more-page-cell-icon" alt="Call Aio"/>
+						<div>Call Aio</div>
+					</div>
+				</div>
+				<div class="cell-spacer" role="separator"></div>
+				<div class="table-row">
+				
+					<div id="morePageSupportBtn" class="table-cell xx-large" role="button">
+						<img src="./img/more/icon_support.png" class="more-page-cell-icon" alt="Support"/>
+						<div>Support</div>
+					</div>
+					<div class="cell-spacer" role="separator"></div>
+					<div id="morePageProfileBtn" class="table-cell xx-large" role="button">
+						<img src="./img/more/icon_myprofile.png" class="more-page-cell-icon" alt="My Profile"/>
+						<div>My Profile</div>
+					</div>
+					
+				</div>
+				<div class="cell-spacer" role="separator"></div>
+				<div class="table-row">
+					<div class="more-link-group general-link">
+						<div class="list-item">
+							<a id="i18n_changeProfPwLink" href="#ns-changePwdPage" role="link" class="link" data-i18n="CHANGE_PROFILE_PASSWORD"></a>
+						</div>
+						<div class="list-item">
+							<a id="i18n_aboutUsLink" href="#ns-aboutUsPage" role="link" class="link" data-i18n="ABOUT_US"></a>
+						</div>
+						<div class="list-item">
+							<a id="i18n_onlineSecLink" href="#ns-onlineSecurityPage" role="link" class="link" data-i18n="TURN_ONOFF_PIN_SECURITY"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================================== -->
+	<!--         Chat with Customer Care          -->
+	<!-- ======================================== -->
+	<div id="supportChatPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<!-- Title of the page -->
+		<div id="chatHeaderLine" class="two-column-grid">
+			<h3 class="column1 page-title" role="heading" aria-level="1">Aio Chat</h3>
+			<a id="i18n_chatEndButton" class="column2 inline-button" role="button">End Chat</a>
+		</div>
+		
+		<div id="chatContent" class="content">
+			<ul class="messages" role="list" aria-live="polite">
+			</ul>
+		</div>
+		
+		<div id="chatInputLine" class="two-column-grid">
+			<textarea rows="1" id="i18n_chatInput" class="column1" placeholder="Type your message here..." disabled="disabled" role="textbox" aria-disabled="true"></textarea>
+			<a id="i18n_chatSendButton" class="column2 inline-button blue-button disabled" role="button" aria-disabled="true">Send</a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ================== -->
+	<!--     MY PROFILE     -->
+	<!-- ================== -->
+	<div id="myProfilePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<h3 class="page-title" role="heading" aria-level="1">Your Aio Profile</h3>
+		<div id="i18n_accountTableTitle" class="table-title page-subtitle" role="heading" aria-level="2" data-i18n="PROFILE_PAGE_ACCOUNT_TABLE_TITLE"></div>
+
+		<div class="profile-page-table">
+			<table>
+				<tr>
+					<td class="medium">Name:</td>
+					<td class="medium" id="profileInfoName"></td>
+				</tr>
+				<tr>
+					<td class="medium">Account:</td>
+					<td class="medium" id="profileInfoAccountId"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="profile-page-table multiline-insert-before">
+			<table>
+				<tr>
+					<td class="medium">Cycle Re-Start:</td>
+					<td class="medium" id="profileInfoCycleRestart"></td>
+				</tr>
+			</table>
+		</div>
+		<div class="profile-page-table">
+			<table>
+				<tr>
+					<td class="medium">Account Status:</td>
+					<td class="medium" id="profileInfoAccountStatus"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="profile-line-separator"></div>
+
+		<div id="i18n_contactTableTitle" class="table-title page-subtitle" role="heading" aria-level="2" data-i18n="PROFILE_PAGE_CONTACT_TABLE_TITLE"></div>
+
+		<table class="profile-page-table">
+			<tr>
+				<td class="medium">Home Phone:</td>
+				<td class="medium" id="profileInfoHomePhone"></td>
+			</tr>
+			<tr>
+				<td class="medium">Work Phone:</td>
+				<td class="medium" id="profileInfoWorkPhone"></td>
+			</tr>
+			<tr>
+				<td class="medium">E-Mail:</td>
+				<td class="medium" id="profileInfoEmail"></td>
+			</tr>
+			<tr>
+				<td class="medium">Address:</td>
+				<td class="medium" id="profileInfoBillingAndShipping"></td>
+			</tr>
+		</table>
+		
+		<!-- <a id="editProfileButton" class="button blue-button" role="button">Edit</a> -->
+		
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ==================== -->
+	<!--     EDIT PROFILE     -->
+	<!-- ==================== -->
+	<div id="editProfilePage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="back-button" role="button">Back</div>
+		<h3 class="page-title" id="i18n_editProfilePageTitle" role="heading" aria-level="1">Edit Contact Information</h3>
+		<ul class="sub-page list-container medium-background">
+			<li class="list-item group-item">
+				<div>
+					<label>Home Phone:</label>
+					<input type="tel" id="i18n_homePhoneNumber" placeholder="Home Phone Number" maxlength="10" class="vb" role="textbox" />
+				</div>
+				<div>
+					<label>Work Phone:</label>
+					<input type="tel" id="i18n_businessPhoneNumber" placeholder="Business Phone Number" maxlength="10" class="vb" role="textbox" />
+				</div>
+			</li>
+			<li class="list-item">
+				<label>E-mail:</label>
+				<input type="email" id="i18n_email" placeholder="Email" class="vb" role="textbox" />
+			</li>
+			<li class="list-item">
+				<label>Billing & Shipping Address *</label>
+				<div class="select-container">
+					<select id="i18n_adressType" class="vb" role="combobox">
+						<option value="S" role="option">Street</option>
+						<option value="P" role="option">PO box</option>
+						<option value="R" role="option">Rural route</option>
+					</select>
+					<div class="select-icon"></div>
+				</div>
+			</li>
+			<li id="streetAddressBloc" class="list-item">
+				<label>Street Address *</label>
+				<input type="text" id="i18n_streetAdress" placeholder="Street address" class="vb" role="textbox" />
+			</li>
+			<li id="poBoxNumberBloc" class="list-item hidden">
+				<label>PO Box Number *</label>
+				<input type="text" id="i18n_poBoxNumber" placeholder="PO Box Number" class="vb" role="textbox" />
+			</li>
+			<li id="ruralRouteBloc" class="list-item hidden">
+				<label>Rural Route *</label>
+				<input type="text" id="i18n_ruralRoute" placeholder="Rural Route" class="vb" role="textbox" />
+			</li>
+			<li id="ruralBoxNumberBloc" class="list-item hidden">
+				<label>Rural Box Number *</label>
+				<input type="text" id="i18n_ruralBoxNumber" placeholder="Rural Box Number" class="vb" role="textbox" />
+			</li>
+			<li class="list-item">
+				<label>City *</label>
+				<input type="text" id="i18n_city" placeholder="City" class="vb" role="textbox" />
+			</li>
+			<li class="list-item last-item group-item">
+				<div>
+					<label>State *</label>
+					<div class="select-container">
+						<select id="i18n_state" class="vb" role="combobox"></select>
+						<div class="select-icon"></div>
+					</div>
+				</div>
+				<div>
+					<label>Postal Code *</label>
+					<input type="tel" id="i18n_postalCode" placeholder="Postal code" maxlength="5" class="vb" role="textbox" />
+				</div>
+			</li>
+			<li class="wp-button-container">
+				<a id="i18n_editProfileCancelButton" class="inline-button grey-button button-left" href="#ns-myProfilePage" role="button">Cancel</a>
+				<a id="i18n_editProfileButton" class="inline-button blue-button button-right" role="button">Save</a>
+			</li>
+		</ul>
+		
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================= -->
+	<!--     CHANGE PASSWORD     -->
+	<!-- ======================= -->
+	<div id="changePwdPage" class="page pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<div id="changePwdBackButton" class="back-button" role="button">Back</div>
+		<h3 class="page-title" id="changePwdHeading" role="heading" aria-level="1">
+			<span>Change Password</span>
+		</h3>
+		<div class="intro-message xx-large" id="i18n_changePasswordText" data-i18n="CHANGE_PWD_TEXT"></div>
+		<form id="changePwdPageForm">
+			<fieldset>
+				<ul class="list-container">
+					<li class="list-item first-item">
+						<label id="i18n_changePasswordCurrentPwdLabel" for="i18n_changePassworCurrentPwd" class="input-label" data-i18n="CHANGE_PWD_TMP_PWD_LABEL"></label>
+						<input id="i18n_changePasswordCurrentPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="CHANGE_PWD_TMP_PWD_INPUT"/>
+					</li>
+					<li class="list-item">
+						<label id="i18n_changePasswordPwdLabel" for="i18n_changePasswordPwd" class="input-label" data-i18n="CHANGE_PWD_PWD_LABEL"></label>
+						<input id="i18n_changePasswordPwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="CHANGE_PWD_PWD_INPUT"/>
+					</li>
+					<li class="list-item last-item">
+						<label id="i18n_changePasswordRePwdLabel" for="i18n_changePasswordRePwd" class="input-label" data-i18n="CHANGE_PWD_REPWD_LABEL"></label>
+						<input id="i18n_changePasswordRePwd" type="password" class="vb" role="textbox" aria-required="true" data-i18n-placeholder="CHANGE_PWD_REPWD_INPUT"/>
+						<button type="submit" class="hidden-submit-button" id="i18n_changePasswordBtnSbmt" aria-hidden="true"></button>
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" id="i18n_changePasswordCancelBtn" href="#ns-morePage" role="button" data-i18n="CHANGE_PWD_CANCEL_BTN"></a>
+			<a class="inline-button blue-button disabled button-right" id="i18n_changePasswordBtn" role="button" aria-disabled="true" data-i18n="CHANGE_PWD_BTN"></a>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- =================================== -->
+	<!--     CHANGE PASSWORD CONFIRMATION    -->
+	<!-- =================================== -->
+	<div id="changePwdConfirmationPage" class="page no-header no-footer pin-auth" role="region">
+		<div class="spacer" role="separator"></div>
+		<h3 class="page-title" role="heading" aria-level="1">Password Reset</h3>
+		<div class="informations">
+			<div class="text large">Your have changed your password.</div>
+		</div>
+		<div class="button-bar">
+			<a id="changePwdConfirmationButton" class="button blue-button" role="button">OK</a>
+		</div>
+	</div>
+	<!-- ================================= -->
+	<!--     RESET VOICE MAIL PASSWORD     -->
+	<!-- ================================= -->
+	<div id="resetVoiceMailPwdPage" class="page voiceMailPassword" role="region">
+		<div class="spacer" role="separator"></div>
+		<div id="resetVoiceMailPwdPageBackButton" class="back-button" role="button">Back</div>
+		<h3 class="page-title" role="heading" aria-level="1">Reset Voicemail Password</h3>
+		<div class="text large phone-number"></div>
+		<div class="informations">
+			<div class="text medium">Continue to reset your voicemail password.</div>
+		</div>
+		<div class="button-bar">
+			<a class="inline-button grey-button button-left" href="#ns-morePage" role="button">Cancel</a>
+			<a class="inline-button blue-button button-right" href="#ns-resetVoiceMailPwdConfirmationPage" role="button">Continue</a>
+		</div>
+	</div>
+	<!-- ============================================= -->
+	<!--     RESET VOICE MAIL PASSWORD CONFIRMATION    -->
+	<!-- ============================================= -->
+	<div id="resetVoiceMailPwdConfirmationPage" class="page voiceMailPassword" role="region">
+		<div class="spacer" role="separator"></div>
+		<h3 class="page-title" role="heading" aria-level="1">Voicemail Password Reset</h3>
+		<div class="text large phone-number"></div>
+		<div class="informations">
+			<div class="text medium">Your voicemail password has been reset.</div>
+		</div>
+		<div class="sub-page">
+			<div class="text small">Access your voicemail to change it to a password of your choice.</div>
+			<div class="button-bar">
+				<a class="button blue-button" href="#ns-morePage" role="button">OK</a>
+			</div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ======================== -->
+	<!--         ABOUT US         -->
+	<!-- ======================== -->
+	<div id="aboutUsPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>	
+		<div class="back-button" role="button">Back</div>
+		<!-- Title of the page -->
+		<h3 class="page-title" role="heading" aria-level="1">About Us</h3>
+		<div class="wp-button-container">
+			<!--a class="button blue-button" href="#ns-aboutUsFaqsPage">FAQs</a>
+			<a class="button blue-button" href="#ns-aboutUsPrivacyPage">Privacy Policy</a>
+			<a class="button blue-button" href="#ns-aboutUsTandCPage">Terms and Conditions</a>
+			<a class="button blue-button" href="#ns-eulaPage">End User License Agreement</a-->
+			<a id="aboutUsFaqsPageLink" class="button blue-button" role="button" aria-describedby="aboutUsFaqsPageLinkCATOLabel">FAQs</a>
+			<a id="aboutUsPrivacyPageLink" class="button blue-button" role="button">Privacy Policy</a>
+			<a id="aboutUsTandCPageLink" class="button blue-button" role="button">Terms and Conditions</a>
+			<a id="eulaPageLink" class="button blue-button" role="button">End User License Agreement</a>
+			<span id="aboutUsFaqsPageLinkCATOLabel" style="display: none;" aria-hidden="true">Frequently Asked Questions</span>
+		</div>
+		<div id="versionNumber" class="medium" data-buildnb="@@VERSION@@"></div>
+	</div>
+	<!-- ======================== -->
+	<!--         PIN PAGE         -->
+	<!-- ======================== -->
+	<div id="pinPage" class="page no-footer" role="region">
+		<div class="back-button" role="button">Back</div>
+		<h3 class="page-title xxx-large" role="heading" aria-level="1">Enter Account PIN</h3>
+		<div>
+			<input type="password" maxlength="4" size="8" id="pinCode" placeholder="PIN Code" class="vb" role="textbox" pattern="[0-9]*"/>
+		</div>
+		<div class="text medium">Before you can continue, you must enter the 4-digit PIN that was create when the account was opened. <br/>If you forgot your PIN, tap <span>+More</span> to call or chat an Aio Advocate.</div>
+	</div>
+	<!-- ======================= -->
+	<!--   ABOUT DISCOUNT PAGE   -->
+	<!-- ======================= -->
+	<div id="aboutDiscountPage" class="page" role="region">
+		<div class="spacer" role="separator"></div>
+		<div class="innerPage">
+			<div class="back-button" role="button">Back</div>
+			<div class="remote"></div>
+		</div>
+		<div class="page-bottom-margin"></div>
+	</div>
+	<!-- ================================= -->
+	<!--    MULTILINE SELECT NUMBER PAGE   -->
+	<!-- ================================= -->
+	<div id="multilinePage" class="page no-footer" role="region">
+		<h3 class="page-title largest" role="heading" aria-level="1">Select Number</h3>
+		<div class="text medium">Select a number to view plan details.</div>
+		<div class="list-container">
+			<div class="select-container">
+				<select id="multilineSelectNumber" class="vb ap notValued" role="combobox" aria-required="true">
+					<option role="option" value="">Select phone number</option>
+				</select>
+				<div id="multilineArrow" class="ui-icon select-icon"></div>
+			</div>
+		</div>
+	</div>
+	<!-- ======================== -->
+	<!--   ONLINE SECURITY PAGE   -->
+	<!-- ======================== -->
+	<div id="onlineSecurityPage" class="page no-footer" role="region">
+		<div class="back-button" role="button">Back</div>
+		<h3 class="page-title largest" role="heading" aria-level="1">Turn <span class="on-off-security"></span> Online Security</h3>
+		<div class="text medium">Use your account PIN to add online security to your accounts. Only those with PIN access can:
+			<ul>
+				<li>Add or delete features to a plan</li>
+				<li>Turn Auto Pay on/off</li>
+				<li>Change Passwords</li>
+			</ul>
+		</div>
+		<div>
+			<input type="number" maxlength="4" id="securityCode" placeholder="Enter Account PIN" class="vb" role="textbox"/>
+		</div>
+		<div>
+			<div class="button-bar">
+				<a class="button blue-button" href="#ns-morePage" role="button">Turn <span class="on-off-security"></span> Online Security</a>
+			</div>
+		</div>
+	</div>
+	<!-- ====================== -->
+	<!--     BOTTOM SHADOW      -->
+	<!-- ====================== -->
+	<div id="bottomShadow" style="display:none;" aria-hidden="true"></div>
+	<!-- =============== -->
+	<!--     FOOTER      -->
+	<!-- =============== -->
+	<div id="footer" style="display:none" aria-hidden="true">
+		<ul class="nav-grid" role="menubar">
+			<li class="nav-block">
+				<a data-href="#ns-homePage" class="ui-nav" role="menuitem" aria-labelledby="i18n_navigationHomeLink" aria-selected="false">
+					<span class="ui-nav-inner"> <span id="i18n_navigationHomeLink" data-i18n="NAVIGATION_HOME_LINK"></span> <span class="ui-nav-icon nav-icon-home">&nbsp;</span> </span>
+				</a>
+			</li>
+			<li class="nav-block">
+				<a data-href="#ns-usagePage" class="ui-nav" role="menuitem" aria-labelledby="i18n_navigationUsagesLink" aria-selected="false">
+					<span class="ui-nav-inner"> <span id="i18n_navigationUsagesLink" data-i18n="NAVIGATION_USAGES_LINK"></span> <span class="ui-nav-icon nav-icon-usage">&nbsp;</span> </span>
+				</a>
+			</li>
+			<li class="nav-block">
+				<!-- <a data-href="#ns-myBillPage" class="ui-nav"> TODO: defect #870 -->
+				<a data-href="#ns-payMyBillPage" class="ui-nav" role="menuitem" aria-labelledby="i18n_navigationMyBillsLink" aria-selected="false">
+					<span class="ui-nav-inner"> <span id="i18n_navigationMyBillsLink" data-i18n="NAVIGATION_MY_BILLS_LINK"></span> <span class="ui-nav-icon nav-icon-bills">&nbsp;</span> </span>
+				</a>
+			</li>
+			<li class="nav-block">
+				<a data-href="#ns-myPlanPage" class="ui-nav" role="menuitem" aria-labelledby="i18n_navigationMyPlanLink" aria-selected="false">
+					<span class="ui-nav-inner"> <span id="i18n_navigationMyPlanLink" data-i18n="NAVIGATION_MY_PLAN_LINK"></span> <span class="ui-nav-icon nav-icon-plan">&nbsp;</span> </span>
+				</a>
+			</li>
+			<li class="nav-block">
+				<a data-href="#ns-morePage" class="ui-nav" role="menuitem" aria-labelledby="i18n_navigationMoreLink" aria-selected="false">
+					<span class="ui-nav-inner"> <span id="i18n_navigationMoreLink" data-i18n="NAVIGATION_MORE_LINK"></span> <span class="ui-nav-icon nav-icon-more">&nbsp;</span> </span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- ========================== -->
+	<!--     ON SCREEN CONSOLE      -->
+	<!-- ========================== -->
+	<div id="debug">
+		<a role="button">Clear</a>
+	</div>
+	<!-- ============================ -->
+	<!--  ZALERT TRICK FOR VOICEOVER  -->
+	<!-- ============================ -->
+	<!-- 
+		Isn't it ugly ?
+		Safari don't support lots of WAI-ARIA roles,
+		see https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/AccessibilityRoles.html#//apple_ref/doc/uid/TP30009876-SW1
+	-->
+	<div id="alertWrapper" role="list" aria-live="assertive" aria-hidden="true"></div>
+	<!-- ====================================== -->
+	<!--  ANDROID TRICK FOR ZERO DOLLAR LABELS  -->
+	<!-- ====================================== -->
+	<span style="display:none;" id="zeroDollar">Zero dollar</span>
+</body>
+</html>

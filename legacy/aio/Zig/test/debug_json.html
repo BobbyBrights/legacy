@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<head>
+<title>Emulation helper</title>
+
+<meta charset="utf-8" />
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
+<style>
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+	position: relative;
+	width: 100%;
+}
+
+header {
+	position: relative;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 1000;
+	border: 1px solid #333;
+	background: #111;
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 -1px 1px black;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#3C3C3C),
+		to(#111) );
+	background-image: -webkit-linear-gradient(#3C3C3C, #111);
+	background-image: linear-gradient(#3C3C3C, #111);
+}
+
+header h1 {
+	min-height: 1.1em;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	margin: .6em 10% .8em;
+	padding: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	outline: 0 !important;
+}
+
+
+.body {
+	margin: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+ h1 {
+	min-height: 1.1em;
+	text-align: center;
+	font-size: 16px;
+	display: block;
+	margin: .6em 10% .8em;
+	padding: 0;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	outline: 0 !important;
+}
+
+a {
+	margin: 0 auto;
+	margin-bottom : 10px;
+	padding: 0;
+	width: 60%;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 20px;
+	opacity: 0.9;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px
+		3px rgba(255, 255, 255, 1);
+	box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 3px
+		rgba(255, 255, 255, 1);
+	text-shadow: 0px -1px 0px rgba(008, 008, 008, 0.1), 0px 1px 0px
+		rgba(255, 255, 255, 1);
+	color: #424142;
+	border: 1px solid #51b6db;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff),
+		color-stop(0.50, #ffffff), to(#d6d6d6) );
+	text-decoration: none;
+}
+
+a:active {
+	position: relative;
+	top: 1px;
+}
+
+
+</style>
+<script type="text/javascript">
+	var envHost = "https://amss.st1.mizmowireless.us/rest/";
+	
+	function init(){
+		$('#test').bind('click',function() {
+			var jsonInputs = {};
+			jsonInputs.username = 'lkdlkf';
+			jsonInputs.password = 'dfd';
+			$('#test').text('please wait...');
+
+			var onError = function(jqXHR, status, error) {
+				$('#test').text('Test Login');
+	            if (jqXHR.status === 0) {
+	            	alert("Please check your internet connection and try again.  network error");
+	            } else if (jqXHR.status == 404) {
+	            	alert("The resource you are trying to access does not exist.  Not Found");
+	            } else if (jqXHR.status == 500) {
+	            	alert("Sorry, something wents wrong.  Internal Error");
+	            } else if (error === 'parsererror') {
+	            	alert("Sorry, something wents wrong.  Internal Error");
+	            } else if (errors === 'timeout') {
+	            	alert("Sorry, the server took too long to respond.  Time Out Error");
+	            } else {
+	            	alert("Sorry, something wents wrong.  Fatal Error");
+	            }
+			};
+
+			var onSuccess = function(json) {
+				$('#test').text('Test Login');
+				alert(JSON.stringify(json));
+
+				if (json.status == "success") {
+
+					// Go to home page
+					alert('going to home');
+// 					document.location.href = '#homePage';
+
+				} else if (json.status == "failure") {
+					manageErrorCases(json.messages, "LOG IN");
+// 					console.log('manage error case ' + json.messages + "LOG IN")
+				} else {
+					alert("Unknown error!");
+// 					application.log("[ERROR] LOG IN: Bad format of the JSON response");
+				}
+			};
+
+			jsonpAjaxCall("authentication/login", jsonInputs, onError, onSuccess);
+			
+		});
+	}
+	
+	function jsonpAjaxCall (method, param, onError, onSuccess) {
+		if ($.browser.msie && window.XDomainRequest && (window.location.protocol != 'file:') && (window.location.protocol != 'x-wmapp0:')) {
+			// Use Microsoft XDR
+			var xdr = new XDomainRequest();
+			xdr.contentType = 'application/json';
+			xdr.open('POST', envHost + method);
+			xdr.onload = function() {
+				var json = $.parseJSON(xdr.responseText);
+				onSuccess(json); // parse using same function as for jQuery's
+				// success event
+			};
+			xdr.onerror = onError;
+			xdr.send(JSON.stringify(param));
+			return xdr;
+		} else {
+			return $.ajax({
+				type : 'POST',
+				url : envHost + method,
+				data : JSON.stringify(param),
+				contentType : 'application/json',
+				// dataType : 'json',
+
+				error : onError,
+				success : onSuccess
+			});
+		}
+	};
+	
+	var manageErrorCases = function(errorMessage, screenName) {
+		var errorCode = errorMessage[0].code;
+		alert("[ERROR] " + screenName + ": Error code " + errorCode);
+		switch (errorCode) {
+		case '0000':
+			alert("Sorry… looks like we're having technical difficulties.  Please try again later.");
+			break;
+		case '0001':
+			alert("Sorry… looks like we're having technical difficulties.  Please try again later.");
+			break;
+		case '1000':
+			$("#loginForgetPasswordLink").hide();
+			$("#loginInlineError").show();
+			break;
+		case '1001':
+			location.hash = "#ns-lockedPage";
+			break;
+		case '1002':
+			alert("Sorry… looks like there’s an issue with your account.  Give us a call at 1-855-246-2461…to straighten this out.");
+			break;
+		case '1003':
+			alert("Looks like your password is incorrect.  Let's give it another try.");
+			break;
+		case '1004':
+			alert("Looks like this answer is incorrect.  Lets give it another try.");
+			break;
+		case '1005':
+			alert("Sorry… that username is already taken – you’ll have to choose another.");
+			break;
+		case '1006':
+			alert("Sorry… that's not a valid phone number.  Let's give it another try.");
+			break;
+		case '1007':
+			alert('signUpInlineError');
+// 			$("#signUpInlineError").show();
+			break;
+		case '1008':
+			alert("Looks like this password does not meet our security guidelines.  Please pick a new one with at least six characters.");
+			break;
+		case '1012':
+			alert('goto pwd');
+// 			location.hash = "#ns-setPwdPage";
+			break;
+		case '2000':
+			alert("Sorry… we're unable to reset the voicemail password on your device.");
+			break;
+		case '3000':
+			alert("System Error. Please try again later.");
+			break;
+		case '4000':
+			alert("Please select dates within range of one month.");
+			break;
+		case '4001':
+			alert("Please select a start dates within the last 3 months.");
+			break;
+		case '4002':
+			alert("Please select a valid date range.");
+			break;
+		case '5000':
+			alert("Looks like your credit card information is not correct.  Please try again.");
+			break;
+		case '5001':
+			alert("Looks like your credit card information is not correct.  Please try again.");
+			break;
+		case '6000':
+			alert("Looks like your credit card information is not correct.  Please try again.");
+			break;
+		case '7000':
+			alert("Looks like you've been logged out due to inactivity.  Please log in again.");
+			break;
+		default:
+			alert("Unknown error!");
+			break;
+		}
+	};
+	
+	$(init);
+</script>
+</head>
+
+<body>
+
+	<header>
+		<h1>API Call Test</h1>
+	</header>
+
+
+	<div class="body">
+		<a id="test">Test Login</a>
+	</div>
+
+
+</body>
+</html>

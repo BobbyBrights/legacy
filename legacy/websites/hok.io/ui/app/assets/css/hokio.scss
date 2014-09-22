@@ -1,0 +1,174 @@
+@import url(../../bower_components/bootstrap/dist/css/bootstrap.min.css);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import 'animations';
+@import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+
+$font-family:             'Source Sans Pro', sans-serif;
+$navbar-bg-color:           #f86;
+$well-bg-color:             #432;
+
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family;
+
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url(../img/coffee-shop.jpg) no-repeat center center fixed;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media (min-width: 768px) {
+    position: relative;
+  }
+
+}
+
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar-hokio {
+  background-color: $navbar-bg-color;
+  border: none;
+
+  .navbar-brand {
+    color: #FFF;
+  }
+
+  .navbar-nav li {
+    a {
+      color: #FFF;
+      &:hover {
+        background-color: lighten($navbar-bg-color, 5%);
+      }
+    }
+
+  }
+}
+
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  @media (min-width: 768px) {
+    margin-top: -60px;
+  }
+
+}
+
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+  @media (min-width: 768px) {
+    vertical-align: middle;
+  }
+
+}
+
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: 992px) {
+    width: 800px;
+  }
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+.cover {
+  padding: 0 20px;
+}
+
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+
+  .container {
+    padding: 0 15px;
+  }
+  .container .text-muted {
+    margin: 20px 0;
+    text-align: right;
+    color: #FFF;
+  }
+}
+
+.results {
+  padding: 10px;
+  text-align: left;
+  color: #333; text-shadow: none;
+  h3 {
+    margin: 0;
+  }
+
+  width: 100%;
+  .option {
+    width: 100%;
+    display: inline-table;
+    border-top: 1px solid #DFDFDF;
+
+    &.heading {
+      border-top: none;
+    }
+    div {
+      padding: 5px;
+      display: table-cell; width: 20%;
+      &.th {
+        font-size: 1.25em;
+      }
+    }
+  }
+}
+
+.well.transparent {
+  background: none;
+  border: 2px solid #FFF;
+  //@include radial-gradient(circle at 1% 80%, $well-bg-color 5%, darken($well-bg-color, 34%) 50%);
+  form {
+    width: 100%;
+    div.form-group {
+      width: 39%;
+      @media (max-width: 768px) {
+       width: 100%;
+      }
+      .form-control {
+        width: 100%;
+      }
+    }
+    button[type=submit] {
+      width: 20%;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+

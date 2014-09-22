@@ -1,0 +1,114 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="novaballApp"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" ng-app="novaballApp"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" ng-app="novaballApp"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="novaballApp"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>v2.0-ui</title>
+    <meta name="description" content="">
+    <meta name="fragment" content="!">
+    <meta name="viewport" content="width=device-width">
+    <link href="/styles/main.css" rel="stylesheet" />
+</head>
+<body class="{{$root.loggedIn ? 'logged-in' : 'not-logged-in'}} {{$root.isHome ? 'is-home' : ''}}">
+<toaster-container> </toaster-container>
+<div ng-view></div>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/lib/routes.js"></script>
+<script src="/lib/common.js"></script>
+<script src="/bower_components/crypto-js/rollups/tripledes.js"></script>
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="/bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+<script src="/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
+<script src="/bower_components/toastr/toastr.min.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="/scripts/config.js"></script>
+<script src="/scripts/app.js"></script>
+<script src="/scripts/services/http.js"></script>
+<script src="/scripts/services/resource.js"></script>
+<script src="/scripts/services/auth.js"></script>
+<script src="/scripts/directives/customelements.js"></script>
+<script src="/scripts/directives/tointeger.js"></script>
+<script src="/scripts/filters/strings.js"></script>
+<script src="/scripts/controllers/main.js"></script>
+<script src="/scripts/controllers/user.js"></script>
+<script src="/scripts/controllers/nav.js"></script>
+<script src="/scripts/controllers/search.js"></script>
+<script src="/scripts/controllers/bet.js"></script>
+<script src="/scripts/controllers/subscription.js"></script>
+<script src="/scripts/controllers/profile.js"></script>
+<script src="/scripts/controllers/account.js"></script>
+<script src="/scripts/controllers/history.js"></script>
+<script src="/scripts/controllers/breadcrumb.js"></script>
+<script src="/scripts/controllers/lottery.js"></script>
+<script src="/scripts/controllers/affiliate.js"></script>
+<script src="/scripts/controllers/customer.js"></script>
+<script src="/scripts/controllers/report.js"></script>
+<script src="/scripts/controllers/ui.js"></script>
+<script src="/scripts/controllers/login.js"></script>
+
+<!-- Modals -->
+<script type="text/ng-template" id="addCard.html">
+    <div class="modal-header">
+        <h3>Add Card</h3>
+    </div>
+    <div class="modal-body with-iframe">
+        <iframe ng-src="{{pci_iframe_url}}"></iframe>
+    </div>
+    <div class="modal-footer">
+        <!--<button class="btn btn-success" ng-click="cancel()">Cancel</button>-->
+    </div>
+</script>
+
+<script type="text/ng-template" id="betPlaced.html">
+    <div class="modal-header">
+        <h3>Lines saved</h3>
+    </div>
+    <div class="modal-body">
+        Your lines have been saved, and your credit card charged €40.00. Your next eligible draw is 2014-09-02 20:00:00.
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="ok()">OK</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="deleteModal.html">
+    <div class="modal-header">
+        <h3>{{settings.header}}</h3>
+    </div>
+    <div class="modal-body">
+        <p>{{settings.message}}</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" ng-click="ok()">{{settings.btn_ok}}</button>
+        <button class="btn btn-success" ng-click="cancel()">{{settings.btn_cancel}}</button>
+    </div>
+</script>
+
+
+</body>
+</html>

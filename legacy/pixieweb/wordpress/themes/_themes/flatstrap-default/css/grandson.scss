@@ -1,0 +1,194 @@
+@import "_mixins";
+//@import "_ribbons";
+
+@import '../js/royalslider/royalslider.css';
+@import '../js/royalslider/skins/minimal-white/rs-minimal-white.css';
+@import "_slider";
+
+$black:		#1a171b;
+.header {
+	min-height: 8.0em; background-color: $black; width: 100%;
+	nav#primary-nav {
+		display: table;
+		ul {
+			width: 90%;
+			display: table-row;
+			li {
+				display: table-cell; width: 1%; text-align: center; 
+				position: relative;
+				a {
+					display: block; padding: 1em 3em; text-decoration: none; color: #AAA; font-size: 1.1em; text-transform: uppercase;
+				}
+				div.overlay-menu {
+					    position: absolute;
+					    display: block;
+					    width: 500px;
+					    top: 50px;
+					    left: 0;
+						min-height: 4em;
+					    opacity: 0;
+					    visibility: hidden;
+					    overflow: hidden;
+						z-index: 9999;
+					    background: $black;
+					    border-radius: 0 0 3px 3px;
+					 
+					    -webkit-transition: all .3s ease .15s;
+					    -moz-transition: all .3s ease .15s;
+					    -o-transition: all .3s ease .15s;
+					    -ms-transition: all .3s ease .15s;
+					    transition: all .3s ease .15s;
+					    
+					    // Drop shadow on bottom
+						-webkit-box-shadow: 0 10px 6px -6px #777;
+						   -moz-box-shadow: 0 10px 6px -6px #777;
+						        box-shadow: 0 10px 6px -6px #777;
+						       
+					    padding-bottom: 20px;
+						        
+						ul {
+							display: block;
+							float: left;
+							width: 23%;
+							li {
+								display: block;
+								text-align: left; 
+								width: 100%;
+								color: #FFF;
+								padding: 0 0 4px 14px;
+								&:first-child {
+									font-size: 1.5em;
+									margin-bottom: 0.5em;
+								}
+							}
+						}
+						.menu-aside {
+							width: 22%;
+							color: #FFF;
+							float: left;
+							text-align: left;
+							h3 {
+								margin-top: 0;
+							}
+						}
+
+				}
+				
+				&:hover div.overlay-menu {
+					opacity: 1;
+				    visibility: visible;
+				    overflow: visible;
+				}
+				
+			}	
+		}
+		
+	}
+}
+
+.page-content {
+	min-height: 25.0em; background-color: #D4D4D4; padding-bottom: 10em;
+	.row {
+		margin-top: 2em;
+		min-height: 12em;
+		div[class^=span] {
+			min-height: 12em; 
+			position: relative;
+			div.ribbon {
+				background-color: white; 
+				position: absolute;
+				bottom: 10%;
+				padding: 0 40px 0 20px; 
+				@include opacity(0.8);
+				h5 {
+					@include opacity(1);
+				}
+			}
+		}
+		&:first-child {
+			
+			div[class^=span]:first-child {
+				background-image: url('../images/spots/1.png'); 
+				background-repeat: no-repeat; 
+				height: 204px;
+				background-size: cover;
+			}
+			div[class^=span]:nth-child(2) {
+				background-image: url('../images/slider/5.jpg'); 
+				background-repeat: no-repeat;
+				height: 204px;
+			}
+			div[class^=span]:nth-child(3) {
+				height: 204px;
+							
+			}
+			
+		}
+		
+		&:nth-child(2) {
+			
+			div[class^=span]:first-child {
+				background-color: #F90;
+			}
+			div[class^=span]:nth-child(2) {
+				background-color: #E94;
+			}
+			div[class^=span]:nth-child(3) {
+				background-color: #194;
+			}
+		}
+
+		&:nth-child(3) {
+			
+			div[class^=span]:first-child {
+				background-color: #F90;
+			}
+			div[class^=span]:nth-child(2) {
+				background-color: #E94;
+			}
+			div[class^=span]:nth-child(3) {
+				background-color: #194;
+			}
+		}
+		
+	}
+}
+
+.strapline {
+	height: 7.0em; background-color: #999; 
+}
+
+.rich-footer {
+	height: 17.0em; background-color: #000; 
+	ul {
+		width: 23%; margin: 0; float: left;
+		padding-left: 25px; padding-top: 25px; list-style-type: none;
+		li {
+			color: #FFF; font-size: 0.875em;
+			&:first-child {
+				font-size: 1.2em; font-weight: bold; 
+			}
+		}
+	}
+}
+
+.header-logo {
+	display: block; margin: auto;
+}
+
+// Page Tags
+body.page-concept-1 {
+	&:after { /*This adds a label in the top-left corner that displays the current media query state.*/
+		background: red;
+		color: #FFF;
+		content: "Concept 1";
+		right: 0;
+		@include opacity();
+		padding: 1em 2em;
+		position: absolute;
+		text-align: center;
+		top: 0;
+		z-index: 99;
+	}
+}
+  

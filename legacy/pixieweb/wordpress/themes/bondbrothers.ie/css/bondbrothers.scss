@@ -1,0 +1,448 @@
+@import "_mixins";
+//@import "_ribbons";
+@import 'bourbon/bourbon';
+
+@import '../js/royalslider/royalslider.css';
+@import '../js/royalslider/skins/minimal-white/rs-minimal-white.css';
+@import "_slider";
+@import "_hover";
+
+@import "font-awesome/font-awesome.css";
+
+body {
+  //font-family: Arial sans-serif;
+}
+
+$black:		#1a171b;
+.header {
+
+	min-height: 8.0em; background-color: $black; width: 100%; position: relative;
+	.logo-section {
+		@include linear-gradient(#58595b, #000000);
+		@include box-shadow(0px 8px 8px #000);	
+	}
+	nav#social-nav {
+		position: absolute; top: 5px; right: 10px; 
+		ul > li{
+		    display: inline-block;   /* You can also add some margins here to make it look prettier */
+		    zoom:1;
+		    *display:inline; /* this fix is needed for IE7- */
+		    a {
+				text-indent: -9999px!important;
+		    }
+		}
+	}
+	nav#primary-nav {
+		@include linear-gradient(#adadb2, #93969a);
+		
+		color: #FFF;
+		
+		display: table;
+		position: relative;
+		ul {
+			width: 60%;
+			display: table-row;
+			li {
+				display: table-cell; width: 1%; text-align: center; position: relative; white-space: nowrap;
+				a {
+					display: block; padding: 1em 1.5em; text-decoration: none; color: #FFF; font-size: 1.1em; text-transform: uppercase;
+				}
+				div.overlay-menu {
+					    position: absolute;
+					    display: block;
+					    width: 500px;
+					    top: 50px;
+					    left: 0;
+						min-height: 4em;
+					    opacity: 0;
+					    visibility: hidden;
+					    overflow: hidden;
+						z-index: 9999;
+					    background: $black;
+					    border-radius: 0 0 3px 3px;
+					 
+					    -webkit-transition: all .3s ease .15s;
+					    -moz-transition: all .3s ease .15s;
+					    -o-transition: all .3s ease .15s;
+					    -ms-transition: all .3s ease .15s;
+					    transition: all .3s ease .15s;
+					    
+					    // Drop shadow on bottom
+						-webkit-box-shadow: 0 10px 6px -6px #777;
+						   -moz-box-shadow: 0 10px 6px -6px #777;
+						        box-shadow: 0 10px 6px -6px #777;
+						       
+					    padding-bottom: 20px;
+						        
+						ul {
+							display: block;
+							float: left;
+							width: 23%;
+							li {
+								display: block;
+								text-align: left; 
+								width: 100%;
+								color: #FFF;
+								padding: 0 0 4px 14px;
+								&:first-child {
+									font-size: 1.5em;
+									margin-bottom: 0.5em;
+								}
+							}
+						}
+						.menu-aside {
+							width: 22%;
+							color: #FFF;
+							float: left;
+							text-align: left;
+							h3 {
+								margin-top: 0;
+							}
+						}
+
+				}
+				/*
+				&:hover div.overlay-menu {
+					opacity: 1;
+				    visibility: visible;
+				    overflow: visible;
+				}
+				*/
+				
+				&.search {
+					input {
+					background: url(http://cssdeck.com/uploads/media/items/4/4yK4Jqj.jpg) 5px center no-repeat #FFF;
+					border: 1px solid #AAA;
+					color: #666;
+					font-size: 11px;
+					margin: 0;
+					margin-left: 20px;
+					opacity: 0.6;
+					outline: none;
+					padding: 3px 5px 3px 20px;
+					width: 120px;
+					/* CSS3 */
+					border-radius: 5px;
+					-webkit-transition: 0.3s;
+					-moz-transition: 0.3s;
+					-o-transition: 0.3s;
+					transition: 0.3s;
+					}
+					
+					input:hover { opacity: 1 }
+					
+					input:focus {
+					opacity: 1;
+					width: 220px;
+					}
+					
+					input:focus ~ a { width: 95px }
+				}
+			}	
+		}
+		
+	}
+	.cart {
+		@include rounded;
+		
+		position: absolute; right: 20px; top: 20px; background-color: #FFF; padding: 10px; 
+		p {
+			line-height: 12px; 
+	
+		}
+	}
+}
+#overlay-placeholder {
+	background-color: #CCC; display: none;
+	.container {
+		.row {
+			width: 80%; margin-left: auto; margin-right: auto; padding-top: 40px; padding-bottom: 20px;
+			div[class^=span]{
+				cursor: pointer;
+				img {
+					float: left; margin-right: 5px; margin-bottom: 20px;
+				}
+				h5 { 
+					margin: 0; font-size: 1.0em; 
+				}
+				p {
+					font-size: 0.875em; line-height: 16px; 
+				}
+			}
+		}
+	}
+}
+blockquote.testimonial {
+	font-style: italic;
+	margin: 0.25em 0;
+	padding: 0.25em 40px;
+	line-height: 1.45;
+	position: relative;
+	color: #383838;
+	&:before {
+		display: block;
+		content: "\201C";
+		font-size: 80px;
+		position: absolute;
+		left: -20px;
+		top: -20px;
+		color: #7a7a7a;
+	}
+
+	cite {
+		color: #999999;
+		font-size: 14px;
+		display: block;
+		margin-top: 5px;
+		&:before {
+			content: "\2014 \2009";
+		}
+
+	}
+}
+.active-menu-item {
+	&:after, &:before {
+		top: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+	&:after {
+		border-color: rgba(136, 183, 213, 0);
+		border-top-color: #93969a;
+		border-width: 30px;
+		left: 50%;
+		margin-left: -30px;
+	}
+	&:before {
+		border-color: rgba(194, 225, 245, 0);
+		border-top-color: #93969a;
+		border-width: 36px;
+		left: 50%;
+		margin-left: -36px;
+	}
+}
+
+
+.page-content {
+	min-height: 17.0em;  padding-bottom: 3em;
+	/* Jigoshop styles */
+	// background-color: #D4D4D4;
+	.row {
+		margin-top: 3em;
+		min-height: 17em;
+		div[class^=span] {
+			min-height: 17em; 
+			position: relative;
+			div.ribbon {
+				background-color: white; 
+				position: absolute;
+				bottom: 10%;
+				padding: 0 40px 0 20px; 
+				@include opacity(0.8);
+				h5 {
+					@include opacity(1);
+				}
+			}
+		}
+	}
+}
+a.newsletter {
+	display: block; padding: 8px 8px; border: 1px solid #000; font-size: 1.2em; color: #000; text-decoration: none;
+}
+.strapline {
+	height: 7.0em; background-color: #999; 
+}
+
+.rich-footer {
+    -webkit-box-shadow: 0px -4px 3px rgba(150, 150, 150, 0.75);
+    -moz-box-shadow:    0px -4px 3px rgba(150, 150, 150, 0.75);
+    box-shadow:         0px -4px 3px rgba(150, 150, 150, 0.75);
+
+	height: 17.0em; background-color: #FFF; color: #999; 
+	.container {
+		padding-top: 2.0em;
+		.row {
+			width: 80%; margin-left: auto; margin-right: auto;
+			&.footer {
+				border-top: 1px solid #CCC;
+				margin-top: 20px;
+				padding: 10px 0 20px 0;
+				nav {
+					margin: 0 auto;
+					width: 60%;
+					display: table;
+					position: relative;
+					ul {
+						display: table-row;
+						li {
+							display: table-cell; width: 1%; text-align: center; position: relative;
+							a {
+								text-transform: uppercase; color: #CCC;
+							}
+						}
+					}
+				}
+				
+				
+			}
+			div.social-icons {
+				a {
+					font-size: 1.5em; margin-right: 8px; color: #000; text-decoration: none;
+				}
+			}
+			.span4 {
+				hr {
+					margin: 4px 0;
+				}
+			}
+			
+		}
+	}
+}
+
+.header-logo {
+	display: block; margin: auto;
+}
+// Different post types
+body {
+	&.post-type-product {
+		div.product {
+			div.images, div.summary {
+				float: left;
+			}
+			div.images {
+				margin-right: 20px;
+			}
+		}
+	}
+}
+
+.shop-home {
+	div[class^=span] {
+		background-image: none;
+	}
+
+}
+// Page Tags
+body {
+	&.page-home {
+		.page-content {
+			@include linear-gradient(#8e9393, #CCC);
+			
+			.row {
+				&:first-child {	
+					width: 80%;
+					margin-left: auto;
+					margin-right: auto;
+					div[class^=span]:first-child {
+
+					}
+					div[class^=span]:nth-child(2) {
+
+					}
+					div[class^=span]:nth-child(3) {
+
+					}
+				}
+				&:nth-child(2) {	
+					div[class^=span]:first-child {
+						background-color: #F90;
+					}
+					div[class^=span]:nth-child(2) {
+						background-color: #E94;
+					}
+					div[class^=span]:nth-child(3) {
+						background-color: #194;
+					}
+				}
+		
+				&:nth-child(3) {
+					
+					div[class^=span]:first-child {
+						background-color: #F90;
+					}
+					div[class^=span]:nth-child(2) {
+						background-color: #E94;
+					}
+					div[class^=span]:nth-child(3) {
+						background-color: #194;
+					}
+				}
+				
+			}
+		}		
+	} 
+	&.page-concept-1 {
+		&:after { /*This adds a label in the top-left corner that displays the current media query state.*/
+			background: red;
+			color: #FFF;
+			content: "Concept 1";
+			right: 0;
+			@include opacity();
+			padding: 1em 2em;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			z-index: 99;
+		}
+	}
+ }
+ 
+ // One offs
+ 
+ #about-content {
+	width: 50%; float: left; margin-right: 15px; 
+
+ }
+ img.float-right {
+	 float: right;
+ }
+ // Royalslider 
+ .infoBlock {
+	 a.btn {
+	 	margin-top: 12px;
+		 color: #999;
+	 }
+	 
+ }
+ // Jigoshop overwrites 
+ 
+ .cart-collaterals .cart_totals {
+	 width: auto;
+ }
+ 
+ .cart-collaterals .shipping_calculator {
+ 	width: auto;
+ 	h2 {
+	 	display: block; font-size: 1.5em;
+ 	}
+ }
+ 
+ .jigoshop_message {
+ 	color: #000; 
+	 background-color: transparent; 
+	 background-image: none;
+	 @extend .alert !optional; 
+	 @extend .alert-success !optional;
+ }
+
+ .jigoshop_error {
+ 	color: #000;
+	 background-color: transparent; 
+	 background-image: none;
+	 @extend .alert !optional; 
+	 @extend .alert-error !optional;
+ }
+
+ 
+ // Bootstrap fixes
+@media (min-width: 1200px) {
+	.container .smaller{
+		width: 970px;
+	}
+}
+ 

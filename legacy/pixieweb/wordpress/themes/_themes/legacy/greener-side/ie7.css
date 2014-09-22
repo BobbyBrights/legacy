@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* CSS Document */
+/*
+   Use this stylesheet to compensate for IE 7.
+*/
+
+#grass {
+	�background-image: url(images/grass.png);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	height: 118px;
+	z-index: 5;
+	background-image: url(images/grass.png);
+}
+#topg #tag {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	position: relative;
+	top: 32px;
+	left: 145px;
+	text-align: right;
+	right: 438px;
+	width: 472px;
+	font-size: 12pt;
+	font-variant: normal;
+	text-transform: lowercase;
+}
+
+#footer {
+	background-position: center;
+	bottom: 0px;
+	z-index: 99;
+	width: 200px;
+	text-align: center;
+	visibility: visible;
+	position: fixed;
+	font-weight: normal;
+	padding-bottom: 5px;
+	color: #360;
+	z-index: 99;
+		}
+		#footer a{
+	color: #060;
+	z-index: 99;
+		}
+
+
+		#footer a:hover{
+	color: #060;
+	text-decoration: underline;
+		}
+		#greendrop ul ul {
+	margin-top: 0;
+	display: none;
+	position: absolute;
+	float: left;
+	width: 180px;
+	z-index: 99999;
+	left: -40px
+	top: 22px;
+}
+#greendrop ul ul li {
+		margin-top: 0;
+	position: absolute;
+	float: left;
+	width: 180px;
+	z-index: 99999;
+	left: -40px
+
+}
+.navigationtest {
+	text-align: center;
+
+	font-size:80%;
+
+}  
+.navigationtest a{
+text-align:center;
+	background-image: url(http://www.adazing.com/test/wp-content/themes/greener-side/images/circle.jpg);
+	height: 50px;
+	width: 50px;
+	color: #FFF;
+	background-repeat: no-repeat;
+	margin-top: 0;
+	margin-right: 2px;
+	margin-bottom: 0;
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+	padding-left: 15px;
+
+}  
+.navigationtest a:hover{
+	color: #99bd2c;
+}  
+.navigationtest .current{
+	color: #99bd2c;
+	text-decoration: underline;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "synchtecttest",
+  "version": "0.0.1",
+  "description": "Synchronoss Tech Test - JSON Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smcelhinney/synchtecttest.git"
+  },
+  "author": "Stephen McElhinney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smcelhinney/synchtecttest/issues"
+  },
+  "homepage": "https://github.com/smcelhinney/synchtecttest",
+  "dependencies": {
+    "restify": "~2.7.0",
+    "node-static": "~0.7.3",
+    "underscore": "~1.6.0",
+    "connect-modrewrite": "~0.6.4-pre",
+    "grunt": "~0.4.4",
+    "grunt-contrib-compass": "~0.7.2",
+    "moment": "^2.5.1"
+  }
+}

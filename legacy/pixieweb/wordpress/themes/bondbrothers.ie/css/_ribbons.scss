@@ -1,0 +1,80 @@
+.ribbon{
+	color: #fff;
+	margin-top: 100px; 
+	position: relative;
+	background: #999;
+	border: 1px solid rgba(0,0,0,.3);
+	box-shadow: 0px 1px 3px rgba(0,0,0,.2);
+	padding: 0.25em 1.0em;
+	clear: both;
+	h5 {
+		margin: 2px 0; color: #FFF;
+	}
+}
+ 
+div.left_ribbon {
+	color: #000;
+	margin-left: -10px;
+	float: left;
+}
+ 
+div.left_ribbon::before{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	left: -11px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid rgb(0, 80, 116);
+}
+ 
+div.left_ribbon::after{
+	display: block;
+	width: 6px;
+	height: 44px;
+	position: absolute;
+	bottom: 3px;
+	right: -1px;
+	content: "";
+	border: 1px solid rgba(0,0,0,.3);
+	transform: skew(0deg,45deg);
+	-ms-transform: skew(0deg,45deg); /* IE 9 */
+	-webkit-transform: skew(0deg,45deg); /* Safari and Chrome */
+	-o-transform: skew(0deg,45deg); /* Opera */
+	-moz-transform: skew(0deg,45deg); /* Firefox */
+	background: rgb(0, 80, 116);
+}
+
+div.both_ribbon{
+	text-align: center;
+	color: #000;
+	padding: 0px 9px 0px 10px;
+	width: 100%;
+	margin-left: -10px;
+}
+ 
+div.both_ribbon::before{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	left: -11px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid rgb(0, 80, 116);
+}
+ 
+div.both_ribbon::after{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	right: -10px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid rgb(0, 80, 116);
+}

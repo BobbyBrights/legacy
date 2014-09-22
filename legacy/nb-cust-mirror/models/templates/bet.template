@@ -1,0 +1,21 @@
+{
+    id: '{{numeric(20000,99999)}}',
+    type: function(idx) {var options=['on-demand', 'recurring']; return options[Math.round(Math.random() * (options.length - 1))]; },
+    date: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+    lottery: function(idx) {var options=[{id: 1, name: 'Irish Lottery'},{id: 2, name: 'UK Lottery'}]; return options[Math.round(Math.random() * (options.length - 1))]; },
+    winner: '{{bool}}',
+    created: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+    eligible_draws: [
+        '{{repeat(1,8)}}',
+        '{{date(YYYY-MM-dd)}}T20:00:00 Z'
+    ],
+    drawsRemaining: '{{numeric(1,5)}}',
+    lines: [
+        '{{repeat(2,9)}}',
+        {
+            bonus: '{{numeric(1,46)}}',
+            standard: function(){var arr = [], min = 1, max = 46, qty = 6; while(arr.length < qty){ var num = Math.round(min + Math.random()*(max-min)); if(arr.indexOf(num) == -1){ arr[arr.length] = num; } } arr.sort(); return arr; },
+            stake: '{{numeric(0.20,1.50,0.00)}}'
+        }
+    ]
+}

@@ -1,0 +1,288 @@
+// SASS Imports
+@import 'custom_mixins';
+@import url('http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css');
+@import url('add2home.css');
+
+//@import url('themes/graphite/aloe/jquery.mobile-1.3.1.css');
+
+// Variables
+$icon-width: 			83px;
+$border-radius:			8px;
+$header-bar-color: 		#29a1d0; 
+$header-bar-color-2: 	#29a1d0; 
+$body-bg-color: 		#FFF; 
+
+body {
+	font-weight: normal; font-family: 'Open Sans', Arial;
+}
+
+/* Globals */
+.ui-btn-up-d, 
+.ui-btn-hover-d  {
+	//border-top: none; 
+}
+#revert { display: none;}
+
+.ui-page {
+	-webkit-backface-visibility: hidden;
+}
+.ui-btn-corner-all {
+	moz-border-radius: $border-radius;
+	-webkit-border-radius: $border-radius;
+	border-radius: $border-radius;
+}
+.ui-bar-a {
+	@include linear-gradient($header-bar-color, $header-bar-color);	
+	h1 {
+		text-shadow: none; font-family: 'Open Sans', Arial; font-weight: 700; 
+	}
+}
+
+.ui-body-c, .ui-overlay-c {
+	background-color: $body-bg-color;
+	background-image: none;
+}
+
+/* Common components */
+#dropdown-menu {
+	width: 95%;
+	float: right;
+	position: absolute;
+	top: 35px;
+	right: 6px;
+}
+
+.search {
+	margin: 0 auto;
+	width: 90%;
+	height: 50px;
+	position: relative;
+	input { width: 71%; float: left; margin: 0; padding: 10px; @include i_rounded(top, left); @include i_rounded(bottom, left);	@include box_shadow(); border: 1px solid #CCC; font-size: 0.875em; }
+	button {
+		width: 20%; float: left; margin: 0; position: relative; @include i_rounded(top, right); @include i_rounded(bottom, right); font-size: 0.875em;
+		padding: 10px;
+		margin-left: -1px;
+		background-color: #FFF;
+		@include box_shadow();
+		border: 1px solid #CCC;
+		background-image: url('../img/icon-sets/glyphish/06-magnify-alt.png');
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}
+
+/* Arbitrary pages */
+.single-page {
+	padding-top: 20px;
+}
+.single-page.ui-body-a a {
+	color: #FFF;
+}
+
+
+/* Specific page styles */
+div.gmap {
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	min-height: 20em;
+	overflow: hidden;
+}
+
+div._gmap {
+	@extend div.gmap;
+}
+	
+#library_page {
+	div[role=main]{
+		padding: 0; height: 100%; width: 100%; padding-top: 10px;
+		iframe {
+			border: 0;
+			width: 100%; height: 100%; 
+		}
+	}
+}
+
+#main_page_slider {
+	div[data-role=content] { 
+		padding: 0!important;
+	}	
+}
+
+
+/*
+#main_page_campusm { 
+	padding-top: 40px!important;
+	div[data-role=content] { 
+		padding: 0!important;
+		div.search { 
+			padding: 15px!important;
+			input { 
+				width: 68% 
+			}
+		}
+		
+		div.dashboard-campusm { 
+			margin: 10px 0 20px 0!important; 
+			padding: 0!important;
+			> div {
+				@include linear-gradient; 
+				height: 82px; // Needs a fixed height to fix a gradient repeat issue. 
+				a { 
+					text-decoration: none; font-weight: normal; position: relative; text-shadow: none; color: #FFF!important; 
+				}
+				span { position: absolute; margin-left: 10px; padding-top: 10px; }
+				
+				&:hover {
+					@include linear-gradient(#152e3e, #5789A9); 
+				}
+			}
+			div.ui-block-a a, div.ui-block-b a { 
+				padding: 20px; display: block; border-top: 1px solid #FFF; 
+			}
+			div.ui-block-a a { border-right: 1px solid #FFF; }
+		}
+	}
+}
+*/
+
+
+div.notification {
+	display: none;
+}
+
+#main_page_grid {
+	
+	#footer {
+		border-top: none;
+	}
+	
+	div.notification {
+		display: block;
+		width: 100%; background-color: #CCC;  text-align: center; 
+		border-bottom: 1px solid #000;
+		a {
+			line-height: 2.7em;
+			padding: 38px;
+			text-shadow: none; color: #FFF;
+		}
+	}
+
+	div[data-role='content']{
+		padding:0!important;
+		div.search-box {
+			width: 100%;
+			.form {
+				margin: 0 5%;
+			}
+		}
+		div.dashboard {
+			margin-top: 20px; margin-bottom: 10px;
+			div {
+				text-align: center;
+				min-height: 122px; 
+				a {
+					display: block;
+					color: #000!important;
+					background-color: #CCC;
+		/* 			background: url('../img/dashicon.png') top left no-repeat; */
+					min-height: $icon-width;
+					width: $icon-width;
+					text-shadow: none;
+					position: relative;
+					text-align: center;
+					font-weight: normal!important;
+					font-size: 0.825em;
+					font-family: Arial, serif;
+					font-weight: 400;
+					margin: 0 auto!important;
+		
+					-webkit-border-radius: $border-radius;
+					-moz-border-radius: $border-radius;
+					border-radius: $border-radius;	
+					
+					//border: 1px solid #70A0C0;
+					display: block; 
+					position: relative;
+					//@include radial-position;
+					
+					&:hover {
+						background-color: #444;
+						//@include linear-gradient(#152e3e, #5789A9); border: 1px solid #FFF;
+					}
+					
+					img {
+						position: absolute; top: 14px; left: 14px; 
+					}
+					
+					span {
+						position: absolute;
+						top: 96px;
+						left: 0;
+						text-align: center;
+						width: 100%;
+						font-size: 0.875em;
+					}
+				}
+			}
+		}
+
+		div.e-i {
+			margin: 10px 0 0 0!important; padding: 15px;
+			margin-top: 10px;
+			border-top: 1px solid #CCC;
+			a {
+				line-height: 35px;
+			}
+		}
+	}
+}
+
+a.ui-btn {
+	&.ui-btn-up-b {
+		@include linear-gradient(#29a1d0, #29a1d0);
+		border: 0;
+	}
+	&.ui-btn-hover-b {
+		@include linear-gradient(#666, #666);
+	}
+	
+}
+// Custom menu-icon
+.menu-button {
+	span.ui-btn-inner {
+		min-width: 1.0em;
+		padding: .55em 14px .5em;
+		hr {
+			margin: 2px auto;
+		}
+	}
+	
+}
+
+div.dashboard {
+	a.item-youtube { @include linear-gradient(#cb4469, #cb4469); }
+	a.item-maps { @include linear-gradient(#29a1d0, #29a1d0); }
+	a.item-peoplefinder { @include linear-gradient(#b1568a, #b1568a); }
+	a.item-library { @include linear-gradient(#3f8384, #3f8384); }
+	a.item-news { @include linear-gradient(#6b4f97, #6b4f97); }
+	a.item-events { @include linear-gradient(#a9cd60, #a9cd60); }
+	a.item-weather { @include linear-gradient(#78d9ff, #78d9ff); }
+	a.item-alerts { @include linear-gradient(#cb4469, #cb4469); }
+}
+// Custom nav icons
+.ui-icon-tcd-maps {
+	background-image: url("../img/icon-sets/tcd/map.png");
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		background-image: url("../img/icon-sets/tcd/map-36x36.png");
+		background-size: 18px 18px;
+	}
+
+}
+.ui-icon-tcd-peoplefinder {
+	background-image: url("../img/icon-sets/tcd/peoplefinder.png");
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		background-image: url("../img/icon-sets/tcd/peoplefinder-36x36.png");
+		background-size: 18px 18px;
+	}
+}

@@ -1,0 +1,122 @@
+@import url(http://fonts.googleapis.com/css?family=Monda:400,700|Open+Sans:400,800);
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+h1,h2,h3,h4 { font-family: 'Monda', sans-serif; }
+.clear { clear: both;}
+.hero-unit { padding-top: 30px; background: #EEE url('../img/coffee.png') top right no-repeat;}
+.alt .hero-unit { background-color: #F90; color: #444}
+div.hero-unit h1 { margin-bottom: 22px;}
+.inline-in-page { width: 100%; padding-top :15px; padding-bottom: 40px;}
+.inline-in-page label, .inline-in-page input, .inline-in-page button { display: inline; float: left; margin: 0; margin-right: 12px;}
+.inline-in-page label { font-size: 1.2em; font-weight: bold; line-height: 30px;}
+.inline-in-page span { margin-top: 12px;}
+input.searching { background: #FFF url('../img/loading-s.gif') top right no-repeat; }
+a.signup-link { padding: 7px 20px 7px 10px; color: #FFF; background-color: #000; -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);}
+ul.footer-nav li { float: left; margin-right: 20px; list-style-type: none;}
+div.people p { margin-top: 11px;}
+#UserLoginFormTop div.error-message { display: none;}
+a.social { font-size: 1.5em; padding: 20px 0 20px 62px; width: 100%; margin-top: 22px; text-align: left;  }
+a.facebook-connect, a.facebook-connect:hover { background: #3B5999 url('../img/facebook-btn-logo.png') 10px center no-repeat; color: #FFF; text-shadow: none; } 
+a.twitter-connect, a.twitter-connect:hover { background: #FFF url('../img/twitter-btn-logo.png') 10px center no-repeat; color: #000; text-shadow: none; }
+a.link-only, a.link-only:hover { padding: 0; width: auto; background: none; color: #FFF;}
+p.top-nav { color: #FFF; padding-left: 20px;}
+/* Search page */
+div.people h2 { padding-left: 50px;
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+div.typeMale h2 { 
+	background-image: url('../img/typeMale.png'); 
+}
+div.typeFemale h2 { 
+	background-image: url('../img/typeFemale.png'); 
+}
+div.notification { display: none;}
+/* Form elements */
+input[type='checkbox'] {
+	margin: 0;
+	margin-right: 10px;
+}
+
+.nav-list > .active > label {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+	background-color: #0088cc;
+}
+.nav-list > li > label {
+	padding: 3px 15px;
+}
+.nav-list > li > label {
+	margin: 0 -15px!important;
+	margin-bottom: 4px!important;
+}
+
+#map_canvas { width: 100%; height: 40em; -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;}
+
+/* Ratings */ 
+.stars {
+  background: url('../img/sprite.png') repeat-x top left;
+  height: 43px; }
+  .stars.default {
+    background-position: 0 -43px;
+    width: 220px; margin-bottom: 12px;}
+  .stars.filled_0 {
+    width: 0px; }
+  .stars.filled_1 {
+    width: 22px; }
+  .stars.filled_2 {
+    width: 44px; }
+  .stars.filled_3 {
+    width: 66px; }
+  .stars.filled_4 {
+    width: 88px; }
+  .stars.filled_5 {
+    width: 110px; }
+  .stars.filled_5 {
+    width: 132px; }
+  .stars.filled_7 {
+    width: 154px; }
+  .stars.filled_8 {
+    width: 176px; }
+  .stars.filled_9 {
+    width: 198px; }
+  .stars.filled_10 {
+    width: 220px; }
+
+form.login-form input { margin-right: 10px; }
+
+span.subject { padding: 5px 7px; -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px; margin-right: 8px; margin-bottom: 8px; background-color: #999; color: #FFF;}
+
+p.white { margin: 0!important; padding: 10px 20px 10px }
+p.white, p.white a { color: #FFF; } 
+/* Auto complete */
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; cursor: pointer}
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { color: #F90; }
+
+div.message { -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px; background-color: #F90; color: #FFF; font-weight: bold; font-size: 1.2em; padding: 10px 20px; text-shadow: 0px 2px 0px black; margin-bottom: 12px;}
+@media (max-width: 767px) {
+	body {
+		padding-top: 0;padding-bottom: 0;
+	}
+	.hero-unit { background-image: none; padding: 20px; }
+	.hero-unit h1 { position: absolute; left: -1000px }
+	#search_btn { margin-top: 12px; width: 100%; font-size: 1.25em;}
+
+}
+
+@media (min-width: 768px) {
+
+}

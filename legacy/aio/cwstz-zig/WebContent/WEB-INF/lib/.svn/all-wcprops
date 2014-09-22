@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/af/!svn/ver/13865/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib
+END
+commons-io-2.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/af/!svn/ver/13865/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/commons-io-2.4.jar
+END
+jackson-xc-1.9.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jackson-xc-1.9.2.jar
+END
+jackson-core-asl-1.9.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jackson-core-asl-1.9.2.jar
+END
+jackson-mapper-asl-1.9.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jackson-mapper-asl-1.9.2.jar
+END
+jackson-jaxrs-1.9.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jackson-jaxrs-1.9.2.jar
+END
+jsr311-api-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jsr311-api-1.1.1.jar
+END
+joda-time-2.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/14683/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/joda-time-2.3.jar
+END
+cors-filter-1.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/cors-filter-1.5.jar
+END
+asm-3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/asm-3.1.jar
+END
+jersey-servlet-1.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jersey-servlet-1.15.jar
+END
+jersey-client-1.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jersey-client-1.15.jar
+END
+jersey-json-1.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jersey-json-1.15.jar
+END
+jettison-1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jettison-1.1.jar
+END
+jersey-server-1.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jersey-server-1.15.jar
+END
+jersey-core-1.15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/13496/ATT_ZIG/trunk/utils/stubAPI/cwstz-zig/WebContent/WEB-INF/lib/jersey-core-1.15.jar
+END

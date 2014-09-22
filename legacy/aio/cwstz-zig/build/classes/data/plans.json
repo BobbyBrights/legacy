@@ -1,0 +1,26 @@
+[
+    {
+        "pID": "0",
+        "name": "Smart",
+        "price": 55,
+        "description": "Gotta share everything? Here's more-than-enough high speed data that lets you say it with words and pictures. Power up your phone and share away!"
+    },
+    {
+        "pID": "1",
+        "name": "Pro",
+        "price": 70,
+        "description": "Inseparable from your device? Here's to all the talking, messaging, surfing, streaming and gaming you do. Be sure your phone is fully charged."
+    },
+    {
+        "pID": "2",
+        "name": "Tablet",
+        "price": 15,
+        "description": "Take your tablet everywhere? Enough data to keep you in-the-know-on-the-go."
+    },
+    {
+        "pID": "3",
+        "name": "Basic",
+        "price": 40,
+        "description": "Chat much? All the talk and text you'll ever need and enough high speed data to stay in touch. Go ahead, chat away!"
+    }
+]

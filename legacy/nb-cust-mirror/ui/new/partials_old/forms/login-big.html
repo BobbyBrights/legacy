@@ -1,0 +1,22 @@
+<div class="container" ng-controller="UserController" ng-show="!$root.authenticated">
+    <div class="col-md-8">
+        <h1>Login required to view this page.</h1>
+        <form role="form" class="login-form">
+            <div class="form-group">
+                <a class="navbar-link" ui-sref="root.forgot-password">Forgot Login Details</a>
+            </div>
+            <div class="form-group">
+                <input type="text" placeholder="Username" class="form-control" ng-model="user.username">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Password" class="form-control" ng-model="user.password">
+            </div>
+            <button type="submit" class="btn btn-success btn-login" ng-click="login(true)">Login</button>
+            <button type="submit" class="btn btn-primary btn-register" ui-sref="root.register">Join Now</button>
+        </form>
+        <div class="notification pull-right header-bar" ng-show="authenticating"><p>Authenticating..</p></div>
+        <div class="notification pull-right header-bar error" ng-show="loginError"><p>{{loginError}}</p></div>
+    </div>
+    <div class="col-md-4"></div>
+    <!--/.navbar-collapse -->
+</div>

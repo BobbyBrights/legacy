@@ -1,0 +1,301 @@
+<div class="col-lg-9">
+	<div class="row section-title hidden-xs">
+		<div class="col-lg-12">
+			<div class="col-lg-12">
+			My detail
+			</div>
+		</div>
+	</div>
+	<form role="form" name="forms.detailForm" ng-submit="updateProfile(forms.detailForm.$invalid)" novalidate>
+		<div class="row basic-section">
+			<div class="col-lg-12">
+				<div class="row" ng-show="updateProfileResult!==false">
+					<div class="col-lg-12" ng-class="{'has-error': updateProfileResult==='failed', 'has-success': updateProfileResult==='success' }">
+						<div class="alert nb-md-alert" ng-class="{'alert-danger':updateProfileResult==='failed', 'alert-success':updateProfileResult==='success'}">{{updateProfileMsg}}</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="row">
+		                    <div class="col-lg-12 col-xs-12">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.title.$invalid">
+		                            <div class="alert alert-danger nb-md-alert">The First Name field is required.</div>
+		                        </div>
+		                        <div class="row">
+		                        	<div class="col-lg-4" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.title.$invalid }">
+		                                <div class="row title-line">
+		                                    <div class="col-lg-12">
+		                                        <div class="row">
+		                                            <label for="title" class="col-sm-12 col-md-12 control-label">Title</label>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                                <div class="row content-line">
+		                                    <div class="col-lg-12">
+		                                    	<select class="form-control" name="title" ng-model="userInfo.profile.title" ng-options="title for title in titleList" id="title" required>
+                                            		<option selected="selected" value=""></option>
+                                        		</select>
+		                                        <!-- <input type="text" placeholder="" class="form-control" ng-model="userInfo.profile.title" name="title" id="title" required> -->
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="col-lg-8" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.firstname.$invalid }">
+		                                <div class="row title-line">
+		                                    <div class="col-lg-12">
+		                                        <div class="row">
+		                                            <label for="firstname" class="col-sm-12 col-md-12 control-label">First Name</label>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                                <div class="row content-line">
+		                                    <div class="col-lg-12">
+		                                        <input type="text" placeholder="" class="form-control" ng-model="userInfo.profile.firstName" name="firstname" id="firstname" required>
+		                                    </div>
+		                                    
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+
+			            <div class="row">
+		                    <div class="col-lg-12 col-xs-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.surname.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.surname.$invalid">
+		                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Surname field is required.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="surname" class="col-sm-6 col-md-6 control-label">Surname</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="text" placeholder="" class="form-control" ng-model="userInfo.profile.lastName" name="surname" id="surname" required>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+			            <div class="row">
+		                    <div class="col-lg-12">
+		                        <div class="row title-line">
+		                            <label for="phoneNumber" class="col-sm-12 col-md-12 control-label">Mobile</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="text" placeholder="" class="form-control" ng-model="userInfo.profile.mobileNo" name="phoneNumber" id="phoneNumber" disabled>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+						<div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.email.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.email.$invalid">
+		                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Email field is required.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="email" class="col-sm-12 col-md-12 control-label">Email</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="text" placeholder="" class="form-control" ng-model="userInfo.profile.email" name="email" id="email" disabled required>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+					</div>
+					<div class="col-lg-6">
+						<div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.address.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.address.$invalid">
+		                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Address field is required.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="address" class="col-sm-12 col-md-12 control-label">Address</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="text" placeholder="" class="form-control" ng-model="userInfo.address" name="address" id="address"  re-quired>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+	                    <div class="row">
+	                        <div class="col-lg-6" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.town.$invalid}">
+	                            <div class="row title-line">
+	                                <div class="col-lg-12">
+	                                    <div class="row">
+	                                        <label for="town" class="col-sm-12 col-md-12 control-label">Town/City</label>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row content-line">
+	                                <div class="col-lg-12">
+	                                    <select class="form-control" name="town" ng-model="userInfo.town" ng-options="title for title in titleList" id="town" re-quired>
+	                                        <option selected="selected" value=""></option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="col-lg-6" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.postcode.$invalid }">
+	                            <div class="row title-line">
+	                                <div class="col-lg-12">
+	                                    <div class="row">
+	                                        <label for="postcode" class="col-sm-12 col-md-12 control-label">Postcode</label>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row content-line">
+	                                <div class="col-lg-12">
+	                                    <input type="text" placeholder="" class="form-control" ng-model="userInfo.postcode" name="postcode" id="postcode" re-quired>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+	                        <div class="col-lg-6" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.county.$invalid}">
+	                            <div class="row title-line">
+	                                <div class="col-lg-12">
+	                                    <div class="row">
+	                                        <label for="county" class="col-sm-12 col-md-12 control-label">County</label>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row content-line">
+	                                <div class="col-lg-12">
+	                                    <select class="form-control" name="county" ng-model="userInfo.county" ng-options="title for title in titleList" id="county" re-quired>
+	                                        <option selected="selected" value=""></option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                        </div>
+	                        <div class="col-lg-6" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.country.$invalid }">
+	                            <div class="row title-line">
+	                                <div class="col-lg-12">
+	                                    <div class="row">
+	                                        <label for="country" class="col-sm-12 col-md-12 control-label">Country</label>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row content-line">
+	                                <div class="col-lg-12">
+	                                    <input type="text" placeholder="" class="form-control" ng-model="userInfo.country" name="country" id="country" re-quired>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.phoneNumber.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.phoneNumber.$invalid">
+		                            <div class="col-lg-12 alert alert-danger nb-md-alert">The Address field is required.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <div class="col-lg-12">&nbsp;</div>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                Date of birth: {{}}
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+					</div>
+				</div>
+				<div class="row">
+					
+				</div>
+			</div>
+		</div>
+		<div class="row pw-section">
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="row">
+							<div class="col-lg-12 sub-section-title">
+							Change password
+							</div>
+						</div>
+						<div class="row" ng-show="updatePWResult!==false">
+							<div class="col-lg-12" ng-class="{'has-error': updatePWResult==='failed', 'has-success': updatePWResult==='success' }">
+								<div class="alert nb-md-alert" ng-class="{'alert-danger':updatePWResult==='failed', 'alert-success':updatePWResult==='success'}">{{updatePWMsg}}</div>
+							</div>
+						</div>
+						<div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.oldPassword.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted && forms.detailForm.oldPassword.$error.required">
+		                            <div class="alert alert-danger nb-md-alert" >The Password field is required.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="oldPassword" class="col-sm-12 col-md-12 control-label">Current password</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="password" placeholder="" class="form-control" ng-trim="false" ng-model="passwordSet.oldPassword" name="oldPassword" id="oldPassword" ng-required="passwordSet.oldPassword === '' && ( passwordSet.newPassword !== '' || passwordSet.newPasswordConfirm !== '' )">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+						<div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && forms.detailForm.newPassword.$invalid}">
+		                        <div class="" ng-show="userInfo.formSubmitted ">
+		                            <div class="alert alert-danger nb-md-alert" ng-show="userInfo.formSubmitted && forms.detailForm.newPassword.$error.required">The New Password field is required.</div>
+		                            <div class="alert alert-danger nb-md-alert" ng-show="passwordSet.newPassword !== '' && forms.detailForm.newPassword.$error.minlength">The New Password field must be at least 6 characters in length.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="newPassword" class="col-sm-12 col-md-12 control-label">New password</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="password" placeholder="" class="form-control" ng-trim="false" ng-model="passwordSet.newPassword" name="newPassword" id="newPassword" ng-minlength="6" ng-required="(passwordSet.oldPassword !== '' || passwordSet.newPasswordConfirm !=='') &&  passwordSet.newPassword === ''">
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="row">
+		                    <div class="col-lg-12" ng-class="{ 'has-error' : userInfo.formSubmitted && ((passwordSet.oldPassword !=='' || passwordSet.newPassword !=='') && passwordSet.newPasswordConfirm==='')}">
+		                        <div class="" ng-show="userInfo.formSubmitted ">
+		                            <div class="alert alert-danger nb-md-alert" ng-show="(passwordSet.oldPassword !=='' || passwordSet.newPassword !=='') && passwordSet.newPasswordConfirm==='' ">The Confirm password field is required.</div>
+		                            <div class="alert alert-danger nb-md-alert" ng-show=" forms.detailForm.newPasswordConfirm.$error.matched">The Password doesn't match.</div>
+		                        </div>
+		                        <div class="row title-line">
+		                            <label for="newPasswordConfirm" class="col-sm-12 col-md-12 control-label">Confirm new password</label>
+		                        </div>
+		                        <div class="row content-line">
+		                            <div class="col-lg-12">
+		                                <input type="password" placeholder="" class="form-control" ng-trim="false" ng-model="passwordSet.newPasswordConfirm" name="newPasswordConfirm" id="newPasswordConfirm" password-check="{{passwordSet.newPassword}}" >
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+					</div>
+					<div class="col-lg-6">
+						<div class="row">
+							<div class="col-lg-12 sub-section-title">
+							My Preferences
+							</div>
+						</div>
+						
+						<div class="row">
+	                        <div class="col-lg-12">
+	                            <div class="checkbox">
+	                                <label class="check-label"><input type="checkbox" id="marketingOptIn" ng-model="userInfo.profile.marketingOptIn">I'd like to receive free info about promotions and offers from NovaBall and it's partners.</label>
+	                            </div>
+	                        </div>
+	                    </div>
+	                 	<div class="row">
+	                        <div class="col-lg-12">
+	                            <div class="checkbox">
+	                                <label class="check-label"><input type="checkbox" id="marketingOptIn" ng-model="userInfo.profile.winOptIn">I'd like confirmation of my wins via Free SMS</label>
+	                            </div>
+	                        </div>
+	                    </div>
+						
+					</div>
+				</div>
+				<div class="row button-line">
+					<div class="col-lg-12">
+						<div class="btn-right-side pull-right"></div>
+						<button class="submit-btn pull-right">UPDATE</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

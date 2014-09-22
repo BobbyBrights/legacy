@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/* CSS Document */
+/*
+   Use this stylesheet to compensate for IE 8.
+*/
+
+#topg #tag {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	position: relative;
+	top: 15px;
+	left: 145px;
+	text-align: right;
+	right: 438px;
+	width: 472px;
+	font-size: 12pt;
+	font-variant: normal;
+	text-transform: lowercase;
+}
+

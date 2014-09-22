@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lbl_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/username_prompt" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/lbl_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/password_prompt" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="0dp"
+        android:digits="1234567890"
+        android:inputType="number|textPassword"
+        android:maxLength="6"
+        android:password="true" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:onClick="authenticate"
+        android:text="@string/login_button_text" />
+
+    <CheckBox
+        android:id="@+id/saveDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/lbl_save_for_later"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

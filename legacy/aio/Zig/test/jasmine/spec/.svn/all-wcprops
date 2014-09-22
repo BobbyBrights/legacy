@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec
+END
+test-bill-details.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/af/!svn/ver/14572/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-bill-details.js
+END
+test-cato.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-cato.js
+END
+xtest-wp8-292-device-identification.js
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/xtest-wp8-292-device-identification.js
+END
+test-chat-navigate-away.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-navigate-away.js
+END
+test-remember-pin.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/af/!svn/ver/14519/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-remember-pin.js
+END
+test-chat-network-error.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-network-error.js
+END
+test-login.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-login.js
+END
+test-profile.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/af/!svn/ver/14578/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-profile.js
+END
+test-chat-session-closed-after-logout.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-session-closed-after-logout.js
+END
+test-transaction-history.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/af/!svn/ver/14041/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-transaction-history.js
+END
+test-ios-android-error-tab-navigation.js
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-ios-android-error-tab-navigation.js
+END
+test-home-autopay-off.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/af/!svn/ver/14574/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-home-autopay-off.js
+END
+test-usage.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-usage.js
+END
+test-about-usage.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-about-usage.js
+END
+test-chat-messages.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-messages.js
+END
+test-autopay-deactivate.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-autopay-deactivate.js
+END
+test-wp8-navigation.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-wp8-navigation.js
+END
+test-chat-engine.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/af/!svn/ver/13984/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-engine.js
+END
+test-chatInfoAPI-logout-login.js
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chatInfoAPI-logout-login.js
+END
+test-pin.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/af/!svn/ver/14538/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-pin.js
+END
+test-home-multiline.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/af/!svn/ver/14574/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-home-multiline.js
+END
+test-about-us.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-about-us.js
+END
+test-chat-server-error.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-server-error.js
+END
+test-hot-lined.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-hot-lined.js
+END
+test-signup.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-signup.js
+END
+test-shop-addons.js
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/af/!svn/ver/14651/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-shop-addons.js
+END
+test-change-vm-password.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-change-vm-password.js
+END
+test-autopay-setup.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/af/!svn/ver/14519/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-autopay-setup.js
+END
+test-pay.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-pay.js
+END
+test-chat-connection-timeout.js
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-connection-timeout.js
+END
+test-forgot-password.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-forgot-password.js
+END
+xtest-login-overlay.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/xtest-login-overlay.js
+END
+SpecHelper.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/af/!svn/ver/14667/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/SpecHelper.js
+END
+xtest-eula.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/xtest-eula.js
+END
+test-home-autopay-on.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/14651/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-home-autopay-on.js
+END
+test-logout.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-logout.js
+END
+test-chat-connection-agent-left.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-connection-agent-left.js
+END
+test-alert.js
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-alert.js
+END
+xtest-292-device-identification.js
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/xtest-292-device-identification.js
+END
+test-open-external-links.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/af/!svn/ver/14519/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-open-external-links.js
+END
+test-chat-connection-network-errors.js
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-connection-network-errors.js
+END
+test-global.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/af/!svn/ver/14150/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-global.js
+END
+test-change-password.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/14651/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-change-password.js
+END
+test-chat-connection.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/af/!svn/ver/14488/ATT_ZIG/trunk/mobile_application/Zig/test/jasmine/spec/test-chat-connection.js
+END

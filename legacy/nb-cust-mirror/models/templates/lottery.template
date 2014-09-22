@@ -1,0 +1,6 @@
+{
+    id: '{{numeric(20000,99999)}}',
+    created: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+    name: function(idx) {var options=[{id: 1, name: 'Irish Lottery'},{id: 2, name: 'UK Lottery'}]; return options[Math.round(Math.random() * (options.length - 1))]; },
+    active: '{{bool}}'
+}

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api
+END
+HttpAuthCredentials.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/HttpAuthCredentials.java
+END
+RESTComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/RESTComponent.java
+END
+EasyX509TrustManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/EasyX509TrustManager.java
+END
+api.properties
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/api.properties
+END
+MySSLSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/MySSLSocketFactory.java
+END
+SelfCertSocketFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/2/trunk/Webtext/src/ie/three/webtexts/api/SelfCertSocketFactory.java
+END

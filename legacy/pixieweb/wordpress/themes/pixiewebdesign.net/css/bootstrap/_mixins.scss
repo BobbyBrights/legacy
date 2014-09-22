@@ -1,0 +1,16 @@
+// Mixins file
+@mixin test {
+	background-clip: border-box;
+}
+
+@mixin hp-opacity($trans) {
+  filter: alpha(opacity=($trans * 100));
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
+
+@mixin slide-background($url, $background-position: 50% 0) {
+	background:url($url) $background-position no-repeat fixed ;
+}

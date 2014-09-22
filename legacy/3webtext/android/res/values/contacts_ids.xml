@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item name="contact_name" type="id"/>
+    <item name="contact_id" type="id"/>
+    <item name="contact_number" type="id"/>
+    <item name="contact_selected" type="id"/>
+
+</resources>

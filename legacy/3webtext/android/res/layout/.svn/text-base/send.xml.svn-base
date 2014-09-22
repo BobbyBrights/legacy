@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:text="@string/send_message_title" />
+
+    <EditText
+        android:id="@+id/recipients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_margin="10dp"
+        android:layout_marginTop="28dp"
+        android:layout_toLeftOf="@+id/get_contacts"
+        android:ems="10"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/recipients"
+        android:layout_alignRight="@+id/get_contacts"
+        android:layout_below="@+id/recipients"
+        android:ems="10"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:lines="5" />
+
+    <Button
+        android:id="@+id/get_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/recipients"
+        android:layout_alignBottom="@+id/recipients"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:layout_marginRight="18dp"
+        android:text="@string/lbl_choose_contacts" />
+
+    <Button
+        android:id="@+id/send_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/message"
+        android:layout_alignRight="@+id/message"
+        android:layout_below="@+id/message"
+        android:text="@string/send_message" />
+
+    <TextView
+        android:id="@+id/remaining_texts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/send_message"
+        android:layout_below="@+id/send_message"
+        android:text="@string/remaining_texts" />
+
+</RelativeLayout>

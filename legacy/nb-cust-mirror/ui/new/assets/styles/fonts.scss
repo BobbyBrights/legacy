@@ -1,0 +1,50 @@
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+/* Fonts */
+//google fonts
+//@import url(http://fonts.googleapis.com/css?family=Mako|Noto+Sans|Roboto);
+//@import url(http://fonts.googleapis.com/css?family=Asap:400,700,400italic,700italic&subset=latin,latin-ext);
+
+//betbright fonts
+/* @font-face {
+	font-family: 'betbrightregular';
+	src: url('../../partials/fonts/betbright/betbrightregular.eot');
+	src: url('../../partials/fonts/betbright/betbrightregular.eot?#iefix') format('embedded-opentype'),
+	     url('../../partials/fonts/betbright/betbrightregular.woff') format('woff'),
+	     url('../../partials/fonts/betbright/betbrightregular.ttf') format('truetype'),
+	     url('../../partials/fonts/betbright/betbrightregular.svg#Sri-TSCRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+} */
+   
+@font-face {
+	font-family: 'betbrightregular';
+	src: url('../../partials/fonts/betbright/betbrightbold.eot');
+	src: url('../../partials/fonts/betbright/betbrightbold.eot?#iefix') format('embedded-opentype'),
+	     url('../../partials/fonts/betbright/betbrightbold.woff') format('woff'),
+	     url('../../partials/fonts/betbright/betbrightbold.ttf') format('truetype'),
+	     url('../../partials/fonts/betbright/betbrightbold.svg#betbrightbold.woff') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+//font-family: 'ITC Avant Garde Gothic Std Bold';
+//font-family: 'ITC Avant Garde Gothic Std Book';
+
+
+
+//-----------------------------End of Fonts-------------------------------
+
+// Typograpy
+//$base-font: "betbrightregular", sans-serif;
+$base-font: 'ITC Avant Garde Gothic Std Book';
+$font-bold: 'ITC Avant Garde Gothic Std Bold';
+$heading-color: #202640;
+
+.nb-font{
+	font-family:$base-font;
+}
+.nb-font-bold{
+	font-family:$font-bold;
+}

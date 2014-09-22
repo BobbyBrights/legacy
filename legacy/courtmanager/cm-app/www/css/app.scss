@@ -1,0 +1,31 @@
+/* Your app's CSS, go crazy, make it your own */
+@import 'scss/ionic';
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,600);
+@import '../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+$font-family: 'Exo 2';
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family, sans-serif;
+}
+
+
+.bar.bar-positive {
+  @include linear-gradient(50deg, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%);
+}
+
+.ionic-logo {
+  display: block;
+  margin: 15px auto;
+  width: 96px;
+  height: 96px;
+}
+
+.item-avatar img:first-child, .item-avatar .item-img {
+  border-radius: 50%;
+}
+
+.angular-google-map-container {
+  height: 200px;
+}

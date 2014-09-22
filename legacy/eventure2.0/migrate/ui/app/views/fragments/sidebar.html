@@ -1,0 +1,28 @@
+<!-- start: Main Menu -->
+<div id="sidebar-left" class="col-lg-2 col-sm-1" ng-controller="NavigationController">
+    <div class="sidebar-nav nav-collapse collapse navbar-collapse">
+        <ul class="nav main-menu">
+            <li ng-repeat="item in navigation">
+                <a href="{{item.path}}"><i class="fa {{item.icon}}"></i><span
+                        class="hidden-sm text"> {{item.label}}</span></a>
+            </li>
+            <!--
+                <li>
+                    <a class="dropmenu" href="index.html#"><i class="fa fa-eye"></i><span class="hidden-sm text"> UI Features</span>
+                        <span class="chevron closed"></span></a>
+                    <ul>
+                        <li><a class="submenu" href="ui-sliders-progress.html"><i class="fa fa-eye"></i><span
+                                class="hidden-sm text"> Sliders & Progress</span></a></li>
+                        <li><a class="submenu" href="ui-nestable-list.html"><i class="fa fa-eye"></i><span
+                                class="hidden-sm text"> Nestable Lists</span></a></li>
+                        <li><a class="submenu" href="ui-elements.html"><i class="fa fa-eye"></i><span
+                                class="hidden-sm text"> Elements</span></a></li>
+                    </ul>
+                </li>
+            -->
+        </ul>
+    </div>
+    <a href="#" id="main-menu-min" class="full visible-md visible-lg"><i
+            class="fa fa-angle-double-left"></i></a>
+</div>
+<!-- end: Main Menu -->

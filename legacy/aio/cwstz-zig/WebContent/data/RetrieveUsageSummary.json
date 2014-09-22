@@ -1,0 +1,28 @@
+{
+    "LimitedServices": [
+        {
+            "TotalAllowance": "90",
+            "ConsumedAllowance": "72",
+            "RemainingAllowance": "18",
+            "Unit": "min.",
+            "MOU": "null",
+            "TitleOfFeature": "International Calls"
+        },
+        {
+            "TotalAllowance": "50",
+            "ConsumedAllowance": "18",
+            "RemainingAllowance": "32",
+            "Unit": "sms",
+            "MOU": "null",
+            "TitleOfFeature": "International SMS"
+        },
+        {
+            "TotalAllowance": "300",
+            "ConsumedAllowance": "14.1",
+            "RemainingAllowance": "285.9",
+            "Unit": "Mb",
+            "MOU": "null",
+            "TitleOfFeature": "Data"
+        }
+    ]
+}

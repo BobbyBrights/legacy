@@ -1,0 +1,1 @@
+<div id="flashMessage" class="success">User registered. Your PIN will be sent shortly. <?php echo $this->Html->link('Click here to login now.', array('controller' => 'users', 'action' => 'login', 'plugin' => 'webtext')); ?></div>

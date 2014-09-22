@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:summary="Username and password information"
+        android:title="Login information" >
+        <EditTextPreference
+            android:key="msisdn"
+            android:summary="Enter your 10-digit mobile number (08X)"
+            android:title="Mobile number" />
+        <EditTextPreference
+            android:key="pin"
+            android:summary="Enter your 6-digit pin. "
+            android:title="PIN" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:summary="Miscellaneous settings"
+        android:title="Settings" >
+        <!--
+        <CheckBoxPreference
+            android:key="autoLogin"
+            android:summary="Tick this option to automatically login"
+            android:title="Keep me logged in" />
+         
+        <CheckBoxPreference
+            android:key="storeNAB"
+            android:summary="Tick this option to store your network address book locally"
+            android:title="Store Network Address Book" />
+        
+        <ListPreference
+            android:entries="@array/listOptions"
+            android:entryValues="@array/listValues"
+            android:key="netAddressBook"
+            android:summary="Set options for network address book retrieval"
+            android:title="Network Address Book" />
+        -->
+        <Preference
+            android:key="syncNow"
+            android:summary="Exactly as it says on the tin"
+            android:title="Retrieve Webtext Address Book" />
+    </PreferenceCategory>
+    <!-- 
+    <PreferenceCategory
+        android:summary="For debug purposes only"
+        android:title="Developer" >
+        <Preference
+            android:key="clearPrefs"
+            android:summary="Reset all current preferences to default values"
+            android:title="Reset preferences" />
+    </PreferenceCategory>
+     -->
+</PreferenceScreen>

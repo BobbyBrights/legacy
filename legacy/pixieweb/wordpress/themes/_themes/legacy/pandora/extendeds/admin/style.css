@@ -1,0 +1,21 @@
+/* CSS Document */
+
+.wrap-es{ background: #fff; padding: 10px; }
+.title-es { margin: 0px ; background: #DCDCDC; padding: 10px;  font-family:Verdana, Geneva, sans-serif;font-weight: normal; letter-spacing: 1px; font-size: 18px; }
+.table-options { background-image:url(images/pandora-admin-panel-logo.png) !important; background-repeat:no-repeat !important; margin-bottom: 20px; padding: 10px 0px; }
+.title-row { padding: 10px 0 10px 0; border-bottom: 1px solid #ccc ; float: left; margin: 0 10px 0 10px ; }
+.title-row:hover { background-color:#ececec; }
+.clear-tr:hover { background:none; }
+.title-desc { font-size: 12px; font-weight:bold; width: 220px ; margin-right: 20px ; }
+.options-input { width: 700px ; valign: middle ; text-align:left; }
+h2 { margin-bottom: 20px; }
+.options-input input, .options-input select, .options-input textarea { margin-bottom: 9px ; background: #fff; border: 1px solid #D4E9FA; width: 400px; padding: 4px;  font-size: 12px; }
+#pan_page { width:40px; }
+.options-input span { font-size: 10px ; font-weight: normal ; ine-height: 14px ; }
+.info { background: #FFFFCC; border: 1px dotted #D8D2A9; padding: 10px; color: #333; }
+.options-input .checkbox { width:20px }
+.info a { color: #333; text-decoration: none; border-bottom: 1px dotted #333 }
+.info a:hover { color: #666; border-bottom: 1px dotted #666; }
+.message-ok { background: #FF99FF; border: 1px solid purple; padding: 10px; color: purple; font-weight: bold; -moz-border-radius: 15px; border-radius: 15px; }
+.message-notok {  background: #FF99FF; border: 1px solid purple; padding: 10px; color: #ff0066; font-weight: bold; -moz-border-radius: 15px; border-radius: 15px;  }
+

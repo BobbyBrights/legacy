@@ -1,0 +1,48 @@
+<div class="inner-page">
+
+    <form role="form">
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Entry</h3>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter title" ng-model="blog.title">
+                </div>
+                <div class="form-group">
+                    <label for="excerpt">Excerpt</label>
+                    <textarea rows="5" class="form-control" id="excerpt" placeholder="Enter excerpt"
+                              ng-model="blog.excerpt">{{blog.excerpt}}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="featured_image">Featured Image</label>
+                    <input type="file" id="featured_image" ng-model="blog.featured_image">
+                    <p class="help-block">This image will be resized.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="_body">Body</label>
+                    <textarea rows="20" ng-model="blog.body" class="form-control" id="_body"
+                              value="{{blog.body}}" placeholder="Enter body (markdown)">{{blog.body}}</textarea>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <h3>Categories</h3>
+                <label ng-repeat="category in categories">
+                    <input
+                            type="checkbox"
+                            name="selectedFruits[]"
+                            value="{{category._id}}"
+                            ng-checked="blog.categories.indexOf(category._id) > -1"
+                            ng-click="toggleSelection(category._id)"
+                            > {{category.title}}
+                </label>
+
+                <pre>{{blog}}</pre>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="addBlog()">Submit</button>
+    </form>
+
+</div>

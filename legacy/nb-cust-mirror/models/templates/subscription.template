@@ -1,0 +1,16 @@
+{
+	"type": function(idx) {var options=['on-demand', 'recurring']; return options[Math.round(Math.random() * (options.length - 1))]; },
+	"lotteryId": '{{numeric(10000,50000)}}',
+	"created":  '{{date(YYYY-MM-dd)}}T20:00:00 Z',
+	"numDraws": '{{numeric(1,5)}}',
+	"drawsRemaining": '{{numeric(1,5)}}',
+	"nextPaymentDate" : '{{date(YYYY-MM-dd)}}T20:00:00 Z',
+    "lines": [
+        '{{repeat(2,9)}}',
+        {
+            bonus: '{{numeric(1,46)}}',
+            standard: function(){var arr = [], min = 1, max = 46, qty = 6; while(arr.length < qty){ var num = Math.round(min + Math.random()*(max-min)); if(arr.indexOf(num) == -1){ arr[arr.length] = num; } } arr.sort(); return arr; },
+            stake: '{{numeric(0.20,1.50,0.00)}}'
+        }
+    ]
+}

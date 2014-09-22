@@ -1,0 +1,122 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+</head>
+<body ng-app="eventureApp">
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/">Eventure</a>
+
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+        </div>
+        <!-- /.nav-collapse -->
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /.navbar -->
+
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9" ng-view>
+            <!--/row-->
+        </div>
+        <!--/span-->
+
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="list-group">
+                <a href="#/events" class="list-group-item">
+
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-circle-arrow-left"></span>
+                        Events</h4>
+
+                    <p class="list-group-item-text hidden-xs">Add/edit/delete events</p>
+                </a>
+                <a href="#/promoters" class="list-group-item">
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-circle-arrow-left"></span>
+                        Promoters</h4>
+
+                    <p class="list-group-item-text hidden-xs">Add/edit/delete promoters</p>
+                </a>
+                <a href="#/users" class="list-group-item">
+                    <h4 class="list-group-item-heading"><span class="glyphicon glyphicon-circle-arrow-left"></span>
+                        Users</h4>
+
+                    <p class="list-group-item-text hidden-xs">Add/edit/delete users</p>
+                </a>
+
+                <hr/>
+
+            </div>
+        </div>
+        <!--/span-->
+    </div>
+    <!--/row-->
+
+    <hr>
+
+    <footer>
+        <p>&copy; Eventure 2014</p>
+    </footer>
+
+</div>
+<!--/.container-->
+
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/events.js"></script>
+<script src="scripts/controllers/promoters.js"></script>
+<script src="scripts/controllers/users.js"></script>
+<!-- endbuild -->
+<script src="scripts/models.js"></script>
+<script language="JavaScript" type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle=offcanvas]').click(function () {
+            $('.row-offcanvas').toggleClass('active')
+        });
+    });
+</script>
+</body>
+</html>

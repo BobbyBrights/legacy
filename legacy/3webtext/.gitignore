@@ -1,0 +1,3 @@
+*.class
+android/bin/
+.DS_Store

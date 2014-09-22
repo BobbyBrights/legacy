@@ -1,0 +1,353 @@
+//@import "bootstrap";
+@import 'variables';
+@import 'fonts';
+
+// Numbers
+.lotto-line {
+  display: table;
+  width: 100%;
+}
+
+.lotto-line-elem-size{
+  font-size: inherit;
+  float: left;
+  width: 2.143em;
+  height: 2.143em;
+  margin: 0.286em 0.215em 0 0;
+  padding: 0.429em 0 0 0.143em;
+  text-align: center;
+}
+
+/* Ball Style */
+.lotto-number {
+  @extend .lotto-line-elem-size;
+  @include gen-border-radius(50%);
+
+  background-color: $orange-primary-color;
+  font-weight: bold;
+  font-size: 1em;
+  font-family: $base-font;
+  color: rgb( 255, 255, 255 );
+  //line-height: 1.4em;
+  text-indent: -3px;
+  cursor: pointer;
+
+  &.ball-normal{
+    background-color: $ball-noraml-color;
+  }
+
+  &.ball-selected{
+    background-color: $ball-selected-color;
+  }
+
+  &.ball-bonus{
+    background-color: $ball-selected-bonus-color;
+  }  
+}
+
+.lottery-line-number{
+  @extend .lotto-line-elem-size;
+  //border-radius: 6px;
+  width: 3.6em;
+  text-align:left;
+
+  //background-color: #507DB4;
+  //font-family: "Roboto";
+  //color: rgb( 255, 255, 255 );
+  //font-weight: bold;
+}
+
+
+/* .lotto-number{
+  cursor: pointer;
+
+  &.ball-normal{
+    background-color: $ball-noraml-color;
+  }
+
+  &.ball-selected{
+    background-color: $ball-selected-color;
+  }
+
+  &.ball-bonus{
+    background-color: $ball-selected-bonus-color;
+  }  
+} */
+
+
+
+// Dynamic coloring
+$class-slug: number !default;
+
+@for $i from 1 through 46 {
+  // This function changes ball color every 5 balls
+  @if $i == 1 {
+
+  }
+
+  $fg-color: #FFF;
+  $bg-color: #000080 !default;
+
+  @if $i % 6 == 0 {
+    $bg-color: #994;
+  } @else {
+    @if $i % 5 == 0 {
+      $bg-color: #018;
+    } @else {
+      @if $i % 4 == 0 {
+        $bg-color: #930;
+      } @else {
+        @if $i % 3 == 0 {
+          $bg-color: #190;
+        } @else {
+          @if $i % 2 == 0 {
+            $bg-color: #890;
+          } @else {
+            $bg-color: #F90;
+          }
+        }
+      }
+    }
+  }
+
+  #lotteries .#{$class-slug}-#{$i} {
+    background-color: $bg-color;
+    color: $fg-color;
+  }
+}
+
+
+/* Corner Ribbon */
+.cr-wrapper {
+  //margin: 50px auto;
+  //width: 280px;
+  //height: 370px;
+  //background: white;
+  //border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+}
+ 
+.corner-ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+ 
+.corner-ribbon {
+  font: bold 15px Sans-Serif;
+  color: #333;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: $gradient-yellow-bg-color-3;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($gradient-yellow-bg-color-3), to($gradient-yellow-bg-color-1)); 
+  background-image: -webkit-linear-gradient(top, $gradient-yellow-bg-color-3, $gradient-yellow-bg-color-1); 
+  background-image:    -moz-linear-gradient(top, $gradient-yellow-bg-color-3, $gradient-yellow-bg-color-1); 
+  background-image:     -ms-linear-gradient(top, $gradient-yellow-bg-color-3, $gradient-yellow-bg-color-1); 
+  background-image:      -o-linear-gradient(top, $gradient-yellow-bg-color-3, $gradient-yellow-bg-color-1); 
+  color: #6a6340;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+ 
+.corner-ribbon:before, .corner-ribbon:after {
+  content: "";
+  //border-top:   3px solid #6e8900;   
+  //border-left:  3px solid transparent;
+  //border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+ 
+.corner-ribbon:before {
+  left: 0;
+}
+.corner-ribbon:after {
+  right: 0;
+}
+
+/* Custom style for JQuery Calender */
+#ui-datepicker-div{
+  width:100em;
+  height:18em !important;
+
+  #calender-button-line{
+    position:absolute;
+    bottom:0px;
+    width:96%;
+    padding:5px 5px 10px;
+
+    a{
+      float:right;
+
+      &.next-btn{
+        margin-left:10px;
+      }
+    }
+
+    select{
+      margin:0px 5px;
+    }
+
+  }
+
+  a.date-clickable{
+      background:white !important;
+  }
+
+  a.ui-datepicker-prev,
+  a.ui-datepicker-next{
+      display:none;
+  }
+
+}
+
+input.datepicker-input{
+  width:0px;
+  height:37px;
+  border:0px;
+}
+button.ui-datepicker-trigger{
+  height:37px;
+}
+
+/* Custom style for the nitification popup */
+.popover.nb-noti-popover.bottom{
+  $noti-pop-width:315px;
+
+  @media(max-width:$md-screen+1){
+    
+  }
+
+  @media(max-width:$xs-screen+1){
+    width:$noti-pop-width;
+    top:3em;
+  }
+
+  @media(min-width:$lg-screen){
+    
+    left:-60px !important;
+    max-width:$noti-pop-width !important;
+
+    .popover-content{
+      width:$noti-pop-width;
+    }
+  }
+
+  @include gen-border-radius(0px);
+  color:$blue-text-color;
+  opacity:0.9;
+  border-width:0px;
+  padding:0px;
+
+  .arrow{
+    left:90% !important;
+
+    @media(max-width:$xs-screen+1){
+      left:50% !important;
+    }
+  }
+
+  .popover-title{
+    @include gen-border-radius(0px);
+    font-weight:bold;
+    background-color:$white-pure-color;
+    border-bottom: 1px solid $blue-bg-color;
+    font-size:0.9em;
+  }
+
+  .popover-content{
+    @include gen-border-radius(0px);
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:0px;
+    padding-bottom:0px;
+
+    .noti-grid{
+      border-bottom: 1px solid $blue-bg-color;
+      min-height:55px;
+      padding:5px;
+    }
+
+    div.grid-1{
+      @extend .noti-grid;
+      background-color: $grey-bg-color;
+    }
+
+    div.grid-2{
+      @extend .noti-grid;
+      background-color: $white-pure-color;
+    }
+
+    div.icon-col{
+      padding: 0px 0px 0px 0px;
+
+      %icon-block{
+        padding: 12px 5px;
+      }
+
+      div.noti-icon-normal{
+        @extend %icon-block;
+        background-color:$orange-primary-color;
+      }
+
+      div.noti-icon-winner{
+        @extend %icon-block;
+        background-color:#2C77C8;
+      }
+
+      img{
+        width:25px;
+        display:block;
+        margin:auto;
+      }
+    }
+
+    div.bottom-line{
+      $line-height:30px;
+      min-height:$line-height;
+      height:$line-height;
+      text-align:center;
+      border-bottom-width:0px;
+      padding-top:8px;
+
+      a{
+        text-decoration:none;
+        cursor:pointer;
+        color:$blue-text-color;
+        font-weight:bold;
+      }
+    }
+
+    p{
+      margin:0px;
+      font-size:0.85em;
+      &.title{
+        font-weight: bold;
+      }
+      &.content{
+
+      }
+    }
+  }
+}
+
+
+
+

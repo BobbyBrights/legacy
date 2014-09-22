@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project bin="/.hawk" version="2.0">
+    <custos path=".settings/com.amdocs.hub.maw.core.hawk/configuration" version="8.0">
+        <custo auto_update="false" debug="false" default="true" handle_splash_screen_manually="true" scheme_configuration_active="false" start="@@webcontent@@/index.html" tollkit_version="9.0.1-16.0.4">
+            <platform id="IPhone">
+                <property id="packaging">
+                    <property id="certificate_name" value="streamezzo"/>
+                    <property id="certificate" value="Certificates/ios_distribution.cer"/>
+                    <property id="private_key_passphrase" value="toto"/>
+                    <property id="mobile_provision" value="Certificates/8210798D-0C9A-4CE1-AAB0-586276AE28E9.mobileprovision"/>
+                    <property id="private_key" value="Certificates/certificate.p12"/>
+                    <property id="bundle_identifier" value="com.amdocs.RichMedia.ZigDev"/>
+                    <property id="distribution" value="AD_HOC"/>
+                </property>
+                <property id="ios_device_target">
+                    <value ios_device_target="UNIVERSAL"/>
+                </property>
+                <property id="general">
+                    <property id="company_name" value="Streamezzo"/>
+                    <property id="name" value="ZigDev"/>
+                    <property id="version" value="0.4.3"/>
+                </property>
+                <property id="ios_deployement">
+                    <property id="status_bar_style" value="Default"/>
+               		<property id="ios_shine_effect" value="false"/>
+                    <property id="icon" value="publication/Icon.png"/>
+                    <property id="icon_ipad" value="publication/icon72.png"/>
+                    <property id="icon_retina_ios7" value="publication/icon72.png"/>
+                    <property id="icon_ipad_ios7" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/76x76.png"/>
+                    <property id="splash_screen" value="publication/Default.png"/>
+                    <!--property id="splash_screen_ipad_landscape" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/ipad_splash_landscape.png"/-->
+                    <property id="splash_screen_retina_4" value="publication/DefaultI5.png"/>
+                    <property id="splash_screen_retina" value="publication/Default@2.png"/>
+                    <property id="splash_screen_retina_ios7" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/640x960.png"/>
+                    <property id="splash_screen_retina_4_ios7" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/640x1136.png"/>
+                    <property id="splash_screen_ipad_portrait" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/ipad_splash.png"/>
+                    <property id="splash_screen_ipad_portrait_ios7" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/iPhone/768x1024.png"/>
+                    <property id="status_bar_hidden" value="false"/>
+                    <property id="supported_orientation_iphone">
+                        <value auto="false" enabled="true" erender_mode="false" initial="P0"/>
+                    </property>
+                    <property id="supported_orientation_ipad">
+                        <value auto="false" enabled="true" erender_mode="false" initial="P0"/>
+                    </property>
+                    <property id="icon_retina" value="publication/icon@2.png"/>
+                    <property id="bkg_color" value="#000000ff"/>
+                    <property id="status_bar_hidden_ipad" value="false"/>
+                </property>
+            </platform>
+            <platform id="PC">
+                <property id="active_x" value="true"/>
+                <property id="name" value="MyApplication"/>
+                <property id="screen_orientation">
+                    <value auto="false" enabled="true" erender_mode="true" initial="P0"/>
+                </property>
+                <property id="archive" value="true"/>
+            </platform>
+            <platform id="ANDROID">
+                <property id="packaging">
+                    <property id="stz_entry_point" value="com.zig"/>
+                    <property id="signature">
+                        <value alias="uxfme" enabled="true" key_passwd="WI1IKEvJKTPMoSFEOIwZqg==" keystore="Certificates/android/uxfme.ks" keystore_passwd="WI1IKEvJKTPMoSFEOIwZqg=="/>
+                    </property>
+                </property>
+                <property id="display">
+                    <property id="stz_hide_status_bar" value="false"/>
+                    <property id="icon" value="publication/Icon.png"/>
+                    <property id="splash_screen" value="publication/splash_android_480x800.png"/>
+                    <property id="stz_background_color" value="#000000ff"/>
+                    <property id="screen_orientation">
+                        <value auto="false" enabled="false" erender_mode="true" initial="P0"/>
+                    </property>
+                    <property id="exit_icon" value=".settings/com.amdocs.hub.maw.core.hawk/configuration/android/exitIcon_72x72.png"/>
+                </property>
+                <property id="general">
+                    <property id="stz_app_version_name" value="0.4.3"/>
+                    <property id="name" value="ZigDev"/>
+                </property>
+                <property id="permissions">
+                    <property id="android.permission.CHANGE_WIFI_MULTICAST_STATE" value="false"/>
+                    <property id="android.permission.GET_TASKS" value="true"/>
+                    <property id="android.permission.WRITE_EXTERNAL_STORAGE" value="false"/>
+                    <property id="android.permission.ACCESS_WIFI_STATE" value="false"/>
+                    <property id="android.permission.ACCESS_COARSE_LOCATION" value="false"/>
+                    <property id="android.permission.RECEIVE_SMS" value="false"/>
+                    <property id="android.permission.CALL_PHONE" value="true"/>
+                    <property id="android.permission.GET_ACCOUNTS" value="false"/>
+                    <property id="android.permission.READ_CONTACTS" value="false"/>
+                    <property id="android.permission.WRITE_CONTACTS" value="false"/>
+                    <property id="android.permission.READ_PHONE_STATE" value="true"/>
+                    <property id="android.permission.READ_CALENDAR" value="false"/>
+                    <property id="android.permission.CAMERA" value="false"/>
+                    <property id="android.permission.ACCESS_FINE_LOCATION" value="false"/>
+                    <property id="android.permission.ACCESS_NETWORK_STATE" value="false"/>
+                    <property id="android.permission.RECORD_AUDIO" value="false"/>
+                    <property id="android.permission.WAKE_LOCK" value="true"/>
+                    <property id="android.permission.USE_CREDENTIALS" value="false"/>
+                    <property id="android.permission.SEND_SMS" value="false"/>
+                    <property id="android.permission.WRITE_APN_SETTINGS" value="false"/>
+                    <property id="com.var__entry_point__.permission.C2D_MESSAGE" value="false"/>
+                    <property id="com.google.android.c2dm.permission.RECEIVE" value="false"/>
+                    <property id="android.permission.WRITE_CALENDAR" value="false"/>
+                    <property id="android.permission.INTERNET" value="true"/>
+                    <property id="android.permission.WRITE_SETTINGS" value="false"/>
+                    <property id="android.permission.CHANGE_WIFI_STATE" value="true"/>
+                    <property id="android.permission.VIBRATE" value="false"/>
+                    <property id="android.permission.ACCESS_SURFACE_FLINGER" value="false"/>
+                    <property id="android.permission.CHANGE_NETWORK_STATE" value="false"/>
+                </property>
+            </platform>
+            <files>
+                <file path="@@webcontent@@"/>
+            </files>
+            <notification active="false" notification_type="0"/>
+        </custo>
+        <resize_policies/>
+    </custos>
+</project>

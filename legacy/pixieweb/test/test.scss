@@ -1,0 +1,28 @@
+<?php require_once('scss-compiler.php'); ?>
+@import "_mixins";
+@import "_variables";
+
+body {
+	background-color: 	$body-font-color;
+	font-size: 			$body-font-size;
+}
+
+$body-font-color:				#999;
+
+.well {
+	@extend .roundedTop;
+	background-color: 	$body-font-color;
+	padding: 12px; 
+	h1 {
+		font-family: 'Verdana';
+		color: #fff;
+	}
+	p {
+		font-family: 'Arial'
+	}
+	@include box-shadow(10px, 10px, 5px, #888);
+	@include rotate-me(90deg);
+}
+
+p { font-family: 'Verdana'; }
+

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="17.5"
+    tools:ignore="HardcodedText" >
+
+    <RelativeLayout
+        android:id="@+id/label_to_number"
+        style="@style/contacts_header"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        tools:ignore="ContentDescription" >
+
+        <TextView
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="To number"
+            android:textColor="@android:color/white" >
+        </TextView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/arbitrary_val"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="2.5"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:weightSum="1"
+        tools:ignore="ContentDescription" >
+
+        <EditText
+            android:id="@+id/msisdn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/btn_add_arbitrary_val"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:onClick="addArbitraryContact"
+            android:text="+" >
+        </Button>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/add_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1.5"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        tools:ignore="ContentDescription" >
+
+        <TextView
+            android:id="@+id/lbl_recipients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="110dp"
+            android:text="Recipients"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/add_contacts_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/lbl_recipients"
+            android:onClick="loadContacts"
+            android:padding="3sp"
+            android:text="Add contacts" >
+        </Button>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scroller"
+        android:layout_width="wrap_content"
+        android:layout_height="0px"
+        android:layout_weight="4"
+        android:fillViewport="true"
+        android:paddingTop="10dip" >
+
+        <ie.three.webtexts.view.layout.FlowLayout
+            android:id="@+id/flow_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/label_header_message"
+        style="@style/contacts_header"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="2dp"
+        tools:ignore="ContentDescription" >
+
+        <TextView
+            android:id="@+id/heading_message"
+            android:layout_width="160dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Message"
+            android:textColor="@android:color/white" >
+        </TextView>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/message_text"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_margin="5dp"
+        android:layout_weight="4"
+        android:gravity="top|left"
+        android:imeOptions="actionDone"
+        android:imeActionLabel="Done"
+        android:inputType="textMultiLine"
+        android:lines="12"
+        android:singleLine="true" >
+    </EditText>
+
+    <RelativeLayout
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1.5"
+        android:background="@android:color/black"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        tools:ignore="ContentDescription" >
+
+        <TextView
+            android:id="@+id/remaining_texts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:text="{0} remaining texts this month."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/send_message_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/remaining_texts"
+            android:focusable="true"
+            android:onClick="sendMessage"
+            android:padding="3sp"
+            android:text="Send" >
+        </Button>
+    </RelativeLayout>
+
+    <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="2"
+        ads:adSize="BANNER"
+        ads:adUnitId="a1503e1f70d6649"
+        ads:loadAdOnCreate="true" />
+
+</LinearLayout>

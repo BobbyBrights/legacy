@@ -1,0 +1,62 @@
+/*	Purple: #9e1e63
+	Peach:	#d9195c
+	Green:	#8dbe43
+	Grey:	#7f8183	*/
+body {
+	background: url('images/bg-body.png') #9e1e63 top center no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+	margin: 0;
+	padding: 0;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 62.5%;
+	text-align: center;
+}
+img {
+	border: 0;
+}
+h1 {
+	color: #fff;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	font-size: 3em;
+	letter-spacing: -1px;
+}
+h2 {
+	color: #fff;
+	font-family: "pragmatica-web-condensed",sans-serif;
+	font-size: 2em;
+	font-style: normal;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin: 15px 0 0 0;
+}
+h3 {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	color: #fff;
+	font-size: 1.7em;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+p {
+	font-family: "pragmatica-web-condensed",sans-serif;
+	color: #fff;
+	font-size: 1.5em;
+	font-weight: 300;
+	margin: 0 0 5px 0;
+}
+a {
+	color: #fff;
+}
+strong {
+	font-weight: 600;
+	text-transform: uppercase;	
+}
+#container {
+	background: url('images/bg-container.png') transparent top center no-repeat;
+	width: 374px;
+	height: 474px;
+	margin: 20px auto;
+	padding: 0;
+}

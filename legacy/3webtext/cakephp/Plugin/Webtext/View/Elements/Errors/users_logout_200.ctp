@@ -1,0 +1,1 @@
+<div id="flashMessage" class="success">Logged out successfully.</div>

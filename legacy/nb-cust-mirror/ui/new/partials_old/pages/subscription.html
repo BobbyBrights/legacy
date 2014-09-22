@@ -1,0 +1,31 @@
+<div class="container" ng-controller="SubscriptionController">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Your Numbers</h2>
+            <div class="row balls-edit">
+                <loading-spinner class="col-md-6" hide="true === editedSubscription.finishLoad"></loading-spinner>
+                <div class="col-md-6 lotto-group-normal">
+                    <lottery-number-edit-objs2 ng-show="editedSubscription.lines.length > 0" ng-repeat="oneline in editedSubscription.lines" showlinenum='true'></lottery-number-edit-objs2> 
+                </div>
+                <div class="col-md-6 description-area">
+                    <h4>Package</h4>
+                    <p><b>Number of Lines : {{subscription.lines ? subscription.lines.length : 0}}</b></p>
+                    <p><b>Number of Draws : {{subscription.numDraws}}</b></p>
+                    <p><b>Auto Renew : {{ 'recurring' == subscription.type ? 'Yes' : 'No'}}</b></p>
+                    <p><b>Renewal Date : {{ subscription.nextPaymentDate ? subscription.nextPaymentDate : 'Not Paid' }}</b></p>
+                    <div class="row-buffer-normal"></div>
+                    <div>
+                        <button type="button" class="btn primary-btn-text" ng-click="editLines()">Edit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h2>Your Results</h2>
+            </div>
+        </div>
+        <div class="col-md-4" ui-view="rightSide"></div>
+    </div>
+    <div ng-include="'/partials/includes/footer.html'"></div>
+</div>
+<!-- /container -->

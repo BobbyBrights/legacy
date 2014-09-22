@@ -1,0 +1,278 @@
+<div class="row ball-picker-title" ng-hide="false && $root.authenticated">
+    <p class="title">PICK & PLAY</p> <p class="content">Pick Your Numbers by typing or using the</p> <p class="important">Number Picker</p> <p class="content">below.</p> <p class="content-res">Minimum of 2 lines & 8 draws.</p>
+</div>
+<div class="row ball-picker-body" ng-hide="false && $root.authenticated">
+    <div class="col-lg-4 balls-col">
+        <div class="row">
+            <div class="col-lg-11 balls-panel">
+                <div class="row">
+                    <div class="col-md-6 pull-left panel-title">NUMBER PICKER</div>
+                    <div class="col-md-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 panel-body new-line">
+                        <numbers-grid></numbers-grid/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="row">
+                    <img class="first-arrow" src="../assets/images/arrow-round.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 numbers-panel">
+        <div class="row">
+            <div class="col-md-6 pull-left panel-title">YOUR NUMBERS</div>
+            
+        </div>
+        <div class="row hidden-lg">
+            <div class="col-xs-12 title-line">PICK & PLAY</div>
+        </div>
+        <div class="row">
+            <div class="col-md-11">
+                <form class="bet-form lotto-group-normal">
+                    <div class="row">
+<!--                         <div class="col-md-12 panel-body">
+                            <fieldset ng-repeat="line in subscription.lines track by $index" class="cleared lotto-line">
+                                <button ng-click="randomNumbers($index)" class="btn btn-success qp">QP</button>
+                                <legend>Line {{$index + 1}}</legend>
+
+                                <input ng-repeat="a in numbers() track by $index" type="text"
+                                       ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                       class="input-sm input-line-number"
+                                       ng-maxlength="2" ng-focus="focusNumInput($parent.$index, 'std', $index)" switch-style ng-unfocus="" ng-focus="highlightLine($parent.$index)"
+                                       maxlength="2" nb-ball-input-enter num-change line-index="{{$parent.$index}}" ball-index="{{$index}}"/>
+
+                                <input type="text"
+                                       ng-model="subscription.lines[$index].bonus"
+                                       class="input-sm input-line-number bonus-ball"
+                                       ng-maxlength="2" switch-style ng-unfocus="" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                       maxlength="2" nb-ball-input-enter num-change line-index="{{$index}}" ball-index="6"/>
+
+                                <button type="button" class="close delete-line-btn" aria-hidden="true" ng-click="removeLine(subscription.lines[$index])"></button>
+                            </fieldset>
+                        </div> -->
+                        <div class="col-md-12 panel-body">
+                            <div class="row panel-line"  ng-repeat="line in subscription.lines track by $index" line="line" style-switcher nb-duplicate-line>
+                                <div class="col-md-12 panel-line-inner">
+                                
+                                    <fieldset class="cleared lotto-line">
+                                        <button ng-click="randomNumbers($index)" class="btn btn-success qp">QP</button>
+                                        <legend>Line {{$index + 1}}</legend>
+
+                                        <input ng-repeat="a in numbers() track by $index" type="text"
+                                               ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                               class="input-sm input-line-number"
+                                               ng-maxlength="2" ng-focus="focusNumInput($parent.$index, 'std', $index)" switch-style ng-unfocus="" ng-focus="highlightLine($parent.$index)"
+                                               maxlength="2" nb-ball-input-enter num-change line-index="{{$parent.$index}}" ball-index="{{$index}}"/>
+
+                                        <input type="text"
+                                               ng-model="subscription.lines[$index].bonus"
+                                               class="input-sm input-line-number bonus-ball"
+                                               ng-maxlength="2" switch-style ng-unfocus="" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                               maxlength="2" nb-ball-input-enter num-change line-index="{{$index}}" ball-index="6"/>
+
+                                        <!-- <div class="star"></div> -->
+                                        <button type="button" class="close delete-line-btn" aria-hidden="true" ng-click="removeLine(subscription.lines[$index])"></button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row row-buffer-normal"></div>
+                    <div class="row operation-line">
+                        <div class="row row-buffer-small"></div>
+                        <div class="col-md-5 pull-left add-new-line">
+                            <a ng-click="addLine()"><img class="plus-sign" src="../assets/images/plus.png"><div>Add a line</div></a>
+                        </div>
+                        <div class="col-md-7">
+                            <img class="star-sign" src="../assets/images/star.png"><p>Denotes bonus ball</p>
+                        </div>
+                    </div>
+                    <div class="row operation-line-short">
+                        <button class="add-line-btn" ng-click="addLine()">ADD A LINE</button>
+                    </div>
+                    <div class="row row-buffer-normal"></div>
+                </form>
+            </div>
+            <div class="col-md-1">
+                <div class="row">
+                <img class="second-arrow" src="../assets/images/arrow-round.svg" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 body-right-side-panel right-side-panel">
+        <div class="row intro-line hidden-lg">
+            <p>A life changing &#163;7 Million</p>
+            <p>for just 69p a line</p>
+        </div>
+        <div class="row comment-line hidden-lg">
+            <p class="content-important">Just 69p</p> <p class="content-normal">per line</p>
+            <p class="content-sm">(Minimum of 2 lines)</p>
+        </div>
+        <div class="row btn-top-buffer-line visible-lg">
+            
+        </div>
+        <div class="row submit-btn-line">
+            <button mb-view-play-btn>PLAY NOW</button>
+        </div>
+        <div class="row row-buffer-small hidden-xs">
+            
+        </div>
+        <!-- <div class="row line-jackpot cr-wrapper visible-xs" mb-view-update>
+            <div class="corner-ribbon-wrapper"><div class="corner-ribbon"><p>Just 75p</p><p class="comment">per line</p></div></div>
+            <div class="col-lg-12">
+                <div class="row title-line">GRAND PRIZE</div>
+                <div class="row body-line">&#163;7,000,000</div>
+                <div class="row view-btn-line">
+                    <button ng-click="openPrizesModal()">VIEW ALL PRIZES</button>
+                </div>
+            </div>
+        </div> -->
+
+        <div ui-view="prizes"></div>
+        <div ui-view="novainfo"></div>
+        
+        <div class="row package-line">
+            <div class="col-md-12 panel-body new-line package-panel">
+                <div class="row">
+                    <div class="col-lg-6 basic-info">
+                    <div>
+                        <p class="title">Lines:</p> <p class="content">{{subscription.effectiveLineNum}}</p>
+                    </div>
+                    <div>
+                        <p class="title">Draws:</p> <p class="content">{{subscription.numDraws}}</p>
+                    </div>
+                    <!-- <div>
+                        <p class="title">Auto Renew:</p> <p class="content">{{ true == subscription.recurring ? 'Yes' : 'No'}}</p>
+                    </div> -->
+                    <div>
+                        <p class="title">Renewal:</p> <p class="content">{{ subscription.nextPaymentDate ? switchTimeFormat(subscription.nextPaymentDate) : 'Not Paid' }}</p>
+                    </div>
+                    </div>
+                    <div class="col-lg-6 price-panel">
+                        <div class="row">
+                        <p class="price">&#163;{{subscription.pricePerLine * subscription.effectiveLineNum * subscription.numDraws / 100}}</p> <p class="price-frequency">per month</p> <p class="price-comment">just 69p per line</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="step">1.Pick Numbers</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-normal">Pick <b><i>Your Numbers</i></b> by typing or using the <div class="text-color-blue inline-text text-bold"><i>Number Picker</i></div> below:</div>
+                </div>
+                <div class="row-buffer-normal"></div>
+                <div class="row">
+                    <div class="col-md-6 numbers-panel">
+                        <div class="col-md-6 pull-left panel-title">Your Number</div>
+                        <div class="col-md-6"></div>
+                        <form class="bet-form lotto-group-normal">
+                            <div class="col-md-12 panel-body">
+                            <fieldset ng-repeat="line in subscription.lines track by $index" class="cleared lotto-line">
+                                <button ng-click="randomNumbers($index)" class="btn btn-success qp">QP</button>
+                                <legend>Line {{$index + 1}}</legend>
+
+                                <input ng-repeat="a in numbers() track by $index" type="text"
+                                       ng-model="subscription.lines[$parent.$index].standard[$index]"
+                                       class="input-sm input-line-number"
+                                       ng-maxlength="2" ng-focus="focusNumInput($parent.$index, 'std', $index)" ng-unfocus="checkSubscription()" ng-focus="highlightLine($parent.$index)"
+                                       maxlength="2" num-change/>
+
+                                <input type="text"
+                                       ng-model="subscription.lines[$index].bonus"
+                                       class="input-sm input-line-number bonus-ball"
+                                       ng-maxlength="2" ng-unfocus="checkSubscription()" ng-focus="focusNumInput($index, 'bonus');highlightLine($index)"
+                                       maxlength="2" num-change/>
+
+                                
+                                <button type="button" class="close delete-line-btn" aria-hidden="true" ng-click="removeLine($index)">×</button>
+                            </fieldset>
+                            </div>
+                            <div class="row row-buffer-normal"></div>
+                            <div class="row">
+                                <div class="row row-buffer-normal"></div>
+                                <div class="col-md-6 pull-left add-new-line">
+                                    <a ng-click="addLine()"><div class="plus-sign">+</div>Add new line</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="star"></div> <p>Denotes Bonus Ball</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6 balls-panel">
+                        <div class="row">
+                            <div class="col-md-6 pull-left panel-title">Number Picker</div>
+                            <div class="col-md-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 panel-body new-line">
+                                <numbers-grid></numbers-grid/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="step">2. Pick Draws</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-normal">Pick the <b><i>Number of Draws</i></b> you would like to enter. There are two draws each week, Wednesdays and Saturdays</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-inline num-draws draws-panel">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <label class="col-md-2 inline-elem radio" ng-repeat="_d in drawPeriods">
+                                    <input type="radio" ng-model="subscription.numDraws" ng-value="_d"/>
+                                    {{ _d }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row total-price-panel">
+                            <div class="title">
+                                Total {{subscription.numDraws * subscription.lines.length * 0.50 | toCurrency: { currency: 'GBP'} }}
+                            </div>
+                            <div class="content"> per month</div>
+                            <div ng-show="subscription.recurring">
+                                (Renewed every {{subscription.numDraws | normalize: { singular: 'draw', plural: 'draws'} }} until cancelled.)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-buffer-normal"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                         <div class="control-row">
+                            <label class="checkbox-inline text-normal">
+                                <input type="checkbox" id="recurring" name="recurring" ng-model="subscription.recurring"> Auto renew
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" ng-click="saveSubscriptionAndRegister()" class="btn go-button">PLAY</button>
+            </div>
+            <div class="col-md-4" ui-view="rightSide"></div>
+           <pre>{{subscription}}</pre> 
+           <button ng-click="testBall()">Test ball</button>
+           <input type="checkbox" ng-model="style"> style <br>
+           <div ng-class="['test-css']" style="width:100px; height:50px;border:1px solid red">66</div>
+        </div>
+    </div>
+</div> -->
+<!-- <pre>{{subscription}}</pre>  -->

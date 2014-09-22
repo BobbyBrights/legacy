@@ -1,0 +1,89 @@
+$default_color_2:	#1f5a80;
+$default_color_1:	#a2c9e2;
+
+@mixin f_rounded($radius: 5px) {
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+@mixin box_shadow($size: none){
+	-webkit-box-shadow: $size;
+	-moz-box-shadow: $size;
+	box-shadow: $size;
+}
+
+@mixin i_rounded($vert, $horz, $radius: 5px) {
+  border-#{$vert}-#{$horz}-radius: $radius;
+  -moz-border-radius-#{$vert}#{$horz}: $radius;
+  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+}
+
+
+// Mixins and classes to extend
+@mixin radial-center($rg2: $default_color_2, $rg1: $default_color_1) {
+  /* fallback */
+  background-color: $rg2;
+  background-position: left center;
+  background-repeat: no-repeat;
+
+  /* Safari 4-5, Chrome 1-9 */
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from($rg1), to($rg2));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(circle, $rg1, $rg2);
+
+  /* Firefox 3.6+ */
+  background: -moz-radial-gradient(circle, $rg1, $rg2);
+
+  /* IE 10 */
+  background: -ms-radial-gradient(circle, $rg1, $rg2);
+
+  /* Opera couldn't do radial gradients, then at some point they started supporting the -webkit- syntax, how it kinda does but it's kinda broken (doesn't do sizing) */
+}
+
+@mixin radial-position($rg2: $default_color_2, $rg1: $default_color_1) {
+  /* fallback */
+  background-color: $rg2;
+  background-position: 60% 40%;
+  background-repeat: no-repeat;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(radial, 60% 40%, 0, 60% 40%, 100, from($rg1), to($rg2));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-radial-gradient(60% 40%, closest-corner, $rg1, $rg2);
+
+  /* Firefox 3.6+ */
+  background: -moz-radial-gradient(80% 20%, closest-corner, $rg1, $rg2);
+
+  /* IE 10 */
+  background: -ms-radial-gradient(80% 20%, closest-corner, $rg1, $rg2);
+
+  /* Opera cannot do radial gradients yet */
+}
+
+@mixin linear-gradient($rg2: $default_color_2, $rg1: $default_color_1){
+  /* fallback */
+  background-color: $rg2;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($rg1), to($rg2));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, $rg1, $rg2);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, $rg1, $rg2);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(top, $rg1, $rg2);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(top, $rg1, $rg2);
+}
+
+

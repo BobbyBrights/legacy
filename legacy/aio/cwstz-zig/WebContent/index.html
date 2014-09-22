@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Dev API - Docs</title>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/start/jquery-ui.css" />
+
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="js/apicalls.js"></script>
+<script type="text/javascript">
+	$(document).ready(function($) {
+		versionFunction();
+		loginFunction();
+		getHomeFunction();
+		changePasswordFunction();
+		getSecurityQuestionFunction();
+		validateSecurityQuestionFunction();
+		resetVMPwFunction();
+		selfRegistrationFunction();
+		logoutFunction();
+		getPlanAndServicesFunction();
+		getAvailableServicesFunction();
+		getChangeServiceVerificationFunction();
+		submitChangeServicesFunction();
+		getProfileInformationsFunction();
+		updateProfileInformationsFunction();
+		getBillDetailsFunction();
+		getTransactionsHistoryFunction();
+		getAutomaticPaymentFunction();
+		createAutomaticPaymentFunction();
+		deleteAutomaticPaymentFunction();
+		makeOTPaymentFunction();
+		getUsageDetailsFunction();
+		getUsageSummaryFunction();
+		getChatInfoFunction();
+		getVerifyPINFunction();
+		setCurrentLineFunction();
+	});
+</script>
+<script>
+	$(function() {
+		$("#tabs").tabs().addClass("ui-tabs-vertical ui-helper-clearfix");
+		$("#tabs li").removeClass("ui-corner-top").addClass("ui-corner-all");
+	});
+</script>
+<style>
+body {
+	font-size: 80%;
+}
+
+.ui-widget-header {
+	background: transparent;
+	border: 0;
+}
+
+.ui-tabs-vertical {
+	margin: auto;
+	width: 95%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav {
+	padding: .2em .1em .2em .2em;
+	float: left;
+	width: 21%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li {
+	clear: left;
+	width: 100%;
+	border-bottom-width: 1px !important;
+	border-right-width: 0 !important;
+	margin: 0 -1px .2em 0;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li a {
+	display: block;
+	width: 87%;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+	margin: 0 -1px 0.2em 0;
+	padding-bottom: 0;
+	border-right-width: 1px;
+	border-right-width: 1px;
+}
+
+.ui-tabs-vertical .ui-tabs-panel {
+	float: right;
+	width: 74%;
+}
+
+.request,.rqRow {
+	border: 1px solid #A6C9E2;
+	border-radius: 5px;
+	background-color: #EEEEFF;
+	padding: 5px;
+}
+
+.request .title,.rqString,.rqLabel {
+	font-weight: bold;
+	font-size: 16px;
+	display: inline;
+	padding-right: 25px;
+}
+
+.request .payload,.plRow-err .plString {
+	background-color: #FFFFFF;
+}
+
+div span {
+	display: block;
+}
+
+span.subelement {
+	margin-left: 15px;
+}
+
+.rpContentRow,.plString {
+	margin-left: 20px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-family: Courier, "Courier New", monospace;
+}
+
+.plLabel,.rpLabel {
+	font-style: italic;
+	background: #eeeeff;
+}
+
+.plRow-err .plLabel,.rpLabelRow-err .rpLabel {
+	background: #ffeeee;
+	padding-left: 4px;
+}
+
+.plRow .plLabel,.rpLabelRow .rpLabel {
+	padding-left: 4px;
+}
+
+.plLabel {
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.plRow-err:not (:first-child ){
+	border-top: solid 2px #B28888;
+	margin-top: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.errorsDiv {
+	margin-top: 10px;
+	border: solid 2px #B28888;
+	border-radius: 8px;
+}
+
+.responseDiv {
+	margin-top: 10px;
+	border: solid 2px #8888B2;
+	border-radius: 8px;
+}
+
+.plRow:not (:first-child ){
+	border-top: solid 2px #8888B2;
+	margin-top: 10px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+</style>
+</head>
+<body>
+	<div id="tabs">
+		<div id="setCurrentLine">
+			<h2>setCurrentLine</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/setCurrentLine</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="setCurrentLine-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="setCurrentLineR"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-setCurrentLine"></div>
+		</div>
+		
+		
+		<div id="getVerifyPIN">
+			<h2>getVerifyPIN</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getVerifyPIN</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="verifyPIN-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="verifyPIN"></div>
+					</div>
+				</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="verifyPINerr-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="verifyPINerr"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="errorsDiv" id="errors-verifyPIN"></div>
+		</div>
+		
+		<div id="getVersion">
+			<h2>getVersion</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getVersion</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="version-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="version"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="login">
+			<h2>login</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/login</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="fullLogin-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="fullLogin"></div>
+					</div>
+				</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="tempLogin-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="tempLogin"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-fullLogin"></div>
+		</div>
+
+		<div id="getHome">
+			<h2>getHome</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getHome</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="home-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="home"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-home"></div>
+		</div>
+
+		<div id="changePassword">
+			<h2>changePassword</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/changePassword</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="changePw-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="changePw"></div>
+					</div>
+				</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="changePwIncUsername-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="changePwIncUsername"></div>
+					</div>
+				</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="resetPw-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="resetPw"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-changePw"></div>
+		</div>
+
+		<div id="getSecurityQuestion">
+			<h2>getSecurityQuestion</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getSecurityQuestion</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="secQu-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="secQu"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-secQu"></div>
+		</div>
+
+		<div id="validateSecurityQuestion">
+			<h2>validateSecurityQuestion</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/validateSecurityQuestion</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="valSecQu-s-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="valSecQu-s"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-valSecQu"></div>
+		</div>
+
+		<div id="resetVMPassword">
+			<h2>resetVMPassword</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/resetVMPassword</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="resetVMPw-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="resetVMPw"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="resetVMPw-f-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="resetVMPw-f"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-resetVMPw"></div>
+		</div>
+
+		<div id="selfRegistration">
+			<h2>selfRegistration</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/selfRegistration</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="selfReg-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="selfReg"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-selfReg"></div>
+		</div>
+
+		<div id="logout">
+			<h2>logout</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/logout</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="log_out-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="log_out"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-logout"></div>
+		</div>
+
+		<div id="getPlanAndServices">
+			<h2>getPlanAndServices</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getPlanAndServices</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="planSrvcs-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="planSrvcs"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-planSrvcs"></div>
+		</div>
+
+		<div id="getAvailableServices">
+			<h2>getAvailableServices</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getAvailableServices</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="availSrvcs-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="availSrvcs"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-availSrvcs"></div>
+		</div>
+
+		<div id="getChangeServiceVerification">
+			<h2>getChangeServiceVerification</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getChangeServiceVerification</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="chgSrvcs-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="chgSrvcs"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-chgSrvcs"></div>
+		</div>
+
+		<div id="submitChangeServices">
+			<h2>submitChangeServices</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/submitChangeServices</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="submitChgSrvcs-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="submitChgSrvcs"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="submitChgSrvcs-f-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="submitChgSrvcs-f"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-submitChgSrvcs"></div>
+		</div>
+
+		<div id="getProfileInformation">
+			<h2>getProfileInformation</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getProfileInformation</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="profile-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="profile"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="profile-pobox-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="profile-pobox"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="profile-rural-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="profile-rural"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-profile"></div>
+		</div>
+
+		<div id="updateProfileInformation">
+			<h2>updateProfileInformation</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/updateProfileInformation</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="updateProfile-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="updateProfile"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="updateProfile-f-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="updateProfile-f"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-updateProfile"></div>
+		</div>
+
+		<div id="getBillDetails">
+			<h2>getBillDetails</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getBillDetails</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="billDetails-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="billDetails"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-billDetails"></div>
+		</div>
+
+		<div id="getTransactionsHistory">
+			<h2>getTransactionsHistory</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getTransactionsHistory</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="txHist-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="txHist"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-txHist"></div>
+
+		</div>
+
+		<div id="getAutomaticPayment">
+			<h2>getAutomaticPayment</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getAutomaticPayment</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="autoPayment-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="autoPayment"></div>
+					</div>
+				</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="autoPayment-none-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="autoPayment-none"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-autoPayment"></div>
+		</div>
+
+		<div id="createAutomaticPayment">
+			<h2>createAutomaticPayment</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/createAutomaticPayment</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="createAutoPayment-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="createAutoPayment"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="createAutoPayment-f-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="createAutoPayment-f"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-createAutoPayment"></div>
+		</div>
+
+		<div id="deleteAutomaticPayment">
+			<h2>deleteAutomaticPayment</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/deleteAutomaticPayment</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="deleteAutoPayment-s-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="deleteAutoPayment-s"></div>
+					</div>
+				</div>
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="deleteAutoPayment-f-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="deleteAutoPayment-f"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-deleteAutoPayment"></div>
+		</div>
+
+		<div id="makeOTPayment">
+			<h2>makeOTPayment</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/makeOTPayment</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="otPayment-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="otPayment"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-otPayment"></div>
+		</div>
+
+		<div id="getUsageDetails">
+			<h2>getUsageDetails</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getUsageDetails</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="usageDetails-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="usageDetails"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-usageDetails"></div>
+		</div>
+
+		<div id="getUsageSummary">
+			<h2>getUsageSummary</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getUsageSummary</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="usageSummary-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="usageSummary"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-usageSummary"></div>
+		</div>
+
+		<div id="getChatInfo">
+			<h2>getChatInfo</h2>
+			<div class="rqRow">
+				<div class="rqLabel">Request:</div>
+				<div class="rqString">/getChatInfo</div>
+			</div>
+			<div class="responseDiv">
+				<div class="plRow">
+					<div class="plLabel">Payload:</div>
+					<div class="plString" id="chatInfo-pl"></div>
+				</div>
+				<div class="rpLabelRow">
+					<div class="rpLabel">Response:</div>
+					<div class="rpbutton"></div>
+				</div>
+				<div class="rpContentRow">
+					<div class="rp">
+						<div id="chatInfo"></div>
+					</div>
+				</div>
+			</div>
+			<div class="errorsDiv" id="errors-chatInfo"></div>
+		</div>
+
+		<ul>
+			<li>
+				<a href="#getVersion">getVersion</a>
+			</li>
+			<li>
+				<a href="#login">login</a>
+			</li>
+			<li>
+				<a href="#getHome">getHome</a>
+			</li>
+			<li>
+				<a href="#getVerifyPIN">getVerifyPIN</a>
+			</li>
+			<li>
+				<a href="#setCurrentLine">setCurrentLine</a>
+			</li>
+			<li>
+				<a href="#changePassword">changePassword</a>
+			</li>
+			<li>
+				<a href="#getSecurityQuestion">getSecurityQuestion</a>
+			</li>
+			<li>
+				<a href="#validateSecurityQuestion">validateSecurityQuestion</a>
+			</li>
+			<li>
+				<a href="#resetVMPassword">resetVMPassword</a>
+			</li>
+			<li>
+				<a href="#selfRegistration">selfRegistration</a>
+			</li>
+			<li>
+				<a href="#logout">logout</a>
+			</li>
+			<li>
+				<a href="#getPlanAndServices">getPlanAndServices</a>
+			</li>
+			<li>
+				<a href="#getAvailableServices">getAvailableServices</a>
+			</li>
+			<li>
+				<a href="#getChangeServiceVerification">getChangeServiceVerification</a>
+			</li>
+			<li>
+				<a href="#submitChangeServices">submitChangeServices</a>
+			</li>
+			<li>
+				<a href="#getProfileInformation">getProfileInformation</a>
+			</li>
+			<li>
+				<a href="#updateProfileInformation">updateProfileInformation</a>
+			</li>
+			<li>
+				<a href="#getBillDetails">getBillDetails</a>
+			</li>
+			<li>
+				<a href="#getTransactionsHistory">getTransactionsHistory</a>
+			</li>
+			<li>
+				<a href="#getAutomaticPayment">getAutomaticPayment</a>
+			</li>
+			<li>
+				<a href="#createAutomaticPayment">createAutomaticPayment</a>
+			</li>
+			<li>
+				<a href="#deleteAutomaticPayment">deleteAutomaticPayment</a>
+			</li>
+			<li>
+				<a href="#makeOTPayment">makeOTPayment</a>
+			</li>
+			<li>
+				<a href="#getUsageDetails">getUsageDetails</a>
+			</li>
+			<li>
+				<a href="#getUsageSummary">getUsageSummary</a>
+			</li>
+			<li>
+				<a href="#getChatInfo">getChatInfo</a>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

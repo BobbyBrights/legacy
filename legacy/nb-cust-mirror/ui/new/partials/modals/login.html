@@ -1,0 +1,66 @@
+<!-- Modals -->
+<div class="modal-header">
+    {{mainTitle}}
+</div>
+<div class="sub-title">
+    <div class="row secondary-title">
+        <div class="col-lg-12">
+            {{modalHeading}}
+        </div>
+    </div>
+    
+</div>
+<div class="modal-body">
+    <form name="forms.loginForm" role="form" id="loginForm" ng-show="true" ng-submit="" novalidate>
+        <div class="row body-line" >
+            <div class="col-lg-12">
+                <div class="alert" ng-class="{'alert-success':loginResult === 'success', 'alert-danger':loginResult === 'failed'}" ng-show="(user.formSubmitted || displayErrMsg === true ) && loginResult !== false">{{loginResultMsg}}</div>
+                <div class="" ng-show="user.formSubmitted && forms.loginForm.username.$invalid">
+                    <div class="col-lg-12 alert alert-danger nb-md-alert">The Email or mobile field is required.</div>
+                </div>
+                <div class="row" ng-show="infoLine1 || infoLine2">
+                    <div class="col-lg-12">
+                        <p>{{infoLine1}}</p>
+                        <p>{{infoLine2}}</p>
+                    </div>
+                </div>
+                <div class="row" ng-class="{ 'has-error' : user.formSubmitted && forms.loginForm.username.$invalid}">
+                    <div class="col-lg-4 control-label content">Email or mobile:</div>
+                    <div class="col-lg-8">
+                        <input type="text" name="username" placeholder="" class="form-control" ng-model="user.username" required>
+                    </div>
+                </div>
+                <div class="" ng-show="user.formSubmitted && forms.loginForm.password.$invalid">
+                    <div class="col-lg-12 alert alert-danger nb-md-alert">The Password field is required.</div>
+                </div>
+                <div class="row" ng-class="{ 'has-error' : user.formSubmitted && forms.loginForm.password.$invalid}">
+                    <div class="col-lg-4 control-label content">Password:</div>
+                    <div class="col-lg-8">
+                    <input type="password" name="password" placeholder="" class="form-control" ng-model="user.password" required>
+                    </div>
+                </div>
+                <div class="row submit-btn-line">
+                    <div class="col-lg-7 content-comment">
+                        Forgot your <a ng-click="forgotPasswordPage()">password</a>?
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="btn-right-side pull-right"></div>
+                        <button type="submit" class="btn-submit pull-right" ng-click="login(forms.loginForm.$valid)">{{submitBtnText}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- <div class="col-xs-4 col-lg-4 col-lg-offset-2">
+    <div class="row">
+        <input type="text" placeholder="Email/Mobile" class="form-control" ng-model="user.username">
+    </div>
+</div>
+<div class="col-xs-4 col-lg-4">
+    <div class="row">
+        <input type="password" placeholder="Password/Pin" class="form-control" ng-model="user.password">
+    </div>
+</div> -->

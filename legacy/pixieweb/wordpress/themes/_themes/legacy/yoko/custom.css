@@ -1,0 +1,22 @@
+#wrap { padding: 20px 0;}
+
+#content-lhs, #content article { width: 720px!important; float: left; border-right: 1px solid #DDD; border-bottom: none!important; padding-right: 21px!important; }
+#content-rhs, div.single-post-rhs { width: 280px; float: left; padding-left: 21px;}
+
+div.single-post-rhs { margin-bottom: 27px;}
+div.rhs-content { margin-bottom: 22px; border-bottom: 1px solid #DDD; padding-bottom: 8px;}
+div.rhs-content h3, div.single-post-rhs h3 { margin: 0!important; margin-bottom: 6px!important;}
+div.rhs-content p { font-size: 0.875em; }
+div.rhs-content ul li { font-size: 0.875em; line-height: 21px; }
+
+#home-content-section { float: left; width: 100%; }
+
+div.All_Posts_By_Category { width: 720px; min-height: 455px; }
+#main {width: 100%!important; }
+#content { width: 100%!important; border-right: 1px solid #DDD; }
+div.All_Posts_By_Category div.text_module { width: 215px; float: left; margin-right: 21px; margin-bottom: 10px; min-height: 215px; }
+input.carousel-control { display: none;}
+div.Slider_Control { width: 720px; height: 382px; }
+div.Slider_Control a { display: none; }
+
+.widget_search { float: right; width: 468px; text-align: right; margin-right: 14px!important;}

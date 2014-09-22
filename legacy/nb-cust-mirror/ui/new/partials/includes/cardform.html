@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+    
+    <link rel="stylesheet" type="text/css" href="https://www.betbrightpcitesting.com/assets/css/reset.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://www.betbrightpcitesting.com/assets/css/payments_iframe.css">
+
+    <link rel="stylesheet" type="text/css" href="../../assets/styles/payments-iframe.css">
+    
+    </head>
+    <body>
+        <form id="form_helper" action="../../user/card" method="POST" name="Register Deposit Form">
+            
+            <div class="overlay_wrapper">
+                <div class="details_overlay">
+                    This transaction may take up to 2 minutes, please do not refresh your browser.
+                </div>
+
+                <div class="column">
+                    
+                    <label for="card_type">Credit Card Type</label>
+                    <select class="registration_input" id="card_type" name="card_type"><option value="">Please Select</option><option value="MC">MasterCard</option><option value="MAESTRO">MasterCard Debit</option><option value="VISA">Visa</option><option value="DELTA">Visa Debit</option></select>
+
+                    
+                    <label for="card_name">Cardholder's Name</label>
+                    <input class="registration_input" id="card_name" name="card_name" type="text" value="">
+
+                    
+                    <label for="card_number">Credit Card Number</label>
+                    <input class="registration_input" id="card_number" name="card_number" type="text" value="">
+
+                    
+                    <label for="exp_month">Expiry Date</label>
+                    <select class="registration_input registration_input_month3" id="exp_month" name="exp_month"><option value="">Month</option><option value="01">Jan (01)</option><option value="02">Feb (02)</option><option value="03">Mar (03)</option><option value="04">Apr (04)</option><option value="05">May (05)</option><option value="06">Jun (06)</option><option value="07">Jul (07)</option><option value="08">Aug (08)</option><option value="09">Sep (09)</option><option value="10">Oct (10)</option><option value="11">Nov (11)</option><option value="12">Dec (12)</option></select>
+
+                    
+                    <label for="exp_year">Expiry Date</label>
+                    <select class="registration_input registration_input_month2" id="exp_year" name="exp_year"><option value="">Year</option><option value="14">2014</option><option value="15">2015</option><option value="16">2016</option><option value="17">2017</option><option value="18">2018</option><option value="19">2019</option></select>
+
+                    
+                    <label for="nickname">Card Nickname</label>
+                    <input class="registration_input2" id="nickname" name="nickname" type="text" value="">
+                </div>
+                <div class="column">
+                    
+                    <label for="country">Country</label>
+                    <select class="registration_input" id="country" name="country"><option value="">Please Select</option><option value="IE">Ireland</option><option value="GB">United Kingdom</option></select>
+
+                    
+                    <label for="email">E-mail</label>
+                    <input class="registration_input" id="email" name="email" type="text" value="">
+
+                    
+                    <label for="address_line1">Billing Address 1</label>
+                    <input class="registration_input" id="address_line1" name="address_line1" type="text" value="">
+
+                    
+                    <label for="address_line2">Billing Address 2</label>
+                    <input class="registration_input" id="address_line2" name="address_line2" type="text" value="">
+
+                    
+                    <label for="city">City/Town</label>
+                    <input class="registration_input" id="city" name="city" type="text" value="">
+
+                    
+                    <label for="county">County</label>
+                    <input class="registration_input2" id="county" name="county" type="text" value="">
+
+                    
+                    <label for="postal_code">Postcode</label>
+                    <input class="registration_input" id="postal_code" name="postal_code" type="text" value="">
+
+                    
+                </div>
+
+            </div>
+            <div class="button_bar">
+                <input id="deposit_button" type="submit" name="submit" value="Submit" />
+            </div>
+        </form>
+    </body>
+</html>

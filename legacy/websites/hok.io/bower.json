@@ -1,0 +1,31 @@
+{
+  "name": "hok.io",
+  "main": "hok.io.js",
+  "version": "0.0.0",
+  "homepage": "http://hok.io",
+  "authors": [
+    "smcelhinney <mcelhins@tcd.ie>"
+  ],
+  "description": "Collection of components for hok.io front-end UI",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.15",
+    "angular-bootstrap": "~0.10.0",
+    "angular-route": "~1.2.15",
+    "angular-ui-router": "~0.2.10",
+    "bootstrap": "~3.1.1",
+    "angular-resource": "~1.2.15",
+    "components-font-awesome": "~4.0.3",
+    "bourbon": "~3.1.8"
+  },
+  "resolutions": {
+    "angular": "~1.2.15"
+  }
+}

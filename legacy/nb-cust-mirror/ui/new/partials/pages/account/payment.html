@@ -1,0 +1,71 @@
+<div class="col-lg-9">
+	<div class="row section-title hidden-xs">
+		<div class="col-lg-12">
+			<div class="col-lg-12">
+			Payment method
+			</div>
+		</div>
+	</div>
+	<div class="row payment-section">
+		<div class="col-lg-12">
+			<div class="row hidden-xs">
+				<div class="col-lg-2">Card</div>
+				<div class="col-lg-2">Name on card</div>
+				<div class="col-lg-5">Address</div>
+				<div class="col-lg-2">Expiry</div>
+				<div class="col-lg-1"></div>
+			</div>
+			<div class="row grid" ng-repeat="card in userCards.cards track by $index" ng-hide="userCards.cards.length == 0">
+				<div class="col-lg-12">
+					<div class="row hidden-xs">
+						<div class="col-lg-2">{{card.type}}</div>
+						<div class="col-lg-2">{{card.name}}</div>
+						<div class="col-lg-5">{{card.address.address1+' '+card.address.address2+' '+card.address.town+' '+card.address.county}}</div>
+						<div class="col-lg-2">{{card.expiry}}</div>
+						<div class="col-lg-1 text-right"><a data-toggle="collapse" data-parent="#accordion" href="#cardDetail{{$index}}">Edit</a></div>
+					</div>
+					<a data-toggle="collapse" data-parent="#accordion" href="#cardDetail{{$index}}">
+					<div class="row visible-xs">
+						<div class="row card-panel visible-xs">
+							<div class="col-xs-11">
+							{{getCardTypeName(card.type)}}
+							</div>
+							<div class="col-xs-1">
+								>
+							</div>
+						</div>
+					</div>
+					</a>
+					<div id="cardDetail{{$index}}" class="row panel-collapse collapse">
+						<div class="col-lg-12">
+							<div class="row content-line visible-xs">
+								<div class="col-lg-12">
+								Card: {{card.masked}}
+								</div>
+							</div>
+							<div class="row content-line visible-xs">
+								<div class="col-lg-12">
+								Cardholder's name: {{card.name}}
+								</div>
+							</div>
+
+							<mb-update-card-expiry card="card"></mb-update-card-expiry>
+
+							<div class="row row-buffer-normal visible-xs"></div>
+							<div class="row cancel-line hidden-xs">
+								<div class="col-lg-6 col-lg-offset-6 text-right">
+									<a>Cancel</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row hidden-xs">
+				<div class="col-lg-12">
+					Note: You can only have two cards per account please contact customer service if you would like to add a new card.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

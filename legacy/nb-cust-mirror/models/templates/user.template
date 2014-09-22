@@ -1,0 +1,36 @@
+    {
+        id: '{{numeric(100000,999999)}}',
+        affiliate_id: '{{numeric(100000,999999)}}',
+        name: '{{firstName}} {{surname}}',
+        profile: {
+            title: 'Mr',
+            firstName: '{{firstName}}',
+            lastName: '{{surname}}',
+            email: '{{email}}',
+            countryOfResidence: 'United Kingdom',
+            mobileNo: '+44 {{phone}}',
+            marketingOptIn: '{{bool}}',
+            bets: [ '{{repeat(2,9)}}', @@bet ]
+        },
+        account: {
+            walletAmt: '{{numeric(5.00,40.00,0.00)}}',
+            walletCurrency: 'GBP',
+            nextPaymentDate: '{{date(YYYY-MM-ddThh:mm:ss Z)}}',
+            creditCard: ['{{repeat(2)}}',{
+                status: '{{bool}}',
+                nickname: '{{firstName}}s Card',
+                name: '{{firstName}} {{surname}}',
+                type: function(idx) { var options=['MasterCard', 'Visa', 'Laser']; return options[Math.round(Math.random() * (options.length - 1))]; },
+                masked: '{{numeric(4000,5000)}}xxxxxxxx{{numeric(1000,9999)}}',
+                expiry: '{{date(MM/dd)}}',
+                address: {
+                    address1: '{{numeric(100,999)}} {{street}}',
+                    address2: '{{street}}',
+                    town: '{{state}}',
+                    county: '{{city}}',
+                    country: '{{country}}'
+                }
+            }],
+            payments: [ '{{repeat(2,9)}}', @@payment ]
+        }
+    }

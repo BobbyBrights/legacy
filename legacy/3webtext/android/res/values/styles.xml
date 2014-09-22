@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="app_theme" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/app_bg</item>
+    </style>
+
+    <style name="contact_button">
+        <item name="android:background">@drawable/contact_button_default</item>
+    </style>
+
+    <style name="group_button">
+        <item name="android:background">@drawable/group_button_default</item>
+    </style>
+
+    <style name="contacts_header" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">#FF000000</item>
+    </style>
+
+</resources>

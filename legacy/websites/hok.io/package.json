@@ -1,0 +1,26 @@
+{
+  "name": "hok.io",
+  "description": "Node.js self contained website, written by Stephen McElhinney",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "restify": "~2.7.0",
+    "underscore": "~1.6.0",
+    "restify-oauth2": "~3.0.1",
+    "connect-modrewrite": "~0.6.4-pre",
+    "node-static": "~0.7.3",
+    "parse": "^1.2.17",
+    "socket.io": "~0.9.16"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-compass": "~0.7.2"
+  },
+  "security": {
+    "salt": ""
+  },
+  "parse": {
+    "app_id": "LFFuBCxuKiTCmRn28Wm01Hp1DJueTmPHjpqh04gu",
+    "js_key": "xCdiOXnWe4XJfhJSC43oqgK2cIKfs17HZwpgfSBM"
+  }
+}

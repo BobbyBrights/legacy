@@ -1,0 +1,19 @@
+/*
+Theme Name: Studio Box Wordpress Theme
+Dark - Green Skin
+
+*/
+
+#mainpagecontainer{ background: #000 url(../../images/skins/dark-green/main-bg.png) repeat-x top;}
+#pagecontainer{ background: #000 url(../../images/skins/dark-green/other-bg.png) repeat-x top;}
+#footerwrap {background: #000 url(../../images/skins/dark-green/footer-bg.png) repeat-x bottom;}
+#footerbarwrap {background:#070F04;}
+		
+.ddsmoothmenu ul ul {border-color:#3B5C1F;}
+.sidebartitle { color:#619e2d; }
+
+
+
+	#contents .readmorebutton a {
+		background-color: #3B5C1F;
+		}

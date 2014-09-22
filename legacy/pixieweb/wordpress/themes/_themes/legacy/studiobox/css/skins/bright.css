@@ -1,0 +1,89 @@
+/*
+Theme Name: Studio Box Wordpress Theme
+Bright Skin
+
+*/
+
+body{background: #D1D1D1;}
+#mainpagecontainer{ background: #fff url(../../images/skins/bright/main-bg.png) repeat-x top;}
+#pagecontainer{ background: #fff url(../../images/skins/bright/other-bg.png) repeat-x top;}
+#footerwrap {background: #E8E8E8;}
+
+
+.ddsmoothmenu ul li a{
+color: #2d2b2b;
+}
+
+.ddsmoothmenu ul li a.selected{ /*CSS class that's dynamically added to the currently active menu items' LI A element*/
+background: #fff; 
+color:#111;
+}
+
+.ddsmoothmenu ul li a:hover{
+background: #FFFFFF; /*background of menu items during onmouseover (hover state)*/
+color: #111;
+}
+
+.ddsmoothmenu ul li ul{
+background: #EEEEEE;
+color:#111;
+}
+
+.ddsmoothmenu ul li ul li a{
+border-bottom: 1px dotted #D9D9D9;
+}
+
+.ddsmoothmenu ul li ul li a:link , .ddsmoothmenu ul li ul li a:visited {
+color:#464646;
+}
+
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited{
+color:#8B8B8B;
+}
+
+.ddsmoothmenu ul ul {
+	border-bottom:10px solid #D5D5D5;
+}
+
+
+
+
+
+
+	.footertitle { color:#111;}
+	.footertitle a { color:#111;}
+	.footertext {color:#7d7d7d;}
+	.footertext a{color:#111;}
+	.footertext a:hover {color:#000;}
+	
+	/* -------- Footer list style -------- */
+	
+	.footer-item h3 {color:#111;}
+	.footer-item { color:#7d7d7d;}
+	.footer-item a { color:#7d7d7d; }
+	.footer-item a:hover {color:#000;}
+		.footer-item ul { color:#7d7d7d;}
+		.footer-item ul li {color:#7d7d7d; border-bottom:1px dotted #B9B9B9;}
+		.footer-item ul li a {color:#7d7d7d;}
+		.footer-item ul li a:hover { color:#000;}
+
+	.footerposts { color:#7d7d7d;}
+		.footerposts ul { color:#7d7d7d;}
+		.footerposts ul li { color:#7d7d7d;border-bottom:1px dotted #B9B9B9;}
+		.footerposts ul li a { color:#7d7d7d;}
+		.footerposts ul li a:hover { color:#000;}
+		
+	.navigationbox .wp-pagenavi a, .navigationbox .wp-pagenavi a:link {
+		color: #747474;
+		border:1px solid #D1D1D1;
+	}
+	
+	.navigationbox .wp-pagenavi a:hover {	
+		color: #fff;
+		background:#747474;
+		border:1px solid #D1D1D1;
+	}
+	
+	.navigationbox .wp-pagenavi span.pages {
+		color: #747474;
+	}

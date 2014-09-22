@@ -1,0 +1,41 @@
+<div ng-include="'/views/common/header.html'"></div>
+<div ng-controller="LotteryCtrl" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-header">Results & Winners<form class="navbar-form navbar-right" ng-controller="SearchCtrl">
+                <input type="text" class="form-control" placeholder="Search...">
+            </form></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th width="15%">#</th>
+                        <th width="30%">Winning Line</th>
+                        <th width="45%">Lottery</th>
+                        <th width="10%">Numbers you matched</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in history">
+                        <td>{{item.id}}</td>
+                        <td>
+                            <lotto-numbers line="item.line"/>
+                        </td>
+                        <td>{{item.lottery}}<br/>{{item.date}}<br/><span ng-show="item.status == 'Settled'">Winner: {{item.winner}}</span>
+                        </td>
+                        <td>{{item.numbersMatched}}</td>
+                        <td><a href="/history/{{item.id}}" class="btn btn-primary">View</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <pre ng-show="$root.debug">{{history}}</pre>
+</div>

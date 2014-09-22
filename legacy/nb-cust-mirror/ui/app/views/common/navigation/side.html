@@ -1,0 +1,9 @@
+<ul class="nav nav-sidebar">
+    <li ng-repeat="item in items[$root.customerType]" ng-class="{active: isActive(item)}"><a
+            href="#{{item.path}}">{{item.title}}</a>
+        <ul class="nav nav-nested" ng-show="item.items">
+            <li ng-repeat="subitem in item.items" ng-class="{active: isActive(subitem)}"><a href="#{{subitem.path}}">{{subitem.title}}</a>
+            </li>
+        </ul>
+    </li>
+</ul>

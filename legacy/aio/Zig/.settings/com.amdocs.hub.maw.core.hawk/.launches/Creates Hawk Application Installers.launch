@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.amdocs.hub.maw.core.hawk.launch.clientpackage">
+<booleanAttribute key="CLEAN_CUSTO" value="false"/>
+<booleanAttribute key="CREATE_PROVISIONING_SITE" value="false"/>
+<stringAttribute key="OUTPUT_FOLDER" value="C:\Users\SYLVAINF\Documents\22 - Workspace Hawk\Zig\Packages"/>
+<listAttribute key="PLATFORMS">
+<listEntry value="ANDROID"/>
+</listAttribute>
+<stringAttribute key="PROJECT_NAME" value="Zig"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Zig"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+</launchConfiguration>

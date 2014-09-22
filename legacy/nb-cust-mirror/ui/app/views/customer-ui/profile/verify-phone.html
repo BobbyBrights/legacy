@@ -1,0 +1,28 @@
+<div ng-include="'/views/common/header.html'"></div>
+<div class="container" ng-controller="ProfileCtrl">
+    <div class="row">
+        <h1 class="page-header">Verify Mobile No: </h1>
+
+        <div class="col-md-8">
+            <form role="form">
+                <div class="form-group" ng-show="!pinSent">
+                    <label for="phoneNumber">Enter your mobile number</label>
+                    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone" ng-model="profile.phone" ng-disabled="sendingPin">
+                </div>
+
+                <div class="form-group" ng-show="pinSent">
+                    <label for="PIN">Enter the PIN</label>
+                    <input type="text" class="form-control" id="PIN" placeholder="Enter the pin sent" ng-model="profile.pin_verif" ng-disabled="verifyingPin">
+                    <p class="help-block">Please allow up to 1 min for PIN to arrive.</p>
+                </div>
+
+                <button type="submit" class="btn btn-default" ng-click="sendPIN()" ng-show="!pinSent"><i class="fa fa-spinner fa-spin" ng-show="sendingPin"></i> Submit</button>
+                <button type="submit" class="btn btn-default" ng-click="verifyPIN()" ng-show="pinSent"><i class="fa fa-spinner fa-spin" ng-show="verifyingPin"></i> Verify PIN</button>
+            </form>
+
+        </div>
+        <div class="col-md-4">
+            <div class="well"><pre>{{profile}}</pre></div>
+        </div>
+    </div>
+</div>

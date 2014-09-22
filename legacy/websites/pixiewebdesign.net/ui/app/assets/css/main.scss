@@ -1,0 +1,385 @@
+@import '../../bower_components/sass-bootstrap/lib/bootstrap';
+@import '../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+@import url('//api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css');
+@import url('../../bower_components/toastr/toastr.css');
+@import 'animate';
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
+@import 'pixins';
+
+$css-pwd-base: #f2f2f2;
+$css-pwd-primary: #00AACC;
+$css-pwd-secondary: #006A7F;
+$css-pwd-tertiary: #006A7F;
+
+body {
+  background-color: $css-pwd-base;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #333
+}
+
+p {
+  line-height: 28px;
+  margin-bottom: 25px
+}
+
+.centered {
+  text-align: center
+}
+
+.mt {
+  margin-top: 40px
+}
+
+a {
+  color: $css-pwd-tertiary;
+  word-wrap: break-word;
+  -webkit-transition: color .1s ease-in, background .1s ease-in;
+  -moz-transition: color .1s ease-in, background .1s ease-in;
+  -ms-transition: color .1s ease-in, background .1s ease-in;
+  -o-transition: color .1s ease-in, background .1s ease-in;
+  transition: color .1s ease-in, background .1s ease-in
+}
+
+a:focus, a:hover {
+  color: darken($css-pwd-primary, 50%);
+  text-decoration: none;
+  outline: 0
+}
+
+a:after, a:before {
+  -webkit-transition: color .1s ease-in, background .1s ease-in;
+  -moz-transition: color .1s ease-in, background .1s ease-in;
+  -ms-transition: color .1s ease-in, background .1s ease-in;
+  -o-transition: color .1s ease-in, background .1s ease-in;
+  transition: color .1s ease-in, background .1s ease-in
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0
+}
+
+.navbar {
+  font-weight: 800;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #fff
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  color: #fff;
+  background-color: $css-pwd-primary;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+  @include breakpoint(mobile) {
+    padding: 0;
+    font-size: 1.5em; line-height: 1.875em;
+  }
+}
+
+.btn-theme {
+  color: #fff;
+  background-color: $css-pwd-primary;
+  border-color: transparent
+}
+
+.btn {
+  padding: 10px 30px;
+  margin-bottom: 0;
+  font-size: 18px;
+  border: 5px solid transparent;
+  border-radius: 0
+}
+
+.lead {
+  letter-spacing: 1px
+}
+
+#hello {
+  padding-top: 250px;
+  padding-bottom: 250px;
+  //  background: url(../img/coffee-shop.jpg) no-repeat center center fixed;
+  background: url(../img/stage.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  h1 {
+    font-size: 90px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #FFF;
+
+    @include breakpoint(mobile) {
+      font-size: 3.5em; line-height: 1.25em; display: inline-block; padding: 10px; background-color: #000;
+    }
+  }
+  h2 {
+    display: inline-block;
+    padding: 15px;
+    background-color: #000;
+    color: silver;
+    font-weight: 400;
+    @include breakpoint(mobile) {
+      background-color: #222;
+    }
+  }
+
+}
+
+#green {
+  //background-color: $cs-hokio-primary;
+  //background-color: $css-pwd-tertiary;
+  @include background-image(linear-gradient(50deg, $css-pwd-tertiary 0%, scale_color($css-pwd-tertiary, $lightness: 20%) 100%));
+  padding-top: 50px;
+  margin-bottom: 0;
+  h3 {
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 35px
+  }
+  p {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px
+  }
+  @include breakpoint(mobile) {
+    padding-bottom: 20px;
+
+  }
+}
+
+#skills {
+  background-color: #4e4e4e;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  h3 {
+    color: #fff
+  }
+  p {
+    color: #fff;
+    font-weight: 400
+  }
+}
+
+#social {
+  width: 100%;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  i {
+    font-size: 50px;
+    color: $css-pwd-primary;
+  }
+  .col-md-3:hover {
+    background-color: #f5f5f5
+  }
+  .col-md-3 {
+    padding: 30px
+  }
+  .col-lg-8 {
+    @include breakpoint(mobile) {
+      font-size: 1.2em;
+
+    }
+  }
+}
+
+#f {
+  padding-top: 20px;
+  background-color: $css-pwd-primary;
+  p {
+    color: #fff;
+    text-align: right;
+    font-weight: 400;
+    margin-right: 20px;
+  }
+}
+
+.grid img {
+  opacity: .7
+}
+
+.grid img:hover {
+  opacity: 1
+}
+
+.portfolio-grid-item {
+  height: 140px;
+  overflow: hidden;
+  margin-bottom: 15px
+}
+
+.top-bar {
+  height: 100%;
+  .navbar-header {
+    margin: 8px;
+    // TODO remove the margin for smaller viewports
+    @include breakpoint(mobile) {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.portfolio-category {
+  margin-right: 10px;
+}
+
+body {
+  .page-content div.inner-page {
+    padding: 20px 100px;
+    @include breakpoint(mobile) {
+      padding: 10px;
+      padding-top: 70px; // For the mobile header.
+    }
+  }
+  &.page_contact {
+    #map {
+      height: 35em;
+      width: 100%;
+    }
+    .page-content div.inner-page {
+      @include breakpoint(mobile) {
+        padding-top: 10px; // For the mobile header.
+      }
+    }
+  }
+
+  &.page_blog {
+    article {
+      // Get a nice shadow goin on!
+      -webkit-box-shadow: 0 8px 6px -6px black;
+      -moz-box-shadow: 0 8px 6px -6px black;
+      box-shadow: 0 8px 6px -6px black;
+      padding-bottom: 12px;
+      img, h3, p, a {
+        margin: 0;
+      }
+      p {
+        line-height: 20px;
+      }
+
+      margin-bottom: 15px;
+    }
+  }
+  &.page_blog-single, &.page_blog-add, &.page_about {
+    padding-top: 70px;
+    @include breakpoint(mobile) {
+      padding-top: 30px; // For the mobile header.
+    }
+  }
+
+  // Radically different for Login
+  &.page_login {
+    div.navbar, #f {
+      display: none;
+    }
+    .form-signin {
+      max-width: 330px;
+      padding: 15px;
+      margin: 0 auto;
+    }
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+      margin-bottom: 10px;
+    }
+    .form-signin .checkbox {
+      font-weight: normal;
+    }
+    .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .form-signin .form-control:focus {
+      z-index: 2;
+    }
+    .form-signin input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+  }
+
+}
+
+div.left-bordered {
+  border-left: 1px solid #CACACA;
+  min-height: 300px;
+}
+
+div.social-media {
+  a.btn {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+}
+
+p.publish_date {
+  padding-top: 20px;
+  font-size: 0.75em;
+}
+
+.white-link {
+  color: #FFF;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.navbar-default {
+  @include background-image(linear-gradient(50deg, $css-pwd-primary 0%, scale_color($css-pwd-primary, $lightness: 20%) 100%));
+  .navbar-brand, .navbar-nav > li > a {
+    color: #FFF;
+  }
+}
+
+.btn-sm {
+  padding: 5px 10px; font-size: 12px;
+}
+
+.blog-entry {
+  h3 {
+    border-top: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+    padding: 5px 0;
+  }
+}
+
+.blog-content {
+  p {
+    line-height: 22px;
+  }
+}

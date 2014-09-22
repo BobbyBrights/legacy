@@ -1,0 +1,85 @@
+h1,h2,h3,h4,h5,h6,.btn,.brand,ul.nav li > a {
+	font-family: 'PT Serif', serif;
+}
+body {
+	padding-top: 50px;
+	padding-bottom: 60px;
+}
+
+a.brand { 
+	padding-left: 45px!important; 
+	background-image: url('../img/eventure-logo.png');
+	background-position: left center;
+	background-repeat: no-repeat;	
+}
+#placeholder { min-height: 20em;}
+
+/* Definition lists */
+dl {
+	width: 100%; 
+	float: left;
+}
+dl dt, dl dd { 
+border-bottom: 1px solid #EFEFEF;
+margin-bottom: 15px!important;
+padding:0; padding-bottom: 4px; float: left; margin: 0; }
+
+dl dt {
+	width: 30%;
+}
+dl dd {
+	width: 70%; 
+}
+
+.underlined { padding-bottom: 4px; border-bottom: 1px solid #EFEFEF; margin-bottom: 4px;}
+.with-margin-bottom { margin-bottom: 10px;}
+.with-border { border: 1px solid #EFEFEF; }
+b.caret.in-link { line-height: inherit; margin-top: 8px!important; margin-left: 10px!important; }
+h1 form ul.typeahead li a { font-size: 0.4em!important;}
+div.error div.alert { margin-left: 0!important;}
+label.separated { margin-bottom: 8px; border-bottom: 1px solid #EFEFEF; }
+.refresh-accreditations { margin-left: 12px; line-height: 30px; margin-bottom: 10px;  }
+.attendee-info { min-height: 150px;}
+div.container.error-message { padding-top: 80px;}
+.with-trough-right { margin-right: 10px; margin-bottom: 10px}
+dl.venue dd { width: 30% }
+dl.venue dt { width: 70% }
+div.checkbox-group div { width: 50%; clear: right; float: left; }
+div.checkbox-group div input, div.checkbox-group div label { float: left; }
+div.checkbox-group div input { margin-right: 10px; }
+div.checkbox-group { margin-left: 0; margin-bottom: 10px; }
+/* Hack for dropdown in button group */ 
+.btn-group > .dropdown-toggle {
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-right: -1px;
+    }
+.btn-group > .btn:last-child, .btn-group > .dropdown-toggle:nth-last-child(2) {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px; }
+    
+/* Attempted fixes */
+.form-search { display: none; }
+
+@media (max-width: 767px) {
+	body {
+		padding-top: 0;padding-bottom: 0;
+	}
+	div.span4.actions { margin-top: 20px;}
+	dl dt {
+		clear: left;	 
+	}
+	dl dd {
+		clear: right;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	dl dt {
+		clear: left;	 
+	}
+	dl dd {
+		clear: right;
+	}
+}
+

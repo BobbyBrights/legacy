@@ -1,0 +1,49 @@
+<div id="content" class="col-lg-10 col-sm-11 ">
+<div ng-include="'views/fragments/breadcrumbs.html'"></div>
+
+<div class="row">
+
+<pre>{{event}}</pre>
+    <div class="col-lg-12">
+        <div class="box">
+            <div class="box-header">
+                <h2><i class="fa fa-edit"></i>Edit Event - {{event.name}}</h2>
+            </div>
+            <div class="box-content">
+                <form role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="name">Event name</label>
+                        <input type="text" class="form-control" id="name" ng-model="event.name">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="max_capacity">Max Capacity</label>
+                        <input type="text" class="form-control" id="max_capacity" ng-model="event.max_capacity">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="daterange">Event dates</label>
+
+                        <div class="controls">
+                            <div class="input-group col-sm-4">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="text" class="form-control" id="daterange"
+                                       value="{{event.date_from}} - {{event.date_to}}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" ng-click="saveEvent()">Save changes</button>
+                        <button type="reset" class="btn">Cancel</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!--/col-->
+
+</div>
+<!--/row-->
+
+</div>

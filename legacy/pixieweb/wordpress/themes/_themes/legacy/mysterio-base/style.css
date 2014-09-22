@@ -1,0 +1,15 @@
+/*   
+Theme Name: Mysterio by PixieWebDesign
+Theme URI: http://www.pixiewebdesign.net/portfolio/wordpress-themes/mysterio
+Description: Collection of themes for every day use
+Author: Stephen McElhinney
+Author URI: http://www.pixiewebdesign.net
+Version: 1.0
+Tags: events, weddings, portfolios, bootstrap
+*/
+
+@import url('css/bootstrap.css');
+@import url('css/bootstrap-responsive.css');
+@import url('http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,800,300');
+@import url('http://fonts.googleapis.com/css?family=Oxygen:400,300');
+@import url('css/mysterio.css');
