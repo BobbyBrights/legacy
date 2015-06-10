@@ -21,7 +21,7 @@
   <?php foreach($tickets as $ticket): ?>
     <tr>
       <td><?php echo $ticket['Ticket']['id']; ?></td>
-      <td><?php echo $ticket['User']['name']; ?></td>
+      <td><?php echo $ticket['User']['fullname']; ?></td>
       <td><?php echo $ticket['TicketType']['name']; ?></td>
       <td><?php echo $ticket['Ticket']['summary']; ?></td>
       <td><?php echo $ticket['Ticket']['created']; ?></td>
