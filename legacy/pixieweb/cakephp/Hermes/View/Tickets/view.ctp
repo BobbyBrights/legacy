@@ -3,7 +3,7 @@
   <div class="span6">
     <dl>
       <dt>Requestor: </dt>
-      <dd><?php echo $ticket['User']['name']; ?>
+      <dd><?php echo $ticket['User']['fullname']; ?>
       <dt>Created: </dt>
       <dd><?php echo $ticket['Ticket']['created']; ?>
       <dt>Summary: </dt>
